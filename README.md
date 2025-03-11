@@ -1,2 +1,3 @@
 Hi, This is Landy
-Hey, it's Omi
+Hi this is Nora
+Hey, its Omi
