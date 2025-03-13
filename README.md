@@ -45,11 +45,12 @@
 
 ### **Backend**
 - Node.js + Express.js framework   
-- CSV Parsing
+- CSV Parsing 
+
 
 ### **Database**
 - Auth table to store authenitification for healthcare and doctors
-- Database with Review
+- Database with Review SQLITE
 
 ### **Authentication & Authorization**
 - Implement JWT-based authentication
