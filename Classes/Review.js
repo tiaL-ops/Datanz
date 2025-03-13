@@ -59,7 +59,7 @@ class Review{
                                   waitingTime, cleanliness, staffBehavior, treatmentEquality, 
                                   equipmentEquality, comments);
 
-            return new Review({ id: info.lastInsertRowid, ...reviewData, timestamp });
+            return new Review();// Do we have to return it ??
         } catch (error) {
             console.error("Error creating review:", error);
             throw error;
@@ -73,18 +73,49 @@ class Review{
     getReviewById(){
 
     }
-    getReviewsByPatient(patientId){
+    getReviewsByPatient(patientId) {
+        const query = `SELECT * FROM reviews WHERE patients_id = ?`;
+    
+        const stmt = db.prepare(query);
+        const reviews = stmt.all(patientId); 
+    
+        return reviews; 
+    }
+    
+    getReviewForDoctor(doctors_id){
+        const query = `SELECT * FROM reviews WHERE doctors_id = ?`;
+    
+        const stmt = db.prepare(query);
+        const reviews = stmt.all(doctors_id); 
+    
+        return reviews; 
 
     }
-    getReviewForDoctor(){
+    getReviewForFacilities(facility_id){
+        const query = `SELECT * FROM reviews WHERE facility_id = ?`;
+    
+        const stmt = db.prepare(query);
+        const reviews = stmt.all(facility_id); 
+    
+        return reviews; 
 
     }
-    getReviewForFacilities(){
+    getReviewsByDate(startWeek, startMonth, endWeek, endMonth) {
+        const query = `
+            SELECT * FROM reviews 
+            WHERE timestamp BETWEEN ? AND ?`;
+    
+        const stmt = db.prepare(query);
+    
 
+        const startDate = `${new Date().getFullYear()}-${startMonth}-${startWeek}`;
+        const endDate = `${new Date().getFullYear()}-${endMonth}-${endWeek}`;
+    
+        const reviews = stmt.all(startDate, endDate); 
+    
+        return reviews;
     }
-    getReviewsByDate(){
-
-    }
+    
 
 
 
