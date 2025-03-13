@@ -1,0 +1,24 @@
+{
+  "name": "project-2-a",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs-205-s25/project-2-a.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs-205-s25/project-2-a/issues"
+  },
+  "homepage": "https://github.com/cs-205-s25/project-2-a#readme",
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^4.21.2"
+  }
+}
