@@ -1,0 +1,1 @@
+//To handle main from index html
