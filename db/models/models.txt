@@ -1,0 +1,179 @@
+
+For facility we have 
+ID	
+Facility Number	
+Facility Name	
+Latitude	
+Longitude	
+Common Name	
+Region	
+District	
+Council	Ward	
+Village/Street	
+Facility Type	
+Operating Status	
+Ownership
+
+
+Survey we have :
+Q1	1. English
+	2. Kiswahili
+Q2	facility id
+Q3	age
+Q4	1. Female
+	2. Male
+Q5	1. Yes
+	2. No
+Q6	gestational age by week
+Q7	1. At the station
+	2. At home
+	3. In Society
+	4. Another part
+Q8	1. Within 1 hour
+	2. Between 2-3 hours
+	3. More than 3 hours
+Q9	1. Yes
+	2. No
+Q10	1. Yes
+	2. No
+Q11	1. Yes
+	2. No
+Q12	1. Yes
+	2. Some
+	3. None
+Q13	1. No equipment
+	2. I couldn't afford the cost
+	3. Another reason
+Q14	1. Yes
+	2. Some
+	3. None
+Q15	1. Out of stock
+	2. Couldn't afford
+	3. Another reason
+Q16	1. Free
+	2. Cash
+	3. Insurance
+Q17	1. Bad service
+	2. Not satisfied
+	3. Normal
+	4. Good Service
+	5. Very good
+Q18	1. Reception
+	2. Laboratory/testing
+	3. Doctor's room
+	4. Toilets
+	5. The external environment
+	6. Pharmacy/Drugs
+Q19	1. Reception
+	2. Laboratory/testing
+	3. Doctor's room
+	4. Toilets
+	5. The external environment
+	6. Pharmacy/Drugs
+Q20	:Not a question
+
+
+Flow, Patient answer soemthing : we receive CSV
+Patient Responses	date	Q1	Q2	Q3	Q4	Q5	Q6	Q7	Q8	Q9	Q10	Q11	Q12	Q13	Q14	Q15	Q16	Q17	Q18	Q19
+Patient1	13/03	1	id	19	1	2	NULL	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+
+What we do with it?
+pateint id, when the yanswered
+
+Please enter your age in years (between 10 and 99 years)
+What is your gender? 
+Are you currently pregnant?
+Please state your gestational age (pregnancy) by week. (If you answered 1 in question 5)
+Where are you located as you provide this feedback?
+"
+After arriving at the facility, how long did it take you to get attended?"
+Were you asked for permission before being examined?
+Were you satisfied with the confidentiality while receiving treatment?
+Did the HCW use easy language to help you understand what services you were receiving?
+Did you get all the tests that had been written/prescribed?
+"Why didn't you get all the tests you were prescribed?
+(If you answer 2 or 3 to question 12)"
+Did you get all your prescribed medication?
+Why didn't you get all the prescribed medicines? (If you answered 2 or 3 to question 14)
+How did you pay for services at the health center?
+Are you satisfied with all our services in general?
+Which area has satisfied you? (If you answer 4 or 5 to question 17)
+Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)
+
+Now what can we do with it 
+Create a database : 
+
+auth table: he uath table is login for doctor , patient , healthcare worker
+question table
+
+
+-answer table ( answer linked the question)
+-facilityinfo table ( facility info)
+-report table (where have facility and we have like waiting tume, confidenitality ,easy langue ,etc..)
+
+
+wait_time	Q8	Grouped into categories (under 1 hr, 2–3 hrs, 3+)
+satisfaction	Q17	1–5 scale
+confidentiality	Q10	Yes/No
+permission_before_exam	Q9	Yes/No2
+received_all_tests	Q12	Yes/Some/None
+received_all_meds	Q14	Yes/Some/None
+service_payment_mode	Q16	Free/Cash/Insurance
+problem_area	Q19	Multiple areas can be selected
+positive_area	Q18	Multiple areas too
+
+
+
+
+
+- [ ] `createReport(data)`  
+  Save a new report with all survey fields linked to a facility.
+
+- [ ] `getReportById(id)`  
+  Retrieve a specific report by its ID.
+
+- [ ] `updateReport(id, data)`  
+  Update fields in an existing report.
+
+- [ ] `deleteReport(id)`  
+  Remove a report by ID.
+
+---
+
+## 📚 Query Methods
+
+- [ ] `getReportsByFacility(facilityId)`  
+  Fetch all reports submitted for a specific facility.
+
+- [ ] `getReportsByUser(userId)`  
+  Fetch all reports submitted by a specific user.
+
+- [ ] `getReportsWithFilters(filters)`  
+  Return reports filtered by criteria like wait time, rating, etc.
+
+---
+
+## 📊 Aggregation & Analytics
+
+- [ ] `aggregateMetrics(facilityId)`  
+  Calculate key stats:  
+  - Average satisfaction  
+  - Wait time distribution  
+  - % confidentiality respected  
+  - Breakdown of tests/meds received  
+  - Payment mode distribution  
+  - Common problem/positive areas
+
+- [ ] `rankFacilitiesBySatisfaction()`  
+  Return a sorted list of facilities from highest to lowest average satisfaction.
+
+- [ ] `getTopProblemAreas(facilityId)`  
+  Count and rank the most frequently mentioned problem areas.
+
+- [ ] `getTopPositiveAreas(facilityId)`  
+  Count and rank the most frequently mentioned positive areas.
+
+
+
+
