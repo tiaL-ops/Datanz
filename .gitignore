@@ -1,1 +1,15 @@
+# SQLite database files
+*.sqlite
+*.sqlite3
+*.db
+# Node.js dependencies
+node_modules/
+# Environment variables
+.env
+# macOS system files
+.DS_Store
+# Editor fi
+\node_modules
+node_modules
 /node_modules
+requests.log

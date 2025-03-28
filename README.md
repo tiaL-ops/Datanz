@@ -1,7 +1,11 @@
 
 # Datanz Facility Website Project Checklist
 
----
+This web application provides a user-friendly platform for patients, doctors, and government officials to access and evaluate healthcare facilities. 
+<br> Users can view a comprehensive list of facilities, search for nearby options using location data, and filter by type (hospital, clinic, pharmacy, etc.). The system allows advanced filtering based on waiting times, operating hours, and whether a facility performs all prescribed tests. Patients can sort and rank facilities based on real patient feedback, satisfaction ratings, and overall care quality. It also highlights geographic areas with the best-rated facilities and displays survey results to support informed healthcare decisions. Additionally, the platform supports secure logins for patients, doctors, and government authorities, enabling coordination and communication across stakeholders.
+
+Flow : User Look at data
+Governement look at data, can contact the responsible ( email contact of head supervisor of the facilities)
 
 ## 1. Project Planning & Design 
 - [x] **Define Scope & Goals**  
