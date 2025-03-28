@@ -106,18 +106,73 @@ Create a database :
 
 auth table: he uath table is login for doctor , patient , healthcare worker
 question table
-answer table ( answer linked the question)
-facilityinfo table ( facility info)
-report table? (where have facility and we have like waiting tume, confidenitality ,easy langue ,etc..)
+
+
+-answer table ( answer linked the question)
+-facilityinfo table ( facility info)
+-report table (where have facility and we have like waiting tume, confidenitality ,easy langue ,etc..)
+
+
 wait_time	Q8	Grouped into categories (under 1 hr, 2–3 hrs, 3+)
 satisfaction	Q17	1–5 scale
 confidentiality	Q10	Yes/No
-permission_before_exam	Q9	Yes/No
+permission_before_exam	Q9	Yes/No2
 received_all_tests	Q12	Yes/Some/None
 received_all_meds	Q14	Yes/Some/None
 service_payment_mode	Q16	Free/Cash/Insurance
 problem_area	Q19	Multiple areas can be selected
 positive_area	Q18	Multiple areas too
+
+
+
+
+
+- [ ] `createReport(data)`  
+  Save a new report with all survey fields linked to a facility.
+
+- [ ] `getReportById(id)`  
+  Retrieve a specific report by its ID.
+
+- [ ] `updateReport(id, data)`  
+  Update fields in an existing report.
+
+- [ ] `deleteReport(id)`  
+  Remove a report by ID.
+
+---
+
+## 📚 Query Methods
+
+- [ ] `getReportsByFacility(facilityId)`  
+  Fetch all reports submitted for a specific facility.
+
+- [ ] `getReportsByUser(userId)`  
+  Fetch all reports submitted by a specific user.
+
+- [ ] `getReportsWithFilters(filters)`  
+  Return reports filtered by criteria like wait time, rating, etc.
+
+---
+
+## 📊 Aggregation & Analytics
+
+- [ ] `aggregateMetrics(facilityId)`  
+  Calculate key stats:  
+  - Average satisfaction  
+  - Wait time distribution  
+  - % confidentiality respected  
+  - Breakdown of tests/meds received  
+  - Payment mode distribution  
+  - Common problem/positive areas
+
+- [ ] `rankFacilitiesBySatisfaction()`  
+  Return a sorted list of facilities from highest to lowest average satisfaction.
+
+- [ ] `getTopProblemAreas(facilityId)`  
+  Count and rank the most frequently mentioned problem areas.
+
+- [ ] `getTopPositiveAreas(facilityId)`  
+  Count and rank the most frequently mentioned positive areas.
 
 
 

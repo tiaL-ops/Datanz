@@ -1,0 +1,12 @@
+so we need:
+- auth  : id,name, email, password, if (government or doctors )// may be doctors won't need it to go there
+- question: id , question_id , question_text,
+- answer_option : question_id, answer_value, answer_text
+
+- response: (from patient) patient_id, question, facility, answer_option_id (FK), submitted
+
+
+- facility info: name,location, facility type, head official info
+
+- report table:( aggregate value).. // but do we need this actualluy or can we just gor truogh repsonse, and write the sql from that... or hmm
+facility_id , waiting_time avergae, permi
