@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS Auth (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
     usertype TEXT NOT NULL, -- e.g. 'government', 'doctor' // agian not usre if doctor will acutally be there, need duisussion
+    password TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     created_at TEXT NOT NULL
 );
