@@ -8,12 +8,6 @@ class AuthModel {
     }
 
     /*ds
-    db to clear the mind
-       user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL UNIQUE,
-    usertype TEXT NOT NULL, -- e.g. 'government', 'doctor' // agian not usre if doctor will acutally be there, need duisussion
-    email TEXT NOT NULL UNIQUE,
-    created_at TEXT NOT NULL
 
 createUser(name,) – Register a new user
 
