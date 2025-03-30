@@ -1,13 +1,27 @@
-const express = require('express');
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
 const app = express();
 const PORT = 3000;
 
-// define the route
-app.get('/', (req, res) => {
-    res.send('Welcome to Datanz Facility API!');
-});
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
 
-// start the server
+// Routes 
+const startRoutes = require("./routes/main");
+const authRoutes = require("./routes/auth");
+const facilitiesRoutes = require("./routes/facilities");
+const governmentRoutes = require("./routes/government");
+
+// Use routes
+app.use("/", startRoutes);
+app.use("/auth", authRoutes);
+app.use("/facilities", facilitiesRoutes);
+app.use("/government", governmentRoutes);
+
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
