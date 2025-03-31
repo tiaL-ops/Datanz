@@ -49,7 +49,7 @@ class FacilityModel{
 
         for await (const line of rl) {
             if (isFirstLine) {
-                isFirstLine = false; // Skip header.. what t
+                isFirstLine = false; // Skip header.. let's decide tho what type ofh eader, need to be consistent
                 continue;
             }
 
@@ -70,6 +70,37 @@ class FacilityModel{
 
         console.log("Facilities loaded successfully.");
     }
+
+    getAllFacilities(filters){
+// a little bit tricky, like what kind o flitler? i don't think we handle this here ? but in response
+}
+
+    getFacilityById(id){
+        const query= `SELECT * FROM Facility WHERE facility_id = ?`
+        const stmt= this.db.prepare(query);
+        const result= stmt.get(id);
+        return result;
+
+    }
+
+getFacilityHeadContact(id){
+     const query= `SELECT headO_name, headO_contact  FROM Facility WHERE facility_id = ?`
+     const stmt= this.db.prepare(query);
+        const result= stmt.get(id);
+        return result;
+
+
+}
+
+
+deleteFacility(id){
+    const query= `DELETE FROM Facility WHERE facility_id = ?`
+     const stmt= this.db.prepare(query);
+    return stmt.run(id);
+
+
+}
+
 
 
 }

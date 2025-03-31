@@ -15,7 +15,7 @@ const readline = require('readline');
 
 getAnswersByQuestion(questionId) – Get answers to one question
  */
-class AnswerModel{
+class AnswerOptionModel{
 
 
     constructor(db){
@@ -82,4 +82,4 @@ class AnswerModel{
 
 
 }
-module.exports = AnswerModel;
+module.exports = AnswerOptionModel;
