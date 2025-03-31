@@ -31,10 +31,12 @@ positive_area	Q18	Multiple areas too
 getSatisfactionDistribution(facility_id)
 getConfidentialityStats(facility_id)
 getPermissionBeforeExamStats(facility_id)
+
 getTestCompletionStats(facility_id)
 getMedicationCompletionStats(facility_id)
 getServicePaymentModes(facility_id)
 getProblemAreaFrequency(facility_id)
+
 getPositiveAreaFrequency(facility_id)
 getResponseCount(facility_id)
 getResponseBreakdownByQuestion(facility_id, question_id)
@@ -122,7 +124,35 @@ class ResponseModel{
 
     }
     
-    
+    getConfidentialityStats(facility_id){
+        const query = `
+        SELECT ao.option_text AS confidentiality, COUNT(*) AS count
+        FROM Response r
+        JOIN AnswerOption ao ON r.answer_option_id=ao.id
+        WHERE r.facility_id= ? AND r.question_id=10
+        GROUP BY r.answer_option_id
+        ORDER BY count DESC
+        `
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+        return results;
+
+    }
+getPermissionBeforeExamStats(facility_id){
+    const query = `
+    SELECT ao.option_text AS permission_before_exam, COUNT(*) AS count
+    FROM Response r
+    JOIN AnswerOption ao ON r.answer_option_id=ao.id
+    WHERE r.facility_id= ? AND r.question_id=9
+    GROUP BY r.answer_option_id
+    ORDER BY count DESC
+    `
+    const stmt = this.db.prepare(query);
+    const results = stmt.all(facility_id);
+    return results;
+
+}
+
 
 
 
