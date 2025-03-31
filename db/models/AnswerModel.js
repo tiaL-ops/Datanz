@@ -79,14 +79,6 @@ class AnswerModel{
     
 
 
-   
-
-    
-
-    
-
-
-
 
 
 }
