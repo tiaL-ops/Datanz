@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+
+
 /**
  * this is to just have the answer
  * 
@@ -77,7 +79,6 @@ class AnswerOptionModel{
         return results;
     }
     
-
 
 
 

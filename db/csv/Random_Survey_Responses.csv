@@ -1,0 +1,11 @@
+Language,Facility Code,Age,Gender,Pregnant,Gestational Age (weeks),Feedback Location,Time to be attended,Asked for permission,Satisfied with confidentiality,Easy language used,Got all tests,Reason for not getting all tests,Got all medicines,Reason for not getting all medicines,Payment method,Overall satisfaction,Area satisfied,Area not satisfied
+English,HF6245,89,Male,Yes,34.0,At home,Within 1 hour,No,No,Yes,None,No equipment,None,Another reason,Insurance,Good Service,The external environment,
+Kiswahili,HF4614,52,Male,Yes,36.0,At home,More than 3 hours,Yes,No,No,Some,No equipment,Some,Couldn't afford,Free,Normal,,Laboratory/testing
+Kiswahili,HF7079,65,Female,Yes,5.0,At home,More than 3 hours,No,No,Yes,None,I couldn't afford the cost,None,Couldn't afford,Cash,Good Service,Doctor's room,
+Kiswahili,HF8189,28,Male,No,,At the station,Within 1 hour,Yes,Yes,Yes,Some,No equipment,Some,Out of stock,Free,Very good,Pharmacy/Drugs,
+Kiswahili,HF6842,17,Female,Yes,32.0,At home,Within 1 hour,Yes,Yes,Yes,None,I couldn't afford the cost,None,Couldn't afford,Free,Bad service,,Laboratory/testing
+English,HF7651,63,Female,No,,Another part,More than 3 hours,Yes,Yes,Yes,Yes,,Some,Another reason,Cash,Normal,,Reception
+English,HF4407,84,Male,Yes,35.0,At home,More than 3 hours,No,Yes,Yes,None,I couldn't afford the cost,Some,Out of stock,Cash,Not satisfied,,The external environment
+English,HF9472,49,Male,Yes,19.0,At the station,Between 2-3 hours,No,No,No,Some,No equipment,None,Couldn't afford,Free,Very good,Toilets,
+English,HF8546,54,Male,No,,In Society,Between 2-3 hours,No,Yes,No,None,I couldn't afford the cost,None,Couldn't afford,Insurance,Good Service,The external environment,
+Kiswahili,HF4907,66,Male,No,,In Society,Between 2-3 hours,Yes,No,Yes,Yes,,None,Out of stock,Cash,Bad service,,Laboratory/testing

@@ -156,7 +156,6 @@ getPermissionBeforeExamStats(facility_id){
 
 
 
-
     
 }
 module.exports=ResponseModel;
