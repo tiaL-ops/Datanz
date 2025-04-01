@@ -1,0 +1,21 @@
+Language,FacilityCode,Age,Gender,Pregnant,GestionalAge,Location,WaitingTime,Permission,Confidentiality,Communication,GotAllTests,TestReasons,GotAllMedecines,MedecineReason,Payment method,Overall satisfaction,Good,Bad
+English,121333-9,23,Female,Yes,8,At home,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Laboratory/testing,Toilets
+Kiswahili,100190-8,23,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad service,The external environment,Toilets
+English,110873-7,30,Male,Yes,3,Another part,Within 1 hour,Yes,Yes,Yes,Some,Another reason,None,Out of stock,Insurance,Normal,Doctor's room,Toilets
+English,121333-9,17,Female,Yes,,At the station,Between 2-3 hours,Yes,No,No,None,Another reason,Some,Couldn't afford,Free,Bad service,Doctor's room,Doctor's room
+Kiswahili,100190-8,12,Male,,,Another part,Within 1 hour,Yes,Yes,No,Some,Another reason,Yes,,Free,Good Service,The external environment,Laboratory/testing
+English,110873-7,29,Male,No,2,At the station,More than 3 hours,Yes,No,No,Yes,,Yes,,Insurance,Normal,Reception,Toilets
+English,121333-9,18,Female,No,,At home,Within 1 hour,No,No,Yes,Some,No equipment,Some,Out of stock,Insurance,Good Service,Pharmacy/Drugs,Pharmacy/Drugs
+Kiswahili,111844-7,40,Female,Yes,6,In Society,Between 2-3 hours,Yes,Yes,Yes,Some,Another reason,Some,Couldn't afford,Free,Bad service,Toilets,Laboratory/testing
+Kiswahili,100190-8,20,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,No equipment,Yes,,Free,Normal,The external environment,Pharmacy/Drugs
+English,110873-7,47,Female,Yes,7,At the station,More than 3 hours,Yes,Yes,No,Some,No equipment,None,Couldn't afford,Insurance,Very good,Toilets,Doctor's room
+Kiswahili,113542-5,19,Male,,,Another part,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,None,Out of stock,Free,Bad service,The external environment,Laboratory/testing
+Kiswahili,111844-7,23,Female,No,,At the station,More than 3 hours,No,No,No,None,Another reason,Yes,,Free,Very good,Laboratory/testing,Laboratory/testing
+Kiswahili,121333-9,47,Female,Yes,,At the station,Between 2-3 hours,Yes,Yes,No,Yes,,None,Couldn't afford,Free,Bad service,Toilets,Doctor's room
+Kiswahili,100190-8,30,Female,Yes,7,At home,More than 3 hours,Yes,No,No,Yes,,Yes,,Free,Not satisfied,Pharmacy/Drugs,The external environment
+English,113542-5,30,Female,No,,Another part,Between 2-3 hours,Yes,Yes,No,Some,No equipment,None,Out of stock,Insurance,Bad service,Reception,Toilets
+English,110873-7,23,Female,No,,At home,Within 1 hour,No,Yes,Yes,Yes,,None,Another reason,Insurance,Normal,Reception,Doctor's room
+Kiswahili,111844-7,47,Male,No,,At home,Within 1 hour,Yes,Yes,Yes,Yes,,None,Couldn't afford,Insurance,Good Service,Laboratory/testing,Laboratory/testing
+Kiswahili,121333-9,29,Male,No,,Another part,Within 1 hour,No,No,No,None,No equipment,None,Couldn't afford,Free,Bad service,Laboratory/testing,Doctor's room
+English,113542-5,12,Male,No,,In Society,Between 2-3 hours,No,No,No,Yes,,None,Another reason,Free,Normal,Pharmacy/Drugs,Laboratory/testing
+Kiswahili,111844-7,23,Male,No,,In Society,Between 2-3 hours,No,Yes,Yes,None,I couldn't afford the cost,None,Another reason,Free,Not satisfied,Toilets,Pharmacy/Drugs
