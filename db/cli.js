@@ -23,3 +23,5 @@ const facilityModel= new FacilityModel(db);
 const responseModel= new ResponseModel(db);
 
 responseModel.loadFromSurveyCSV("./csv/survey.csv");
+//const result=responseModel.getWaitingTimeStats(2);
+//console.log(result);

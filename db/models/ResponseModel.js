@@ -77,18 +77,29 @@ class ResponseModel{
             VALUES (?, ?, ?, ?)
         `);
 
-        // Map CSV headers to question text in your DB
+        // Map CSV headers to question text in DB
         const questionMap = {
            'Language': 'Thank you for reaching out to the government Client Feedback system for health services. Select your preferred language.',
+           'FacilityCode': "Please enter the health facility code as written on the poster/leaflet or shared by the Health facility worker.",
+           'Age':'Please enter your age in years (between 10 and 99 years)',
     'Gender': 'What is your gender?',
     'Pregnant': 'Are you currently pregnant?',
-    'Got all tests': 'Did you get all the tests that had been written/prescribed?',
-    'Got all medicines': 'Did you get all your prescribed medication?',
+    'GestionalAge':'Please state your gestational age (pregnancy) by week. (If you answered 1 in question 5)',
+    'Location':'Where are you located as you provide this feedback?',
+    "WaitingTime":'After arriving at the facility, how long did it take you to get attended?',
+    "Confidentiality" :'Were you satisfied with the confidentiality while receiving treatment?',
+    "Communication": 'Did the HCW use easy language to help you understand what services you were receiving?',
+    'GotAllTests': 'Did you get all the tests that had been written/prescribed?',
+    "TestReasons":'Why didnt you get all the tests you were prescribed? (If you answer 2 or 3 to question 12)',
+    "Permission":'Were you asked for permission before being examined?',
+    'GotAllMedecines': 'Did you get all your prescribed medication?',
+    'MedecineReason': 'Why didnt you get all the prescribed medicines? (If you answered 2 or 3 to question 14)',
+
+
     'Payment method': 'How did you pay for services at the health center?',
     'Overall satisfaction': 'Are you satisfied with all our services in general?',
-    'Asked for permission': 'Were you asked for permission before being examined?',
-    'Satisfied with confidentiality': 'Were you satisfied with the confidentiality while receiving services?',
-    'Easy language used': 'Did the HCW use easy language to help you understand?'
+    'Good':'Which area has satisfied you? (If you answer 4 or 5 to question 17)',
+    'Bad':'Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)',
         };
 
         fs.createReadStream(filePath)
@@ -134,16 +145,17 @@ class ResponseModel{
 
     getWaitingTimeStats(facility_id) {
         const query = `
-            SELECT ao.option_text AS wait_time, COUNT(*) AS count
-            FROM Response r
-            JOIN AnswerOption ao ON r.answer_option_id = ao.id
-            WHERE r.facility_id = ? AND r.question_id = 8
-            GROUP BY r.answer_option_id
-            ORDER BY count DESC
+           SELECT ao.answer_text AS wait_time, COUNT(*) AS count
+        FROM Response r
+        JOIN AnswerOption ao ON r.answer_option_id = ao.id
+        WHERE r.facility_id = ? AND r.question_id = 8
+        GROUP BY r.answer_option_id
+        ORDER BY count DESC
         `;
     
         const stmt = this.db.prepare(query);
         const results = stmt.all(facility_id);
+        console.log("resulltssss",results);
         return results;
     }
 
