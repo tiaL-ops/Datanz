@@ -1,0 +1,22 @@
+Facility Code,Thank you for reaching out to the government Client Feedback system for health services. Select your preferred language.,What is your gender?,Are you currently pregnant?,Where are you located as you provide this feedback?,"After arriving at the facility, how long did it take you to get attended?",Were you asked for permission before being examined?,Were you satisfied with the confidentiality while receiving treatment?,Did the HCW use easy language to help you understand what services you were receiving?,Did you get all the tests that had been written/prescribed?,"Why didn't you get all the tests you were prescribed?
+ (If you answer 2 or 3 to question 12)",Did you get all your prescribed medication?,Why didn't you get all the prescribed medicines? (If you answered 2 or 3 to question 14),How did you pay for services at the health center?,Are you satisfied with all our services in general?,Which area has satisfied you? (If you answer 4 or 5 to question 17),"Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)"
+120915-4,English,Female,Yes,At home,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Laboratory/testing,Toilets
+108577-8,Kiswahili,Male,Yes,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad service,The external environment,Toilets
+120915-4,English,Male,Yes,Another part,Within 1 hour,Yes,Yes,Yes,Some,Another reason,None,Out of stock,Insurance,Normal,Doctor's room,Toilets
+111552-6,English,Female,Yes,At the station,Between 2-3 hours,Yes,No,No,None,Another reason,Some,Couldn't afford,Free,Bad service,Doctor's room,Doctor's room
+120915-4,Kiswahili,Male,No,Another part,Within 1 hour,Yes,Yes,No,Some,Another reason,Yes,Another reason,Free,Good Service,The external environment,Laboratory/testing
+111552-6,English,Male,Yes,At the station,More than 3 hours,Yes,No,No,Yes,Another reason,Yes,Couldn't afford,Insurance,Normal,Reception,Toilets
+111552-6,English,Female,No,At home,Within 1 hour,No,No,Yes,Some,No equipment,Some,Out of stock,Insurance,Good Service,Pharmacy/Drugs,Pharmacy/Drugs
+108577-8,Kiswahili,Female,Yes,In Society,Between 2-3 hours,Yes,Yes,Yes,Some,Another reason,Some,Couldn't afford,Free,Bad service,Toilets,Laboratory/testing
+120915-4,Kiswahili,Male,No,At home,Between 2-3 hours,No,No,Yes,Some,No equipment,Yes,Out of stock,Free,Normal,The external environment,Pharmacy/Drugs
+121333-9,English,Female,Yes,At the station,More than 3 hours,Yes,Yes,No,Some,No equipment,None,Couldn't afford,Insurance,Very good,Toilets,Doctor's room
+108577-8,Kiswahili,Male,Yes,Another part,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,None,Out of stock,Free,Bad service,The external environment,Laboratory/testing
+121333-9,Kiswahili,Female,No,At the station,More than 3 hours,No,No,No,None,Another reason,Yes,Another reason,Free,Very good,Laboratory/testing,Laboratory/testing
+120915-4,Kiswahili,Female,Yes,At the station,Between 2-3 hours,Yes,Yes,No,Yes,Another reason,None,Couldn't afford,Free,Bad service,Toilets,Doctor's room
+108577-8,Kiswahili,Female,Yes,At home,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Not satisfied,Pharmacy/Drugs,The external environment
+121333-9,English,Female,Yes,Another part,Between 2-3 hours,Yes,Yes,No,Some,No equipment,None,Out of stock,Insurance,Bad service,Reception,Toilets
+120915-4,English,Female,Yes,At home,Within 1 hour,No,Yes,Yes,Yes,No equipment,None,Another reason,Insurance,Normal,Reception,Doctor's room
+120915-4,Kiswahili,Male,No,At home,Within 1 hour,Yes,Yes,Yes,Yes,No equipment,None,Couldn't afford,Insurance,Good Service,Laboratory/testing,Laboratory/testing
+120915-4,Kiswahili,Male,No,Another part,Within 1 hour,No,No,No,None,No equipment,None,Couldn't afford,Free,Bad service,Laboratory/testing,Doctor's room
+121333-9,English,Male,No,In Society,Between 2-3 hours,No,No,No,Yes,Another reason,None,Another reason,Free,Normal,Pharmacy/Drugs,Laboratory/testing
+121333-9,Kiswahili,Male,Yes,In Society,Between 2-3 hours,No,Yes,Yes,None,I couldn't afford the cost,None,Another reason,Free,Not satisfied,Toilets,Pharmacy/Drugs

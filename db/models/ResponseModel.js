@@ -45,53 +45,91 @@ getSummaryStats(facility_id)
 
 
  */
+
+const fs = require('fs');
+const csv = require('csv-parser');
+const crypto = require('crypto');
+const FacilityModel= require("./FacilityModel");
+
+const { connectToDatabase } = require("../database");
+const db = connectToDatabase();
+
 class ResponseModel{
 
     constructor(db){
         this.db=db;
     }
 
-    async loadFromCSV(filepath) {
-        const fileStream = fs.createReadStream(filepath);
-        const rl = readline.createInterface({
-            input: fileStream,
-            crlfDelay: Infinity
-        });
+    generatePatientId() {
+        return crypto.randomBytes(6).toString('hex'); // e.g. 'ab12cd34ef56'
+    }
 
-        let isHeader = true;
-        let questionCount = 19; // Q1 to Q19
-        const insert = this.db.prepare(`
-            INSERT INTO Response (patient_id, facility_id, question_id, answer_option_id, submitted_at)
-            VALUES (?, ?, ?, ?, ?)
+    loadFromSurveyCSV(filePath) {
+        const facilityModel= new FacilityModel(db);
+        console.log("here");
+        const getFacilityId = this.db.prepare(`SELECT facility_id FROM Facility WHERE facility_code = ?`);
+        const getQuestionId = this.db.prepare(`SELECT question_id FROM Question WHERE question_text = ?`);
+        const getAnswerOptionId = this.db.prepare(`
+            SELECT id FROM AnswerOption WHERE question_id = ? AND answer_text = ?
+        `);
+        const insertResponse = this.db.prepare(`
+            INSERT INTO Response (patient_id, facility_id, question_id, answer_option_id)
+            VALUES (?, ?, ?, ?)
         `);
 
-        for await (const line of rl) {
-            const cols = line.split(',');
+        // Map CSV headers to question text in your DB
+        const questionMap = {
+           'Language': 'Thank you for reaching out to the government Client Feedback system for health services. Select your preferred language.',
+    'Gender': 'What is your gender?',
+    'Pregnant': 'Are you currently pregnant?',
+    'Got all tests': 'Did you get all the tests that had been written/prescribed?',
+    'Got all medicines': 'Did you get all your prescribed medication?',
+    'Payment method': 'How did you pay for services at the health center?',
+    'Overall satisfaction': 'Are you satisfied with all our services in general?',
+    'Asked for permission': 'Were you asked for permission before being examined?',
+    'Satisfied with confidentiality': 'Were you satisfied with the confidentiality while receiving services?',
+    'Easy language used': 'Did the HCW use easy language to help you understand?'
+        };
 
-            if (isHeader) {
-                isHeader = false;
-                continue;
-            }
+        fs.createReadStream(filePath)
+            .pipe(csv())
+            .on('data', (row) => {
+                const patientId = this.generatePatientId();
+                const facilityCode = row['Facility Code']?.trim();
+                const facility =  facilityModel.getFacilityByCode(facilityCode);
 
-            const patient_id = cols[0]?.trim();
-    
-            const facility_id = parseInt(cols[2]?.trim());
-            const submitted_at = cols[1]?.trim();
+                console.log("here are information", patientId, facility);
+                if (!facility) return;
 
-            const answers = cols.slice(3); // From Q1 to Q19
+                const facilityId = facility.facility_id;
 
-            answers.forEach((ans, idx) => {
-                const answer_option_id = ans.trim().toUpperCase() === "NULL" ? null : parseInt(ans.trim());
-                const question_id = idx + 1; // Q1 = 1, Q2 = 2, ...
+                for (const [csvKey, questionText] of Object.entries(questionMap)) {
+                    const answerText = row[csvKey]?.trim();
+                    if (!answerText) continue;
 
-                if (answer_option_id && patient_id && facility_id) {
-                    insert.run(patient_id, facility_id, question_id, answer_option_id, submitted_at);
+                    const question = getQuestionId.get(questionText);
+                    if (!question) {
+                        console.warn(`Question not found: ${questionText}`);
+                        continue;
+                    }
+
+                    const questionId = question.question_id;
+                    const answer = getAnswerOptionId.get(questionId, answerText);
+                    if (!answer) {
+                        console.warn(`Answer option not found: "${answerText}" for question "${questionText}"`);
+                        continue;
+                    }
+                    
+
+                    insertResponse.run(patientId, facilityId, questionId, answer.id);
                 }
+            })
+            .on('end', () => {
+                console.log('All patient responses inserted into the Response table.');
             });
-        }
-
-        console.log("Responses loaded successfully.");
     }
+
+
 
 
     getWaitingTimeStats(facility_id) {

@@ -35,9 +35,6 @@ class FacilityModel{
         this.db=db;
     }
 
-   
-
-
 
     generateRandomName() {
         const firstNames = [
@@ -107,6 +104,16 @@ class FacilityModel{
         const query= `SELECT * FROM Facility WHERE facility_id = ?`
         const stmt= this.db.prepare(query);
         const result= stmt.get(id);
+        return result;
+
+    }
+
+    getFacilityByCode(code){
+        console.log("this is the code",code)
+        const query= `SELECT facility_id FROM Facility WHERE facility_code = ?`
+        const stmt= this.db.prepare(query);
+        const result= stmt.get(code);
+        console.log("this is resule",result);
         return result;
 
     }

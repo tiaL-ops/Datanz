@@ -4,7 +4,7 @@
 const AuthModel = require("./models/AuthModel");
 const FacilityModel= require("./models/FacilityModel");
 const QuestionModel = require("./models/QuestionModel");
-//const ResponseModel = require("../models/ResponseModel");
+const ResponseModel = require("./models/ResponseModel");
 
 const { connectToDatabase } = require("./database");
 const db = connectToDatabase();
@@ -18,4 +18,8 @@ const authModel= new AuthModel(db);
 
 
 const facilityModel= new FacilityModel(db);
-facilityModel.loadFromCSV("./csv/Facilities.csv");
+//facilityModel.loadFromCSV("./csv/Facilities.csv");
+
+const responseModel= new ResponseModel(db);
+
+responseModel.loadFromSurveyCSV("./csv/survey.csv");
