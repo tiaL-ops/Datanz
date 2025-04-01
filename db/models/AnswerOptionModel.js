@@ -25,51 +25,7 @@ class AnswerOptionModel{
     }
 
     
-    async loadFromCSV(filepath) {
-        const fileStream = fs.createReadStream(filepath);
-        const rl = readline.createInterface({
-            input: fileStream,
-            crlfDelay: Infinity
-        });
-
-        const insertQuestion = this.db.prepare(`
-            INSERT INTO Question (question_text)
-            VALUES (?)
-        `);
-
-        const insertAnswer = this.db.prepare(`
-            INSERT INTO Answer (question_id, answer_value, answer_text)
-            VALUES (?, ?, ?)
-        `);
-
-        for await (const line of rl) {
-            const [questionRaw, answersRaw] = line.split('\t');
-            const questionText = questionRaw?.trim();
-
-            if (!questionText) continue;
-
-            // Insert into Question and get question_id
-            const result = insertQuestion.run(questionText);
-            const questionId = result.lastInsertRowid;
-
-            
-            if (answersRaw?.trim()) {
-                const answers = answersRaw.trim().split('\n');
-
-                for (const answer of answers) {
-                    const [value, ...textParts] = answer.split('.');
-                    const valueTrimmed = value?.trim();
-                    const text = textParts.join('.').trim();
-
-                    if (valueTrimmed && text) {
-                        insertAnswer.run(questionId, valueTrimmed, text);
-                    }
-                }
-            }
-        }
-
-        console.log('Question and answer added.');
-    }
+   //AnswerOption has been populated from Question Model
 
 
     getAnswersByQuestion(questionId) {
