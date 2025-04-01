@@ -21,7 +21,20 @@ app.use("/auth", authRoutes);
 app.use("/facilities", facilitiesRoutes);
 app.use("/government", governmentRoutes);
 
+// Route doesn't exist
+app.use((req, res, next) => {
+    res.status(404).json({ error: "Route not found" });
+});
+
+// Handle other errors 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: "Something went wrong!" });
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+

@@ -21,3 +21,4 @@ router.get('/profile', (req, res) => {
     res.send('In profile page!');
 });
 
+module.exports = router;
