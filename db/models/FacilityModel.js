@@ -27,49 +27,77 @@ CREATE TABLE IF NOT EXISTS Facility (
 
 
  */
+const fs = require('fs');
+const csv = require('csv-parser');
 class FacilityModel{
 
     constructor(db){
         this.db=db;
     }
 
-    async loadFromCSV(filepath) {
-        const fileStream = fs.createReadStream(filepath);
-        const rl = readline.createInterface({
-            input: fileStream,
-            crlfDelay: Infinity
-        });
+   
 
-        const insertQuery = this.db.prepare(`
-            INSERT INTO Facility (name, location, facility_type, headO_name, headO_contact)
-            VALUES (?, ?, ?, ?, ?)
+
+
+    generateRandomName() {
+        const firstNames = [
+            'Amina', 'Juma', 'Neema', 'Baraka', 'Zawadi',
+            'Rehema', 'Abdul', 'Halima', 'Hassan', 'Fatma',
+            'Salma', 'Omari', 'Saidi', 'Mwajuma', 'Bakari'
+        ];
+        const lastNames = [
+            'Mwakalinga', 'Ngowi', 'Msuya', 'Mshana', 'Kimaro',
+            'Nassor', 'Kibwana', 'Chilongani', 'Maganga', 'Mnyika',
+            'Shabani', 'Lemashon', 'Mollel', 'Mtui', 'Nyambura'
+        ];
+        const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+        return `Dr. ${random(firstNames)} ${random(lastNames)}`;
+    }
+
+    loadFromCSV(filePath) {
+        const insertFacility = this.db.prepare(`
+            INSERT INTO Facility (
+                facility_code, name, location, facility_type, headO_name, headO_contact, date_opened
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
         `);
 
-        let isFirstLine = true;
+        fs.createReadStream(filePath)
+            .pipe(csv())
+            .on('data', (row) => {
+                const facility_code = row['Facility Number']?.trim();
+                const name = row['Facility Name']?.trim();
 
-        for await (const line of rl) {
-            if (isFirstLine) {
-                isFirstLine = false; // Skip header.. let's decide tho what type ofh eader, need to be consistent
-                continue;
-            }
+                const parts = [
+                    row['Region'],
+                    row['District'],
+                    row['Ward'],
+                    row['Village'],
+                    row['Street']
+                ].filter(Boolean).map(p => p.trim());
 
-            const cols = line.split('\t'); // If TSV, else use .split(','), since need to decide if wcsv
+                const location = parts.join(', ');
+                const facility_type = row['Facility Type']?.trim() || 'Unknown';
+                const headO_name = this.generateRandomName();
+                const headO_contact = row['Official Phone Number']?.trim() || null;
+                const date_opened = row['Date Opened']?.trim() || null;
 
-            const name = cols[2]?.trim(); // Facility Name
-            const region = cols[4]?.trim();
-            const district = cols[5]?.trim();
-            const location = `${region}, ${district}`;
-            const facility_type = cols[9]?.trim();
-            const headO_name = cols[11]?.trim(); // Ownership
-            const headO_contact = cols[13]?.trim(); // Official Phone Number
-
-            if (name) {
-                insertQuery.run(name, location, facility_type, headO_name, headO_contact);
-            }
-        }
-
-        console.log("Facilities loaded successfully.");
+                if (facility_code && name) {
+                    insertFacility.run(
+                        facility_code,
+                        name,
+                        location,
+                        facility_type,
+                        headO_name,
+                        headO_contact,
+                        date_opened
+                    );
+                }
+            })
+            .on('end', () => {
+                console.log('Facilities CSV import completed.');
+            });
     }
+
 
     getAllFacilities(filters){
 // a little bit tricky, like what kind o flitler? i don't think we handle this here ? but in response
@@ -104,3 +132,4 @@ deleteFacility(id){
 
 
 }
+module.exports = FacilityModel;

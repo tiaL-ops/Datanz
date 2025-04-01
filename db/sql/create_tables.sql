@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS AnswerOption (
 -- Facility table
 CREATE TABLE IF NOT EXISTS Facility (
     facility_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    facility_code TEXT,
     name TEXT NOT NULL,
     location TEXT,
     facility_type TEXT,
