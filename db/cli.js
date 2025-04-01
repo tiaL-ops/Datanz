@@ -22,6 +22,15 @@ const facilityModel= new FacilityModel(db);
 
 const responseModel= new ResponseModel(db);
 
-responseModel.loadFromSurveyCSV("./csv/survey.csv");
-//const result=responseModel.getWaitingTimeStats(2);
-//console.log(result);
+//responseModel.loadFromSurveyCSV("./csv/SampleCSV - Sheet1 (2).csv");
+const waitTimeStats = responseModel.getWaitingTimeStats(1);
+console.log("Average Wait Time Stats:", waitTimeStats);
+
+const satisfactionStats = responseModel.getSatisfactionDistribution(1);
+console.log(" Satisfaction Distribution:", satisfactionStats);
+
+const confidentialityStats = responseModel.getConfidentialityStats(1);
+console.log("Confidentiality Stats:", confidentialityStats);
+
+const permissionStats = responseModel.getPermissionBeforeExamStats(1);
+console.log("Permission Before Exam Stats:", permissionStats);

@@ -106,7 +106,7 @@ class ResponseModel{
             .pipe(csv())
             .on('data', (row) => {
                 const patientId = this.generatePatientId();
-                const facilityCode = row['Facility Code']?.trim();
+                const facilityCode = row['FacilityCode']?.trim();
                 const facility =  facilityModel.getFacilityByCode(facilityCode);
 
                 console.log("here are information", patientId, facility);
@@ -145,63 +145,88 @@ class ResponseModel{
 
     getWaitingTimeStats(facility_id) {
         const query = `
-           SELECT ao.answer_text AS wait_time, COUNT(*) AS count
-        FROM Response r
-        JOIN AnswerOption ao ON r.answer_option_id = ao.id
-        WHERE r.facility_id = ? AND r.question_id = 8
-        GROUP BY r.answer_option_id
-        ORDER BY count DESC
+            SELECT 
+                COUNT(*) AS count,
+                ao.answer_text AS wait_time,
+                r.facility_id,
+                CASE
+                    WHEN ao.answer_text = 'Within 1 hour' THEN 30
+                    WHEN ao.answer_text = 'Between 2-3 hours' THEN 150
+                    WHEN ao.answer_text = 'More than 3 hours' THEN 240
+                    ELSE NULL
+                END AS wait_minutes
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 8
+            GROUP BY r.answer_option_id, r.facility_id
         `;
     
         const stmt = this.db.prepare(query);
-        const results = stmt.all(facility_id);
-        console.log("resulltssss",results);
-        return results;
-    }
-
-    getSatisfactionDistribution(facility_id){
-        const query = `
-        SELECT ao.option_text AS satisfaction, COUNT(*) AS count
-        FROM Response r
-        JOIN AnswerOption ao ON r.answer_option_id=ao.id
-        WHERE r.facility_id= ? AND r.question_id=17
-        GROUP BY r.answer_option_id
-        ORDER BY count DESC
-        `
-        const stmt = this.db.prepare(query);
-        const results = stmt.all(facility_id);
-        return results;
-
+        const rows = stmt.all(facility_id);
+    
+        let totalTime = 0;
+        let totalCount = 0;
+    
+        for (const row of rows) {
+            if (row.wait_minutes !== null) {
+                totalTime += row.wait_minutes * row.count;
+                totalCount += row.count;
+            }
+        }
+    
+        const averageWaitTime = totalCount > 0 ? totalTime / totalCount : null;
+    
+        return {
+            facility_id,
+            average_wait_time_minutes: averageWaitTime,
+            breakdown: rows
+        };
     }
     
-    getConfidentialityStats(facility_id){
+
+    getSatisfactionDistribution(facility_id) {
         const query = `
-        SELECT ao.option_text AS confidentiality, COUNT(*) AS count
-        FROM Response r
-        JOIN AnswerOption ao ON r.answer_option_id=ao.id
-        WHERE r.facility_id= ? AND r.question_id=10
-        GROUP BY r.answer_option_id
-        ORDER BY count DESC
-        `
+            SELECT ao.answer_text AS satisfaction, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 17
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
         const stmt = this.db.prepare(query);
         const results = stmt.all(facility_id);
         return results;
-
     }
-getPermissionBeforeExamStats(facility_id){
-    const query = `
-    SELECT ao.option_text AS permission_before_exam, COUNT(*) AS count
-    FROM Response r
-    JOIN AnswerOption ao ON r.answer_option_id=ao.id
-    WHERE r.facility_id= ? AND r.question_id=9
-    GROUP BY r.answer_option_id
-    ORDER BY count DESC
-    `
-    const stmt = this.db.prepare(query);
-    const results = stmt.all(facility_id);
-    return results;
-
-}
+    
+    
+    getConfidentialityStats(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS confidentiality, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 10
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+        return results;
+    }
+    
+    getPermissionBeforeExamStats(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS permission_before_exam, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 9
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+        return results;
+    }
+    
 
 
 
