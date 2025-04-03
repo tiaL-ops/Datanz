@@ -226,6 +226,120 @@ class ResponseModel{
         const results = stmt.all(facility_id);
         return results;
     }
+    getTestCompletionStats(facility_id){
+        const query = `
+        SELECT ao.answer_text AS test_completion_stats, COUNT(*) AS count
+        FROM Response r
+        JOIN AnswerOption ao ON r.answer_option_id = ao.id
+        WHERE r.facility_id = ? AND r.question_id = 12
+        GROUP BY r.answer_option_id
+        ORDER BY count DESC
+    `;
+    const stmt = this.db.prepare(query);
+    const results = stmt.all(facility_id);
+    return results;
+        
+    }
+
+    getMedicationCompletionStats(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS received_all_meds, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 14
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        return this.db.prepare(query).all(facility_id);
+    }
+    
+    getServicePaymentModes(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS service_payment_mode, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 16
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        return this.db.prepare(query).all(facility_id);
+    }
+    
+    getProblemAreaFrequency(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS problem_area, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 19
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        return this.db.prepare(query).all(facility_id);
+    }
+
+    getPositiveAreaFrequency(facility_id) {
+        const query = `
+            SELECT ao.answer_text AS positive_area, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 18
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        return this.db.prepare(query).all(facility_id);
+    }
+    getResponseCount(facility_id) {
+        const query = `
+            SELECT COUNT(*) AS total_responses
+            FROM Response
+            WHERE facility_id = ?
+        `;
+        return this.db.prepare(query).get(facility_id);  
+    }
+    
+    /// bug in this one 
+    getResponseBreakdownByQuestion(facility_id, question_id) {
+        const query = `
+            SELECT ao.answer_text AS answer, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = ?
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        return this.db.prepare(query).all(facility_id, question_id);
+    }
+
+    getLatestResponses(facility_id, fromDate, limit) {
+        const query = `
+            SELECT r.response_id, r.question_id, ao.answer_text, r.submitted_at
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ?
+            AND DATE(r.submitted_at) >= DATE(?)
+            ORDER BY r.submitted_at DESC
+            LIMIT ?
+        `;
+        return this.db.prepare(query).all(facility_id, fromDate, limit); 
+    }
+    
+    
+    
+    getSummaryStats(facility_id) {
+        const query = `
+            SELECT 
+                COUNT(DISTINCT r.question_id) AS questions_answered,
+                COUNT(DISTINCT r.answer_option_id) AS unique_answers_given,
+                COUNT(DISTINCT r.patient_id) AS unique_patients
+            FROM Response r
+            WHERE r.facility_id = ?
+        `;
+        return this.db.prepare(query).get(facility_id);
+    }
+    
+        
+    
+
     
 
 
