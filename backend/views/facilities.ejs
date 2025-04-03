@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Page</title>
+</head>
+<body>
+    <% if (!id) { %>
+        <h1>Welcome to the Facilities Page</h1>
+        <p>Here, you will be able to view data about facilities</p>
+        <h1>Facilities</h1>
+        <ul>
+            <% facilities.forEach(function(facility, index) { %>
+                <li>
+                    <a href="/facilities/<%= index + 1 %>">
+                        <%= index + 1 %>. <%= facility %>
+                    </a>            
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <h1>Welcome to the Facilities Page</h1>
+        <p>Here, you will be able to view data about facilities with id <%= id %></p>
+        <p> Facility name: <%= facilities[id-1] %> </p>
+    <% } %>
+</body>
+</html>
