@@ -2,11 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Welcome to the facilities page!');
+    const id = req.params.id;
+    //const allFacilities = facilityModel.getAllFacilities();
+    const facilities = ['one', 'two', 'three', 'four'];
+    res.render('facilities', {id, facilities});
 });
 
 router.get('/:id', (req, res) => {
-    res.send(`Facility with id ${req.params.id}`);
+    const id = req.params.id;
+    const facilities = ['one', 'two', 'three', 'four'];
+    res.render('facilities', {id, facilities});
 });
 
 module.exports = router;
