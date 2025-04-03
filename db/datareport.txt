@@ -1,0 +1,173 @@
+FACILITY DATA REPORT
+====================
+Facility ID: 1
+Date: 4/2/2025
+
+
+Average Wait Time Stats
+-----------------------
+  facility_id: 1
+  average_wait_time_minutes: 102
+  breakdown: [object Object],[object Object]
+
+
+Satisfaction Distribution
+-------------------------
+  satisfaction: Bad service
+  count: 3
+
+  satisfaction: Good Service
+  count: 1
+
+  satisfaction: Normal
+  count: 1
+
+
+
+Confidentiality Stats
+---------------------
+  confidentiality: No
+  count: 3
+
+  confidentiality: Yes
+  count: 2
+
+
+
+Permission Before Exam Stats
+----------------------------
+  permission_before_exam: No
+  count: 3
+
+  permission_before_exam: Yes
+  count: 2
+
+
+
+Test Completion Stats
+---------------------
+  test_completion_stats: None
+  count: 2
+
+  test_completion_stats: Some
+  count: 2
+
+  test_completion_stats: Yes
+  count: 1
+
+
+
+Medication Completion Stats
+---------------------------
+  received_all_meds: Some
+  count: 3
+
+  received_all_meds: None
+  count: 2
+
+
+
+Service Payment Modes
+---------------------
+  service_payment_mode: Free
+  count: 4
+
+  service_payment_mode: Insurance
+  count: 1
+
+
+
+Problem Area Frequency
+----------------------
+  problem_area: Doctor's room
+  count: 3
+
+  problem_area: Pharmacy/Drugs
+  count: 1
+
+  problem_area: Toilets
+  count: 1
+
+
+
+Positive Area Frequency
+-----------------------
+  positive_area: Laboratory/testing
+  count: 2
+
+  positive_area: Pharmacy/Drugs
+  count: 1
+
+  positive_area: Toilets
+  count: 1
+
+  positive_area: Doctor's room
+  count: 1
+
+
+
+Total Response Count
+--------------------
+  total_responses: 70
+
+
+Summary Stats
+-------------
+  questions_answered: 14
+  unique_answers_given: 34
+  unique_patients: 5
+
+
+Latest Responses from March 1, 2025
+-----------------------------------
+  response_id: 165
+  question_id: 1
+  answer_text: Kiswahili
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 166
+  question_id: 4
+  answer_text: Female
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 167
+  question_id: 5
+  answer_text: Yes
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 168
+  question_id: 7
+  answer_text: At the station
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 169
+  question_id: 8
+  answer_text: Between 2-3 hours
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 170
+  question_id: 10
+  answer_text: Yes
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 171
+  question_id: 11
+  answer_text: No
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 172
+  question_id: 12
+  answer_text: Yes
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 173
+  question_id: 9
+  answer_text: Yes
+  submitted_at: 2025-04-01 22:03:30
+
+  response_id: 174
+  question_id: 14
+  answer_text: None
+  submitted_at: 2025-04-01 22:03:30
+
+
