@@ -54,7 +54,7 @@ class FacilityModel{
     loadFromCSV(filePath) {
         const insertFacility = this.db.prepare(`
             INSERT INTO Facility (
-                facility_code, name, location, facility_type, headO_name, headO_contact, date_opened
+                facility_code, name, location, facility_type, headO_name, headO_contact, created_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?)
         `);
 
@@ -96,9 +96,12 @@ class FacilityModel{
     }
 
 
-    getAllFacilities(filters){
-// a little bit tricky, like what kind o flitler? i don't think we handle this here ? but in response
-}
+    getAllFacilitiesByName(){
+        const stmt = this.db.prepare(`SELECT facility_id, name FROM Facility`);
+        const facilities = stmt.all();
+        return facilities;
+        // a little bit tricky, like what kind o flitler? i don't think we handle this here ? but in response
+    }
 
     getFacilityById(id){
         const query= `SELECT * FROM Facility WHERE facility_id = ?`
@@ -132,11 +135,7 @@ deleteFacility(id){
     const query= `DELETE FROM Facility WHERE facility_id = ?`
      const stmt= this.db.prepare(query);
     return stmt.run(id);
-
-
 }
-
-
 
 }
 module.exports = FacilityModel;

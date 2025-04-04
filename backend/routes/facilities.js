@@ -1,16 +1,22 @@
 const express = require('express');
 const router = express.Router();
-
-router.get('/', (req, res) => {
+const facilityModel = require("../../db/models/FacilityModel");
+const { connectToDatabase } = require("../../db/database");
+const db = connectToDatabase();
+router.get('/', async (req, res) => {
     const id = req.params.id;
-    //const allFacilities = facilityModel.getAllFacilities();
-    const facilities = ['one', 'two', 'three', 'four'];
-    res.render('facilities', {id, facilities});
+    try {
+        const facilityInstance = new facilityModel(db); // Use a different variable name
+        const facilities = await facilityInstance.getAllFacilitiesByName(); // Fetch facilities
+        res.render('facilities', {id, facilities }); // Pass facilities to the template
+    } catch (error) {
+        console.error('Error fetching facilities:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    const facilities = ['one', 'two', 'three', 'four'];
     res.render('facilities', {id, facilities});
 });
 

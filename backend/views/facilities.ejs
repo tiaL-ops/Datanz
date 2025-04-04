@@ -11,12 +11,8 @@
         <p>Here, you will be able to view data about facilities</p>
         <h1>Facilities</h1>
         <ul>
-            <% facilities.forEach(function(facility, index) { %>
-                <li>
-                    <a href="/facilities/<%= index + 1 %>">
-                        <%= index + 1 %>. <%= facility %>
-                    </a>            
-                </li>
+            <% facilities.forEach(facility => { %>
+                <li>(ID: <%= facility.facility_id %>)<%= facility.name %> </li>
             <% }); %>
         </ul>
     <% } else { %>
