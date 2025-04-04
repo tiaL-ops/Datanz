@@ -8,16 +8,35 @@ router.get('/', async (req, res) => {
     try {
         const facilityInstance = new facilityModel(db); // Use a different variable name
         const facilities = await facilityInstance.getAllFacilitiesByName(); // Fetch facilities
-        res.render('facilities', {id, facilities }); // Pass facilities to the template
+        res.render('facilities', {id, facilities}); // Pass facilities to the template
     } catch (error) {
         console.error('Error fetching facilities:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-router.get('/:id', (req, res) => {
-    const id = req.params.id;
-    res.render('facilities', {id, facilities});
-});
+// router.get('/:id', (req, res) => {
+//     const id = req.params.id;
+//     const facilityInstance = new facilityModel(db); // Use a different variable name
+//     const facility = facilityInstance.getFacilityById(id); // Fetch facilities
+//     const head0_name = facility.headO_name;
+//     res.render('facilities', {id, facility, head0_name}); // Pass facilities to the template
+// });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const id = req.params.id; // Get the facility ID from the URL
+        const facilityInstance = new facilityModel(db); // Create an instance of the model
+        const facilityResponses = facilityInstance.getFacilityResponsesById(id); // Fetch responses for the facility
+
+        if (!facilityResponses || facilityResponses.length === 0) {
+            return res.status(404).send('No responses found for this facility');
+        }
+        const facility = facilityInstance.getFacilityById(id); 
+    res.render('facilities', { id, facility, facilityResponses }); // Pass data to the template
+    } catch (error) {
+        console.error('Error fetching facility responses:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 module.exports = router;

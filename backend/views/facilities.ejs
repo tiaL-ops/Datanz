@@ -12,13 +12,24 @@
         <h1>Facilities</h1>
         <ul>
             <% facilities.forEach(facility => { %>
-                <li>(ID: <%= facility.facility_id %>)<%= facility.name %> </li>
+                <li>
+                    <a href="/facilities/<%= facility.facility_id %>">
+                        (ID: <%= facility.facility_id %>) <%= facility.name %>
+                    </a>                
+                </li>
             <% }); %>
         </ul>
     <% } else { %>
-        <h1>Welcome to the Facilities Page</h1>
-        <p>Here, you will be able to view data about facilities with id <%= id %></p>
-        <p> Facility name: <%= facilities[id-1] %> </p>
+        
+        <ul>
+            <% facilityResponses.forEach(response => { %>
+                <li>
+                    <strong>Question:</strong> <%= response.question_text %><br>
+                    <strong>Response:</strong> <%= response.answer_text %>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/facilities">Back to Facilities</a>
     <% } %>
 </body>
 </html>
