@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Page</title>
+</head>
+<body>
+    <h1>Welcome, Government Official</h1>
+    <p>Here, you will be able to view data about facilities</p>
+    <h1>Facilities</h1>
+    <ul>
+        <% facilities.forEach(function(facility, index) { %>
+            <li>
+                <a href="/facilities/<%= index + 1 %>">
+                    <%= index + 1 %>. <%= facility %>
+                </a>            
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

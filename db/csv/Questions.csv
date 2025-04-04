@@ -1,0 +1,56 @@
+﻿Question,Responses
+Q1,1. English
+,2. Kiswahili
+Q2,facility id
+Q3,age
+Q4,1. Female
+,2. Male
+Q5,1. Yes
+,2. No
+Q6,gestational age by week
+Q7,1. At the station
+,2. At home
+,3. In Society
+,4. Another part
+Q8,1. Within 1 hour
+,2. Between 2-3 hours
+,3. More than 3 hours
+Q9,1. Yes
+,2. No
+Q10,1. Yes
+,2. No
+Q11,1. Yes
+,2. No
+Q12,1. Yes
+,2. Some
+,3. None
+Q13,1. No equipment
+,2. I couldn't afford the cost
+,3. Another reason
+Q14,1. Yes
+,2. Some
+,3. None
+Q15,1. Out of stock
+,2. Couldn't afford
+,3. Another reason
+Q16,1. Free
+,2. Cash
+,3. Insurance
+Q17,1. Bad service
+,2. Not satisfied
+,3. Normal
+,4. Good Service
+,5. Very good
+Q18,1. Reception
+,2. Laboratory/testing
+,3. Doctor's room
+,4. Toilets
+,5. The external environment
+,6. Pharmacy/Drugs
+Q19,1. Reception
+,2. Laboratory/testing
+,3. Doctor's room
+,4. Toilets
+,5. The external environment
+,6. Pharmacy/Drugs
+Q20,:Not a question
