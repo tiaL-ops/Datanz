@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS Facility (
     location TEXT,
     facility_type TEXT,
     headO_name TEXT,
-    headO_contact TEXT
+    headO_contact TEXT,
+    date_opened TEXT,
 );
 --i don't think we need report , rather just response i think
 CREATE TABLE IF NOT EXISTS Response (
