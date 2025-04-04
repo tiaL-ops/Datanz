@@ -8,29 +8,21 @@
 </head>
 <body>
     <h1>Welcome to the Authentication Page</h1>
-    <p>Please log in or sign up to continue</p>
-
-    <a href="/auth?type=login"><button>Log In</button></a>
-    <a href="/auth?type=signup"><button>Sign Up</button></a>
 
     <% if (type === 'login') { %>
         <h2>Log In</h2>
         <form action="/auth/login" method="POST">
             <!-- Login inputs -->
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label>Username: <input type = "text" name = "username" required></label>
+            <label>Password: <input type = "password" name = "password" required></label>
             <button type="submit">Log In</button>
         </form>
     <% } else if (type === 'signup') { %>
         <h2>Sign Up</h2>
         <form action="/auth/signup" method="POST">
             <!-- Sign up inputs -->
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label>Username: <input type = "text" name = "username" required></label>
+            <label>Password: <input type = "password" name = "password" required></label>
             <button type="submit">Sign Up</button>
         </form>
     <% } %>
