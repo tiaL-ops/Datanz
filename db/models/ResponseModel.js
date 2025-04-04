@@ -337,6 +337,16 @@ class ResponseModel{
         return this.db.prepare(query).get(facility_id);
     }
     
+    getFacilityResponsesById(facility_id) {
+        const query = `
+            SELECT *
+            FROM Response 
+            WHERE facility_id = ? 
+        `;
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+        return results;
+    }
         
     
 

@@ -130,32 +130,7 @@ getFacilityHeadContact(id){
 
 }
 
-getFacilityResponsesById(facility_id) {
-    const query = `
-        SELECT 
-            Facility.facility_id,
-            Facility.name AS facility_name,
-            Question.question_id,
-            Question.question_text,
-            Response.answer_option_id,
-            AnswerOption.answer_text
-        FROM 
-            Facility
-        JOIN 
-            Response ON Facility.facility_id = Response.facility_id
-        JOIN 
-            Question ON Response.question_id = Question.question_id
-        JOIN
-            AnswerOption ON Response.answer_option_id = AnswerOption.answer_value
-            AND Question.question_id = AnswerOption.question_id
-        WHERE 
-            Facility.facility_id = ?
-        ORDER BY 
-            Question.question_id;
-    `;
-    const stmt = this.db.prepare(query);
-    return stmt.all(facility_id);
-}
+
 
 deleteFacility(id){
     const query= `DELETE FROM Facility WHERE facility_id = ?`

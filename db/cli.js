@@ -9,7 +9,7 @@ const ResponseModel = require("./models/ResponseModel");
 const { connectToDatabase } = require("./database");
 const db = connectToDatabase();
 
-
+/*
 // //check the table first to see if it is already populate the uncomment this if needed
 const questionModel = new QuestionModel(db);
 
@@ -19,13 +19,14 @@ const authModel= new AuthModel(db);
 // //authModel.createUser("hello", "hellotest@gmail.com", "doctor","hnfjsknfjsk%679");
 
 const facilityModel= new FacilityModel(db);
+facilityModel.getFacilityById(id)
 // facilityModel.loadFromCSV("./csv/Facilities.csv");
-const responseModel = new ResponseModel(db);
+
 
 // responseModel.loadFromSurveyCSV("./csv/SampleCSV - Sheet1 (2).csv");
-
+*/
 const fs = require('fs');
-
+const responseModel = new ResponseModel(db);
 const reportLines = [];
 
 reportLines.push("FACILITY DATA REPORT");
@@ -73,4 +74,7 @@ addSection("Latest Responses from March 1, 2025", responseModel.getLatestRespons
 
 // Write to file
 fs.writeFileSync('datareport.txt', reportLines.join('\n'), 'utf-8');
-console.log("Report written to datareport.txt");
+
+
+
+console.log(responseModel.getFacilityResponsesById(1));
