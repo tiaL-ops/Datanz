@@ -8,15 +8,7 @@
 <body>
     <h1>Welcome, Government Official</h1>
     <p>Here, you will be able to view data about facilities</p>
-    <h1>Facilities</h1>
-    <ul>
-        <% facilities.forEach(function(facility, index) { %>
-            <li>
-                <a href="/facilities/<%= index + 1 %>">
-                    <%= index + 1 %>. <%= facility %>
-                </a>            
-            </li>
-        <% }); %>
-    </ul>
+    <p>Pick one of the following tabs to view the data:</p>
+    <a href="/facilities">Facilities</a>
 </body>
 </html>

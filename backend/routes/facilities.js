@@ -28,10 +28,6 @@ router.get('/:id', async (req, res) => {
         const id = req.params.id; // Get the facility ID from the URL
         const facilityInstance = new facilityModel(db); // Create an instance of the model
         const facilityResponses = facilityInstance.getFacilityResponsesById(id); // Fetch responses for the facility
-
-        if (!facilityResponses || facilityResponses.length === 0) {
-            return res.status(404).send('No responses found for this facility');
-        }
         const facility = facilityInstance.getFacilityById(id); 
     res.render('facilities', { id, facility, facilityResponses }); // Pass data to the template
     } catch (error) {

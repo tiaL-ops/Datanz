@@ -20,15 +20,19 @@
             <% }); %>
         </ul>
     <% } else { %>
-        
-        <ul>
-            <% facilityResponses.forEach(response => { %>
-                <li>
-                    <strong>Question:</strong> <%= response.question_text %><br>
-                    <strong>Response:</strong> <%= response.answer_text %>
-                </li>
-            <% }); %>
-        </ul>
+        <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
+        <% if (!facilityResponses) { %>
+            <h2>No responses found for this facility.</h2>
+        <% } else { %>
+            <ul>
+                <% facilityResponses.forEach(response => { %>
+                    <li>
+                        <strong>Question:</strong> <%= response.question_text %><br>
+                        <strong>Response:</strong> <%= response.answer_text %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
         <a href="/facilities">Back to Facilities</a>
     <% } %>
 </body>

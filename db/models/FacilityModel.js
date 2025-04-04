@@ -147,6 +147,7 @@ getFacilityResponsesById(facility_id) {
             Question ON Response.question_id = Question.question_id
         JOIN
             AnswerOption ON Response.answer_option_id = AnswerOption.answer_value
+            AND Question.question_id = AnswerOption.question_id
         WHERE 
             Facility.facility_id = ?
         ORDER BY 
