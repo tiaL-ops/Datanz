@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Welcome to the auth page!');
+    res.render('auth');
 });
 
 router.get('/login', (req, res) => {
-    res.send('In the login page!');
+    res.render('auth');
 });
 
 // router.post('/login', (req, res) => {
