@@ -21,21 +21,22 @@ getAllUsersByRole(role) – List users by role (doctor, gov)
 */
 
 
-createUser(name, email, password) {
+createUser(name, email, password,usertype) {
     const createdAt = new Date().toISOString();
 
     const query = `
-        INSERT INTO Auth (username, email, password, created_at)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO Auth (username, email, password, usertype,created_at)
+        VALUES (?, ?, ?, ?,?)
     `;
 
     const stmt = this.db.prepare(query);
-    const info = stmt.run(name, email, password, createdAt);
+    const info = stmt.run(name, email, password, usertype,createdAt);
 
     return {
         user_id: info.lastInsertRowid,
         username: name,
         email,
+        usertype,
         created_at: createdAt
     };
 }
@@ -45,7 +46,7 @@ findByID(id) {
       SELECT * FROM Auth WHERE user_id= ?
     `;
     const stmt = this.db.prepare(query);
-    const user = stmt.get(username); 
+    const user = stmt.get(id); 
     return user;
   }
   

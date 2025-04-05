@@ -26,11 +26,13 @@ CREATE TABLE IF NOT EXISTS AnswerOption (
 -- Facility table
 CREATE TABLE IF NOT EXISTS Facility (
     facility_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    facility_code TEXT,
     name TEXT NOT NULL,
     location TEXT,
     facility_type TEXT,
     headO_name TEXT,
-    headO_contact TEXT
+    headO_contact TEXT,
+    date_opened TEXT,
 );
 --i don't think we need report , rather just response i think
 CREATE TABLE IF NOT EXISTS Response (
