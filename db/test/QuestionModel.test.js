@@ -14,7 +14,7 @@ describe('QuestionModel', function() {
       questions: [],
       nextId: 1,
       prepare: function(query) {
-        if (query.includes("INSERT INTO Questions")) {
+        if (query.includes("INSERT INTO Question")) {
           return {
             run: (questionText) => {
               // Create a new question object with an auto-incremented question_id
@@ -23,7 +23,9 @@ describe('QuestionModel', function() {
                 question_text: questionText
               };
               fakeDB.questions.push(newQuestion);
+              const insertedId = fakeDB.nextId;
               fakeDB.nextId++;
+              return { lastInsertRowid: insertedId };
             }
           };
         } else if (query.includes("SELECT * FROM Questions WHERE question_id = ?")) {
@@ -52,8 +54,8 @@ describe('QuestionModel', function() {
 
     questionModel = new QuestionModel(fakeDB);
 
-    // Create a temporary CSV file for testing loadFromCSV.
-    // In this implementation, each line is treated as a question.
+    // Create a temporary CSV file for testing importFromCSV.
+    // Each line is treated as a question (first column) and no answer options provided.
     csvFilePath = path.join(__dirname, 'test_questions.csv');
     const csvContent = `What is your favorite color?
 How many hours do you sleep?`;
@@ -67,16 +69,17 @@ How many hours do you sleep?`;
     }
   });
 
-  describe('loadFromCSV', function() {
+  describe('importFromCSV', function() {
     it('should import all questions from a CSV file', async function() {
-      await questionModel.loadFromCSV(csvFilePath);
+      await questionModel.importFromCSV(csvFilePath);
       const allQuestions = questionModel.getAllQuestions();
       assert.strictEqual(allQuestions.length, 2);
+      // Optionally, verify the inserted questions' texts:
       assert.strictEqual(allQuestions[0].question_text, 'What is your favorite color?');
       assert.strictEqual(allQuestions[1].question_text, 'How many hours do you sleep?');
     });
   });
-
+  
   describe('getAllQuestions', function() {
     it('should return all questions for form rendering', function() {
       // Manually add sample questions into fakeDB

@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/cs-205-s25/project-2-a#readme",
   "dependencies": {
+    "csv-parser": "^3.2.0",
     "ejs": "^3.1.10",
     "expres": "^0.0.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mocha": "^11.1.0"
   }
 }
