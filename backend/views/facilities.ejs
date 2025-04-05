@@ -7,22 +7,57 @@
 </head>
 <body>
     <% if (!id) { %>
-        <h1>Welcome to the Facilities Page</h1>
+        <% if (gov) { %>
+            <h1>Welcome to the Facilities Page, government official</h1>
+        <% } else { %>
+            <h1>Welcome to the Facilities Page</h1>
+        <% } %>
         <p>Here, you will be able to view data about facilities</p>
         <h1>Facilities</h1>
         <ul>
-            <% facilities.forEach(function(facility, index) { %>
+            <% facilities.forEach(facility => { %>
                 <li>
-                    <a href="/facilities/<%= index + 1 %>">
-                        <%= index + 1 %>. <%= facility %>
-                    </a>            
+                    <% if (!gov){ %>
+                        <a href="/facilities/<%= facility.facility_id %>">
+                            (ID: <%= facility.facility_id %>) <%= facility.name %>
+                        </a> <%} else { %>
+                            <a href="/government/facilities/<%= facility.facility_id %>">
+                                (ID: <%= facility.facility_id %>) <%= facility.name %>
+                            </a> <% } %>
+                    </a>                
                 </li>
             <% }); %>
         </ul>
-    <% } else { %>
-        <h1>Welcome to the Facilities Page</h1>
-        <p>Here, you will be able to view data about facilities with id <%= id %></p>
-        <p> Facility name: <%= facilities[id-1] %> </p>
-    <% } %>
+        <% } else { %>
+            <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
+            <% if (!groupedResponses || Object.keys(groupedResponses).length === 0) { %>
+                <h2>No responses found for this facility.</h2>
+            <% } else { %>
+                <h1>Responses for Facility: <%= facility.name %> (ID: <%= id %>)</h1>
+                <ul>
+                    <% Object.keys(groupedResponses).forEach(questionId => { %>
+                        <li>
+                            <strong>Question:</strong> <%= groupedResponses[questionId].question_text %><br>
+                            <strong>Answers:</strong>
+                            <ul>
+                                <% groupedResponses[questionId].answers.forEach(answer => { %>
+                                    <li><%= answer %></li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %> 
+                </ul>
+            <% } %> 
+            <% if (gov) { %>
+                <h1>Contact Information for Head Doctors</h1>
+                <h2> Facility head contact : <%= head0_name %> </h2> 
+                <a href="/government/facilities">Back to Facilities</a>
+            <% } else { %> 
+                <a href="/facilities">Back to Facilities</a>
+            <%} %>
+        <% } %> 
+       
+        
+        
 </body>
 </html>
