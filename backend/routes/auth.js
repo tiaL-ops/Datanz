@@ -2,24 +2,33 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('auth');
+    const type  = req.query.type; //Determine if it's login or signup
+    res.render('auth', { type });
 });
 
-router.get('/login', (req, res) => {
-    res.render('auth');
+router.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Check user credentials 
+    if (username === "user" && password === "password") {
+        req.session.user = { username };
+        return res.redirect('/facilities');
+    }
+    
+    res.send("Invalid login credentials");
 });
 
-// router.post('/login', (req, res) => {
-//     res.send('POST login page!');
-// });
+router.post('/signup', (req, res) => {
+    const { username, password } = req.body;
+
+    req.session.user = { username };
+    res.redirect('/facilities');
+});
 
 router.get('/logout', (req, res) => {
-    res.send('In logout page!');
-    
+    req.session.destroy();
+    res.redirect('/');
 } );
 
-router.get('/profile', (req, res) => {
-    res.send('In profile page!');
-});
 
 module.exports = router;

@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starter Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"> <!--Link to your CSS file-->
+    <title>Authentication Page</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Auth Page</h1>
-    </header>
-    <main>
-    </main>
+    <h1>Welcome to the Authentication Page</h1>
+
+    <% if (type === 'login') { %>
+        <h2>Log In</h2>
+        <form action="/auth/login" method="POST">
+            <!-- Login inputs -->
+            <label>Username: <input type = "text" name = "username" required></label>
+            <label>Password: <input type = "password" name = "password" required></label>
+            <button type="submit">Log In</button>
+        </form>
+    <% } else if (type === 'signup') { %>
+        <h2>Sign Up</h2>
+        <form action="/auth/signup" method="POST">
+            <!-- Sign up inputs -->
+            <label>Username: <input type = "text" name = "username" required></label>
+            <label>Password: <input type = "password" name = "password" required></label>
+            <button type="submit">Sign Up</button>
+        </form>
+    <% } %>
 </body>
 </html>
