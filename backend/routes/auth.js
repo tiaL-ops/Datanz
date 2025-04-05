@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const type  = req.query.type; //Determine if it's login or signup
-    res.render('auth', {type});
+    res.render('auth', { type });
 });
 
 router.post('/login', (req, res) => {
