@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const facilityModel = require("../../db/models/FacilityModel");
+const responseModel = require("../../db/models/ResponseModel");
 const { connectToDatabase } = require("../../db/database");
 const db = connectToDatabase();
 router.get('/', async (req, res) => {
@@ -27,9 +28,24 @@ router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id; // Get the facility ID from the URL
         const facilityInstance = new facilityModel(db); // Create an instance of the model
-        const facilityResponses = facilityInstance.getFacilityResponsesById(id); // Fetch responses for the facility
+        const responseInstance = new responseModel(db); // Create an instance of the model
+        const facilityResponses = responseInstance.getFacilityResponsesById(id); // Fetch responses for the facility
+        console.log(facilityResponses);
+
+        // Group responses by question_id
+        const groupedResponses = {};
+        facilityResponses.forEach(response => {
+            if (!groupedResponses[response.question_id]) {
+                groupedResponses[response.question_id] = {
+                    question_text: response.question_text,
+                    answers: []
+                };
+            }
+            groupedResponses[response.question_id].answers.push(response.answer_text);
+        });
+
         const facility = facilityInstance.getFacilityById(id); 
-    res.render('facilities', { id, facility, facilityResponses }); // Pass data to the template
+        res.render('facilities', { id, facilityResponses,facility, groupedResponses }); // Pass grouped data to the template
     } catch (error) {
         console.error('Error fetching facility responses:', error);
         res.status(500).send('Internal Server Error');

@@ -20,18 +20,24 @@
             <% }); %>
         </ul>
     <% } else { %>
-        <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
-        <% if (!facilityResponses) { %>
-            <h2>No responses found for this facility.</h2>
-        <% } else { %>
-            <ul>
-                <% facilityResponses.forEach(response => { %>
-                    <li>
-                        <strong>Question:</strong> <%= response.question_text %><br>
-                        <strong>Response:</strong> <%= response.answer_text %>
-                    </li>
-                <% }); %>
-            </ul>
+            <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
+            <% if (!facilityResponses) { %>
+                <h2>No responses found for this facility.</h2>
+            <% } else { %>
+                <h1>Responses for Facility: <%= facility.name %> (ID: <%= id %>)</h1>
+        <ul>
+            <% Object.keys(groupedResponses).forEach(questionId => { %>
+                <li>
+                    <strong>Question:</strong> <%= groupedResponses[questionId].question_text %><br>
+                    <strong>Answers:</strong>
+                    <ul>
+                        <% groupedResponses[questionId].answers.forEach(answer => { %>
+                            <li><%= answer %></li>
+                        <% }); %>
+                    </ul>
+                </li>
+            <% }); %>
+        </ul>
         <% } %>
         <a href="/facilities">Back to Facilities</a>
     <% } %>
