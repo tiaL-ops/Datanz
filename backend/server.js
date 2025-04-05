@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 

@@ -46,7 +46,7 @@ findByID(id) {
       SELECT * FROM Auth WHERE user_id= ?
     `;
     const stmt = this.db.prepare(query);
-    const user = stmt.get(username); 
+    const user = stmt.get(id); 
     return user;
   }
   
