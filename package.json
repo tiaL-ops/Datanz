@@ -4,7 +4,8 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha db/test",
+    "coverage": "nyc mocha db/test"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,14 @@
   },
   "homepage": "https://github.com/cs-205-s25/project-2-a#readme",
   "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "csv-parser": "^3.2.0",
     "ejs": "^3.1.10",
     "expres": "^0.0.5",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "mocha": "^11.1.0",
+    "nyc": "^17.1.0"
   }
 }
