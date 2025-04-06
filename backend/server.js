@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
@@ -8,6 +9,11 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(session({
+    secret: 'super-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 // Set the view engine to EJS
