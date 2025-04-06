@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
@@ -10,7 +11,12 @@ const db = connectToDatabase();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static("public"));
+app.use(session({
+    secret: 'super-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 // Set the view engine to EJS
