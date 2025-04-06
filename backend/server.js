@@ -10,7 +10,7 @@ const db = connectToDatabase();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 
 // Set the view engine to EJS

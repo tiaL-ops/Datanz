@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth Page</title>
+    <link rel="stylesheet" href="/style.css">
+
 </head>
 <body>
+    <div class="container">
+
+    
     <% if (!id) { %>
         <% if (gov) { %>
             <h1>Welcome to the Facilities Page, government official</h1>
@@ -57,7 +62,13 @@
             <%} %>
         <% } %> 
        
+    
         
-        
+    </div>
+    <script>
+        document.getElementById("filter-toggle").addEventListener("click", () => {
+            document.getElementById("filter-panel").classList.toggle("hidden");
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        margin: 0;
+        padding: 2rem;
+        line-height: 1.6;
+    }
+
+    h1, h2 {
+        color: #343a40;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 0.75rem;
+        background: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        background-color: #0056b3;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2f55d4;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-button {
+    background-color: white;
+    color: #2f55d4;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #f0f4ff;
+}
+
+
