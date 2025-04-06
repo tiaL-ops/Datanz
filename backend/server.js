@@ -5,6 +5,9 @@ const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
+const { connectToDatabase } = require("../db/database");
+const db = connectToDatabase();
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

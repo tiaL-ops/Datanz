@@ -1,6 +1,11 @@
 const assert = require('assert');
 const ResponseModel = require('../models/ResponseModel');
 
+// Utility function to normalize query strings.
+function normalize(query) {
+  return query.replace(/\s+/g, ' ').toLowerCase();
+}
+
 describe('ResponseModel', function() {
   let fakeDB;
   let responseModel;
@@ -10,8 +15,7 @@ describe('ResponseModel', function() {
     fakeDB = {
       responses: [],
       nextId: 1,
-      // Will use a simple prepare method that inspects the query string and returns
-      // stub functions for run, get, and all.
+      // Simple prepare method that inspects the query string and returns stub functions.
       prepare: function(query) {
         // Handle INSERT INTO Response: Create a new response record.
         if (query.includes("INSERT INTO Response")) {
@@ -64,11 +68,8 @@ describe('ResponseModel', function() {
         if (query.includes("SELECT facility_id, AVG(")) {
           return {
             all: () => {
-              // For simplicity, group responses by facility and compute average satisfaction
-              // using answer_option_id as a numeric value.
               const groups = {};
               fakeDB.responses.forEach(r => {
-                // Only consider responses for satisfaction (question_id === 17)
                 if (r.question_id === 17) {
                   if (!groups[r.facility_id]) groups[r.facility_id] = { sum: 0, count: 0 };
                   groups[r.facility_id].sum += Number(r.answer_option_id);
@@ -80,7 +81,6 @@ describe('ResponseModel', function() {
                 const avg = groups[facilityId].sum / groups[facilityId].count;
                 results.push({ facility_id: Number(facilityId), avg_satisfaction: avg });
               }
-              // Sort descending by average satisfaction.
               results.sort((a, b) => b.avg_satisfaction - a.avg_satisfaction);
               return results;
             }
@@ -93,6 +93,39 @@ describe('ResponseModel', function() {
         if (query.includes("SELECT ao.answer_text AS positive_area")) {
           return { all: () => [] };
         }
+        // NEW: Branch for getLatestResponses (using normalized query)
+        if (
+          normalize(query).includes("select r.response_id, r.question_id, r.submitted_at") &&
+          normalize(query).includes("date(r.submitted_at) >= date(?)")
+        ) {
+          return {
+            all: function(facility_id, fromDate, limit) {
+              const fromDateObj = new Date(fromDate);
+              let filtered = fakeDB.responses.filter(r =>
+                r.facility_id === facility_id && new Date(r.submitted_at) >= fromDateObj
+              );
+              filtered.sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at));
+              return filtered.slice(0, limit);
+            }
+          };
+        }
+        // NEW: Branch for getSummaryStats (using normalized query)
+        if (normalize(query).includes("count(distinct r.question_id) as questions_answered")) {
+          return {
+            get: function(facility_id) {
+              const responses = fakeDB.responses.filter(r => r.facility_id === facility_id);
+              const questions_answered = new Set(responses.map(r => r.question_id)).size;
+              const unique_answers_given = new Set(responses.map(r => r.answer_option_id)).size;
+              const unique_patients = new Set(responses.map(r => r.patient_id)).size;
+              return {
+                questions_answered,
+                unique_answers_given,
+                unique_patients
+              };
+            }
+          };
+        }
+        // Default stub.
         return {
           run: () => {},
           get: () => null,
@@ -108,7 +141,6 @@ describe('ResponseModel', function() {
   // Test for createResponse(data)
   describe('createResponse', function() {
     it('should save a new response and return its new ID', function() {
-      // We'll define createResponse as a method that wraps the INSERT query.
       responseModel.createResponse = function(data) {
         const stmt = this.db.prepare("INSERT INTO Response (patient_id, facility_id, question_id, answer_option_id) VALUES (?, ?, ?, ?)");
         const result = stmt.run(data.patient_id, data.facility_id, data.question_id, data.answer_option_id);
@@ -118,7 +150,6 @@ describe('ResponseModel', function() {
       const data = { patient_id: 'abc123', facility_id: 1, question_id: 10, answer_option_id: 5 };
       const newId = responseModel.createResponse(data);
       assert.strictEqual(newId, 1);
-      // Verify that the record is stored in the fake database.
       const inserted = fakeDB.responses.find(r => r.response_id === newId);
       assert(inserted);
       assert.strictEqual(inserted.patient_id, 'abc123');
@@ -128,7 +159,6 @@ describe('ResponseModel', function() {
   // Test for getResponseById(id)
   describe('getResponseById', function() {
     it('should retrieve a specific response by its ID', function() {
-      // Pre-insert a sample response.
       fakeDB.responses.push({ response_id: 1, patient_id: 'abc123', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: new Date().toISOString() });
       responseModel.getResponseById = function(id) {
         const stmt = this.db.prepare("SELECT * FROM Response WHERE response_id = ?");
@@ -144,7 +174,6 @@ describe('ResponseModel', function() {
   // Test for updateResponse(id, data)
   describe('updateResponse', function() {
     it('should update fields in an existing response', function() {
-      // Pre-insert a sample response.
       fakeDB.responses.push({ response_id: 1, patient_id: 'abc123', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: new Date().toISOString() });
       responseModel.updateResponse = function(id, data) {
         const stmt = this.db.prepare("UPDATE Response SET patient_id = ?, facility_id = ?, question_id = ?, answer_option_id = ? WHERE response_id = ?");
@@ -163,7 +192,6 @@ describe('ResponseModel', function() {
   // Test for deleteResponse(id)
   describe('deleteResponse', function() {
     it('should remove a response by ID', function() {
-      // Pre-insert two responses.
       fakeDB.responses.push({ response_id: 1, patient_id: 'abc123', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: new Date().toISOString() });
       fakeDB.responses.push({ response_id: 2, patient_id: 'def456', facility_id: 1, question_id: 11, answer_option_id: 6, submitted_at: new Date().toISOString() });
       responseModel.deleteResponse = function(id) {
@@ -180,12 +208,10 @@ describe('ResponseModel', function() {
   // Test for aggregateMetrics(facilityId)
   describe('aggregateMetrics', function() {
     it('should calculate key stats (average satisfaction) for a facility', function() {
-      // For simplicity, we simulate satisfaction by storing numeric values in answer_option_id for question_id 17.
       fakeDB.responses.push({ response_id: 1, patient_id: 'a', facility_id: 1, question_id: 17, answer_option_id: 4, submitted_at: new Date().toISOString() });
       fakeDB.responses.push({ response_id: 2, patient_id: 'b', facility_id: 1, question_id: 17, answer_option_id: 5, submitted_at: new Date().toISOString() });
       fakeDB.responses.push({ response_id: 3, patient_id: 'c', facility_id: 1, question_id: 17, answer_option_id: 3, submitted_at: new Date().toISOString() });
       responseModel.aggregateMetrics = function(facilityId) {
-        // Filter responses for satisfaction (question_id === 17) at the facility.
         const responses = fakeDB.responses.filter(r => r.facility_id === facilityId && r.question_id === 17);
         const total = responses.reduce((sum, r) => sum + Number(r.answer_option_id), 0);
         const avg = responses.length ? total / responses.length : 0;
@@ -200,7 +226,6 @@ describe('ResponseModel', function() {
   // Test for rankFacilitiesBySatisfaction()
   describe('rankFacilitiesBySatisfaction', function() {
     it('should return facilities sorted by average satisfaction', function() {
-      // Simulate responses for two facilities.
       fakeDB.responses.push({ response_id: 1, patient_id: 'a', facility_id: 1, question_id: 17, answer_option_id: 5, submitted_at: new Date().toISOString() });
       fakeDB.responses.push({ response_id: 2, patient_id: 'b', facility_id: 1, question_id: 17, answer_option_id: 5, submitted_at: new Date().toISOString() });
       fakeDB.responses.push({ response_id: 3, patient_id: 'c', facility_id: 2, question_id: 17, answer_option_id: 3, submitted_at: new Date().toISOString() });
@@ -220,7 +245,6 @@ describe('ResponseModel', function() {
   // Test for getTopProblemAreas(facilityId)
   describe('getTopProblemAreas', function() {
     it('should count and rank the most frequently mentioned problem areas', function() {
-      // Override getTopProblemAreas to simulate a result.
       responseModel.getTopProblemAreas = function(facilityId) {
         return [{ problem_area: 'Delay', count: 2 }, { problem_area: 'Rudeness', count: 1 }];
       };
@@ -234,7 +258,6 @@ describe('ResponseModel', function() {
   // Test for getTopPositiveAreas(facilityId)
   describe('getTopPositiveAreas', function() {
     it('should count and rank the most frequently mentioned positive areas', function() {
-      // Override getTopPositiveAreas to simulate a result.
       responseModel.getTopPositiveAreas = function(facilityId) {
         return [{ positive_area: 'Friendly Staff', count: 2 }, { positive_area: 'Quick Service', count: 1 }];
       };
@@ -242,6 +265,94 @@ describe('ResponseModel', function() {
       const topPositive = responseModel.getTopPositiveAreas(1);
       assert.strictEqual(topPositive[0].positive_area, 'Friendly Staff');
       assert.strictEqual(topPositive[0].count, 2);
+    });
+  });
+
+  // NEW Test for getLatestResponses
+  describe('getLatestResponses', function() {
+    it('should return the latest responses after the given date with the specified limit', function() {
+      const now = new Date();
+      const earlier = new Date(now.getTime() - 100000); // 100 seconds earlier
+      const later = new Date(now.getTime() + 100000);   // 100 seconds later
+  
+      fakeDB.responses.push({ response_id: 1, patient_id: 'a', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: earlier.toISOString() });
+      fakeDB.responses.push({ response_id: 2, patient_id: 'b', facility_id: 1, question_id: 10, answer_option_id: 6, submitted_at: now.toISOString() });
+      fakeDB.responses.push({ response_id: 3, patient_id: 'c', facility_id: 1, question_id: 10, answer_option_id: 7, submitted_at: later.toISOString() });
+  
+      responseModel.getLatestResponses = function(facility_id, fromDate, limit) {
+        const stmt = this.db.prepare(`
+          SELECT r.response_id, r.question_id, r.submitted_at
+          FROM Response r
+          WHERE r.facility_id = ? AND DATE(r.submitted_at) >= DATE(?)
+          ORDER BY r.submitted_at DESC
+          LIMIT ?
+        `);
+        return stmt.all(facility_id, fromDate, limit);
+      };
+  
+      const fromDate = earlier.toISOString();
+      const latest = responseModel.getLatestResponses(1, fromDate, 2);
+      assert.strictEqual(latest.length, 2);
+      assert(latest[0].response_id > latest[1].response_id);
+    });
+  
+    it('should return an empty array when no responses match the given fromDate', function() {
+      fakeDB.responses = [];
+      responseModel.getLatestResponses = function(facility_id, fromDate, limit) {
+        const stmt = this.db.prepare(`
+          SELECT r.response_id, r.question_id, r.submitted_at
+          FROM Response r
+          WHERE r.facility_id = ? AND DATE(r.submitted_at) >= DATE(?)
+          ORDER BY r.submitted_at DESC
+          LIMIT ?
+        `);
+        return stmt.all(facility_id, fromDate, limit);
+      };
+      const oldDate = new Date(2000, 0, 1).toISOString();
+      fakeDB.responses.push({ response_id: 1, patient_id: 'x', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: oldDate });
+      const fromDate = new Date(2020, 0, 1).toISOString();
+      const latest = responseModel.getLatestResponses(1, fromDate, 2);
+      assert.strictEqual(latest.length, 0);
+    });
+  });
+  
+  // NEW Test for getSummaryStats
+  describe('getSummaryStats', function() {
+    it('should calculate summary statistics for responses', function() {
+      fakeDB.responses.push({ response_id: 1, patient_id: 'a', facility_id: 1, question_id: 10, answer_option_id: 5, submitted_at: new Date().toISOString() });
+      fakeDB.responses.push({ response_id: 2, patient_id: 'b', facility_id: 1, question_id: 11, answer_option_id: 6, submitted_at: new Date().toISOString() });
+      fakeDB.responses.push({ response_id: 3, patient_id: 'a', facility_id: 1, question_id: 12, answer_option_id: 7, submitted_at: new Date().toISOString() });
+  
+      responseModel.getSummaryStats = function(facility_id) {
+        const stmt = this.db.prepare(`
+          SELECT 
+            COUNT(DISTINCT r.question_id) AS questions_answered,
+            COUNT(DISTINCT r.answer_option_id) AS unique_answers_given,
+            COUNT(DISTINCT r.patient_id) AS unique_patients
+          FROM Response r
+          WHERE r.facility_id = ?
+        `);
+        return stmt.get(facility_id);
+      };
+  
+      const stats = responseModel.getSummaryStats(1);
+      assert.strictEqual(stats.questions_answered, 3);
+      assert.strictEqual(stats.unique_answers_given, 3);
+      assert.strictEqual(stats.unique_patients, 2);
+    });
+  });
+  
+  // NEW Test for Error Cases: updateResponse on non-existent ID.
+  describe('Error Cases', function() {
+    it('should not update any response if the given ID does not exist', function() {
+      const originalCount = fakeDB.responses.length;
+      responseModel.updateResponse = function(id, data) {
+        const stmt = this.db.prepare("UPDATE Response SET patient_id = ?, facility_id = ?, question_id = ?, answer_option_id = ? WHERE response_id = ?");
+        stmt.run(data.patient_id, data.facility_id, data.question_id, data.answer_option_id, id);
+      };
+  
+      responseModel.updateResponse(999, { patient_id: 'new', facility_id: 2, question_id: 12, answer_option_id: 7 });
+      assert.strictEqual(fakeDB.responses.length, originalCount);
     });
   });
 });

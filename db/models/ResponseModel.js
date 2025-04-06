@@ -337,6 +337,33 @@ class ResponseModel{
         return this.db.prepare(query).get(facility_id);
     }
     
+    getFacilityResponsesById(facility_id) {
+        const query = `
+            SELECT 
+            Facility.facility_id,
+            Facility.name AS facility_name,
+            Question.question_id,
+            Question.question_text,
+            Response.answer_option_id,
+            AnswerOption.answer_text
+        FROM 
+            Facility
+        LEFT JOIN 
+            Response ON Facility.facility_id = Response.facility_id
+        LEFT JOIN 
+            Question ON Response.question_id = Question.question_id
+        LEFT JOIN 
+            AnswerOption ON Response.answer_option_id = AnswerOption.id
+            AND Response.question_id = AnswerOption.question_id
+        WHERE 
+            Facility.facility_id = ?
+        ORDER BY 
+            Question.question_id, AnswerOption.answer_value;
+        `;
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+        return results;
+    }
         
     
 

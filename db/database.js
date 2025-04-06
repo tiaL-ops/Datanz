@@ -1,8 +1,10 @@
+const path = require("path");
 const Database = require("better-sqlite3");
 
 // Function to create and return a database connection
 function connectToDatabase() {
-  const db = new Database("./db.sqlite");
+  const dbPath = path.resolve(__dirname, "db.sqlite");
+  const db = new Database(dbPath);
 
   // Enable foreign keys
   db.exec("PRAGMA foreign_keys = ON");
