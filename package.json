@@ -4,7 +4,8 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "test": "mocha db/test"
+    "test": "mocha db/test",
+    "coverage": "nyc mocha db/test"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "expres": "^0.0.5",
     "express": "^4.21.2",
     "mocha": "^11.1.0"
+  },
+  "devDependencies": {
+    "nyc": "^17.1.0"
   }
 }
