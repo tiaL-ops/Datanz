@@ -1,74 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth Page</title>
-    <link rel="stylesheet" href="/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilities</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+    <% if (gov) { %>
+      <h1>Welcome to the Facilities Page, government official</h1>
+    <% } else { %>
+      <h1>Welcome to the Facilities Page</h1>
+    <% } %>
 
-    
-    <% if (!id) { %>
-        <% if (gov) { %>
-            <h1>Welcome to the Facilities Page, government official</h1>
-        <% } else { %>
-            <h1>Welcome to the Facilities Page</h1>
-        <% } %>
-        <p>Here, you will be able to view data about facilities</p>
-        <h1>Facilities</h1>
-        <ul>
-            <% facilities.forEach(facility => { %>
-                <li>
-                    <% if (!gov){ %>
-                        <a href="/facilities/<%= facility.facility_id %>">
-                            (ID: <%= facility.facility_id %>) <%= facility.name %>
-                        </a> <%} else { %>
-                            <a href="/government/facilities/<%= facility.facility_id %>">
-                                (ID: <%= facility.facility_id %>) <%= facility.name %>
-                            </a> <% } %>
-                    </a>                
-                </li>
-            <% }); %>
-        </ul>
-        <% } else { %>
-            <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
-            <% if (!groupedResponses || Object.keys(groupedResponses).length === 0) { %>
-                <h2>No responses found for this facility.</h2>
-            <% } else { %>
-                <h1>Responses for Facility: <%= facility.name %> (ID: <%= id %>)</h1>
-                <ul>
-                    <% Object.keys(groupedResponses).forEach(questionId => { %>
-                        <li>
-                            <strong>Question:</strong> <%= groupedResponses[questionId].question_text %><br>
-                            <strong>Answers:</strong>
-                            <ul>
-                                <% groupedResponses[questionId].answers.forEach(answer => { %>
-                                    <li><%= answer %></li>
-                                <% }); %>
-                            </ul>
-                        </li>
-                    <% }); %> 
-                </ul>
-            <% } %> 
-            <% if (gov) { %>
-                <h1>Contact Information for Head Doctors</h1>
-                <h2> Facility head contact : <%= head0_name %> </h2> 
-                <a href="/government/facilities">Back to Facilities</a>
-            <% } else { %> 
-                <a href="/facilities">Back to Facilities</a>
-            <%} %>
-        <% } %> 
-       
-    
-        
-    </div>
-    <script>
-        document.getElementById("filter-toggle").addEventListener("click", () => {
-            document.getElementById("filter-panel").classList.toggle("hidden");
-        });
-    </script>
+    <div id="filter-panel" class="hidden">
+        <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET">
+          <h3>Find a Facility That...</h3>
+      
+          <label>
+            What is the maximum time you will wait? :  
+            <input type="number" name="wait_time" placeholder="e.g. 30" />
+          </label><br>
+      
+          <label>
+            What the minimum average patient satisfaction (1–5 stars):  
+            <input type="number" name="satisfaction" min="1" max="5" />
+          </label><br>
+      
+          <label>How important is confidentiality?
+<select name="confidentiality">
+  <option value="">Not important</option>
+  <option value="somewhat">A little important</option>
+  <option value="very">Very important</option>
+</select>
+</label><br>
+      
+          <label>
+            How important is it for you to be asked permission before test:
+            <select name="permission_before_exam">
+                <option value="">Not important</option>
+                <option value="somewhat">A little important</option>
+                <option value="very">Very important</option>
+            </select>
+          </label><br>
+      
+          <label>
+            How important is it for you to receive all the test:
+            <select name="received_all_tests">
+                <option value="">Not important</option>
+                <option value="somewhat">A little important</option>
+                <option value="very">Very important</option>
+            </select>
+          </label><br>
+      
+          <label>
+            How important is it for you to receive all medecine:
+            <select name="received_all_meds">
+                <option value="">Not important</option>
+                <option value="somewhat">A little important</option>
+                <option value="very">Very important</option>
+            </select>
+          </label><br>
+      
+          <label>
+            Accepts payment via:
+            <select name="service_payment_mode">
+              <option value="">Any</option>
+              <option value="Free">Free</option>
+              <option value="Cash">Cash</option>
+              <option value="Insurance">Insurance</option>
+            </select>
+          </label><br>
+      
+      
+          <button type="submit">Show Matching Facilities</button>
+        </form>
+      </div>
+      
+      
+    <h2>Facilities</h2>
+    <ul>
+      <% facilities.forEach(facility => { %>
+        <li>
+          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>">
+            (ID: <%= facility.facility_id %>) <%= facility.name %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("filter-toggle");
+    const panel = document.getElementById("filter-panel");
+    if (toggle && panel) {
+      toggle.addEventListener("click", () => {
+        panel.classList.toggle("hidden");
+      });
+    }
+  </script>
 </body>
 </html>

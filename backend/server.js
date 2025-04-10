@@ -30,12 +30,14 @@ const startRoutes = require("./routes/main");
 const authRoutes = require("./routes/auth");
 const facilitiesRoutes = require("./routes/facilities");
 const governmentRoutes = require("./routes/government");
+const filtersRoutes = require("./routes/filters");
 
 // Use routes
 app.use("/", startRoutes);
 app.use("/auth", authRoutes);
 app.use("/facilities", facilitiesRoutes);
 app.use("/government", governmentRoutes);
+app.use("/filters", filtersRoutes);
 
 // Route doesn't exist
 app.use((req, res, next) => {

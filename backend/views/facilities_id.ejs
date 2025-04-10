@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facility Details</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Facilities Page for Facility with ID <%= id %></h1>
+
+    <h2>Facility Information:</h2>
+    <ul>
+      <li><strong>Facility Code:</strong> <%= facilityDetails.facility_code %></li>
+      <li><strong>Name:</strong> <%= facilityDetails.name %></li>
+      <li><strong>Location:</strong> <%= facilityDetails.location %></li>
+      <li><strong>Facility Type:</strong> <%= facilityDetails.facility_type %></li>
+      <li><strong>Head Officer Name:</strong> <%= facilityDetails.headO_name %></li>
+      <li><strong>Head Officer Contact:</strong> <%= facilityDetails.headO_contact %></li>
+      <li><strong>Date Opened:</strong> <%= facilityDetails.date_opened %></li>
+    </ul>
+
+    <% if (gov) { %>
+      <h3>Contact Info for Head Doctor</h3>
+      <p><%= facilityDetails.headO_name %>: <%= facilityDetails.headO_contact %></p>
+      <a href="/government/facilities">Back to Facilities</a>
+    <% } else { %>
+      <a href="/facilities">Back to Facilities</a>
+    <% } %>
+  </div>
+</body>
+</html>
