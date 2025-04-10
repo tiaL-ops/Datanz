@@ -14,8 +14,68 @@
       <h1>Welcome to the Facilities Page</h1>
     <% } %>
 
-    <p>Here, you will be able to view data about facilities</p>
-
+    <div id="filter-panel" class="hidden">
+        <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET">
+          <h3>Find a Facility That...</h3>
+      
+          <label>
+            Has a maximum waiting minutes of :  
+            <input type="number" name="wait_time" placeholder="e.g. 30" />
+          </label><br>
+      
+          <label>
+            Has high patient satisfaction (1–5 stars):  
+            <input type="number" name="satisfaction" min="1" max="5" />
+          </label><br>
+      
+          <label>
+            Respects your privacy and keeps your info confidential:
+            <select name="confidentiality">
+              <option value="">Doesn’t matter</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label><br>
+      
+          <label>
+            Always asks for permission before exams:
+            <select name="permission_before_exam">
+              <option value="">Doesn’t matter</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label><br>
+      
+          <label>
+            Gives you all the necessary tests:
+            <select name="received_all_tests">
+              <option value="">Doesn’t matter</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label><br>
+      
+          <label>
+            Provides all prescribed medications:
+            <select name="received_all_meds">
+              <option value="">Doesn’t matter</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label><br>
+      
+          <label>
+            Accepts payment via:
+            <select name="service_payment_mode">
+              <option value="">Any</option>
+              <option value="Free">Free</option>
+              <option value="Cash">Cash</option>
+              <option value="Insurance">Insurance</option>
+            </select>
+          </label><br>
+      
+      
+          <button type="submit">Show Matching Facilities</button>
+        </form>
+      </div>
+      
+      
     <h2>Facilities</h2>
     <ul>
       <% facilities.forEach(facility => { %>
@@ -27,5 +87,15 @@
       <% }); %>
     </ul>
   </div>
+
+  <script>
+    const toggle = document.getElementById("filter-toggle");
+    const panel = document.getElementById("filter-panel");
+    if (toggle && panel) {
+      toggle.addEventListener("click", () => {
+        panel.classList.toggle("hidden");
+      });
+    }
+  </script>
 </body>
 </html>
