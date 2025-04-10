@@ -13,68 +13,43 @@ Average Wait Time Stats
 
 Satisfaction Distribution
 -------------------------
-  satisfaction: Bad service
-  count: 3
-
-  satisfaction: Good Service
-  count: 1
-
-  satisfaction: Normal
-  count: 1
-
+  average: 2.00
+  total: 5
+  breakdown: [object Object],[object Object],[object Object]
 
 
 Confidentiality Stats
 ---------------------
-  confidentiality: No
-  count: 3
-
-  confidentiality: Yes
-  count: 2
-
+  average_percent_yes: 40.00
+  total: 5
+  breakdown: [object Object],[object Object]
 
 
 Permission Before Exam Stats
 ----------------------------
-  permission_before_exam: No
-  count: 3
-
-  permission_before_exam: Yes
-  count: 2
-
+  average_percent_yes: 40.00
+  total: 5
+  breakdown: [object Object],[object Object]
 
 
 Test Completion Stats
 ---------------------
-  test_completion_stats: None
-  count: 2
-
-  test_completion_stats: Some
-  count: 2
-
-  test_completion_stats: Yes
-  count: 1
-
+  average_percent_yes: 20.00
+  total: 5
+  breakdown: [object Object],[object Object],[object Object]
 
 
 Medication Completion Stats
 ---------------------------
-  received_all_meds: Some
-  count: 3
-
-  received_all_meds: None
-  count: 2
-
+  average_percent_yes: 0.00
+  total: 5
+  breakdown: [object Object],[object Object]
 
 
 Service Payment Modes
 ---------------------
-  service_payment_mode: Free
-  count: 4
-
-  service_payment_mode: Insurance
-  count: 1
-
+  most_common: Free
+  breakdown: [object Object],[object Object]
 
 
 Problem Area Frequency

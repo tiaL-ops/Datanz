@@ -55,22 +55,73 @@ function applyFilters(facility, filters) {
       }
   
     // 2. Confidentiality
+    /*
     if (filters.confidentiality === 'yes') {
-      const yes = facility.confidentiality.find(e => e.confidentiality === "Yes")?.count || 0;
-      const no = facility.confidentiality.find(e => e.confidentiality === "No")?.count || 0;
-      if (yes <= no) return false;
-    }
+        const percent = facility.confidentiality.average_percent_yes;
+        if (!percent || percent < 50) return false;
+      }
+        */
+      if (filters.confidentiality) {
+        const percent = facility.confidentiality.average_percent_yes || 0;
+        console.log("confi",percent);
+        if (filters.confidentiality === 'somewhat') {
+          if (percent < 50) return false;
+        }
+      
+        if (filters.confidentiality === 'very') {
+          if (percent < 70) return false;
+        }
+      
+        // if it's "not", we skip filtering
+        return true;
+      }
+    
   
     // 3. Permission before exam
-    if (filters.permission_before_exam === 'yes') {
-      const yes = facility.permission_before_exam.find(e => e.permission_before_exam === "Yes")?.count || 0;
-      if (yes === 0) return false;
+    if (filters.permission_before_exam) {
+        const percent = facility.permission_before_exam.average_percent_yes || 0;
+        console.log("per",percent);
+        if (filters.confidentiality === 'somewhat') {
+          if (percent < 50) return false;
+        }
+      
+        if (filters.confidentiality === 'very') {
+          if (percent < 70) return false;
+        }
+      
+        // if it's "not", we skip filtering
+        return true;
     }
   
-    // 4. Gave all meds
-    if (filters.received_all_meds === 'yes') {
-      const full = facility.medication_completion.find(e => e.received_all_meds === "Yes")?.count || 0;
-      if (full === 0) return false;
+    // 4. Gave all tes eds test_completion
+    if (filters.received_all_tests) {
+        const percent = facility.test_completion.average_percent_yes || 0;
+        console.log("periii",percent);
+        if (filters.confidentiality === 'somewhat') {
+          if (percent < 50) return false;
+        }
+      
+        if (filters.confidentiality === 'very') {
+          if (percent < 70) return false;
+        }
+      
+        // if it's "not", we skip filtering
+        return true;
+    }
+     // 4. Gave all meds test_completion
+     if (filters.received_all_meds) {
+        const percent = facility.medication_completion.average_percent_yes || 0;
+        console.log("poi",percent);
+        if (filters.confidentiality === 'somewhat') {
+          if (percent < 50) return false;
+        }
+      
+        if (filters.confidentiality === 'very') {
+          if (percent < 70) return false;
+        }
+      
+        // if it's "not", we skip filtering
+        return true;
     }
   
     // 5. Payment method

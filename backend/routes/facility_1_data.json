@@ -18,74 +18,97 @@
       }
     ]
   },
-  "satisfaction": [
-    {
-      "satisfaction": "Bad service",
-      "count": 3
-    },
-    {
-      "satisfaction": "Good Service",
-      "count": 1
-    },
-    {
-      "satisfaction": "Normal",
-      "count": 1
-    }
-  ],
-  "confidentiality": [
-    {
-      "confidentiality": "No",
-      "count": 3
-    },
-    {
-      "confidentiality": "Yes",
-      "count": 2
-    }
-  ],
-  "permission_before_exam": [
-    {
-      "permission_before_exam": "No",
-      "count": 3
-    },
-    {
-      "permission_before_exam": "Yes",
-      "count": 2
-    }
-  ],
-  "test_completion": [
-    {
-      "test_completion_stats": "None",
-      "count": 2
-    },
-    {
-      "test_completion_stats": "Some",
-      "count": 2
-    },
-    {
-      "test_completion_stats": "Yes",
-      "count": 1
-    }
-  ],
-  "medication_completion": [
-    {
-      "received_all_meds": "Some",
-      "count": 3
-    },
-    {
-      "received_all_meds": "None",
-      "count": 2
-    }
-  ],
-  "payment_modes": [
-    {
-      "service_payment_mode": "Free",
-      "count": 4
-    },
-    {
-      "service_payment_mode": "Insurance",
-      "count": 1
-    }
-  ],
+  "satisfaction": {
+    "average": "2.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "satisfaction": "Bad service",
+        "count": 3
+      },
+      {
+        "satisfaction": "Good Service",
+        "count": 1
+      },
+      {
+        "satisfaction": "Normal",
+        "count": 1
+      }
+    ]
+  },
+  "confidentiality": {
+    "average_percent_yes": "40.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "confidentiality": "No",
+        "count": 3
+      },
+      {
+        "confidentiality": "Yes",
+        "count": 2
+      }
+    ]
+  },
+  "permission_before_exam": {
+    "average_percent_yes": "40.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "permission_before_exam": "No",
+        "count": 3
+      },
+      {
+        "permission_before_exam": "Yes",
+        "count": 2
+      }
+    ]
+  },
+  "test_completion": {
+    "average_percent_yes": "20.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "test_completion_stats": "None",
+        "count": 2
+      },
+      {
+        "test_completion_stats": "Some",
+        "count": 2
+      },
+      {
+        "test_completion_stats": "Yes",
+        "count": 1
+      }
+    ]
+  },
+  "medication_completion": {
+    "average_percent_yes": "0.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "received_all_meds": "Some",
+        "count": 3
+      },
+      {
+        "received_all_meds": "None",
+        "count": 2
+      }
+    ]
+  },
+  "payment_modes": {
+    "most_common": "Free",
+    "breakdown": [
+      {
+        "service_payment_mode": "Free",
+        "count": 4
+      },
+      {
+        "service_payment_mode": "Insurance",
+        "count": 1
+      }
+    ]
+  },
   "problem_areas": [
     {
       "problem_area": "Doctor's room",
