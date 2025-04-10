@@ -22,11 +22,12 @@ router.get('/:id', async (req, res) => {
         const id = req.params.id; // Get the facility ID from the URL
         const facilityInstance = new facilityModel(db); // Create an instance of the model
         const responseInstance = new responseModel(db); // Create an instance of the model
-        const facilityResponses = responseInstance.getFacilityResponsesById(id); // Fetch responses for the facility
-        console.log(facilityResponses);
+        const facilityDetails = facilityInstance.getFacilityById(id); // Fetch responses for the facility
+        console.log(facilityDetails);
         const gov = false;
         const head0_name = null;
         // Group responses by question_id
+        /*
         const groupedResponses = {};
         facilityResponses.forEach(response => {
             if (!groupedResponses[response.question_id]) {
@@ -37,9 +38,9 @@ router.get('/:id', async (req, res) => {
             }
             groupedResponses[response.question_id].answers.push(response.answer_text);
         });
-
+*/
         const facility = facilityInstance.getFacilityById(id); 
-        res.render('facilities', {id, gov, facilityResponses,facility, head0_name, groupedResponses }); // Pass grouped data to the template
+        res.render('facilities', {id, gov, facilityDetails,facility, head0_name}); // Pass grouped data to the template
     } catch (error) {
         console.error('Error fetching facility responses:', error);
         res.status(500).send('Internal Server Error');
