@@ -1,68 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth Page</title>
-    <link rel="stylesheet" href="/style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilities</title>
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+    <% if (gov) { %>
+      <h1>Welcome to the Facilities Page, government official</h1>
+    <% } else { %>
+      <h1>Welcome to the Facilities Page</h1>
+    <% } %>
 
-    
-    <% if (!id) { %>
-        <% if (gov) { %>
-            <h1>Welcome to the Facilities Page, government official</h1>
-        <% } else { %>
-            <h1>Welcome to the Facilities Page</h1>
-        <% } %>
-        <p>Here, you will be able to view data about facilities</p>
-        <h1>Facilities</h1>
-        <ul>
-            <% facilities.forEach(facility => { %>
-                <li>
-                    <% if (!gov){ %>
-                        <a href="/facilities/<%= facility.facility_id %>">
-                            (ID: <%= facility.facility_id %>) <%= facility.name %>
-                        </a> <%} else { %>
-                            <a href="/government/facilities/<%= facility.facility_id %>">
-                                (ID: <%= facility.facility_id %>) <%= facility.name %>
-                            </a> <% } %>
-                    </a>                
-                </li>
-            <% }); %>
-        </ul>
-        <% } else { %>
-            <h1>Welcome to the Facilities Page for Facility with id  <%= id %> </h1>
-            
-            <h2>Facility Information:</h2>
+    <p>Here, you will be able to view data about facilities</p>
+
+    <h2>Facilities</h2>
     <ul>
-      <li><strong>Facility Code:</strong> <%= facilityDetails.facility_code %></li>
-      <li><strong>Name:</strong> <%= facilityDetails.name %></li>
-      <li><strong>Location:</strong> <%= facilityDetails.location %></li>
-      <li><strong>Facility Type:</strong> <%= facilityDetails.facility_type %></li>
-      <li><strong>Head Officer Name:</strong> <%= facilityDetails.headO_name %></li>
-      <li><strong>Head Officer Contact:</strong> <%= facilityDetails.headO_contact %></li>
-      <li><strong>Date Opened:</strong> <%= facilityDetails.date_opened %></li>
+      <% facilities.forEach(facility => { %>
+        <li>
+          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>">
+            (ID: <%= facility.facility_id %>) <%= facility.name %>
+          </a>
+        </li>
+      <% }); %>
     </ul>
-
-            <% if (gov) { %>
-                <h1>Contact Information for Head Doctors</h1>
-                <h2> Facility head contact : <%= head0_name %> </h2> 
-                <a href="/government/facilities">Back to Facilities</a>
-            <% } else { %> 
-                <a href="/facilities">Back to Facilities</a>
-            <%} %>
-        <% } %> 
-       
-    
-        
-    </div>
-    <script>
-        document.getElementById("filter-toggle").addEventListener("click", () => {
-            document.getElementById("filter-panel").classList.toggle("hidden");
-        });
-    </script>
+  </div>
 </body>
 </html>
