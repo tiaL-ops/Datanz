@@ -421,6 +421,13 @@ class ResponseModel{
     }
 
     getLatestResponses(facility_id, fromDate, limit) {
+        // Validate and coerce input types
+        facility_id = Number(facility_id);
+        limit = Number(limit) || 10;
+    
+        if (!fromDate) fromDate = '1970-01-01';
+        else fromDate = new Date(fromDate).toISOString().split('T')[0];
+    
         const query = `
             SELECT r.response_id, r.question_id, ao.answer_text, r.submitted_at
             FROM Response r
@@ -430,7 +437,8 @@ class ResponseModel{
             ORDER BY r.submitted_at DESC
             LIMIT ?
         `;
-        return this.db.prepare(query).all(facility_id, fromDate, limit); 
+    
+        return this.db.prepare(query).all(facility_id, fromDate, limit);
     }
     
     
@@ -474,12 +482,10 @@ class ResponseModel{
         const results = stmt.all(facility_id);
         return results;
     }
-        
+   
     
 
     
-
-
 
 
     

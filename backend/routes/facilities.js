@@ -46,19 +46,75 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:id', async (req, res) => {
-    try {
-        const id = req.params.id; // Get the facility ID from the URL
-        const facilityInstance = new facilityModel(db); // Create an instance of the model
-      
-        const facilityDetails = facilityInstance.getFacilityById(id); // Fetch responses for the facility
-        const gov = false;
-        const head0_name = null;
-        const facility = facilityInstance.getFacilityById(id); 
-        res.render('facilities_id', {id, gov, facilityDetails,facility, head0_name}); // Pass grouped data to the template
-    } catch (error) {
-        console.error('Error fetching facility responses:', error);
-        res.status(500).send('Internal Server Error');
-    }
+  try {
+    const id = req.params.id;
+    const facilityInstance = new facilityModel(db);
+    const responseModel = new ResponseModel(db);
+    const gov = false;
+    const head0_name = null;
+
+    
+    const facilityDetails = await facilityInstance.getFacilityById(id);
+    const facility = await facilityInstance.getFacilityById(id);
+
+    // Generate report data 
+    const waitTime = await responseModel.getWaitingTimeStats(id);
+    const satisfaction = await responseModel.getSatisfactionDistribution(id);
+    const confidentiality = await responseModel.getConfidentialityStats(id);
+    const permission = await responseModel.getPermissionBeforeExamStats(id);
+    const testCompletion = await responseModel.getTestCompletionStats(id);
+    const medCompletion = await responseModel.getMedicationCompletionStats(id);
+    const paymentModes = await responseModel.getServicePaymentModes(id);
+    const problemAreas = await responseModel.getProblemAreaFrequency(id);
+    const positiveAreas = await responseModel.getPositiveAreaFrequency(id);
+    const recentResponses = await responseModel.getLatestResponses(id); 
+    const summaryStats = await responseModel.getSummaryStats(id); 
+
+    const report = responseModel.generateFacilityReport({
+      id,
+      date: new Date().toLocaleDateString(),
+      waitTime,
+      satisfaction,
+      confidentiality,
+      permission,
+      testCompletion,
+      medCompletion,
+      paymentModes,
+      problemAreas,
+      positiveAreas,
+      recentResponses,
+      summaryStats,
+    });
+
+    
+    res.render('facilities_id', {
+      id,
+      gov,
+      facilityDetails,
+      facility,
+      head0_name,
+      reportData: {
+        id,
+        date: new Date().toLocaleDateString(),
+        waitTime,
+        satisfaction,
+        confidentiality,
+        permission,
+        testCompletion,
+        medCompletion,
+        paymentModes,
+        problemAreas,
+        positiveAreas,
+        recentResponses,
+        summaryStats
+      }
+    });
+    
+
+  } catch (error) {
+    console.error('Error fetching facility responses:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 function applyFilters(facility, filters) {
