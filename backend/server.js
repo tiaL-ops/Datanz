@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const session = require('express-session');
 const app = express();
 const PORT = 3000;
 
@@ -11,6 +12,11 @@ const db = connectToDatabase();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(session({
+    secret: 'super-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 // Set the view engine to EJS
@@ -24,12 +30,14 @@ const startRoutes = require("./routes/main");
 const authRoutes = require("./routes/auth");
 const facilitiesRoutes = require("./routes/facilities");
 const governmentRoutes = require("./routes/government");
+const filtersRoutes = require("./routes/filters");
 
 // Use routes
 app.use("/", startRoutes);
 app.use("/auth", authRoutes);
 app.use("/facilities", facilitiesRoutes);
 app.use("/government", governmentRoutes);
+app.use("/filters", filtersRoutes);
 
 // Route doesn't exist
 app.use((req, res, next) => {
