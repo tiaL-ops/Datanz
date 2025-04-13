@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facility Details</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/facilities_id.css">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Facilities Page for Facility with ID <%= id %></h1>
+
+    <h2>Facility Information:</h2>
+    <ul>
+      <li><strong>Facility Code:</strong> <%= facilityDetails.facility_code %></li>
+      <li><strong>Name:</strong> <%= facilityDetails.name %></li>
+      <li><strong>Location:</strong> <%= facilityDetails.location %></li>
+      <li><strong>Facility Type:</strong> <%= facilityDetails.facility_type %></li>
+      <li><strong>Head Officer Name:</strong> <%= facilityDetails.headO_name %></li>
+      <li><strong>Head Officer Contact:</strong> <%= facilityDetails.headO_contact %></li>
+      <li><strong>Date Opened:</strong> <%= facilityDetails.date_opened %></li>
+    </ul>
+    <h2>Facility Data Report</h2>
+
+<p><strong>Facility ID:</strong> <%= reportData.id %></p>
+<p><strong>Date:</strong> <%= reportData.date %></p>
+
+<h3>Average Wait Time</h3>
+<p>Average: <%= reportData.waitTime.average_wait_time_minutes %> minutes</p>
+
+<h3>Satisfaction</h3>
+<p>Average: <%= reportData.satisfaction.average %></p>
+<p>Total Responses: <%= reportData.satisfaction.total %></p>
+
+<h3>Confidentiality</h3>
+<p>Yes (%): <%= reportData.confidentiality.average_percent_yes %></p>
+
+<h3>Permission Before Exam</h3>
+<p>Yes (%): <%= reportData.permission.average_percent_yes %></p>
+
+<h3>Test Completion</h3>
+<p>Yes (%): <%= reportData.testCompletion.average_percent_yes %></p>
+
+<h3>Medication Completion</h3>
+<p>Yes (%): <%= reportData.medCompletion.average_percent_yes %></p>
+
+<h3>Payment Modes</h3>
+<p>Most Common: <%= reportData.paymentModes.most_common %></p>
+<ul>
+  <% reportData.paymentModes.breakdown.forEach(item => { %>
+    <li><%= item.service_payment_mode %> - <%= item.count %></li>
+  <% }) %>
+</ul>
+
+<h3>Problem Areas</h3>
+<ul>
+  <% reportData.problemAreas.forEach(area => { %>
+    <li><%= area.problem_area %>: <%= area.count %></li>
+  <% }) %>
+</ul>
+
+<h3>Positive Areas</h3>
+<ul>
+  <% reportData.positiveAreas.forEach(area => { %>
+    <li><%= area.positive_area %>: <%= area.count %></li>
+  <% }) %>
+</ul>
+
+<h3>Summary Stats</h3>
+<ul>
+  <li>Questions Answered: <%= reportData.summaryStats.questions_answered %></li>
+  <li>Unique Answers Given: <%= reportData.summaryStats.unique_answers %></li>
+  <li>Unique Patients: <%= reportData.summaryStats.unique_patients %></li>
+  <li>Total Responses: <%= reportData.summaryStats.total_responses %></li>
+</ul>
+
+
+
+
+
+    <% if (gov) { %>
+      <h3>Contact Info for Head Doctor</h3>
+      <p><%= facilityDetails.headO_name %>: <%= facilityDetails.headO_contact %></p>
+      <a href="/government/facilities">Back to Facilities</a>
+    <% } else { %>
+      <a href="/facilities">Back to Facilities</a>
+    <% } %>
+  </div>
+</body>
+</html>

@@ -483,4 +483,9 @@ FAC123,Spanish,30`;
       assert.strictEqual(fakeDB.responses.length, originalCount);
     });
   });
+<<<<<<< HEAD
 });
+=======
+});
+
+>>>>>>> 11cdc432739902d6f0b907eac5c09ad2ee70169b

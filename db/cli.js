@@ -78,3 +78,17 @@ fs.writeFileSync('datareport.txt', reportLines.join('\n'), 'utf-8');
 
 
 console.log(responseModel.getFacilityResponsesById(1));
+const facilityStats = {
+    facility_id: 1,
+    wait_time: responseModel.getWaitingTimeStats(1),
+    satisfaction: responseModel.getSatisfactionDistribution(1),
+    confidentiality: responseModel.getConfidentialityStats(1),
+    permission_before_exam: responseModel.getPermissionBeforeExamStats(1),
+    test_completion: responseModel.getTestCompletionStats(1),
+    medication_completion: responseModel.getMedicationCompletionStats(1),
+    payment_modes: responseModel.getServicePaymentModes(1),
+    problem_areas: responseModel.getProblemAreaFrequency(1),
+    positive_areas: responseModel.getPositiveAreaFrequency(1),
+  };
+  
+  fs.writeFileSync('facility_1_data.json', JSON.stringify(facilityStats, null, 2), 'utf-8');

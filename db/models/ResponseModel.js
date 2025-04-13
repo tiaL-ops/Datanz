@@ -195,8 +195,37 @@ class ResponseModel{
         `;
         const stmt = this.db.prepare(query);
         const results = stmt.all(facility_id);
-        return results;
+    
+        // New score mapping
+        const scores = {
+            'Bad service': 1,
+            'Not satisfied': 2,
+            'Normal': 3,
+            'Good Service': 4,
+            'Very good': 5
+        };
+    
+        let totalScore = 0;
+        let totalCount = 0;
+    
+        results.forEach(entry => {
+            const score = scores[entry.satisfaction];
+            if (score !== undefined) {
+                totalScore += score * entry.count;
+                totalCount += entry.count;
+            }
+        });
+    
+        const average = totalCount ? (totalScore / totalCount).toFixed(2) : null;
+    
+        return {
+            average: average,
+            total: totalCount,
+            breakdown: results
+        };
     }
+    
+    
     
     
     getConfidentialityStats(facility_id) {
@@ -210,7 +239,25 @@ class ResponseModel{
         `;
         const stmt = this.db.prepare(query);
         const results = stmt.all(facility_id);
-        return results;
+    
+        // Calculate percentage of "Yes"
+        let yesCount = 0;
+        let totalCount = 0;
+    
+        results.forEach(entry => {
+            if (entry.confidentiality === 'Yes') {
+                yesCount += entry.count;
+            }
+            totalCount += entry.count;
+        });
+    
+        const average = totalCount ? ((yesCount / totalCount) * 100).toFixed(2) : null;
+    
+        return {
+            average_percent_yes: average,   
+            total: totalCount,
+            breakdown: results
+        };
     }
     
     getPermissionBeforeExamStats(facility_id) {
@@ -224,22 +271,59 @@ class ResponseModel{
         `;
         const stmt = this.db.prepare(query);
         const results = stmt.all(facility_id);
-        return results;
+    
+        // Calculate % of "Yes"
+        let yesCount = 0;
+        let totalCount = 0;
+    
+        results.forEach(entry => {
+            if (entry.permission_before_exam === 'Yes') {
+                yesCount += entry.count;
+            }
+            totalCount += entry.count;
+        });
+    
+        const average = totalCount ? ((yesCount / totalCount) * 100).toFixed(2) : null;
+    
+        return {
+            average_percent_yes: average,
+            total: totalCount,
+            breakdown: results
+        };
     }
-    getTestCompletionStats(facility_id){
+    
+    getTestCompletionStats(facility_id) {
         const query = `
-        SELECT ao.answer_text AS test_completion_stats, COUNT(*) AS count
-        FROM Response r
-        JOIN AnswerOption ao ON r.answer_option_id = ao.id
-        WHERE r.facility_id = ? AND r.question_id = 12
-        GROUP BY r.answer_option_id
-        ORDER BY count DESC
-    `;
-    const stmt = this.db.prepare(query);
-    const results = stmt.all(facility_id);
-    return results;
-        
+            SELECT ao.answer_text AS test_completion_stats, COUNT(*) AS count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id = 12
+            GROUP BY r.answer_option_id
+            ORDER BY count DESC
+        `;
+        const stmt = this.db.prepare(query);
+        const results = stmt.all(facility_id);
+    
+        // Calculate % of "Yes"
+        let yesCount = 0;
+        let totalCount = 0;
+    
+        results.forEach(entry => {
+            if (entry.test_completion_stats === 'Yes') {
+                yesCount += entry.count;
+            }
+            totalCount += entry.count;
+        });
+    
+        const average = totalCount ? ((yesCount / totalCount) * 100).toFixed(2) : null;
+    
+        return {
+            average_percent_yes: average,
+            total: totalCount,
+            breakdown: results
+        };
     }
+    
 
     getMedicationCompletionStats(facility_id) {
         const query = `
@@ -250,7 +334,25 @@ class ResponseModel{
             GROUP BY r.answer_option_id
             ORDER BY count DESC
         `;
-        return this.db.prepare(query).all(facility_id);
+        const results = this.db.prepare(query).all(facility_id);
+    
+        let yesCount = 0;
+        let totalCount = 0;
+    
+        results.forEach(entry => {
+            if (entry.received_all_meds === 'Yes') {
+                yesCount += entry.count;
+            }
+            totalCount += entry.count;
+        });
+    
+        const average = totalCount ? ((yesCount / totalCount) * 100).toFixed(2) : null;
+    
+        return {
+            average_percent_yes: average,
+            total: totalCount,
+            breakdown: results
+        };
     }
     
     getServicePaymentModes(facility_id) {
@@ -262,8 +364,16 @@ class ResponseModel{
             GROUP BY r.answer_option_id
             ORDER BY count DESC
         `;
-        return this.db.prepare(query).all(facility_id);
+        const results = this.db.prepare(query).all(facility_id);
+    
+        const mostCommon = results[0]?.service_payment_mode || null;
+    
+        return {
+            most_common: mostCommon,
+            breakdown: results
+        };
     }
+    
     
     getProblemAreaFrequency(facility_id) {
         const query = `
@@ -311,6 +421,13 @@ class ResponseModel{
     }
 
     getLatestResponses(facility_id, fromDate, limit) {
+        // Validate and coerce input types
+        facility_id = Number(facility_id);
+        limit = Number(limit) || 10;
+    
+        if (!fromDate) fromDate = '1970-01-01';
+        else fromDate = new Date(fromDate).toISOString().split('T')[0];
+    
         const query = `
             SELECT r.response_id, r.question_id, ao.answer_text, r.submitted_at
             FROM Response r
@@ -320,7 +437,8 @@ class ResponseModel{
             ORDER BY r.submitted_at DESC
             LIMIT ?
         `;
-        return this.db.prepare(query).all(facility_id, fromDate, limit); 
+    
+        return this.db.prepare(query).all(facility_id, fromDate, limit);
     }
     
     
@@ -364,12 +482,10 @@ class ResponseModel{
         const results = stmt.all(facility_id);
         return results;
     }
-        
+   
     
 
     
-
-
 
 
     
