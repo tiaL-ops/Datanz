@@ -69,7 +69,7 @@ router.get('/:id', async (req, res) => {
     const positiveAreas = await responseModel.getPositiveAreaFrequency(id);
     const recentResponses = await responseModel.getLatestResponses(id); 
     const summaryStats = await responseModel.getSummaryStats(id); 
-
+/*
     const report = responseModel.generateFacilityReport({
       id,
       date: new Date().toLocaleDateString(),
@@ -85,7 +85,7 @@ router.get('/:id', async (req, res) => {
       recentResponses,
       summaryStats,
     });
-
+*/
     
     res.render('facilities_id', {
       id,
