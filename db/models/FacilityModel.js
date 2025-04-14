@@ -129,6 +129,13 @@ getFacilityHeadContact(id){
 
 
 }
+getAllFacilities(){
+    const query= `SELECT * FROM Facility `
+    const stmt= this.db.prepare(query);
+    const result = stmt.all(); 
+       return result;
+
+}
 
 
 

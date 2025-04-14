@@ -1,0 +1,84 @@
+body {
+    font-family: 'Georgia', serif;
+    color: #111;
+    background: #fff;
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  p {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  
+  .filter-container,
+  .facility-header {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: #f7f7f7;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .filter-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .filter-button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .facility-grid {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .facility-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .facility-card {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .facility-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .facility-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .facility-card p {
+    color: #666;
+  }
+  

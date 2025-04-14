@@ -7,20 +7,24 @@ const db = connectToDatabase();
 const fs = require('fs');
 
 router.get('/', async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 50;
   const filters = req.query;
   const gov = false;
+
   const responseModel = new ResponseModel(db);
 
   try {
     const facilityInstance = new facilityModel(db); 
-    const facilities = await facilityInstance.getAllFacilitiesByName(); 
+    const facilities = await facilityInstance.getAllFacilities();
 
-    // Build live stats for each facility
     const fullStats = facilities.map(facility => {
       const id = facility.facility_id;
       return {
         facility_id: id,
         name: facility.name,
+        location: facility.location,
+        type: facility.facility_type,
         wait_time: responseModel.getWaitingTimeStats(id),
         satisfaction: responseModel.getSatisfactionDistribution(id),
         confidentiality: responseModel.getConfidentialityStats(id),
@@ -33,10 +37,19 @@ router.get('/', async (req, res) => {
       };
     });
 
-    // Filter all facilities
     const matched = fullStats.filter(f => applyFilters(f, filters));
+    const totalCount = matched.length;
 
-    res.render('facilities', { id: null, gov, facilities: matched });
+    // Paginate: get only 50 for current page
+    const paginated = matched.slice((page - 1) * limit, page * limit);
+
+    res.render('facilities', {
+      id: null,
+      gov,
+      facilities: paginated,
+      page,
+      totalCount
+    });
 
   } catch (error) {
     console.error('Error fetching facilities:', error);
