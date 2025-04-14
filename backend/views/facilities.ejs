@@ -15,8 +15,11 @@
     <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
       <label class="filter-item">
         What is the maximum time you will wait?
-        <input type="range" name="wait_time" min="0" max="140" value="60" />
+        <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
+               oninput="document.getElementById('waitValue').innerText = this.value + ' minutes';" />
+        <span id="waitValue">60 minutes</span>
       </label>
+      
 
       <label class="filter-item">
         How important is patient satisfaction for you (1–5)?
@@ -80,6 +83,8 @@
       </p>
     </form>
   </section>
+
+
 
   <!-- Facility Grid Section -->
   <section class="facility-header">
