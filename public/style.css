@@ -1,88 +1,181 @@
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f8f9fa;
-        color: #212529;
-        margin: 0;
-        padding: 2rem;
-        line-height: 1.6;
-    }
-
-    h1, h2 {
-        color: #343a40;
-        margin-bottom: 0.5rem;
-    }
-
-    p {
-        margin-bottom: 1rem;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        margin-bottom: 0.75rem;
-        background: #fff;
-        border: 1px solid #dee2e6;
-        border-radius: 0.5rem;
-        padding: 1rem;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .back-link {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.5rem 1rem;
-        background-color: #007bff;
-        color: #fff;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-
-    .back-link:hover {
-        background-color: #0056b3;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    /* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #2f55d4;
-    color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.filter-button {
-    background-color: white;
-    color: #2f55d4;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+/* Body & Font Settings */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
 }
 
-.filter-button:hover {
-    background-color: #f0f4ff;
+/* 1. Top Navigation */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #666;
+}
+
+/* 2. Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+
+.hero h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-outline:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* 3. Our Team Section */
+.team-section {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+}
+
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-card {
+  width: 180px;
+  text-align: center;
+}
+
+.team-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #eee;
+}
+
+.team-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* 4. Our Mission Section */
+.mission-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: normal;
+}
+
+.mission-section p {
+  margin-bottom: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  .team-card {
+    width: 100%;
+    max-width: 250px;
+  }
+}

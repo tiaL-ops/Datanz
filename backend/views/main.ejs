@@ -1,17 +1,85 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name ="viewport" content = "width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="styles/main.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DATANZ - Healthcare Guide</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
 
-    </head>
-    <body>
-        <h1>Welcome to Our System</h1> <!--Open to name suggestions-->
-        <p>Please log in or sign up to continue</p>
-        
-        <a href = "/auth?type=login"><button>Log In</button></a>
-        <a href = "/auth?type=signup"><button>Sign Up</button></a>
-    </body>
+  <body>
+
+    <header class="top-nav">
+      <div class="logo">DATANZ</div>
+      <ul class="nav-links">
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="/auth?type=login">Login</a></li>
+      </ul>
+    </header>
+
+
+    <section class="hero">
+      <h1>WELCOME TO DATANZ</h1>
+      <h2>your guide to healthcare in Tanzania</h2>
+      <p>Login or create an account to view feedback on healthcare facilities.</p>
+      
+      <div class="hero-buttons">
+        <a href="/auth?type=login" class="btn">Log In</a>
+        <a href="/auth?type=signup" class="btn btn-outline">Sign Up</a>
+      </div>
+    </section>
+
+ 
+    <section id="team" class="team-section">
+      <h2>OUR TEAM</h2>
+      <div class="team-cards">
+      
+        <div class="team-card">
+          <img src="/assets/nora.jpeg" alt="Nora Shaipi" />
+          <h3>Nora Shaipi</h3>
+          <p>Front-End Engineer</p>
+        </div>
+
+     
+        <div class="team-card">
+          <img src="/assets/john.png" alt="John Liedtka" />
+          <h3>John Liedtka</h3>
+          <p>Front-End Engineer</p>
+        </div>
+
+       
+        <div class="team-card">
+          <img src="/assets/john.png" alt="Naomi Yilma" />
+          <h3>Naomi Yilma</h3>
+          <p>Back-End Engineer</p>
+        </div>
+
+   
+        <div class="team-card">
+          <img src="/assets/Landy.png" alt="Landy Rakotoarison" />
+          <h3>Landy Rakotoarison</h3>
+          <p>Full-Stack Engineer</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="mission" class="mission-section">
+      <h2>OUR MISSION</h2>
+      <p>
+        Our goal is to help citizens of Tanzania make informed, data-driven decisions on where
+        to receive the most high-quality healthcare and treatments.
+      </p>
+      <p>
+        Everyone has their personal preferences, so we provide a detailed way of filtering the 
+        facilities that match you the best.
+      </p>
+      <p>
+        And if you’re too indecisive, don’t worry. You can always just view 
+        the list of all available facilities.
+      </p>
+    </section>
+
+  </body>
 </html>
