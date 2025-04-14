@@ -1,0 +1,192 @@
+/* 1. Global Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+  
+  h1, h2, h3 {
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+  }
+  
+  /* 2. Filter Section */
+  .filter-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .filter-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Updated Filter Form Layout for Vertical (Line-by-line) Display */
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .filter-item {
+    width: 100%;
+    text-align: left;
+  }
+  
+  
+  .filter-item select,
+  .filter-item input[type="range"] {
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Range slider label (minutes) */
+  #waitValue {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: 500;
+  }
+  
+  /* Search & Clear Button */
+  .filter-button {
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+  }
+  
+  .filter-button:hover {
+    background-color: #333;
+  }
+  
+  .view-link {
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .view-link a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  /* 3. Facility Header */
+  .facility-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .facility-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .facility-header p {
+    margin-bottom: 1rem;
+    color: #777;
+  }
+  
+  #facilitySearch {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  /* 4. Facility Grid & Cards */
+  .facility-grid {
+    margin-bottom: 3rem;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  
+  .pagination-link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .facility-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .facility-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .facility-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .facility-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #222;
+  }
+  
+  .facility-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .facility-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .facility-card a:hover {
+    background-color: #333;
+  }
+  

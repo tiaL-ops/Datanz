@@ -4,103 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Facilities</title>
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="style/facilities.css">
-
+  <link rel="stylesheet" href="/styles/facilities.css" />
 </head>
 <body>
-  <div class="container">
-    <% if (gov) { %>
-      <h1>Welcome to the Facilities Page, government official</h1>
-    <% } else { %>
-      <h1>Welcome to the Facilities Page</h1>
-    <% } %>
 
-    <div id="filter-panel" class="hidden">
-        <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET">
-          <h3>Find a Facility That...</h3>
-      
-          <label>
-            What is the maximum time you will wait? :  
-            <input type="number" name="wait_time" placeholder="e.g. 30" />
-          </label><br>
-      
-          <label>
-            What the minimum average patient satisfaction (1–5 stars):  
-            <input type="number" name="satisfaction" min="1" max="5" />
-          </label><br>
-      
-          <label>How important is confidentiality?
-<select name="confidentiality">
-  <option value="">Not important</option>
-  <option value="somewhat">A little important</option>
-  <option value="very">Very important</option>
-</select>
-</label><br>
-      
-          <label>
-            How important is it for you to be asked permission before test:
-            <select name="permission_before_exam">
-                <option value="">Not important</option>
-                <option value="somewhat">A little important</option>
-                <option value="very">Very important</option>
-            </select>
-          </label><br>
-      
-          <label>
-            How important is it for you to receive all the test:
-            <select name="received_all_tests">
-                <option value="">Not important</option>
-                <option value="somewhat">A little important</option>
-                <option value="very">Very important</option>
-            </select>
-          </label><br>
-      
-          <label>
-            How important is it for you to receive all medecine:
-            <select name="received_all_meds">
-                <option value="">Not important</option>
-                <option value="somewhat">A little important</option>
-                <option value="very">Very important</option>
-            </select>
-          </label><br>
-      
-          <label>
-            Accepts payment via:
-            <select name="service_payment_mode">
-              <option value="">Any</option>
-              <option value="Free">Free</option>
-              <option value="Cash">Cash</option>
-              <option value="Insurance">Insurance</option>
-            </select>
-          </label><br>
-      
-      
-          <button type="submit">Show Matching Facilities</button>
-        </form>
-      </div>
-      
-      
-    <h2>Facilities</h2>
-    <ul>
-      <% facilities.forEach(facility => { %>
-        <li>
-          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>">
-            (ID: <%= facility.facility_id %>) <%= facility.name %>
-          </a>
-        </li>
-      <% }); %>
-    </ul>
-  </div>
+  <!-- Filter Form Section -->
+  <section class="filter-container">
+    <h1>Find the facility for you.</h1>
 
-  <script>
-    const toggle = document.getElementById("filter-toggle");
-    const panel = document.getElementById("filter-panel");
-    if (toggle && panel) {
-      toggle.addEventListener("click", () => {
-        panel.classList.toggle("hidden");
-      });
-    }
-  </script>
+    <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
+      <label class="filter-item">
+        What is the maximum time you will wait?
+        <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
+               oninput="document.getElementById('waitValue').innerText = this.value + ' minutes';" />
+        <span id="waitValue">60 minutes</span>
+      </label>
+      
+
+      <label class="filter-item">
+        How important is patient satisfaction for you (1–5)?
+        <select name="satisfaction">
+          <option value="">Not important</option>
+          <% for (let i = 1; i <= 5; i++) { %>
+            <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+      </label>
+
+      <label class="filter-item">
+        How important is confidentiality for you?
+        <select name="confidentiality">
+          <option value="">Not important</option>
+          <option value="somewhat">Somewhat</option>
+          <option value="very">Very important</option>
+        </select>
+      </label>
+
+      <label class="filter-item">
+        How important is consent before a test for you?
+        <select name="permission_before_exam">
+          <option value="">Not important</option>
+          <option value="somewhat">Somewhat</option>
+          <option value="very">Very important</option>
+        </select>
+      </label>
+
+      <label class="filter-item">
+        How important is it to receive all necessary tests?
+        <select name="received_all_tests">
+          <option value="">Not important</option>
+          <option value="somewhat">Somewhat</option>
+          <option value="very">Very important</option>
+        </select>
+      </label>
+
+      <label class="filter-item">
+        How important is it to receive all necessary medicine?
+        <select name="received_all_meds">
+          <option value="">Not important</option>
+          <option value="somewhat">Somewhat</option>
+          <option value="very">Very important</option>
+        </select>
+      </label>
+
+      <label class="filter-item">
+        Accepts payment via:
+        <select name="service_payment_mode">
+          <option value="">Any</option>
+          <option value="Free">Free</option>
+          <option value="Cash">Cash</option>
+          <option value="Insurance">Insurance</option>
+        </select>
+      </label>
+
+      <button type="submit" class="filter-button">Search</button>
+      <p class="view-link">
+        OR <a href="/<%= gov ? 'government/' : '' %>facilities">View all facilities</a>
+      </p>
+    </form>
+  </section>
+
+
+
+  <!-- Facility Grid Section -->
+  <section class="facility-header">
+    <h1>All the facilities.</h1>
+    <p>Don’t get overwhelmed, you can still look it up by name:</p>
+    <input type="text" id="facilitySearch" placeholder="Facility Name" />
+  </section>
+
+  <section class="facility-grid">
+    <!-- Pagination -->
+    <div class="pagination">
+      <% if (page > 1) { %>
+        <a href="?page=<%= page - 1 %>" class="pagination-link">← Prev</a>
+      <% } %>
+
+      <span>Page <%= page %> of <%= Math.ceil(1000/ 50) %></span>
+
+      <% if (page * 50 < 1000) { %>
+        <a href="?page=<%= page + 1 %>" class="pagination-link">Next →</a>
+      <% } %>
+    </div>
+
+    <div class="facility-cards">
+      <% facilities.forEach((facility) => { %>
+        <div class="facility-card">
+          <h2><%= facility.name %></h2>
+          <p>📍 <%= facility.location || 'Unknown location' %></p>
+          <p>🏥 Type: <%= facility.type || 'Unknown' %></p>
+          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>">View Details</a>
+        </div>
+      <% }) %>
+    </div>
+
+    
+  </section>
+
 </body>
 </html>
