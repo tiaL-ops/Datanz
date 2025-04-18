@@ -15,7 +15,7 @@ Before starting the server, you need to ensure your database is clean and proper
 Open your terminal and run:
 
 ```bash
-sqlite3 .open dbsqlite < sql/drop_tables.sql
+sqlite3 .open db.sqlite < sql/drop_tables.sql
 ```
 
 #### b. Create New Tables

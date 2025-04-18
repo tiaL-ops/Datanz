@@ -1,0 +1,88 @@
+Report for Region: Kilimanjaro Region
+Generated on: 4/18/2025, 6:14:06 PM
+==================================================
+
+Facility: SOSO
+Code: 18434313-9
+Location: Kilimanjaro Region, Kilimanjaro District, Hai Mjini
+----------------------------------------
+Total Responses: 81
+Avg Wait Time: 110.0 mins
+Avg Satisfaction Score: 3.17
+Confidentiality: 50.00% said Yes
+Permission Before Exam: 83.33% said Yes
+Received All Tests: 20.00% said Yes
+Received All Medication: 16.67% said Yes
+Most Common Payment Mode: Free
+Top Positive Feedback Areas:
+  - Toilets: 3
+  - Pharmacy/Drugs: 1
+  - Laboratory/testing: 1
+Top Problem Areas:
+  - Doctor's room: 2
+  - Pharmacy/Drugs: 1
+  - Toilets: 1
+--------------------------------------------------
+
+Facility: XAM AF
+Code: 9215552-6
+Location: Kilimanjaro Region, Kilimanjaro  District, Mshewa
+----------------------------------------
+Total Responses: 40
+Avg Wait Time: 180.0 mins
+Avg Satisfaction Score: 4.00
+Confidentiality: 66.67% said Yes
+Permission Before Exam: 66.67% said Yes
+Received All Tests: 0.00% said Yes
+Received All Medication: 33.33% said Yes
+Most Common Payment Mode: Insurance
+Top Positive Feedback Areas:
+  - Laboratory/testing: 2
+  - Pharmacy/Drugs: 1
+Top Problem Areas:
+  - Toilets: 1
+  - Doctor's room: 1
+  - Reception: 1
+--------------------------------------------------
+
+Facility: TOLIARA
+Code: 1293215-4
+Location: Kilimanjaro Region, Kilimanjaro  District, Hai Mjini
+----------------------------------------
+Total Responses: 67
+Avg Wait Time: 102.0 mins
+Avg Satisfaction Score: 2.60
+Confidentiality: 80.00% said Yes
+Permission Before Exam: 80.00% said Yes
+Received All Tests: 25.00% said Yes
+Received All Medication: 40.00% said Yes
+Most Common Payment Mode: Insurance
+Top Positive Feedback Areas:
+  - Reception: 2
+  - The external environment: 1
+  - Toilets: 1
+Top Problem Areas:
+  - Toilets: 2
+  - Laboratory/testing: 2
+  - Doctor's room: 1
+--------------------------------------------------
+
+Facility: HARA
+Code: 1929277-8
+Location: Kilimanjaro Region, Kilimanjaro  District, Kilimanjaro
+----------------------------------------
+Total Responses: 40
+Avg Wait Time: 70.0 mins
+Avg Satisfaction Score: 2.00
+Confidentiality: 66.67% said Yes
+Permission Before Exam: 33.33% said Yes
+Received All Tests: 50.00% said Yes
+Received All Medication: 33.33% said Yes
+Most Common Payment Mode: Insurance
+Top Positive Feedback Areas:
+  - Doctor's room: 2
+  - Pharmacy/Drugs: 1
+Top Problem Areas:
+  - Toilets: 2
+  - Doctor's room: 1
+--------------------------------------------------

@@ -368,7 +368,7 @@ class ResponseModel{
         const results = this.db.prepare(query).all(facility_id);
     
         const mostCommon = results[0]?.service_payment_mode || null;
-    
+        console.log("here are results", results);
         return {
             most_common: mostCommon,
             breakdown: results
@@ -408,19 +408,30 @@ class ResponseModel{
         return this.db.prepare(query).get(facility_id);  
     }
     
-    /// bug in this one 
-    getResponseBreakdownByQuestion(facility_id, question_id) {
-        const query = `
-            SELECT ao.answer_text AS answer, COUNT(*) AS count
-            FROM Response r
-            JOIN AnswerOption ao ON r.answer_option_id = ao.id
-            WHERE r.facility_id = ? AND r.question_id = ?
-            GROUP BY r.answer_option_id
-            ORDER BY count DESC
-        `;
-        return this.db.prepare(query).all(facility_id, question_id);
-    }
+// In ResponseModel.js, replace getResponseBreakdownByQuestion with:
 
+getResponseBreakdownByQuestion(facility_id, question_id) {
+    const query = `
+      SELECT 
+        ao.answer_text   AS answer_text, 
+        COUNT(*)         AS count
+      FROM Response r
+      JOIN AnswerOption ao 
+        ON r.answer_option_id = ao.id
+       AND ao.question_id     = r.question_id
+      WHERE r.facility_id = ?
+        AND r.question_id = ?
+      GROUP BY ao.answer_text
+      ORDER BY count DESC
+    `;
+    const rows = this.db.prepare(query).all(facility_id, question_id);
+    console.log(rows);
+    return rows.map(r => ({
+      answer: r.answer_text,
+      count:  r.count
+    }));
+  }
+  
     getLatestResponses(facility_id, fromDate, limit) {
         // Validate and coerce input types
         facility_id = Number(facility_id);

@@ -1,0 +1,90 @@
+Report for Region: Arusha Region
+Generated on: 4/18/2025, 12:51:20 PM
+==================================================
+
+Facility: A TO Z
+Code: 121333-9
+Location: Arusha Region, Arusha District, Olmoti
+----------------------------------------
+Total Responses: 66
+Avg Wait Time: 162.0 mins
+Avg Satisfaction Score: 2.40
+Confidentiality: 40.00% said Yes
+Permission Before Exam: 40.00% said Yes
+Received All Tests: 50.00% said Yes
+Received All Medication: 60.00% said Yes
+Most Common Payment Mode: Free
+Top Positive Feedback Areas:
+  - The external environment: 1
+  - Toilets: 1
+  - Doctor's room: 1
+Top Problem Areas:
+  - Doctor's room: 4
+  - Pharmacy/Drugs: 1
+--------------------------------------------------
+
+Facility: AFYA MAX
+Code: 111552-6
+Location: Arusha Region, Arusha District, Ngarenaro
+----------------------------------------
+Total Responses: 66
+Avg Wait Time: 120.0 mins
+Avg Satisfaction Score: 2.80
+Confidentiality: 40.00% said Yes
+Permission Before Exam: 80.00% said Yes
+Received All Tests: 25.00% said Yes
+Received All Medication: 0.00% said Yes
+Most Common Payment Mode: Free
+Top Positive Feedback Areas:
+  - Pharmacy/Drugs: 1
+  - The external environment: 1
+  - Toilets: 1
+Top Problem Areas:
+  - Pharmacy/Drugs: 2
+  - Doctor's room: 1
+  - Laboratory/testing: 1
+--------------------------------------------------
+
+Facility: MANDRO
+Code: 120915-4
+Location: Arusha Region, Arusha District, Ngarenaro
+----------------------------------------
+Total Responses: 161
+Avg Wait Time: 172.5 mins
+Avg Satisfaction Score: 3.33
+Confidentiality: 33.33% said Yes
+Permission Before Exam: 50.00% said Yes
+Received All Tests: 36.36% said Yes
+Received All Medication: 33.33% said Yes
+Most Common Payment Mode: Free
+Top Positive Feedback Areas:
+  - Pharmacy/Drugs: 6
+  - Laboratory/testing: 4
+  - The external environment: 1
+Top Problem Areas:
+  - Doctor's room: 5
+  - Pharmacy/Drugs: 2
+  - The external environment: 2
+--------------------------------------------------
+
+Facility: AGA KHAN
+Code: 108577-8
+Location: Arusha Region, Arusha District, Kati
+----------------------------------------
+Total Responses: 108
+Avg Wait Time: 112.5 mins
+Avg Satisfaction Score: 3.38
+Confidentiality: 62.50% said Yes
+Permission Before Exam: 75.00% said Yes
+Received All Tests: 50.00% said Yes
+Received All Medication: 50.00% said Yes
+Most Common Payment Mode: Insurance
+Top Positive Feedback Areas:
+  - Laboratory/testing: 4
+  - Pharmacy/Drugs: 2
+  - Toilets: 1
+Top Problem Areas:
+  - The external environment: 2
+  - Doctor's room: 2
+  - Pharmacy/Drugs: 1
+--------------------------------------------------
