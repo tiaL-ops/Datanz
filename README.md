@@ -1,130 +1,65 @@
+# Datanz
 
-# Datanz Facility Website Project Checklist
+**Datanz** is a platform designed for district officials to monitor the performance of healthcare services and for patients to filter and explore available facilities that best suit their needs.
 
-This web application provides a user-friendly platform for patients, doctors, and government officials to access and evaluate healthcare facilities. 
-<br> Users can view a comprehensive list of facilities, search for nearby options using location data, and filter by type (hospital, clinic, pharmacy, etc.). The system allows advanced filtering based on waiting times, operating hours, and whether a facility performs all prescribed tests. Patients can sort and rank facilities based on real patient feedback, satisfaction ratings, and overall care quality. It also highlights geographic areas with the best-rated facilities and displays survey results to support informed healthcare decisions. Additionally, the platform supports secure logins for patients, doctors, and government authorities, enabling coordination and communication across stakeholders.
+## Getting Started
 
-Flow : User Look at data
-Governement look at data, can contact the responsible ( email contact of head supervisor of the facilities)
+Follow the steps below to set up and run the project.
 
-## 1. Project Planning & Design 
-- [x] **Define Scope & Goals**  
-  Establish clear objectives and deliverables.
-- [ ] **User Flow & Wireframing**  
-  Sketch out user interactions and page layouts.
-- [x] **Database & Data Source Design**  
-  Plan the data structure for healthcare and review data.
+### 1. Prepare the Database
 
----
+Before starting the server, you need to ensure your database is clean and properly set up.
 
-## 2. Backend Development
-- [ ] **Server & Database Setup**
-   - Create the database based on the csv
-  - Set up an **Express.js** server and connect the database
-- [ ] **Data Filtering Methods**
-  - Develop functions to **sort and filter CSV data efficiently** ! Look at #5! 👀
-  - Implement **data caching** for improved performance
-- [ ] **Authentication & Authorization**
-  - Integrate **user authentication** (JWT/OAuth)
-  - Establish **role-based access control** (Doctors, Govt. Officials)
-- [ ] **Routes Development**
-  - Build APIS for **fetching healthcare data, reviews, ratings, and notifications**
+#### a. Drop Existing Tables
 
----
+Open your terminal and run:
 
-## 3. Frontend Development
-- [ ] **Build Responsive UI**
-  - Design a **clean, user-friendly interface** for healthcare search
-  - Implement interactive **filters and sorting options**
-- [ ] **Facility Details Page**
-  - Display **services, wait times, ratings, and reviews**
-  - Include an embedded **map & directions** //optional
+```bash
+sqlite3 .open dbsqlite < sql/drop_tables.sql
+```
 
+#### b. Create New Tables
 
+Then run:
 
-## 2. Tech Stack Selection
-### **Frontend**
-- HTML, CSS, JavaScript fundamentals  
-- React.js or Vue.js for dynamic UI (will we or not?)
+```bash
+sqlite3 .open dbsqlite < sql/create_tables.sql
+```
 
-### **Backend**
-- Node.js + Express.js framework   
-- CSV Parsing 
+### 2. Populate the Database
 
+Next, populate your database with initial data.
 
-### **Database**
-- Auth table to store authenitification for healthcare and doctors
-- Database with Review SQLITE
+1. Navigate to the `db` directory:
 
-### **Authentication & Authorization**
-- Implement JWT-based authentication
+    ```bash
+    cd db
+    ```
 
-### **APIs & Integrations (Optional for now)**
-- Google Maps API or OpenStreetMap for location services
+2. Open `cli.js` and **uncomment** the section labeled:  
+   `"uncomment this if the database is still empty"`
 
----
+3. Run the script:
 
-## 5. Data Handling & Filtering
+    ```bash
+    node cli.js
+    ```
 
-### **High Priority: Filter Functionality**
-- [ ] **View Available Healthcare Facilities**  
-  - Allow patients to see a list of all healthcare facilities.
+4. After successful population, **comment out** the same section in `cli.js` to avoid duplicate data entries in the future.
 
-- [ ] **Find Facilities Near Them**  
-  - Use location data to display nearby facilities.
+### 3. Run the Server
 
-- [ ] **Find Facilities by Types**  
-  - Enable filtering by facility type (e.g., hospital, clinic, lab, pharmacy).
+Now you're ready to run the backend server.
 
-- [ ] **Find Facilities by Waiting Times**  
-  - Provide an option to sort facilities by waiting times.
+1. Navigate back to the project root directory if needed, then go to the backend folder:
 
-- [ ] **Find Facilities That Do All Prescribed Tests**  
-  - Show only facilities that perform every test prescribed.
+    ```bash
+    cd backend
+    ```
 
-- [ ] **Identify Best-Rated Facilities Based on Patient Feedback**  
-  - Sort facilities by ratings and patient satisfaction.
+2. Start the server:
 
-- [ ] **Find Areas with the Best Satisfied Facilities**  
-  - Highlight geographic areas with the highest-rated facilities.
-
-- [ ] **Rank Facilities from Best to Worst**  
-  - Order facilities based on overall treatment quality and feedback.
-
-- [ ] **View Survey Results Related to Healthcare Experiences**  
-  - Display patient survey outcomes to inform choices.
-
-- [ ] **Find Open Facilities**  
-  - Filter for facilities that are currently open or have favorable operating hours.
-
-
-- [ ] **Advanced Sorting :**
-  - [ ] Sort facilities by **patient satisfaction ratings**
-  - [ ] Sort facilities that has improved/ downgrade
-  
----
-
-## 6. Government Official Features
-- [ ] **Direct Contact with Facilities**
-  - Create a direct channel for **government officials to contact healthcare centers** based on feedback
-
----
-
-
-## 7. Testing 
-- [ ] **Functional Testing**
-  - Verify that all **filters and search features** work correctly
-  - Test performance with large CSV datasets
-- [ ] **Authentication**
-- [ ] **Performance Testing**
-
----
-
-## 8. Deployment & 
-- [ ] **If in ssh**
-
----
-
-
-
+    ```bash
+    node mon.js
+    ```
 

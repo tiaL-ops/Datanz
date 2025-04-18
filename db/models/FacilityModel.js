@@ -54,7 +54,7 @@ class FacilityModel{
     loadFromCSV(filePath) {
         const insertFacility = this.db.prepare(`
             INSERT INTO Facility (
-                facility_code, name, location, facility_type, headO_name, headO_contact, created_at
+                facility_code, name, location, facility_type, headO_name, headO_contact, date_opened
             ) VALUES (?, ?, ?, ?, ?, ?, ?)
         `);
 

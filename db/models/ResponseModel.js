@@ -100,6 +100,7 @@ class ResponseModel{
     'Overall satisfaction': 'Are you satisfied with all our services in general?',
     'Good':'Which area has satisfied you? (If you answer 4 or 5 to question 17)',
     'Bad':'Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)',
+    'Time received':'Time submitted',
         };
 
         fs.createReadStream(filePath)
