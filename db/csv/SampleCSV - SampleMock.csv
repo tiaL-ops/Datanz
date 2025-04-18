@@ -1,0 +1,61 @@
+Language,FacilityCode,Age,Gender,Pregnant,GestionalAge,Location,WaitingTime,Permission,Confidentiality,Communication,GotAllTests,TestReasons,GotAllMedecines,MedecineReason,Payment method,Overall satisfaction,Good,Bad,Time received
+English,121333-9,23,Female,Yes,8,At home,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Laboratory/testing,Toilets,03/05/2024
+Kiswahili,100190-8,23,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad service,The external environment,Toilets,03/29/2024
+English,110873-7,30,Male,Yes,3,Another part,Within 1 hour,Yes,Yes,Yes,Some,Another reason,None,Out of stock,Insurance,Normal,Doctor's room,Toilets,04/05/2024
+English,121333-9,17,Female,Yes,,At the station,Between 2-3 hours,Yes,No,No,None,Another reason,Some,Couldn't afford,Free,Bad service,Doctor's room,Doctor's room,04/08/2024
+Kiswahili,100190-8,12,Male,,,Another part,Within 1 hour,Yes,Yes,No,Some,Another reason,Yes,,Free,Good Service,The external environment,Laboratory/testing,02/06/2024
+English,110873-7,29,Male,No,2,At the station,More than 3 hours,Yes,No,No,Yes,,Yes,,Insurance,Normal,Reception,Toilets,02/03/2024
+English,121333-9,18,Female,No,,At home,Within 1 hour,No,No,Yes,Some,No equipment,Some,Out of stock,Insurance,Good Service,Pharmacy/Drugs,Pharmacy/Drugs,03/19/2024
+Kiswahili,111844-7,40,Female,Yes,6,In Society,Between 2-3 hours,Yes,Yes,Yes,Some,Another reason,Some,Couldn't afford,Free,Bad service,Toilets,Laboratory/testing,04/12/2024
+Kiswahili,100190-8,20,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,No equipment,Yes,,Free,Normal,The external environment,Pharmacy/Drugs,04/13/2024
+English,110873-7,47,Female,Yes,7,At the station,More than 3 hours,Yes,Yes,No,Some,No equipment,None,Couldn't afford,Insurance,Very good,Toilets,Doctor's room,02/22/2024
+Kiswahili,113542-5,19,Male,,,Another part,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,None,Out of stock,Free,Bad service,The external environment,Laboratory/testing,02/05/2024
+Kiswahili,111844-7,23,Female,No,,At the station,More than 3 hours,No,No,No,None,Another reason,Yes,,Free,Very good,Laboratory/testing,Laboratory/testing,04/02/2024
+Kiswahili,121333-9,47,Female,Yes,,At the station,Between 2-3 hours,Yes,Yes,No,Yes,,None,Couldn't afford,Free,Bad service,Toilets,Doctor's room,04/17/2024
+Kiswahili,100190-8,30,Female,Yes,7,At home,More than 3 hours,Yes,No,No,Yes,,Yes,,Free,Not satisfied,Pharmacy/Drugs,The external environment,04/16/2024
+English,113542-5,30,Female,No,,Another part,Between 2-3 hours,Yes,Yes,No,Some,No equipment,None,Out of stock,Insurance,Bad service,Reception,Toilets,04/05/2024
+English,110873-7,23,Female,No,,At home,Within 1 hour,No,Yes,Yes,Yes,,None,Another reason,Insurance,Normal,Reception,Doctor's room,03/13/2024
+Kiswahili,111844-7,47,Male,No,,At home,Within 1 hour,Yes,Yes,Yes,Yes,,None,Couldn't afford,Insurance,Good Service,Laboratory/testing,Laboratory/testing,02/23/2024
+Kiswahili,121333-9,29,Male,No,,Another part,Within 1 hour,No,No,No,None,No equipment,None,Couldn't afford,Free,Bad service,Laboratory/testing,Doctor's room,04/07/2024
+English,113542-5,12,Male,No,,In Society,Between 2-3 hours,No,No,No,Yes,,None,Another reason,Free,Normal,Pharmacy/Drugs,Laboratory/testing,04/18/2024
+Kiswahili,111844-7,23,Male,No,,In Society,Between 2-3 hours,No,Yes,Yes,None,I couldn't afford the cost,None,Another reason,Free,Not satisfied,Toilets,Pharmacy/Drugs,03/31/2024
+Kiswahili,110873-7,21,Female,,,At home,Within 1 hour,Yes,No,No,Some,I couldn't afford the cost,None,Another reason,Free,Good Service,Toilets,Reception,03/05/2024
+Kiswahili,110873-7,44,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,No equipment,Some,Couldn't afford,Insurance,Not satisfied,Pharmacy/Drugs,The external environment,03/29/2024
+English,113542-5,24,Female,No,,In Society,Within 1 hour,No,No,No,No,,Yes,,Free,Normal,Laboratory/testing,Laboratory/testing,04/05/2024
+English,113542-5,34,Female,,,In Society,More than 3 hours,No,Yes,No,None,No equipment,Yes,Out of stock,Insurance,Very good,Pharmacy/Drugs,Doctor's room,04/08/2024
+English,100190-8,41,Female,,,At home,Within 1 hour,Yes,No,No,Yes,No equipment,Yes,,Insurance,Bad service,Laboratory/testing,The external environment,02/06/2024
+Kiswahili,100190-8,27,Male,,,In Society,Between 2-3 hours,Yes,Yes,Yes,Yes,No equipment,Some,Another reason,Insurance,Very good,Toilets,Doctor's room,02/03/2024
+Kiswahili,110873-7,44,Female,,,Another part,Within 1 hour,Yes,Yes,Yes,None,No equipment,Some,,Insurance,Not satisfied,Laboratory/testing,Toilets,03/19/2024
+Kiswahili,110873-7,29,Female,No,,At home,Within 1 hour,No,No,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Toilets,Pharmacy/Drugs,04/12/2024
+Kiswahili,113542-5,22,Male,,,At home,More than 3 hours,Yes,No,Yes,None,,Yes,Out of stock,Free,Good Service,Laboratory/testing,Doctor's room,04/13/2024
+English,110873-7,29,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Not satisfied,Doctor's room,The external environment,02/22/2024
+English,111844-7,31,Female,No,,Another part,Between 2-3 hours,Yes,Yes,No,No,No equipment,Yes,Another reason,Free,Good Service,Laboratory/testing,Toilets,02/05/2024
+Kiswahili,100190-8,42,Male,,,At the station,Between 2-3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Some,,Insurance,Very good,Pharmacy/Drugs,The external environment,04/02/2024
+English,121333-9,48,Male,,,Another part,Between 2-3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Bad service,Pharmacy/Drugs,Laboratory/testing,04/17/2024
+Kiswahili,110873-7,31,Female,Yes,3,Another part,More than 3 hours,Yes,No,No,No,Another reason,Yes,,Insurance,Good Service,Pharmacy/Drugs,Reception,04/16/2024
+English,113542-5,41,Female,No,,In Society,Between 2-3 hours,Yes,Yes,No,Some,,None,Couldn't afford,Insurance,Normal,Reception,Laboratory/testing,04/05/2024
+English,121333-9,28,Female,No,,Another part,Within 1 hour,No,No,No,No,Another reason,None,,Free,Not satisfied,Doctor's room,Toilets,03/13/2024
+English,110873-7,45,Male,,,At the station,More than 3 hours,No,No,No,No,,Yes,Another reason,Insurance,Bad service,Doctor's room,Doctor's room,02/23/2024
+Kiswahili,100190-8,14,Female,Yes,1,At the station,More than 3 hours,Yes,Yes,Yes,Yes,,Yes,,Insurance,Not satisfied,Laboratory/testing,Doctor's room,04/07/2024
+Kiswahili,111844-7,14,Female,Yes,1,Another part,Between 2-3 hours,No,Yes,No,No,,Yes,Out of stock,Free,Good Service,Doctor's room,Toilets,04/18/2024
+Kiswahili,100190-8,36,Male,,,At the station,Within 1 hour,Yes,No,Yes,Some,No equipment,None,Another reason,Free,Not satisfied,Pharmacy/Drugs,Doctor's room,03/31/2024
+English,110873-7,38,Male,,,In Society,More than 3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Another reason,Free,Very good,Pharmacy/Drugs,Reception,02/19/2024
+English,113542-5,43,Male,,,Another part,Between 2-3 hours,Yes,Yes,No,None,I couldn't afford the cost,Some,Out of stock,Insurance,Very good,Laboratory/testing,Doctor's room,03/30/2024
+English,121333-9,29,Male,,,In Society,Between 2-3 hours,Yes,Yes,No,Yes,Another reason,Yes,Another reason,Insurance,Very good,Toilets,Doctor's room,03/17/2024
+English,110873-7,43,Male,,,Another part,Between 2-3 hours,No,Yes,No,Yes,Another reason,Yes,Another reason,Insurance,Bad service,Pharmacy/Drugs,Doctor's room,04/06/2024
+English,111844-7,33,Male,,,At home,Between 2-3 hours,No,No,No,Some,Another reason,Yes,Another reason,Insurance,Very good,Laboratory/testing,Reception,03/05/2024
+English,111844-7,37,Female,Yes,,Another part,More than 3 hours,No,No,No,No,Another reason,Some,Another reason,Free,Normal,Laboratory/testing,Pharmacy/Drugs,04/06/2024
+Kiswahili,111844-7,46,Male,,,In Society,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Bad service,Pharmacy/Drugs,Reception,03/28/2024
+Kiswahili,121333-9,44,Male,,,Another part,Between 2-3 hours,Yes,No,No,Some,,None,Out of stock,Insurance,Bad service,Laboratory/testing,Toilets,02/04/2024
+English,121333-9,15,Male,,,In Society,Within 1 hour,Yes,No,Yes,Some,,None,,Free,Good Service,Toilets,Toilets,02/26/2024
+English,111844-7,49,Female,Yes,2,Another part,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,None,Another reason,Insurance,Very good,Laboratory/testing,Doctor's room,02/09/2024
+Kiswahili,111844-7,17,Female,,,At the station,More than 3 hours,Yes,No,Yes,No,Another reason,None,Another reason,Free,Normal,Pharmacy/Drugs,Pharmacy/Drugs,02/03/2024
+Kiswahili,111844-7,28,Female,Yes,5,Another part,Between 2-3 hours,Yes,No,Yes,Some,No equipment,Yes,Out of stock,Free,Good Service,Pharmacy/Drugs,Pharmacy/Drugs,03/09/2024
+English,113542-5,49,Female,No,,Another part,Between 2-3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad service,Laboratory/testing,The external environment,03/11/2024
+English,110873-7,45,Female,Yes,6,Another part,Between 2-3 hours,Yes,No,Yes,Yes,No equipment,None,,Insurance,Very good,Doctor's room,Doctor's room,03/13/2024
+English,121333-9,27,Female,No,,Another part,Between 2-3 hours,No,No,No,Yes,No equipment,Some,,Insurance,Bad service,Laboratory/testing,Doctor's room,02/29/2024
+Kiswahili,111844-7,44,Male,,,In Society,More than 3 hours,Yes,Yes,Yes,Some,No equipment,None,Another reason,Insurance,Normal,Toilets,Toilets,02/12/2024
+Kiswahili,110873-7,45,Female,Yes,9,In Society,Between 2-3 hours,Yes,Yes,No,No,Another reason,Some,Out of stock,Insurance,Good Service,Reception,Reception,02/27/2024
+Kiswahili,111844-7,44,Male,,,At the station,More than 3 hours,No,No,Yes,None,,Some,Couldn't afford,Insurance,Good Service,Pharmacy/Drugs,Doctor's room,02/16/2024
+English,113542-5,46,Female,Yes,1,In Society,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,None,Couldn't afford,Free,Bad service,Laboratory/testing,Pharmacy/Drugs,03/16/2024
+Kiswahili,113542-5,34,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,,None,,Insurance,Good Service,Pharmacy/Drugs,Toilets,03/19/2024
