@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Area‑by‑Area Best & Worst Facilities</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    h1, h2 { margin-bottom: 0.5rem; }
+    section { margin-bottom: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background: #f4f4f4; }
+  </style>
+</head>
+<body>
+  <h1>Best &amp; Worst Facilities by Service Area</h1>
+
+  <% if (!breakdown || breakdown.length === 0) { %>
+    <p><em>No data available.</em></p>
+  <% } else { %>
+    <% breakdown.forEach(item => { %>
+      <section>
+        <h2><%= item.area %></h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Facility Name</th>
+              <th>Code</th>
+              <th><%= item.area %> Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Most Positive</td>
+              <td><%= item.best?.facility_name || '—' %></td>
+              <td><%= item.best?.facility_code || '—' %></td>
+              <td><%= item.best?.good_count ?? 0 %></td>
+            </tr>
+            <tr>
+              <td>Most Negative</td>
+              <td><%= item.worst?.facility_name || '—' %></td>
+              <td><%= item.worst?.facility_code || '—' %></td>
+              <td><%= item.worst?.bad_count ?? 0 %></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    <% }) %>
+  <% } %>
+</body>
+</html>

@@ -32,11 +32,13 @@ const facilitiesRoutes = require("./routes/facilities");
 const governmentRoutes = require("./routes/government");
 
 
+
 // Use routes
 app.use("/", startRoutes);
 app.use("/auth", authRoutes);
 app.use("/facilities", facilitiesRoutes);
 app.use("/government", governmentRoutes);
+
 
 
 // Route doesn't exist

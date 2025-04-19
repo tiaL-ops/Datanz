@@ -100,6 +100,7 @@ class ResponseModel{
     'Overall satisfaction': 'Are you satisfied with all our services in general?',
     'Good':'Which area has satisfied you? (If you answer 4 or 5 to question 17)',
     'Bad':'Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)',
+    'Time received':'Time submitted',
         };
 
         fs.createReadStream(filePath)
@@ -175,6 +176,7 @@ class ResponseModel{
         }
     
         const averageWaitTime = totalCount > 0 ? totalTime / totalCount : null;
+      
     
         return {
             facility_id,
@@ -367,7 +369,7 @@ class ResponseModel{
         const results = this.db.prepare(query).all(facility_id);
     
         const mostCommon = results[0]?.service_payment_mode || null;
-    
+
         return {
             most_common: mostCommon,
             breakdown: results
@@ -407,19 +409,30 @@ class ResponseModel{
         return this.db.prepare(query).get(facility_id);  
     }
     
-    /// bug in this one 
-    getResponseBreakdownByQuestion(facility_id, question_id) {
-        const query = `
-            SELECT ao.answer_text AS answer, COUNT(*) AS count
-            FROM Response r
-            JOIN AnswerOption ao ON r.answer_option_id = ao.id
-            WHERE r.facility_id = ? AND r.question_id = ?
-            GROUP BY r.answer_option_id
-            ORDER BY count DESC
-        `;
-        return this.db.prepare(query).all(facility_id, question_id);
-    }
+// In ResponseModel.js, replace getResponseBreakdownByQuestion with:
 
+getResponseBreakdownByQuestion(facility_id, question_id) {
+    const query = `
+      SELECT 
+        ao.answer_text   AS answer_text, 
+        COUNT(*)         AS count
+      FROM Response r
+      JOIN AnswerOption ao 
+        ON r.answer_option_id = ao.id
+       AND ao.question_id     = r.question_id
+      WHERE r.facility_id = ?
+        AND r.question_id = ?
+      GROUP BY ao.answer_text
+      ORDER BY count DESC
+    `;
+    const rows = this.db.prepare(query).all(facility_id, question_id);
+    console.log(rows);
+    return rows.map(r => ({
+      answer: r.answer_text,
+      count:  r.count
+    }));
+  }
+  
     getLatestResponses(facility_id, fromDate, limit) {
         // Validate and coerce input types
         facility_id = Number(facility_id);
@@ -482,7 +495,80 @@ class ResponseModel{
         const results = stmt.all(facility_id);
         return results;
     }
+    getAreaSatisfactionSummary(facility_id) {
+        const query = `
+            SELECT
+                ao.answer_text AS area,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) AS good_count,
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS bad_count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id IN (18, 19)
+            GROUP BY ao.answer_text
+            ORDER BY bad_count DESC, good_count DESC
+        `;
+    
+        return this.db.prepare(query).all(facility_id);
+    }
+    getAreaSatisfactionWithScore(facility_id) {
+        const query = `
+            SELECT
+                ao.answer_text AS area,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) AS good_count,
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS bad_count,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) -
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS net_score
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id IN (18, 19)
+            GROUP BY ao.answer_text
+            ORDER BY net_score DESC
+        `;
+    
+        return this.db.prepare(query).all(facility_id);
+    }
+ 
+
+  
+getBestWorstByArea(areaName) {
+    const query = `
+      SELECT
+        f.name              AS facility_name,
+        f.facility_code     AS facility_code,      -- ← use facility_code here
+        SUM(
+          CASE 
+            WHEN r.question_id = 18 
+             AND ao.answer_text = ? THEN 1 
+            ELSE 0 
+          END
+        ) AS good_count,
+        SUM(
+          CASE 
+            WHEN r.question_id = 19 
+             AND ao.answer_text = ? THEN 1 
+            ELSE 0 
+          END
+        ) AS bad_count
+      FROM Response r
+      JOIN AnswerOption ao 
+        ON r.answer_option_id = ao.id
+      JOIN Facility f      
+        ON r.facility_id       = f.facility_id
+      GROUP BY f.facility_id
+    `;
+    
    
+    const rows = this.db.prepare(query).all(areaName, areaName);
+  
+    let best = null, worst = null;
+    for (const row of rows) {
+      if (!best  || row.good_count > best.good_count)  best  = row;
+      if (!worst || row.bad_count  > worst.bad_count) worst = row;
+    }
+    return { area: areaName, best, worst };
+  }
+  
+    
     
    
     

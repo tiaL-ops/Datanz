@@ -1,19 +1,19 @@
 FACILITY DATA REPORT
 ====================
 Facility ID: 1
-Date: 4/10/2025
+Date: 4/18/2025
 
 
 Average Wait Time Stats
 -----------------------
   facility_id: 1
-  average_wait_time_minutes: 102
-  breakdown: [object Object],[object Object]
+  average_wait_time_minutes: 162
+  breakdown: [object Object],[object Object],[object Object]
 
 
 Satisfaction Distribution
 -------------------------
-  average: 2.00
+  average: 2.40
   total: 5
   breakdown: [object Object],[object Object],[object Object]
 
@@ -34,14 +34,14 @@ Permission Before Exam Stats
 
 Test Completion Stats
 ---------------------
-  average_percent_yes: 20.00
-  total: 5
+  average_percent_yes: 50.00
+  total: 4
   breakdown: [object Object],[object Object],[object Object]
 
 
 Medication Completion Stats
 ---------------------------
-  average_percent_yes: 0.00
+  average_percent_yes: 60.00
   total: 5
   breakdown: [object Object],[object Object]
 
@@ -55,22 +55,16 @@ Service Payment Modes
 Problem Area Frequency
 ----------------------
   problem_area: Doctor's room
-  count: 3
+  count: 4
 
   problem_area: Pharmacy/Drugs
-  count: 1
-
-  problem_area: Toilets
   count: 1
 
 
 
 Positive Area Frequency
 -----------------------
-  positive_area: Laboratory/testing
-  count: 2
-
-  positive_area: Pharmacy/Drugs
+  positive_area: The external environment
   count: 1
 
   positive_area: Toilets
@@ -79,11 +73,17 @@ Positive Area Frequency
   positive_area: Doctor's room
   count: 1
 
+  positive_area: Laboratory/testing
+  count: 1
+
+  positive_area: Reception
+  count: 1
+
 
 
 Total Response Count
 --------------------
-  total_responses: 70
+  total_responses: 66
 
 
 Summary Stats
@@ -95,54 +95,54 @@ Summary Stats
 
 Latest Responses from March 1, 2025
 -----------------------------------
-  response_id: 165
+  response_id: 111
   question_id: 1
   answer_text: Kiswahili
-  submitted_at: 2025-04-01 22:03:30
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 166
+  response_id: 112
   question_id: 4
-  answer_text: Female
-  submitted_at: 2025-04-01 22:03:30
+  answer_text: Male
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 167
-  question_id: 5
-  answer_text: Yes
-  submitted_at: 2025-04-01 22:03:30
-
-  response_id: 168
+  response_id: 113
   question_id: 7
-  answer_text: At the station
-  submitted_at: 2025-04-01 22:03:30
+  answer_text: At home
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 169
+  response_id: 114
   question_id: 8
   answer_text: Between 2-3 hours
-  submitted_at: 2025-04-01 22:03:30
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 170
+  response_id: 115
   question_id: 10
-  answer_text: Yes
-  submitted_at: 2025-04-01 22:03:30
-
-  response_id: 171
-  question_id: 11
   answer_text: No
-  submitted_at: 2025-04-01 22:03:30
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 172
+  response_id: 116
+  question_id: 11
+  answer_text: Yes
+  submitted_at: 2025-04-18 22:36:46
+
+  response_id: 117
   question_id: 12
-  answer_text: Yes
-  submitted_at: 2025-04-01 22:03:30
+  answer_text: Some
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 173
+  response_id: 118
   question_id: 9
-  answer_text: Yes
-  submitted_at: 2025-04-01 22:03:30
+  answer_text: No
+  submitted_at: 2025-04-18 22:36:46
 
-  response_id: 174
+  response_id: 119
   question_id: 14
-  answer_text: None
-  submitted_at: 2025-04-01 22:03:30
+  answer_text: Yes
+  submitted_at: 2025-04-18 22:36:46
+
+  response_id: 120
+  question_id: 16
+  answer_text: Free
+  submitted_at: 2025-04-18 22:36:46
 
 
