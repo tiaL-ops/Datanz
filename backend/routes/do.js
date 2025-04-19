@@ -32,6 +32,7 @@ router.get("/", (req, res) => {
   } else {
     facilities = db.prepare(`SELECT * FROM Facility`).all();
   }
+  
 
 
   const results = facilities.map(f => {
@@ -45,7 +46,7 @@ router.get("/", (req, res) => {
       yesMeds:   Number(responseModel.getMedicationCompletionStats(id).average_percent_yes) || 0,
       topProblems:  responseModel.getProblemAreaFrequency(id).map(p => p.problem_area),
       topPositives: responseModel.getPositiveAreaFrequency(id).map(p => p.positive_area),
-      topPayMode:   responseModel.getServicePaymentModes(id).most_common
+      topPayMode:   responseModel.getServicePaymentModes(id).most_common,areaSatisfaction: responseModel.getAreaSatisfactionSummary(id)
     };
     return { ...f, metrics: m };
   });
@@ -67,7 +68,7 @@ router.get("/", (req, res) => {
 
     return true;
   });
-
+  
   console.log("please results:", filtered);
 
   // 5) Render
@@ -76,5 +77,13 @@ router.get("/", (req, res) => {
     results:   filtered
   });
 });
+
+router.get("/dis", async (req, res) => {
+    const areas = ["Toilets", "Pharmacy/Drugs", "Reception", "Doctor's room"];
+    const breakdown = areas.map(area => responseModel.getBestWorstByArea(area));
+    res.render('dis', { breakdown });
+    
+  });
+  
 
 module.exports = router;

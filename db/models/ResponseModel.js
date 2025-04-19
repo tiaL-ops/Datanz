@@ -495,7 +495,80 @@ getResponseBreakdownByQuestion(facility_id, question_id) {
         const results = stmt.all(facility_id);
         return results;
     }
+    getAreaSatisfactionSummary(facility_id) {
+        const query = `
+            SELECT
+                ao.answer_text AS area,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) AS good_count,
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS bad_count
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id IN (18, 19)
+            GROUP BY ao.answer_text
+            ORDER BY bad_count DESC, good_count DESC
+        `;
+    
+        return this.db.prepare(query).all(facility_id);
+    }
+    getAreaSatisfactionWithScore(facility_id) {
+        const query = `
+            SELECT
+                ao.answer_text AS area,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) AS good_count,
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS bad_count,
+                SUM(CASE WHEN r.question_id = 18 THEN 1 ELSE 0 END) -
+                SUM(CASE WHEN r.question_id = 19 THEN 1 ELSE 0 END) AS net_score
+            FROM Response r
+            JOIN AnswerOption ao ON r.answer_option_id = ao.id
+            WHERE r.facility_id = ? AND r.question_id IN (18, 19)
+            GROUP BY ao.answer_text
+            ORDER BY net_score DESC
+        `;
+    
+        return this.db.prepare(query).all(facility_id);
+    }
+ 
+
+  
+getBestWorstByArea(areaName) {
+    const query = `
+      SELECT
+        f.name              AS facility_name,
+        f.facility_code     AS facility_code,      -- ← use facility_code here
+        SUM(
+          CASE 
+            WHEN r.question_id = 18 
+             AND ao.answer_text = ? THEN 1 
+            ELSE 0 
+          END
+        ) AS good_count,
+        SUM(
+          CASE 
+            WHEN r.question_id = 19 
+             AND ao.answer_text = ? THEN 1 
+            ELSE 0 
+          END
+        ) AS bad_count
+      FROM Response r
+      JOIN AnswerOption ao 
+        ON r.answer_option_id = ao.id
+      JOIN Facility f      
+        ON r.facility_id       = f.facility_id
+      GROUP BY f.facility_id
+    `;
+    
    
+    const rows = this.db.prepare(query).all(areaName, areaName);
+  
+    let best = null, worst = null;
+    for (const row of rows) {
+      if (!best  || row.good_count > best.good_count)  best  = row;
+      if (!worst || row.bad_count  > worst.bad_count) worst = row;
+    }
+    return { area: areaName, best, worst };
+  }
+  
+    
     
    
     

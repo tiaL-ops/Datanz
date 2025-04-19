@@ -130,6 +130,38 @@
           <td><%= m.topProblems.slice(0,3).join(", ") %></td>
           <td><%= m.topPositives.slice(0,3).join(", ") %></td>
         </tr>
+        <tr>
+          <td colspan="12">
+            <details>
+              <summary> View satisfaction breakdown by facility area</summary>
+              <table style="margin-top:1rem; width:100%;">
+                <thead>
+                  <tr>
+                    <th style="width:40%;">Facility Area</th>
+                    <th style="width:20%;">Good Mentions</th>
+                    <th style="width:20%;">Bad Mentions</th>
+                    <th style="width:20%;">Net Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% m.areaSatisfaction.forEach(row => { %>
+                    <tr style="<%= row.net_score < 0 ? 'background-color:#ffe5e5;' : '' %>">
+                      <td>
+                        <%= row.area %>
+                        <%= row.net_score < 0 ? '⚠️' : row.net_score > 0 ? '✅' : '' %>
+                      </td>
+                      <td><%= row.good_count %></td>
+                      <td><%= row.bad_count %></td>
+                      <td style="font-weight: bold; color: <%= row.net_score >= 0 ? 'green' : 'red' %>;">
+                        <%= row.net_score %>
+                      </td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </details>
+          </td>
+        </tr>
         <% }) %>
       </tbody>
     </table>
