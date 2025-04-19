@@ -2,38 +2,149 @@
   "facility_id": 1,
   "wait_time": {
     "facility_id": 1,
-    "average_wait_time_minutes": null,
-    "breakdown": []
+    "average_wait_time_minutes": 162,
+    "breakdown": [
+      {
+        "count": 1,
+        "wait_time": "Within 1 hour",
+        "facility_id": 1,
+        "wait_minutes": 30
+      },
+      {
+        "count": 2,
+        "wait_time": "Between 2-3 hours",
+        "facility_id": 1,
+        "wait_minutes": 150
+      },
+      {
+        "count": 2,
+        "wait_time": "More than 3 hours",
+        "facility_id": 1,
+        "wait_minutes": 240
+      }
+    ]
   },
   "satisfaction": {
-    "average": null,
-    "total": 0,
-    "breakdown": []
+    "average": "2.40",
+    "total": 5,
+    "breakdown": [
+      {
+        "satisfaction": "Normal",
+        "count": 2
+      },
+      {
+        "satisfaction": "Bad service",
+        "count": 2
+      },
+      {
+        "satisfaction": "Good Service",
+        "count": 1
+      }
+    ]
   },
   "confidentiality": {
-    "average_percent_yes": null,
-    "total": 0,
-    "breakdown": []
+    "average_percent_yes": "40.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "confidentiality": "No",
+        "count": 3
+      },
+      {
+        "confidentiality": "Yes",
+        "count": 2
+      }
+    ]
   },
   "permission_before_exam": {
-    "average_percent_yes": null,
-    "total": 0,
-    "breakdown": []
+    "average_percent_yes": "40.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "permission_before_exam": "No",
+        "count": 3
+      },
+      {
+        "permission_before_exam": "Yes",
+        "count": 2
+      }
+    ]
   },
   "test_completion": {
-    "average_percent_yes": null,
-    "total": 0,
-    "breakdown": []
+    "average_percent_yes": "50.00",
+    "total": 4,
+    "breakdown": [
+      {
+        "test_completion_stats": "Yes",
+        "count": 2
+      },
+      {
+        "test_completion_stats": "None",
+        "count": 1
+      },
+      {
+        "test_completion_stats": "Some",
+        "count": 1
+      }
+    ]
   },
   "medication_completion": {
-    "average_percent_yes": null,
-    "total": 0,
-    "breakdown": []
+    "average_percent_yes": "60.00",
+    "total": 5,
+    "breakdown": [
+      {
+        "received_all_meds": "Yes",
+        "count": 3
+      },
+      {
+        "received_all_meds": "None",
+        "count": 2
+      }
+    ]
   },
   "payment_modes": {
-    "most_common": null,
-    "breakdown": []
+    "most_common": "Free",
+    "breakdown": [
+      {
+        "service_payment_mode": "Free",
+        "count": 3
+      },
+      {
+        "service_payment_mode": "Insurance",
+        "count": 2
+      }
+    ]
   },
-  "problem_areas": [],
-  "positive_areas": []
+  "problem_areas": [
+    {
+      "problem_area": "Doctor's room",
+      "count": 4
+    },
+    {
+      "problem_area": "Pharmacy/Drugs",
+      "count": 1
+    }
+  ],
+  "positive_areas": [
+    {
+      "positive_area": "The external environment",
+      "count": 1
+    },
+    {
+      "positive_area": "Toilets",
+      "count": 1
+    },
+    {
+      "positive_area": "Doctor's room",
+      "count": 1
+    },
+    {
+      "positive_area": "Laboratory/testing",
+      "count": 1
+    },
+    {
+      "positive_area": "Reception",
+      "count": 1
+    }
+  ]
 }

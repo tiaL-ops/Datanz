@@ -176,6 +176,7 @@ class ResponseModel{
         }
     
         const averageWaitTime = totalCount > 0 ? totalTime / totalCount : null;
+        console.log("hi my average tiem is ",averageWaitTime  );
     
         return {
             facility_id,
@@ -368,7 +369,7 @@ class ResponseModel{
         const results = this.db.prepare(query).all(facility_id);
     
         const mostCommon = results[0]?.service_payment_mode || null;
-        console.log("here are results", results);
+
         return {
             most_common: mostCommon,
             breakdown: results

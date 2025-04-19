@@ -28,7 +28,7 @@ const responseModel= new ResponseModel(db);
 
 
 const fs = require('fs');
-/*
+
 const reportLines = [];
 
 reportLines.push("FACILITY DATA REPORT");
@@ -94,6 +94,6 @@ const facilityStats = {
   };
   
   fs.writeFileSync('facility_1_data.json', JSON.stringify(facilityStats, null, 2), 'utf-8');
-*/
-const tes = responseModel.getServicePaymentModes(1);
-console.log(tes);
+
+//const tes = responseModel.getServicePaymentModes(1);
+//console.log(tes);
