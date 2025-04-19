@@ -1,60 +1,99 @@
-const express = require('express');
-const router = express.Router();
-const facilityModel = require("../../db/models/FacilityModel");
-const responseModel = require("../../db/models/ResponseModel");
+const express = require("express");
+const router  = express.Router();
 const { connectToDatabase } = require("../../db/database");
+const FacilityModel          = require("../../db/models/FacilityModel");
+const ResponseModel          = require("../../db/models/ResponseModel");
+
 const db = connectToDatabase();
+const facilityModel = new FacilityModel(db);
+const responseModel = new ResponseModel(db);
 
-router.get('/', async(req, res) => {
-    res.render('government');
-});
+router.get("/", (req, res) => {
+  const areas = ["Toilets", "Pharmacy/Drugs", "Reception", "Doctor's room"];
+  const {
+    region,
+    waitThreshold,
+    satThreshold,
+    confiThreshold,
+    permThreshold,
+    testThreshold,
+    medThreshold,
+    problemArea,
+    positiveArea,
+    paymentMode,
+    bestCategory,
+    worstCategory,
+    negativeCategory
+  } = req.query;
 
-router.get('/facilities', async(req, res) => {
-    const id = req.params.id;
-    const gov = true;
-    try {
-        const facilityInstance = new facilityModel(db); // Use a different variable name
-        const facilities = await facilityInstance.getAllFacilitiesByName(); // Fetch facilities
-        res.render('facilities', {id, gov, facilities}); // Pass facilities to the template
-    } catch (error) {
-        console.error('Error fetching facilities:', error);
-        res.status(500).send('Internal Server Error');
-    }
-});
+ 
+  let facilities;
+  if (region) {
+    facilities = db
+      .prepare(`SELECT * FROM Facility WHERE location LIKE ?`)
+      .all(`${region}%`);
+  } else {
+    facilities = db.prepare(`SELECT * FROM Facility`).all();
+  }
 
 
-// router.get('/:id', (req, res) => {
-//     const id = req.params.id;
-//     const facilityInstance = new facilityModel(db); // Use a different variable name
-//     const facility = facilityInstance.getFacilityById(id); // Fetch facilities
-//     const head0_name = facility.headO_name;
-//     res.render('facilities', {id, facility, head0_name}); // Pass facilities to the template
-// });
-router.get('/facilities/:id', async(req, res) => {
-    try {
-        const id = req.params.id; // Get the facility ID from the URL
-        const facilityInstance = new facilityModel(db); // Create an instance of the model
-        const responseInstance = new responseModel(db); // Create an instance of the model
-        const facilityResponses = responseInstance.getFacilityResponsesById(id); // Fetch responses for the facility
-        const gov = true;
-        // Group responses by question_id
-        const groupedResponses = {};
-        facilityResponses.forEach(response => {
-            if (!groupedResponses[response.question_id]) {
-                groupedResponses[response.question_id] = {
-                    question_text: response.question_text,
-                    answers: []
-                };
-            }
-            groupedResponses[response.question_id].answers.push(response.answer_text);
-        });
-        const facility = facilityInstance.getFacilityById(id); 
-        const head0_name = facility.headO_name;
-        res.render('facilities', { id, gov, facilityResponses,facility, groupedResponses, head0_name }); // Pass grouped data to the template
-    } catch (error) {
-        console.error('Error fetching facility responses:', error);
-        res.status(500).send('Internal Server Error');
-    }
+  const results = facilities.map(f => {
+    const id = f.facility_id;
+    const m  = {
+      avgWait:    responseModel.getWaitingTimeStats(id).average_wait_time_minutes  || 0,
+      avgSat:     Number(responseModel.getSatisfactionDistribution(id).average)    || 0,
+      yesConfi:   Number(responseModel.getConfidentialityStats(id).average_percent_yes) || 0,
+      yesPerm:    Number(responseModel.getPermissionBeforeExamStats(id).average_percent_yes) || 0,
+      yesTests:   Number(responseModel.getTestCompletionStats(id).average_percent_yes) || 0,
+      yesMeds:    Number(responseModel.getMedicationCompletionStats(id).average_percent_yes) || 0,
+      topProblems:  responseModel.getProblemAreaFrequency(id).map(p => p.problem_area),
+      topPositives: responseModel.getPositiveAreaFrequency(id).map(p => p.positive_area),
+      topPayMode:   responseModel.getServicePaymentModes(id).most_common,
+      areaSatisfaction: responseModel.getAreaSatisfactionWithScore(id)  // for negativeCategory
+    };
+    return { ...f, metrics: m };
+  });
+
+  
+  let filtered = results.filter(f => {
+    const m = f.metrics;
+    if (waitThreshold   && m.avgWait   <= Number(waitThreshold))     return false;
+    if (satThreshold    && m.avgSat    >= Number(satThreshold))      return false;
+    if (confiThreshold  && (100 - m.yesConfi) < Number(confiThreshold)) return false;
+    if (permThreshold   && (100 - m.yesPerm)  < Number(permThreshold))   return false;
+    if (testThreshold   && (100 - m.yesTests) < Number(testThreshold))   return false;
+    if (medThreshold    && (100 - m.yesMeds)  < Number(medThreshold))    return false;
+    if (problemArea     && !m.topProblems.includes(problemArea))        return false;
+    if (positiveArea    &&  m.topPositives.includes(positiveArea))       return false;
+    if (paymentMode     &&  m.topPayMode !== paymentMode)               return false;
+    return true;
+  });
+
+  
+  if (negativeCategory) {
+    filtered = filtered.filter(f => {
+      const row = f.metrics.areaSatisfaction.find(r => r.area === negativeCategory);
+      return row && row.bad_count > 0;
+    });
+  }
+
+ 
+  let bestBy = null, worstBy = null;
+  if (bestCategory) {
+    bestBy = responseModel.getBestWorstByArea(bestCategory);
+  }
+  if (worstCategory) {
+    worstBy = responseModel.getBestWorstByArea(worstCategory);
+  }
+
+
+  res.render("government", {
+    filters:          req.query,
+    areas,
+    bestBy,
+    worstBy,
+    results:          filtered
+  });
 });
 
 module.exports = router;

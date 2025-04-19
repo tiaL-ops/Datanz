@@ -176,7 +176,7 @@ class ResponseModel{
         }
     
         const averageWaitTime = totalCount > 0 ? totalTime / totalCount : null;
-        console.log("hi my average tiem is ",averageWaitTime  );
+      
     
         return {
             facility_id,
