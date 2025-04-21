@@ -23,7 +23,17 @@ router.post('/login', (req, res) => {
                 username: user.username,
                 usertype: user.usertype
             };
-            return res.redirect('/facilities');
+            if (user.usertype === 'government' && user.password_changed === 0) {
+                //Redirect to change password page
+                return res.redirect('/auth?type=change');
+            } 
+            
+            if (user.usertype === 'government') {
+                //Redirect to government dashboard
+                return res.redirect('/government');
+            } else {
+                return res.redirect('/facilities');
+            }
         }
         else {
             res.send('Invalid username or password');
@@ -34,42 +44,31 @@ router.post('/login', (req, res) => {
     }
 });
 
-router.post('/signup', (req, res) => {
-    const { username, password, email, usertype } = req.body;
-    const createdAt = new Date().toISOString();
+router.get('/change-password', (req, res) => {
+    if (!req.session.user){
+        return res.redirect('/auth?type=login');
+    }
+    res.render('auth', { type: 'change' });
+});
+
+router.post('/change-password', (req, res) => {
+    const { newPassword } = req.body;
+    if (!req.session.user){
+        return res.redirect('/auth?type=login');
+    }
 
     try {
-        //check if username already exists
-        const existingUser = db.prepare("SELECT * FROM Auth WHERE username = ?").get(username);
-        if (existingUser) {
-            return res.send("Username already exists");
-        }
-        //check if email already exists
-        const existingEmail = db.prepare("SELECT * FROM Auth WHERE email = ?").get(email);
-        if (existingEmail) {
-            return res.send("Email already exists");
-        }
-        //check if usertype is valid
-        const validUserTypes = ['government', 'user'];
-        if (!validUserTypes.includes(usertype)) {
-            return res.send("Invalid user type");
-        }
+        //update password in database
+        const stmt = db.prepare("UPDATE Auth SET password = ?, password_changed = 1 WHERE user_id = ?");
+        stmt.run(newPassword, req.session.user.user_id);
 
-        //insert new user into database
-        const stmt = db.prepare("INSERT INTO Auth (username, password, email, usertype, created_at) VALUES (?, ?, ?, ?, ?)");
-        const info = stmt.run(username, password, email, usertype, createdAt);
+        //Update session user info
+        req.session.user.password_changed = 1;
 
-        //Save user info in session
-        req.session.user = {
-            user_id: info.lastInsertRowid,
-            username,
-            usertype
-        };
-
-        res.redirect('/facilities');
+        res.redirect('/government');
     } catch (err) {
         console.error(err);
-        res.send("Error creating user");
+        res.send("Error changing password");
     }
 });
 
