@@ -1,61 +1,1001 @@
 Language,FacilityCode,Age,Gender,Pregnant,GestionalAge,Location,WaitingTime,Permission,Confidentiality,Communication,GotAllTests,TestReasons,GotAllMedecines,MedecineReason,Payment method,Overall satisfaction,Good,Bad,Time received
-English,9215552-6,23,Female,Yes,8,At home,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Laboratory/testing,Toilets,03/05/2024
-Kiswahili,1293215-4,23,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad service,The external environment,Toilets,03/29/2024
-English,1929277-8,30,Male,Yes,3,Another part,Within 1 hour,Yes,Yes,Yes,Some,Another reason,None,Out of stock,Insurance,Normal,Doctor's room,Toilets,04/05/2024
-English,1042357-8,17,Female,Yes,,At the station,Between 2-3 hours,Yes,No,No,None,Another reason,Some,Couldn't afford,Free,Bad service,Doctor's room,Doctor's room,04/08/2024
-Kiswahili,120915-4,12,Male,,,Another part,Within 1 hour,Yes,Yes,No,Some,Another reason,Yes,,Free,Good Service,The external environment,Laboratory/testing,02/06/2024
-English,1042357-8,29,Male,No,2,At the station,More than 3 hours,Yes,No,No,Yes,,Yes,,Insurance,Normal,Reception,Toilets,02/03/2024
-English,108577-8,18,Female,No,,At home,Within 1 hour,No,No,Yes,Some,No equipment,Some,Out of stock,Insurance,Good Service,Pharmacy/Drugs,Pharmacy/Drugs,03/19/2024
-Kiswahili,18434313-9,40,Female,Yes,6,In Society,Between 2-3 hours,Yes,Yes,Yes,Some,Another reason,Some,Couldn't afford,Free,Bad service,Toilets,Laboratory/testing,04/12/2024
-Kiswahili,121333-9,20,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,No equipment,Yes,,Free,Normal,The external environment,Pharmacy/Drugs,04/13/2024
-English,108577-8,47,Female,Yes,7,At the station,More than 3 hours,Yes,Yes,No,Some,No equipment,None,Couldn't afford,Insurance,Very good,Toilets,Doctor's room,02/22/2024
-Kiswahili,111552-6,19,Male,,,Another part,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,None,Out of stock,Free,Bad service,The external environment,Laboratory/testing,02/05/2024
-Kiswahili,120915-4,23,Female,No,,At the station,More than 3 hours,No,No,No,None,Another reason,Yes,,Free,Very good,Laboratory/testing,Laboratory/testing,04/02/2024
-Kiswahili,121333-9,47,Female,Yes,,At the station,Between 2-3 hours,Yes,Yes,No,Yes,,None,Couldn't afford,Free,Bad service,Toilets,Doctor's room,04/17/2024
-Kiswahili,120915-4,30,Female,Yes,7,At home,More than 3 hours,Yes,No,No,Yes,,Yes,,Free,Not satisfied,Pharmacy/Drugs,The external environment,04/16/2024
-English,1293215-4,30,Female,No,,Another part,Between 2-3 hours,Yes,Yes,No,Some,No equipment,None,Out of stock,Insurance,Bad service,Reception,Toilets,04/05/2024
-English,121333-9,23,Female,No,,At home,Within 1 hour,No,Yes,Yes,Yes,,None,Another reason,Insurance,Normal,Reception,Doctor's room,03/13/2024
-Kiswahili,108577-8,47,Male,No,,At home,Within 1 hour,Yes,Yes,Yes,Yes,,None,Couldn't afford,Insurance,Good Service,Laboratory/testing,Laboratory/testing,02/23/2024
-Kiswahili,18434313-9,29,Male,No,,Another part,Within 1 hour,No,No,No,None,No equipment,None,Couldn't afford,Free,Bad service,Laboratory/testing,Doctor's room,04/07/2024
-English,1135552-6,12,Male,No,,In Society,Between 2-3 hours,No,No,No,Yes,,None,Another reason,Free,Normal,Pharmacy/Drugs,Laboratory/testing,04/18/2024
-Kiswahili,120915-4,23,Male,No,,In Society,Between 2-3 hours,No,Yes,Yes,None,I couldn't afford the cost,None,Another reason,Free,Not satisfied,Toilets,Pharmacy/Drugs,03/31/2024
-Kiswahili,111552-6,21,Female,,,At home,Within 1 hour,Yes,No,No,Some,I couldn't afford the cost,None,Another reason,Free,Good Service,Toilets,Reception,03/05/2024
-Kiswahili,120915-4,44,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,No equipment,Some,Couldn't afford,Insurance,Not satisfied,Pharmacy/Drugs,The external environment,03/29/2024
-English,1293215-4,24,Female,No,,In Society,Within 1 hour,No,No,No,No,,Yes,,Free,Normal,Laboratory/testing,Laboratory/testing,04/05/2024
-English,120915-4,34,Female,,,In Society,More than 3 hours,No,Yes,No,None,No equipment,Yes,Out of stock,Insurance,Very good,Pharmacy/Drugs,Doctor's room,04/08/2024
-English,108577-8,41,Female,,,At home,Within 1 hour,Yes,No,No,Yes,No equipment,Yes,,Insurance,Bad service,Laboratory/testing,The external environment,02/06/2024
-Kiswahili,18434313-9,27,Male,,,In Society,Between 2-3 hours,Yes,Yes,Yes,Yes,No equipment,Some,Another reason,Insurance,Very good,Toilets,Doctor's room,02/03/2024
-Kiswahili,1032915-4,44,Female,,,Another part,Within 1 hour,Yes,Yes,Yes,None,No equipment,Some,,Insurance,Not satisfied,Laboratory/testing,Toilets,03/19/2024
-Kiswahili,1032915-4,29,Female,No,,At home,Within 1 hour,No,No,No,Some,I couldn't afford the cost,Some,Another reason,Free,Normal,Toilets,Pharmacy/Drugs,04/12/2024
-Kiswahili,121333-9,22,Male,,,At home,More than 3 hours,Yes,No,Yes,None,,Yes,Out of stock,Free,Good Service,Laboratory/testing,Doctor's room,04/13/2024
-English,108577-8,29,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Not satisfied,Doctor's room,The external environment,02/22/2024
-English,1135552-6,31,Female,No,,Another part,Between 2-3 hours,Yes,Yes,No,No,No equipment,Yes,Another reason,Free,Good Service,Laboratory/testing,Toilets,02/05/2024
-Kiswahili,1213443-9,42,Male,,,At the station,Between 2-3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Some,,Insurance,Very good,Pharmacy/Drugs,The external environment,04/02/2024
-English,1135552-6,48,Male,,,Another part,Between 2-3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Bad service,Pharmacy/Drugs,Laboratory/testing,04/17/2024
-Kiswahili,9215552-6,31,Female,Yes,3,Another part,More than 3 hours,Yes,No,No,No,Another reason,Yes,,Insurance,Good Service,Pharmacy/Drugs,Reception,04/16/2024
-English,1293215-4,41,Female,No,,In Society,Between 2-3 hours,Yes,Yes,No,Some,,None,Couldn't afford,Insurance,Normal,Reception,Laboratory/testing,04/05/2024
-English,1929277-8,28,Female,No,,Another part,Within 1 hour,No,No,No,No,Another reason,None,,Free,Not satisfied,Doctor's room,Toilets,03/13/2024
-English,121333-9,45,Male,,,At the station,More than 3 hours,No,No,No,No,,Yes,Another reason,Insurance,Bad service,Doctor's room,Doctor's room,02/23/2024
-Kiswahili,108577-8,14,Female,Yes,1,At the station,More than 3 hours,Yes,Yes,Yes,Yes,,Yes,,Insurance,Not satisfied,Laboratory/testing,Doctor's room,04/07/2024
-Kiswahili,1213443-9,14,Female,Yes,1,Another part,Between 2-3 hours,No,Yes,No,No,,Yes,Out of stock,Free,Good Service,Doctor's room,Toilets,04/18/2024
-Kiswahili,120915-4,36,Male,,,At the station,Within 1 hour,Yes,No,Yes,Some,No equipment,None,Another reason,Free,Not satisfied,Pharmacy/Drugs,Doctor's room,03/31/2024
-English,120915-4,38,Male,,,In Society,More than 3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Another reason,Free,Very good,Pharmacy/Drugs,Reception,02/19/2024
-English,9215552-6,43,Male,,,Another part,Between 2-3 hours,Yes,Yes,No,None,I couldn't afford the cost,Some,Out of stock,Insurance,Very good,Laboratory/testing,Doctor's room,03/30/2024
-English,1293215-4,29,Male,,,In Society,Between 2-3 hours,Yes,Yes,No,Yes,Another reason,Yes,Another reason,Insurance,Very good,Toilets,Doctor's room,03/17/2024
-English,1929277-8,43,Male,,,Another part,Between 2-3 hours,No,Yes,No,Yes,Another reason,Yes,Another reason,Insurance,Bad service,Pharmacy/Drugs,Doctor's room,04/06/2024
-English,108577-8,33,Male,,,At home,Between 2-3 hours,No,No,No,Some,Another reason,Yes,Another reason,Insurance,Very good,Laboratory/testing,Reception,03/05/2024
-English,120915-4,37,Female,Yes,,Another part,More than 3 hours,No,No,No,No,Another reason,Some,Another reason,Free,Normal,Laboratory/testing,Pharmacy/Drugs,04/06/2024
-Kiswahili,1213443-9,46,Male,,,In Society,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Bad service,Pharmacy/Drugs,Reception,03/28/2024
-Kiswahili,1032915-4,44,Male,,,Another part,Between 2-3 hours,Yes,No,No,Some,,None,Out of stock,Insurance,Bad service,Laboratory/testing,Toilets,02/04/2024
-English,18434313-9,15,Male,,,In Society,Within 1 hour,Yes,No,Yes,Some,,None,,Free,Good Service,Toilets,Toilets,02/26/2024
-English,120915-4,49,Female,Yes,2,Another part,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,None,Another reason,Insurance,Very good,Laboratory/testing,Doctor's room,02/09/2024
-Kiswahili,111552-6,17,Female,,,At the station,More than 3 hours,Yes,No,Yes,No,Another reason,None,Another reason,Free,Normal,Pharmacy/Drugs,Pharmacy/Drugs,02/03/2024
-Kiswahili,18434313-9,28,Female,Yes,5,Another part,Between 2-3 hours,Yes,No,Yes,Some,No equipment,Yes,Out of stock,Free,Good Service,Pharmacy/Drugs,Pharmacy/Drugs,03/09/2024
-English,1042357-8,49,Female,No,,Another part,Between 2-3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad service,Laboratory/testing,The external environment,03/11/2024
-English,111552-6,45,Female,Yes,6,Another part,Between 2-3 hours,Yes,No,Yes,Yes,No equipment,None,,Insurance,Very good,Doctor's room,Doctor's room,03/13/2024
-English,120915-4,27,Female,No,,Another part,Between 2-3 hours,No,No,No,Yes,No equipment,Some,,Insurance,Bad service,Laboratory/testing,Doctor's room,02/29/2024
-Kiswahili,1213443-9,44,Male,,,In Society,More than 3 hours,Yes,Yes,Yes,Some,No equipment,None,Another reason,Insurance,Normal,Toilets,Toilets,02/12/2024
-Kiswahili,18434313-9,45,Female,Yes,9,In Society,Between 2-3 hours,Yes,Yes,No,No,Another reason,Some,Out of stock,Insurance,Good Service,Reception,Reception,02/27/2024
-Kiswahili,120915-4,44,Male,,,At the station,More than 3 hours,No,No,Yes,None,,Some,Couldn't afford,Insurance,Good Service,Pharmacy/Drugs,Doctor's room,02/16/2024
-English,111552-6,46,Female,Yes,1,In Society,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,None,Couldn't afford,Free,Bad service,Laboratory/testing,Pharmacy/Drugs,03/16/2024
-Kiswahili,108577-8,34,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,,None,,Insurance,Good Service,Pharmacy/Drugs,Toilets,03/19/2024
+English,109848-2,38,Female,Yes,6,At home,Within 1 hour,No,Yes,No,Yes,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Good,Staff,Staff,03/23/2024
+English,100220-3,19,Female,Yes,1,At home,Within 1 hour,Yes,No,Yes,No,I couldn't afford the cost,Some,Another reason,Free,Very good,Laboratory/testing,Toilets,03/14/2024
+Kiswahili,113625-8,42,Female,Yes,7,At home,Between 2-3 hours,No,Yes,No,Yes,They were not available,No,Out of stock,Insurance,Good,The external environment,Waiting time,04/23/2024
+Kiswahili,102558-4,28,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,They were not available,No,Another reason,Free,Normal,The external environment,Toilets,04/07/2024
+English,111782-9,36,Female,Yes,3,At home,Within 1 hour,No,No,Yes,Some,They were not available,No,Out of stock,Out of pocket,Good,Staff,Cleanliness,04/19/2024
+Kiswahili,111784-5,40,Female,Yes,6,At the facility,Within 1 hour,Yes,Yes,No,No,I couldn't afford the cost,No,Another reason,Free,Very bad,Cleanliness,Cleanliness,03/24/2024
+Kiswahili,102269-8,44,Male,,,At the facility,Between 1-2 hours,No,No,Yes,No,I didn't understand the need,Some,Out of stock,Free,Good,Cleanliness,Staff,04/22/2024
+English,111582-3,18,Female,Yes,9,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,No,Another reason,Insurance,Normal,Staff,Cleanliness,03/01/2024
+Kiswahili,112955-0,45,Female,Yes,6,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,Yes,Couldn't afford,Insurance,Very bad,Laboratory/testing,Cleanliness,04/22/2024
+English,113550-8,24,Female,Yes,2,At home,More than 3 hours,No,Yes,No,Some,I didn't understand the need,No,Couldn't afford,Insurance,Good,Staff,Toilets,03/13/2024
+Kiswahili,102775-4,41,Female,No,,At home,More than 3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Some,Couldn't afford,Free,Very good,Staff,Staff,04/09/2024
+Kiswahili,103410-7,27,Female,Yes,6,At home,More than 3 hours,No,Yes,Yes,Some,They were not available,No,Out of stock,Out of pocket,Bad,The external environment,Toilets,03/20/2024
+English,103474-3,19,Male,,,At home,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Couldn't afford,Insurance,Very good,Cleanliness,Staff,04/08/2024
+English,113632-4,39,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Yes,I didn't understand the need,Some,Another reason,Insurance,Bad,Laboratory/testing,Toilets,03/30/2024
+English,111491-7,33,Female,No,,At home,Between 2-3 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Another reason,Insurance,Very good,Cleanliness,Toilets,03/27/2024
+Kiswahili,102557-6,43,Female,Yes,1,At home,More than 3 hours,Yes,No,Yes,No,They were not available,Some,Couldn't afford,Insurance,Very good,Cleanliness,Waiting time,03/04/2024
+English,104520-2,31,Male,,,At home,Between 2-3 hours,Yes,No,No,Some,They were not available,Some,Couldn't afford,Free,Very bad,Staff,Toilets,03/29/2024
+English,102558-4,35,Female,No,,At the facility,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,Yes,Another reason,Free,Very good,Cleanliness,Waiting time,04/14/2024
+Kiswahili,111489-1,24,Female,No,,At home,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Insurance,Bad,Laboratory/testing,Staff,03/10/2024
+English,101777-1,37,Female,Yes,4,At the facility,Within 1 hour,Yes,No,Yes,No,I couldn't afford the cost,Yes,Out of stock,Insurance,Very good,Laboratory/testing,Staff,03/13/2024
+English,101379-6,39,Female,No,,At home,Within 1 hour,No,Yes,No,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,The external environment,Cleanliness,04/03/2024
+English,110721-8,34,Male,,,At home,Within 1 hour,No,No,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Bad,The external environment,Waiting time,04/01/2024
+English,109848-2,24,Female,Yes,3,At home,Between 1-2 hours,No,Yes,Yes,Yes,I didn't understand the need,Yes,Another reason,Insurance,Bad,Laboratory/testing,Waiting time,03/07/2024
+Kiswahili,102269-8,30,Male,,,At home,More than 3 hours,Yes,No,No,No,They were not available,Some,Out of stock,Free,Very good,The external environment,Staff,04/22/2024
+English,100304-5,39,Male,,,At home,Between 2-3 hours,No,No,No,No,They were not available,No,Another reason,Free,Very good,Cleanliness,Cleanliness,03/05/2024
+Kiswahili,112006-2,42,Female,Yes,9,At the facility,More than 3 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Another reason,Free,Normal,Cleanliness,Cleanliness,03/07/2024
+English,120960-0,39,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,No,I didn't understand the need,Some,Out of stock,Free,Good,The external environment,Toilets,04/05/2024
+English,120960-0,30,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Very bad,Laboratory/testing,Waiting time,04/13/2024
+Kiswahili,111784-5,27,Male,,,At the facility,Within 1 hour,No,Yes,Yes,Some,They were not available,Yes,Another reason,Free,Good,The external environment,Cleanliness,03/23/2024
+English,101379-6,45,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,They were not available,Yes,Another reason,Out of pocket,Very good,The external environment,Staff,03/06/2024
+Kiswahili,111844-7,39,Female,No,,At home,More than 3 hours,Yes,No,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Very bad,Cleanliness,Toilets,04/23/2024
+Kiswahili,102557-6,24,Female,Yes,4,At home,Within 1 hour,Yes,Yes,No,No,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Staff,04/26/2024
+Kiswahili,111998-1,40,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,No,They were not available,No,Another reason,Insurance,Very bad,Staff,Waiting time,03/27/2024
+English,103684-7,45,Female,No,,At home,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,No,Out of stock,Free,Normal,Cleanliness,Toilets,04/11/2024
+Kiswahili,103587-2,32,Female,Yes,7,At the facility,Between 2-3 hours,Yes,No,Yes,No,I didn't understand the need,Some,Out of stock,Out of pocket,Good,The external environment,Staff,04/24/2024
+English,110721-8,30,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Very good,Laboratory/testing,Waiting time,04/29/2024
+English,111489-1,19,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Some,They were not available,No,Out of stock,Out of pocket,Normal,Laboratory/testing,Cleanliness,04/05/2024
+Kiswahili,102557-6,28,Male,,,At home,Between 1-2 hours,No,No,Yes,Some,I didn't understand the need,Some,Couldn't afford,Out of pocket,Bad,Staff,Waiting time,03/05/2024
+Kiswahili,101462-0,25,Female,No,,At home,Within 1 hour,No,No,No,Yes,They were not available,Yes,Couldn't afford,Insurance,Good,The external environment,Waiting time,03/19/2024
+English,104020-3,35,Male,,,At home,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Free,Good,Cleanliness,Toilets,03/10/2024
+English,110723-4,34,Female,No,,At home,Within 1 hour,Yes,No,Yes,Some,I didn't understand the need,Yes,Another reason,Free,Very bad,Staff,Toilets,03/23/2024
+English,109848-2,25,Male,,,At home,Within 1 hour,Yes,No,Yes,No,They were not available,Yes,Couldn't afford,Insurance,Normal,Cleanliness,Cleanliness,03/01/2024
+English,120960-0,23,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,They were not available,Some,Out of stock,Out of pocket,Good,Staff,Cleanliness,04/20/2024
+English,102557-6,30,Male,,,At home,More than 3 hours,No,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Very good,The external environment,Toilets,04/01/2024
+Kiswahili,100280-7,37,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Another reason,Free,Very good,Cleanliness,Cleanliness,03/08/2024
+Kiswahili,102269-8,37,Male,,,At the facility,More than 3 hours,No,Yes,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Bad,Staff,Cleanliness,04/02/2024
+Kiswahili,103390-1,23,Female,No,,At home,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Free,Bad,The external environment,Staff,03/07/2024
+Kiswahili,111005-5,31,Male,,,At the facility,More than 3 hours,Yes,No,No,Yes,They were not available,No,Out of stock,Out of pocket,Very bad,Laboratory/testing,Staff,04/27/2024
+English,112490-8,28,Female,Yes,3,At the facility,Between 1-2 hours,Yes,No,Yes,No,They were not available,Some,Another reason,Free,Normal,The external environment,Waiting time,04/08/2024
+English,103086-5,38,Male,,,At home,Between 2-3 hours,No,No,No,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Normal,Laboratory/testing,Staff,04/23/2024
+English,112882-6,25,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,No,I couldn't afford the cost,No,Another reason,Out of pocket,Good,The external environment,Cleanliness,03/30/2024
+Kiswahili,104020-3,24,Male,,,At the facility,More than 3 hours,No,Yes,No,Some,They were not available,Yes,Couldn't afford,Out of pocket,Very bad,Laboratory/testing,Cleanliness,03/25/2024
+Kiswahili,102507-1,35,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,I didn't understand the need,Some,Another reason,Out of pocket,Very bad,The external environment,Waiting time,03/14/2024
+Kiswahili,111784-5,36,Female,No,,At home,More than 3 hours,No,No,No,Some,I didn't understand the need,Yes,Another reason,Free,Good,Cleanliness,Waiting time,03/28/2024
+Kiswahili,111784-5,38,Female,No,,At the facility,More than 3 hours,Yes,Yes,Yes,Some,They were not available,Some,Couldn't afford,Out of pocket,Very bad,The external environment,Toilets,03/12/2024
+English,112490-8,27,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Free,Very bad,The external environment,Staff,04/28/2024
+Kiswahili,111007-1,31,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,Yes,I couldn't afford the cost,No,Another reason,Insurance,Good,The external environment,Toilets,03/05/2024
+English,103457-8,45,Male,,,At the facility,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,No,Another reason,Free,Very good,Cleanliness,Staff,04/01/2024
+English,111007-1,35,Female,Yes,7,At the facility,Between 1-2 hours,Yes,No,No,Yes,They were not available,Some,Another reason,Free,Very good,Cleanliness,Cleanliness,03/22/2024
+English,113632-4,44,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Some,They were not available,No,Couldn't afford,Free,Very good,Staff,Cleanliness,03/23/2024
+English,112955-0,25,Female,No,,At home,Within 1 hour,No,No,Yes,Some,I couldn't afford the cost,No,Another reason,Out of pocket,Very bad,Cleanliness,Staff,03/15/2024
+Kiswahili,103394-3,23,Female,Yes,6,At home,Between 2-3 hours,No,No,Yes,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Normal,Cleanliness,Staff,04/24/2024
+Kiswahili,113625-8,31,Female,Yes,6,At home,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very good,Staff,Cleanliness,04/29/2024
+English,100556-0,29,Female,No,,At home,More than 3 hours,Yes,Yes,Yes,Some,They were not available,Some,Out of stock,Out of pocket,Very bad,The external environment,Staff,03/01/2024
+English,101295-4,37,Female,Yes,9,At home,Within 1 hour,Yes,Yes,No,Yes,I didn't understand the need,Yes,Another reason,Out of pocket,Very bad,Cleanliness,Cleanliness,03/20/2024
+English,101295-4,43,Male,,,At the facility,More than 3 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Out of stock,Insurance,Bad,Staff,Staff,04/26/2024
+Kiswahili,110723-4,26,Female,Yes,1,At the facility,Within 1 hour,Yes,Yes,No,Yes,They were not available,Some,Another reason,Out of pocket,Good,Laboratory/testing,Cleanliness,04/21/2024
+English,102507-1,24,Female,Yes,6,At the facility,Between 1-2 hours,No,No,Yes,Yes,They were not available,Some,Another reason,Insurance,Good,The external environment,Cleanliness,03/30/2024
+English,103086-5,39,Male,,,At the facility,Within 1 hour,Yes,No,Yes,Some,I didn't understand the need,Some,Another reason,Out of pocket,Normal,Laboratory/testing,Waiting time,03/07/2024
+Kiswahili,120960-0,37,Male,,,At home,Between 2-3 hours,Yes,No,Yes,Yes,They were not available,Some,Out of stock,Out of pocket,Bad,Laboratory/testing,Waiting time,03/29/2024
+Kiswahili,110723-4,41,Female,No,,At the facility,More than 3 hours,No,Yes,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Normal,Cleanliness,Waiting time,03/06/2024
+Kiswahili,103457-8,38,Female,Yes,2,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Insurance,Very bad,Staff,Toilets,04/04/2024
+Kiswahili,120960-0,23,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Free,Good,Staff,Waiting time,04/24/2024
+Kiswahili,103429-7,22,Male,,,At home,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Normal,The external environment,Toilets,04/02/2024
+English,100280-7,34,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Normal,Cleanliness,Waiting time,03/12/2024
+English,111957-7,23,Male,,,At home,Between 2-3 hours,No,No,Yes,Yes,They were not available,Some,Out of stock,Out of pocket,Normal,Laboratory/testing,Staff,03/08/2024
+English,113222-4,18,Female,Yes,7,At the facility,Within 1 hour,Yes,Yes,No,Yes,They were not available,No,Another reason,Insurance,Good,The external environment,Staff,03/31/2024
+English,100280-7,44,Male,,,At the facility,More than 3 hours,Yes,Yes,No,No,I didn't understand the need,No,Couldn't afford,Free,Bad,Staff,Staff,04/11/2024
+Kiswahili,101462-0,45,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,No,Couldn't afford,Insurance,Normal,Staff,Cleanliness,03/20/2024
+English,104020-3,36,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,No,They were not available,No,Another reason,Free,Very bad,The external environment,Cleanliness,04/20/2024
+Kiswahili,120283-7,24,Male,,,At home,Between 1-2 hours,No,No,Yes,Some,I couldn't afford the cost,No,Another reason,Insurance,Very good,The external environment,Staff,04/14/2024
+English,103390-1,19,Female,No,,At home,More than 3 hours,No,Yes,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Normal,Laboratory/testing,Cleanliness,04/14/2024
+English,120960-0,25,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,They were not available,No,Out of stock,Out of pocket,Very good,The external environment,Cleanliness,04/07/2024
+English,111005-5,40,Female,No,,At the facility,Between 1-2 hours,Yes,No,No,Some,They were not available,Some,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Cleanliness,03/25/2024
+English,111957-7,45,Male,,,At the facility,Within 1 hour,No,Yes,No,No,I couldn't afford the cost,Some,Another reason,Insurance,Very good,Cleanliness,Waiting time,03/05/2024
+Kiswahili,103390-1,32,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Free,Normal,Laboratory/testing,Waiting time,04/04/2024
+English,112490-8,39,Male,,,At the facility,Within 1 hour,Yes,No,No,Some,I couldn't afford the cost,No,Couldn't afford,Free,Very good,Laboratory/testing,Cleanliness,04/28/2024
+Kiswahili,102558-4,44,Male,,,At the facility,Within 1 hour,No,No,No,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Very good,The external environment,Staff,04/26/2024
+English,111844-7,26,Female,Yes,8,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Yes,Another reason,Insurance,Good,Laboratory/testing,Cleanliness,04/18/2024
+English,120960-0,31,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,Yes,They were not available,Yes,Couldn't afford,Insurance,Very good,Cleanliness,Staff,04/02/2024
+English,113625-8,31,Female,Yes,9,At the facility,More than 3 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Insurance,Very good,Staff,Cleanliness,03/13/2024
+Kiswahili,111005-5,31,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Yes,They were not available,No,Couldn't afford,Free,Normal,Laboratory/testing,Cleanliness,04/26/2024
+Kiswahili,112955-0,30,Female,No,,At the facility,More than 3 hours,No,No,Yes,Some,They were not available,No,Another reason,Out of pocket,Normal,Staff,Cleanliness,04/05/2024
+English,111784-5,36,Male,,,At the facility,More than 3 hours,Yes,Yes,No,Some,They were not available,Yes,Couldn't afford,Free,Very bad,The external environment,Cleanliness,03/17/2024
+Kiswahili,111005-5,35,Male,,,At home,Within 1 hour,Yes,Yes,No,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Very bad,Laboratory/testing,Toilets,04/20/2024
+Kiswahili,111957-7,33,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Some,They were not available,No,Another reason,Insurance,Very good,Staff,Cleanliness,03/23/2024
+Kiswahili,120283-7,32,Female,No,,At the facility,More than 3 hours,Yes,No,No,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Very good,Staff,Staff,04/20/2024
+Kiswahili,111007-1,40,Female,No,,At the facility,More than 3 hours,No,Yes,No,No,I couldn't afford the cost,Some,Another reason,Free,Very good,Staff,Staff,03/06/2024
+Kiswahili,111005-5,45,Female,No,,At home,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Normal,Staff,Waiting time,03/25/2024
+English,110721-8,34,Female,Yes,3,At home,Within 1 hour,Yes,No,No,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Good,Staff,Staff,04/20/2024
+English,102775-4,26,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Some,They were not available,Yes,Out of stock,Free,Very good,Staff,Staff,03/06/2024
+English,100556-0,25,Female,Yes,4,At the facility,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Free,Normal,Cleanliness,Cleanliness,04/01/2024
+Kiswahili,110723-4,43,Male,,,At the facility,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad,The external environment,Staff,03/24/2024
+English,111957-7,45,Male,,,At the facility,Between 2-3 hours,No,No,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Bad,Laboratory/testing,Waiting time,04/01/2024
+Kiswahili,113625-8,29,Male,,,At the facility,Within 1 hour,Yes,No,No,Some,They were not available,Yes,Another reason,Free,Good,The external environment,Cleanliness,04/25/2024
+Kiswahili,111957-7,29,Female,Yes,4,At home,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Insurance,Good,Staff,Toilets,03/07/2024
+English,102775-4,23,Male,,,At home,Between 1-2 hours,Yes,No,No,Yes,They were not available,Some,Another reason,Free,Very bad,Cleanliness,Waiting time,04/28/2024
+English,120960-0,22,Male,,,At home,Between 2-3 hours,No,No,Yes,Yes,I couldn't afford the cost,Some,Out of stock,Out of pocket,Very bad,Cleanliness,Toilets,04/21/2024
+Kiswahili,100220-3,23,Male,,,At the facility,More than 3 hours,No,Yes,Yes,Some,They were not available,Some,Couldn't afford,Insurance,Good,Cleanliness,Toilets,03/24/2024
+English,120365-2,21,Female,Yes,4,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,They were not available,Some,Another reason,Out of pocket,Bad,Cleanliness,Toilets,03/28/2024
+English,103474-3,38,Male,,,At home,Between 1-2 hours,Yes,No,Yes,Yes,I couldn't afford the cost,No,Another reason,Out of pocket,Bad,Cleanliness,Waiting time,03/17/2024
+Kiswahili,101224-4,20,Male,,,At home,More than 3 hours,Yes,Yes,No,Some,I didn't understand the need,No,Another reason,Free,Bad,Staff,Toilets,03/25/2024
+Kiswahili,101379-6,31,Male,,,At home,Within 1 hour,No,No,Yes,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Normal,Laboratory/testing,Toilets,03/28/2024
+English,111007-1,34,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,Yes,They were not available,Yes,Couldn't afford,Free,Very good,Cleanliness,Toilets,04/05/2024
+Kiswahili,103684-7,40,Female,No,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Normal,The external environment,Toilets,03/05/2024
+Kiswahili,100556-0,21,Female,Yes,1,At home,Between 2-3 hours,No,No,Yes,No,They were not available,Yes,Another reason,Free,Very good,The external environment,Cleanliness,04/28/2024
+English,111489-1,34,Female,Yes,3,At home,More than 3 hours,No,No,Yes,Some,They were not available,Some,Couldn't afford,Insurance,Bad,Staff,Waiting time,03/22/2024
+Kiswahili,102558-4,38,Female,No,,At home,Between 1-2 hours,No,No,No,Some,They were not available,No,Out of stock,Free,Bad,Cleanliness,Staff,04/27/2024
+English,111582-3,18,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Free,Very bad,The external environment,Waiting time,03/19/2024
+Kiswahili,101224-4,42,Male,,,At home,Within 1 hour,No,Yes,Yes,Some,I didn't understand the need,No,Couldn't afford,Insurance,Good,Cleanliness,Cleanliness,03/07/2024
+English,101462-0,42,Female,Yes,1,At home,More than 3 hours,No,Yes,Yes,No,They were not available,No,Out of stock,Out of pocket,Very good,Laboratory/testing,Toilets,04/09/2024
+English,104520-2,37,Male,,,At home,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,Some,Couldn't afford,Out of pocket,Very good,Laboratory/testing,Cleanliness,03/31/2024
+Kiswahili,113222-4,43,Female,Yes,5,At home,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Good,Laboratory/testing,Toilets,03/09/2024
+Kiswahili,102557-6,43,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Yes,I couldn't afford the cost,No,Couldn't afford,Free,Very bad,Laboratory/testing,Staff,03/01/2024
+English,102755-6,20,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Bad,The external environment,Staff,04/19/2024
+Kiswahili,102775-4,22,Female,Yes,7,At the facility,Between 1-2 hours,Yes,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Good,The external environment,Waiting time,04/08/2024
+Kiswahili,102775-4,28,Female,No,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I didn't understand the need,No,Out of stock,Out of pocket,Normal,Cleanliness,Waiting time,03/21/2024
+Kiswahili,103474-3,42,Female,No,,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,I couldn't afford the cost,Some,Another reason,Out of pocket,Very good,Cleanliness,Waiting time,04/25/2024
+English,111005-5,34,Male,,,At home,Within 1 hour,Yes,No,No,No,They were not available,No,Out of stock,Free,Bad,Staff,Toilets,04/16/2024
+Kiswahili,111844-7,41,Female,Yes,6,At home,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Good,Laboratory/testing,Staff,03/08/2024
+English,111582-3,42,Female,Yes,4,At the facility,Within 1 hour,Yes,No,No,No,I didn't understand the need,No,Another reason,Insurance,Normal,Laboratory/testing,Waiting time,04/04/2024
+Kiswahili,103394-3,32,Female,Yes,4,At the facility,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Some,Couldn't afford,Free,Good,Laboratory/testing,Cleanliness,03/03/2024
+Kiswahili,112880-0,38,Female,Yes,3,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,They were not available,Some,Couldn't afford,Out of pocket,Very bad,The external environment,Staff,03/20/2024
+Kiswahili,102507-1,37,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,I couldn't afford the cost,No,Out of stock,Free,Very bad,Laboratory/testing,Staff,03/08/2024
+Kiswahili,113632-4,42,Female,No,,At the facility,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Normal,The external environment,Cleanliness,03/11/2024
+English,103388-5,28,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,Yes,I couldn't afford the cost,Some,Another reason,Insurance,Good,The external environment,Toilets,04/25/2024
+English,113625-8,36,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Yes,They were not available,Yes,Another reason,Free,Bad,Staff,Cleanliness,04/10/2024
+English,103457-8,38,Male,,,At the facility,Between 2-3 hours,No,No,No,No,They were not available,Yes,Couldn't afford,Out of pocket,Very good,The external environment,Waiting time,03/24/2024
+Kiswahili,121317-2,21,Male,,,At the facility,More than 3 hours,No,No,No,Some,They were not available,Some,Another reason,Insurance,Very good,Staff,Staff,03/16/2024
+Kiswahili,104520-2,22,Female,Yes,2,At home,Within 1 hour,No,Yes,Yes,Yes,I didn't understand the need,Some,Out of stock,Free,Very good,Cleanliness,Toilets,03/01/2024
+English,101295-4,19,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,Some,I didn't understand the need,Some,Couldn't afford,Insurance,Normal,Cleanliness,Waiting time,04/12/2024
+Kiswahili,101777-1,35,Female,No,,At home,Between 1-2 hours,Yes,Yes,Yes,Some,I didn't understand the need,No,Out of stock,Insurance,Bad,The external environment,Cleanliness,03/19/2024
+Kiswahili,101462-0,45,Female,No,,At the facility,More than 3 hours,No,No,Yes,No,They were not available,Some,Couldn't afford,Insurance,Very good,Cleanliness,Cleanliness,04/05/2024
+Kiswahili,100220-3,24,Male,,,At home,More than 3 hours,No,No,No,Some,They were not available,Yes,Out of stock,Insurance,Bad,Staff,Waiting time,04/04/2024
+English,110723-4,28,Male,,,At the facility,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Good,Laboratory/testing,Staff,04/28/2024
+English,113625-8,20,Female,No,,At home,More than 3 hours,No,No,No,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,Staff,Cleanliness,04/21/2024
+Kiswahili,104020-3,42,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Yes,I didn't understand the need,Some,Out of stock,Free,Bad,The external environment,Waiting time,04/24/2024
+Kiswahili,100304-5,34,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Good,Cleanliness,Toilets,03/09/2024
+Kiswahili,103110-3,44,Male,,,At home,Between 2-3 hours,Yes,No,No,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very good,Cleanliness,Toilets,04/24/2024
+English,113628-2,19,Female,No,,At the facility,Between 2-3 hours,No,Yes,Yes,Yes,I couldn't afford the cost,No,Another reason,Free,Very good,Cleanliness,Cleanliness,03/27/2024
+Kiswahili,101462-0,28,Male,,,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Very bad,Laboratory/testing,Waiting time,03/12/2024
+English,103457-8,39,Male,,,At the facility,Between 2-3 hours,No,No,Yes,No,They were not available,Some,Out of stock,Insurance,Good,Laboratory/testing,Waiting time,04/27/2024
+English,101462-0,34,Male,,,At home,More than 3 hours,No,Yes,No,Yes,I didn't understand the need,Some,Out of stock,Insurance,Very bad,Laboratory/testing,Waiting time,04/26/2024
+Kiswahili,112006-2,36,Female,Yes,6,At home,Within 1 hour,No,Yes,Yes,Yes,They were not available,Some,Another reason,Insurance,Very bad,Laboratory/testing,Waiting time,04/18/2024
+English,102258-1,20,Male,,,At home,Between 2-3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Good,Staff,Toilets,03/28/2024
+Kiswahili,101415-8,31,Male,,,At the facility,Within 1 hour,No,Yes,No,Yes,I didn't understand the need,Some,Out of stock,Out of pocket,Normal,Laboratory/testing,Cleanliness,04/22/2024
+English,111784-5,37,Male,,,At home,More than 3 hours,No,Yes,Yes,Yes,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very bad,Laboratory/testing,Staff,03/11/2024
+Kiswahili,111007-1,31,Male,,,At home,Between 1-2 hours,No,No,Yes,No,I couldn't afford the cost,No,Out of stock,Out of pocket,Bad,Cleanliness,Staff,04/08/2024
+Kiswahili,113222-4,35,Male,,,At home,Within 1 hour,Yes,Yes,No,No,I couldn't afford the cost,Some,Out of stock,Out of pocket,Good,Laboratory/testing,Cleanliness,03/14/2024
+Kiswahili,100304-5,26,Female,Yes,3,At home,Between 2-3 hours,No,No,Yes,Yes,I couldn't afford the cost,Some,Out of stock,Out of pocket,Good,Laboratory/testing,Staff,04/13/2024
+English,103582-3,29,Male,,,At home,More than 3 hours,Yes,Yes,No,No,I didn't understand the need,Yes,Couldn't afford,Free,Very bad,Staff,Staff,04/10/2024
+Kiswahili,101415-8,27,Female,Yes,9,At the facility,More than 3 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Another reason,Free,Normal,Cleanliness,Cleanliness,04/10/2024
+English,101462-0,24,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Bad,Staff,Waiting time,04/26/2024
+English,109848-2,32,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Another reason,Out of pocket,Very bad,Staff,Waiting time,03/05/2024
+English,107732-0,23,Male,,,At home,Between 2-3 hours,Yes,No,No,Yes,They were not available,Some,Couldn't afford,Insurance,Very good,Laboratory/testing,Toilets,04/09/2024
+English,103474-3,35,Male,,,At the facility,Between 2-3 hours,No,No,No,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,The external environment,Cleanliness,03/07/2024
+Kiswahili,102755-6,18,Male,,,At home,Between 2-3 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Out of stock,Insurance,Normal,Laboratory/testing,Cleanliness,04/27/2024
+Kiswahili,102558-4,25,Male,,,At home,Between 2-3 hours,Yes,No,No,No,I couldn't afford the cost,No,Another reason,Insurance,Very good,Cleanliness,Toilets,04/19/2024
+Kiswahili,111491-7,41,Female,Yes,9,At home,Between 2-3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Another reason,Free,Good,Laboratory/testing,Toilets,03/06/2024
+Kiswahili,111784-5,35,Female,No,,At the facility,Between 1-2 hours,Yes,No,Yes,No,They were not available,No,Couldn't afford,Free,Good,Laboratory/testing,Staff,04/27/2024
+Kiswahili,109848-2,33,Female,Yes,9,At the facility,Between 2-3 hours,Yes,No,Yes,No,They were not available,Yes,Out of stock,Insurance,Very good,The external environment,Waiting time,04/20/2024
+English,121317-2,45,Male,,,At home,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Very good,The external environment,Cleanliness,03/17/2024
+Kiswahili,103410-7,45,Female,No,,At the facility,Within 1 hour,No,No,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Good,Laboratory/testing,Toilets,04/11/2024
+English,100280-7,44,Female,No,,At the facility,Within 1 hour,No,Yes,Yes,Yes,I didn't understand the need,No,Another reason,Free,Very bad,Laboratory/testing,Toilets,04/16/2024
+English,111782-9,41,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,They were not available,No,Out of stock,Free,Normal,The external environment,Waiting time,03/01/2024
+Kiswahili,103457-8,18,Male,,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,No,Out of stock,Free,Bad,Laboratory/testing,Toilets,04/18/2024
+English,112955-0,41,Male,,,At home,Between 1-2 hours,No,No,No,Some,I didn't understand the need,No,Couldn't afford,Free,Very good,Laboratory/testing,Cleanliness,03/15/2024
+English,121317-2,21,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Some,They were not available,Yes,Another reason,Insurance,Bad,Cleanliness,Waiting time,03/06/2024
+Kiswahili,113632-4,25,Female,Yes,7,At the facility,More than 3 hours,Yes,No,Yes,No,They were not available,Yes,Another reason,Free,Very good,Laboratory/testing,Staff,03/29/2024
+English,111957-7,38,Male,,,At home,Between 1-2 hours,Yes,No,No,No,They were not available,No,Another reason,Insurance,Very good,The external environment,Toilets,03/18/2024
+Kiswahili,103474-3,18,Male,,,At home,Between 2-3 hours,No,No,Yes,No,I didn't understand the need,Some,Another reason,Insurance,Good,Staff,Waiting time,03/23/2024
+Kiswahili,103086-5,20,Male,,,At home,Within 1 hour,No,Yes,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Very bad,Cleanliness,Waiting time,04/08/2024
+Kiswahili,101224-4,32,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Bad,Staff,Waiting time,03/02/2024
+Kiswahili,112006-2,43,Male,,,At the facility,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Couldn't afford,Out of pocket,Very bad,Laboratory/testing,Staff,03/08/2024
+English,113550-8,28,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,Some,I couldn't afford the cost,No,Out of stock,Insurance,Bad,Cleanliness,Staff,04/06/2024
+English,112882-6,31,Male,,,At the facility,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,No,Couldn't afford,Insurance,Bad,Cleanliness,Staff,03/05/2024
+Kiswahili,112490-8,26,Female,Yes,5,At the facility,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Very good,Staff,Waiting time,03/16/2024
+Kiswahili,112882-6,26,Female,No,,At the facility,Between 1-2 hours,No,Yes,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Normal,Staff,Toilets,03/20/2024
+English,102775-4,24,Male,,,At home,More than 3 hours,No,Yes,No,Yes,I didn't understand the need,Some,Couldn't afford,Free,Very bad,Staff,Toilets,03/25/2024
+English,102258-1,41,Female,Yes,7,At home,Between 1-2 hours,Yes,No,No,Yes,They were not available,Yes,Out of stock,Out of pocket,Normal,Staff,Waiting time,03/23/2024
+English,120365-2,22,Female,No,,At the facility,Within 1 hour,No,Yes,No,Yes,They were not available,Yes,Out of stock,Insurance,Good,The external environment,Waiting time,03/13/2024
+Kiswahili,104020-3,29,Male,,,At the facility,Between 1-2 hours,No,No,No,Some,They were not available,Some,Couldn't afford,Out of pocket,Good,Staff,Cleanliness,04/06/2024
+English,103587-2,34,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Yes,I didn't understand the need,Yes,Couldn't afford,Free,Bad,Staff,Staff,04/17/2024
+English,109848-2,25,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Good,Staff,Cleanliness,04/21/2024
+Kiswahili,101224-4,37,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Some,They were not available,Yes,Another reason,Free,Normal,The external environment,Toilets,04/23/2024
+Kiswahili,102558-4,39,Female,Yes,6,At home,Between 2-3 hours,Yes,Yes,Yes,Some,They were not available,Some,Couldn't afford,Insurance,Good,Staff,Waiting time,04/23/2024
+Kiswahili,101162-6,22,Female,No,,At home,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,No,Another reason,Free,Very bad,Laboratory/testing,Cleanliness,03/02/2024
+Kiswahili,100280-7,35,Male,,,At home,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Couldn't afford,Free,Bad,Cleanliness,Staff,04/29/2024
+Kiswahili,102269-8,40,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,No,They were not available,Some,Couldn't afford,Insurance,Very bad,Cleanliness,Toilets,04/09/2024
+Kiswahili,112490-8,43,Female,Yes,7,At the facility,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Out of pocket,Very good,Laboratory/testing,Cleanliness,03/28/2024
+English,102775-4,32,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I couldn't afford the cost,Yes,Another reason,Insurance,Good,Cleanliness,Staff,03/16/2024
+English,111005-5,41,Female,Yes,5,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Normal,Cleanliness,Staff,04/17/2024
+Kiswahili,101162-6,26,Male,,,At the facility,Within 1 hour,Yes,No,Yes,Yes,They were not available,No,Couldn't afford,Free,Good,Staff,Waiting time,04/23/2024
+Kiswahili,103457-8,25,Female,Yes,6,At the facility,Between 1-2 hours,Yes,Yes,Yes,No,I couldn't afford the cost,No,Out of stock,Free,Normal,Cleanliness,Cleanliness,04/24/2024
+English,113222-4,20,Female,No,,At home,Between 1-2 hours,No,No,No,Yes,They were not available,Some,Couldn't afford,Free,Very bad,Staff,Staff,03/06/2024
+English,111844-7,41,Female,No,,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Free,Good,Staff,Staff,04/16/2024
+English,103582-3,35,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Out of pocket,Very bad,Cleanliness,Cleanliness,04/05/2024
+English,103388-5,19,Female,Yes,1,At the facility,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,Yes,Out of stock,Free,Very bad,Laboratory/testing,Staff,03/09/2024
+English,103390-1,34,Male,,,At home,Between 2-3 hours,Yes,No,Yes,No,They were not available,No,Out of stock,Insurance,Very good,Staff,Cleanliness,04/17/2024
+English,102507-1,34,Male,,,At home,Between 1-2 hours,No,Yes,No,Some,I didn't understand the need,Yes,Another reason,Free,Very good,The external environment,Staff,04/21/2024
+English,103394-3,19,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Out of stock,Out of pocket,Good,Staff,Staff,04/08/2024
+English,111844-7,37,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,No,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,Staff,Waiting time,03/24/2024
+Kiswahili,101415-8,30,Female,No,,At home,Between 1-2 hours,Yes,No,No,Yes,They were not available,Some,Out of stock,Free,Bad,Staff,Cleanliness,04/09/2024
+Kiswahili,102558-4,43,Male,,,At home,Between 2-3 hours,Yes,No,No,Yes,I didn't understand the need,No,Couldn't afford,Free,Normal,Laboratory/testing,Waiting time,03/22/2024
+Kiswahili,103086-5,38,Female,No,,At home,More than 3 hours,Yes,No,Yes,No,They were not available,Some,Another reason,Out of pocket,Very good,Laboratory/testing,Waiting time,03/01/2024
+Kiswahili,112490-8,34,Female,No,,At home,More than 3 hours,No,No,No,Some,I didn't understand the need,Some,Couldn't afford,Out of pocket,Good,The external environment,Toilets,04/09/2024
+English,120960-0,45,Male,,,At the facility,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Out of stock,Free,Bad,The external environment,Staff,04/17/2024
+English,103388-5,39,Female,Yes,3,At home,Between 2-3 hours,Yes,No,No,Some,I didn't understand the need,No,Another reason,Out of pocket,Bad,Laboratory/testing,Toilets,04/09/2024
+Kiswahili,101295-4,19,Male,,,At home,Between 2-3 hours,Yes,Yes,No,Yes,They were not available,Yes,Couldn't afford,Out of pocket,Good,Staff,Toilets,03/26/2024
+Kiswahili,112880-0,33,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,They were not available,No,Couldn't afford,Free,Very good,Staff,Waiting time,03/22/2024
+Kiswahili,120960-0,44,Female,Yes,8,At the facility,More than 3 hours,No,No,Yes,No,I couldn't afford the cost,No,Out of stock,Out of pocket,Very bad,Staff,Toilets,04/02/2024
+Kiswahili,112882-6,40,Female,Yes,3,At home,More than 3 hours,Yes,Yes,No,No,I didn't understand the need,Yes,Another reason,Free,Good,Laboratory/testing,Staff,04/20/2024
+English,112882-6,36,Female,Yes,2,At home,Within 1 hour,Yes,Yes,No,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Good,Laboratory/testing,Toilets,04/12/2024
+English,111007-1,28,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,No,They were not available,Yes,Couldn't afford,Free,Very bad,Laboratory/testing,Staff,03/01/2024
+English,111491-7,30,Male,,,At the facility,Within 1 hour,No,No,No,Yes,They were not available,Yes,Another reason,Free,Good,Laboratory/testing,Toilets,03/26/2024
+Kiswahili,101777-1,38,Male,,,At home,Within 1 hour,Yes,No,No,No,I didn't understand the need,Yes,Another reason,Free,Very good,Laboratory/testing,Toilets,03/13/2024
+English,112955-0,35,Female,No,,At the facility,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Another reason,Out of pocket,Bad,Cleanliness,Staff,03/12/2024
+English,109848-2,37,Male,,,At home,Within 1 hour,No,Yes,Yes,No,I didn't understand the need,No,Couldn't afford,Out of pocket,Bad,Staff,Waiting time,04/03/2024
+Kiswahili,111489-1,25,Female,No,,At the facility,More than 3 hours,Yes,Yes,No,Some,I didn't understand the need,No,Out of stock,Free,Very bad,Laboratory/testing,Waiting time,03/30/2024
+English,103410-7,37,Male,,,At home,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Insurance,Good,The external environment,Staff,03/05/2024
+Kiswahili,103388-5,28,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,No,They were not available,Yes,Couldn't afford,Insurance,Normal,Cleanliness,Toilets,03/30/2024
+Kiswahili,107732-0,40,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Yes,Another reason,Out of pocket,Very good,Laboratory/testing,Staff,03/13/2024
+Kiswahili,103399-2,44,Female,No,,At home,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Normal,The external environment,Staff,03/27/2024
+English,100304-5,40,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Some,I didn't understand the need,Some,Another reason,Insurance,Good,Staff,Cleanliness,03/15/2024
+English,102258-1,36,Male,,,At home,Between 1-2 hours,No,Yes,No,Some,They were not available,Some,Out of stock,Out of pocket,Good,The external environment,Waiting time,03/07/2024
+Kiswahili,113625-8,42,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Yes,I didn't understand the need,Some,Another reason,Free,Very good,Laboratory/testing,Cleanliness,03/22/2024
+English,101162-6,42,Male,,,At the facility,Within 1 hour,Yes,Yes,No,No,I couldn't afford the cost,No,Another reason,Out of pocket,Very good,The external environment,Waiting time,04/15/2024
+Kiswahili,113222-4,39,Male,,,At the facility,Between 1-2 hours,No,No,Yes,Yes,I didn't understand the need,No,Out of stock,Insurance,Very good,Staff,Staff,04/07/2024
+Kiswahili,103684-7,19,Female,No,,At home,Between 2-3 hours,No,No,Yes,Yes,They were not available,Yes,Another reason,Insurance,Normal,Laboratory/testing,Waiting time,04/03/2024
+Kiswahili,103582-3,44,Male,,,At home,More than 3 hours,No,No,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Very good,Cleanliness,Cleanliness,04/03/2024
+Kiswahili,111491-7,30,Male,,,At home,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Very good,Cleanliness,Toilets,04/02/2024
+Kiswahili,103684-7,19,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Some,I didn't understand the need,Some,Couldn't afford,Out of pocket,Normal,The external environment,Toilets,04/14/2024
+English,113628-2,24,Male,,,At home,Within 1 hour,No,No,No,Some,They were not available,No,Another reason,Free,Normal,Laboratory/testing,Staff,03/25/2024
+English,111491-7,41,Female,Yes,3,At the facility,More than 3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,Some,Out of stock,Out of pocket,Bad,Staff,Staff,03/25/2024
+English,103394-3,28,Female,Yes,7,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Another reason,Free,Very good,The external environment,Waiting time,04/05/2024
+Kiswahili,101295-4,29,Female,No,,At home,Between 2-3 hours,No,No,No,Yes,They were not available,Yes,Out of stock,Out of pocket,Very bad,Laboratory/testing,Staff,04/25/2024
+Kiswahili,120365-2,21,Female,Yes,1,At home,More than 3 hours,No,Yes,Yes,Yes,They were not available,Yes,Couldn't afford,Out of pocket,Very good,The external environment,Staff,04/14/2024
+Kiswahili,100556-0,27,Male,,,At home,Between 2-3 hours,Yes,Yes,No,No,I didn't understand the need,No,Out of stock,Out of pocket,Very bad,Cleanliness,Cleanliness,04/25/2024
+Kiswahili,101162-6,36,Male,,,At the facility,Within 1 hour,Yes,No,Yes,Yes,They were not available,Yes,Couldn't afford,Insurance,Very bad,Cleanliness,Waiting time,04/19/2024
+Kiswahili,104520-2,24,Male,,,At the facility,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad,The external environment,Staff,04/17/2024
+English,102258-1,26,Female,Yes,1,At the facility,Within 1 hour,No,No,No,Some,They were not available,No,Another reason,Out of pocket,Bad,Cleanliness,Cleanliness,04/22/2024
+Kiswahili,111491-7,33,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I didn't understand the need,No,Couldn't afford,Out of pocket,Good,The external environment,Toilets,04/10/2024
+English,102558-4,45,Male,,,At the facility,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Another reason,Out of pocket,Good,Cleanliness,Cleanliness,03/09/2024
+English,109848-2,32,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Normal,The external environment,Staff,03/13/2024
+English,103587-2,35,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Free,Normal,Cleanliness,Waiting time,04/06/2024
+Kiswahili,102507-1,34,Female,No,,At home,Between 2-3 hours,Yes,Yes,Yes,No,They were not available,Some,Another reason,Out of pocket,Very bad,Staff,Cleanliness,03/07/2024
+English,112955-0,38,Male,,,At home,More than 3 hours,No,Yes,No,No,I couldn't afford the cost,Some,Another reason,Insurance,Very bad,Laboratory/testing,Cleanliness,03/03/2024
+Kiswahili,103399-2,39,Male,,,At the facility,Between 2-3 hours,No,Yes,No,Yes,They were not available,Yes,Couldn't afford,Free,Normal,Laboratory/testing,Cleanliness,04/27/2024
+Kiswahili,103086-5,21,Female,Yes,2,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I didn't understand the need,No,Out of stock,Insurance,Very bad,Cleanliness,Cleanliness,03/04/2024
+English,109848-2,33,Male,,,At home,Between 2-3 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Out of stock,Free,Very bad,Laboratory/testing,Cleanliness,03/09/2024
+English,102755-6,44,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Some,They were not available,No,Out of stock,Free,Very good,Laboratory/testing,Staff,04/10/2024
+Kiswahili,111998-1,22,Female,No,,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,No,Another reason,Free,Very bad,Laboratory/testing,Toilets,04/25/2024
+Kiswahili,111007-1,28,Male,,,At the facility,Within 1 hour,No,No,Yes,Some,I didn't understand the need,No,Couldn't afford,Insurance,Good,Laboratory/testing,Toilets,03/27/2024
+English,100220-3,23,Male,,,At home,More than 3 hours,No,No,Yes,Some,They were not available,No,Couldn't afford,Free,Good,Cleanliness,Staff,04/11/2024
+Kiswahili,103388-5,26,Male,,,At home,Within 1 hour,No,Yes,Yes,Some,They were not available,No,Couldn't afford,Out of pocket,Good,Laboratory/testing,Cleanliness,04/08/2024
+Kiswahili,110723-4,21,Female,Yes,4,At the facility,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Another reason,Out of pocket,Normal,Laboratory/testing,Waiting time,04/06/2024
+English,101462-0,38,Female,No,,At home,More than 3 hours,No,No,No,Some,They were not available,No,Another reason,Out of pocket,Good,The external environment,Waiting time,04/29/2024
+English,112006-2,27,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Another reason,Out of pocket,Normal,The external environment,Staff,03/23/2024
+Kiswahili,120283-7,23,Male,,,At home,Between 1-2 hours,Yes,No,Yes,No,I didn't understand the need,Some,Out of stock,Free,Very bad,Cleanliness,Waiting time,04/30/2024
+English,103390-1,26,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very bad,Staff,Cleanliness,03/02/2024
+Kiswahili,111007-1,37,Male,,,At home,Between 1-2 hours,No,Yes,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Very good,Staff,Cleanliness,04/21/2024
+Kiswahili,104020-3,33,Male,,,At home,Between 2-3 hours,Yes,No,Yes,No,They were not available,Some,Another reason,Free,Normal,Cleanliness,Waiting time,03/01/2024
+Kiswahili,101162-6,31,Female,Yes,5,At the facility,More than 3 hours,Yes,Yes,No,No,They were not available,No,Couldn't afford,Out of pocket,Bad,Cleanliness,Waiting time,03/14/2024
+Kiswahili,111005-5,32,Male,,,At the facility,More than 3 hours,No,Yes,No,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Good,Laboratory/testing,Toilets,04/14/2024
+English,103394-3,30,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Free,Bad,Laboratory/testing,Cleanliness,03/08/2024
+English,102258-1,45,Male,,,At home,More than 3 hours,No,Yes,No,Yes,They were not available,Some,Out of stock,Insurance,Very bad,The external environment,Cleanliness,04/01/2024
+Kiswahili,103388-5,36,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,Yes,Couldn't afford,Free,Very good,Cleanliness,Staff,04/11/2024
+Kiswahili,100556-0,36,Male,,,At home,Within 1 hour,Yes,No,No,Some,I didn't understand the need,Some,Couldn't afford,Free,Very bad,The external environment,Waiting time,03/08/2024
+English,103110-3,18,Female,No,,At home,Between 2-3 hours,No,No,Yes,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Good,Laboratory/testing,Waiting time,04/04/2024
+Kiswahili,101379-6,22,Female,Yes,6,At the facility,Within 1 hour,Yes,Yes,No,Some,They were not available,Yes,Couldn't afford,Insurance,Good,The external environment,Waiting time,04/24/2024
+Kiswahili,103457-8,23,Female,Yes,5,At home,Within 1 hour,Yes,Yes,Yes,Some,They were not available,Some,Another reason,Out of pocket,Normal,Staff,Waiting time,04/13/2024
+English,113222-4,21,Female,No,,At home,Between 1-2 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Another reason,Insurance,Very bad,The external environment,Staff,03/29/2024
+English,113550-8,18,Female,No,,At home,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,Some,Out of stock,Insurance,Normal,Laboratory/testing,Waiting time,03/29/2024
+English,103587-2,41,Female,Yes,3,At the facility,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Bad,Laboratory/testing,Staff,03/28/2024
+Kiswahili,103110-3,23,Female,Yes,2,At home,Between 2-3 hours,Yes,No,No,Some,I couldn't afford the cost,No,Couldn't afford,Free,Good,The external environment,Staff,03/18/2024
+Kiswahili,102507-1,22,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I couldn't afford the cost,Some,Another reason,Free,Bad,Staff,Waiting time,03/07/2024
+English,113550-8,21,Male,,,At the facility,More than 3 hours,Yes,No,Yes,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Good,Laboratory/testing,Staff,03/15/2024
+English,103587-2,38,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,No,Out of stock,Free,Bad,Cleanliness,Toilets,03/06/2024
+Kiswahili,101462-0,23,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Yes,They were not available,Some,Couldn't afford,Free,Bad,Staff,Cleanliness,04/06/2024
+Kiswahili,107732-0,33,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Some,Another reason,Insurance,Normal,Laboratory/testing,Toilets,03/05/2024
+English,102258-1,26,Male,,,At home,Within 1 hour,No,Yes,Yes,No,They were not available,Some,Out of stock,Out of pocket,Normal,Cleanliness,Toilets,03/08/2024
+English,111489-1,19,Male,,,At home,More than 3 hours,Yes,Yes,No,Some,They were not available,Yes,Another reason,Free,Very good,The external environment,Waiting time,03/02/2024
+English,103410-7,41,Male,,,At the facility,Within 1 hour,No,No,No,Some,I didn't understand the need,Yes,Couldn't afford,Insurance,Very good,Laboratory/testing,Cleanliness,04/30/2024
+Kiswahili,120283-7,22,Male,,,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,Yes,Out of stock,Free,Very bad,Laboratory/testing,Toilets,03/09/2024
+Kiswahili,103410-7,38,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I couldn't afford the cost,No,Out of stock,Insurance,Very bad,Laboratory/testing,Cleanliness,04/08/2024
+Kiswahili,102507-1,33,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Some,They were not available,Yes,Another reason,Free,Normal,Laboratory/testing,Staff,04/13/2024
+English,101162-6,37,Female,Yes,9,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad,Cleanliness,Waiting time,04/10/2024
+Kiswahili,111784-5,35,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,Some,Another reason,Out of pocket,Very good,The external environment,Staff,04/01/2024
+English,102269-8,34,Female,No,,At home,Between 1-2 hours,Yes,Yes,No,Some,I didn't understand the need,No,Out of stock,Insurance,Normal,Laboratory/testing,Toilets,04/15/2024
+Kiswahili,102775-4,37,Male,,,At home,More than 3 hours,Yes,No,No,No,I didn't understand the need,Yes,Another reason,Free,Bad,Staff,Toilets,03/04/2024
+English,113632-4,28,Female,Yes,8,At the facility,More than 3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very good,Laboratory/testing,Toilets,04/17/2024
+Kiswahili,102507-1,36,Male,,,At home,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Some,Another reason,Insurance,Very bad,Laboratory/testing,Waiting time,04/30/2024
+English,111784-5,31,Male,,,At home,Between 2-3 hours,No,No,Yes,No,They were not available,Yes,Couldn't afford,Insurance,Good,Staff,Cleanliness,03/18/2024
+Kiswahili,101415-8,33,Male,,,At the facility,Between 2-3 hours,No,Yes,No,No,They were not available,Yes,Another reason,Free,Bad,Laboratory/testing,Staff,03/26/2024
+English,111491-7,24,Male,,,At the facility,Between 1-2 hours,No,Yes,No,No,I couldn't afford the cost,Yes,Another reason,Free,Very good,Laboratory/testing,Toilets,03/16/2024
+Kiswahili,100304-5,40,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Yes,They were not available,Some,Another reason,Insurance,Bad,Laboratory/testing,Toilets,03/30/2024
+Kiswahili,103684-7,34,Female,No,,At the facility,Within 1 hour,Yes,No,No,Some,They were not available,Some,Another reason,Insurance,Bad,Laboratory/testing,Cleanliness,04/17/2024
+Kiswahili,113632-4,28,Female,Yes,6,At the facility,More than 3 hours,No,Yes,Yes,Some,I didn't understand the need,No,Out of stock,Free,Normal,The external environment,Toilets,03/01/2024
+English,103388-5,35,Male,,,At the facility,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Out of stock,Insurance,Good,Laboratory/testing,Cleanliness,04/20/2024
+English,111005-5,25,Female,Yes,2,At home,Between 1-2 hours,No,No,Yes,Yes,I didn't understand the need,Some,Couldn't afford,Free,Bad,Laboratory/testing,Cleanliness,03/27/2024
+Kiswahili,112955-0,31,Male,,,At home,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,No,Couldn't afford,Free,Very good,The external environment,Staff,03/23/2024
+Kiswahili,102258-1,36,Female,No,,At home,Between 1-2 hours,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Very good,Cleanliness,Staff,04/12/2024
+English,111007-1,41,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Free,Very bad,Staff,Staff,03/03/2024
+Kiswahili,112882-6,35,Female,No,,At home,More than 3 hours,No,Yes,Yes,Yes,They were not available,No,Another reason,Insurance,Normal,Staff,Staff,04/17/2024
+English,100280-7,31,Female,Yes,6,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,No,Couldn't afford,Insurance,Very good,Laboratory/testing,Cleanliness,04/02/2024
+English,120365-2,43,Female,Yes,3,At home,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Very bad,Cleanliness,Staff,03/20/2024
+Kiswahili,112882-6,34,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Yes,They were not available,No,Couldn't afford,Free,Very good,Cleanliness,Waiting time,04/29/2024
+Kiswahili,103410-7,41,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Good,Laboratory/testing,Staff,03/03/2024
+Kiswahili,102558-4,30,Female,Yes,2,At the facility,Within 1 hour,Yes,No,No,Yes,They were not available,Yes,Out of stock,Insurance,Very bad,Laboratory/testing,Waiting time,03/11/2024
+English,100220-3,40,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Another reason,Out of pocket,Good,The external environment,Cleanliness,04/13/2024
+Kiswahili,101224-4,19,Male,,,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Very bad,Cleanliness,Cleanliness,03/10/2024
+Kiswahili,110723-4,19,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Free,Good,Staff,Waiting time,03/23/2024
+English,109848-2,39,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Good,Staff,Waiting time,04/04/2024
+English,112882-6,30,Male,,,At the facility,Within 1 hour,Yes,No,No,Yes,They were not available,No,Out of stock,Free,Bad,Staff,Cleanliness,03/15/2024
+English,102507-1,35,Male,,,At home,Between 1-2 hours,No,Yes,No,No,They were not available,Yes,Another reason,Free,Very bad,The external environment,Staff,04/13/2024
+Kiswahili,103086-5,18,Female,No,,At home,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Insurance,Bad,Laboratory/testing,Waiting time,04/14/2024
+English,101415-8,37,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Another reason,Free,Very bad,The external environment,Staff,04/16/2024
+Kiswahili,101295-4,33,Female,Yes,6,At home,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Free,Normal,The external environment,Waiting time,03/20/2024
+English,102258-1,24,Female,Yes,6,At the facility,Within 1 hour,Yes,Yes,Yes,No,They were not available,Some,Couldn't afford,Insurance,Good,Cleanliness,Staff,03/26/2024
+Kiswahili,111489-1,37,Male,,,At the facility,Between 1-2 hours,No,No,No,No,They were not available,No,Another reason,Out of pocket,Bad,Cleanliness,Cleanliness,03/01/2024
+Kiswahili,110723-4,41,Female,No,,At the facility,Between 2-3 hours,No,Yes,Yes,Yes,They were not available,No,Out of stock,Insurance,Normal,The external environment,Staff,04/23/2024
+Kiswahili,101415-8,20,Male,,,At home,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,Some,Couldn't afford,Free,Good,Laboratory/testing,Staff,03/08/2024
+English,101379-6,30,Female,Yes,9,At the facility,More than 3 hours,No,No,Yes,Yes,I couldn't afford the cost,No,Another reason,Free,Good,The external environment,Waiting time,04/17/2024
+English,101295-4,23,Male,,,At home,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,Yes,Out of stock,Free,Bad,Cleanliness,Cleanliness,04/08/2024
+Kiswahili,103086-5,24,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,I couldn't afford the cost,No,Another reason,Insurance,Normal,The external environment,Toilets,04/21/2024
+English,111582-3,37,Female,Yes,1,At home,Between 1-2 hours,No,No,No,Yes,They were not available,Some,Out of stock,Out of pocket,Bad,Cleanliness,Cleanliness,03/07/2024
+Kiswahili,113628-2,21,Female,Yes,1,At home,Within 1 hour,Yes,Yes,Yes,No,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Bad,Staff,Staff,04/05/2024
+Kiswahili,101415-8,29,Male,,,At the facility,Between 1-2 hours,No,No,No,Yes,They were not available,Some,Out of stock,Out of pocket,Very good,Laboratory/testing,Cleanliness,04/21/2024
+Kiswahili,113625-8,36,Male,,,At the facility,More than 3 hours,No,Yes,No,Some,I didn't understand the need,No,Another reason,Out of pocket,Normal,Staff,Toilets,04/24/2024
+Kiswahili,111784-5,36,Female,No,,At home,More than 3 hours,Yes,No,Yes,No,They were not available,Some,Another reason,Out of pocket,Bad,Cleanliness,Toilets,03/06/2024
+English,103388-5,40,Female,No,,At home,Within 1 hour,No,Yes,No,Yes,They were not available,Yes,Couldn't afford,Free,Bad,Cleanliness,Cleanliness,03/09/2024
+Kiswahili,101295-4,32,Female,No,,At home,Between 2-3 hours,No,No,No,Yes,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Good,Cleanliness,Waiting time,03/01/2024
+Kiswahili,113628-2,18,Female,No,,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Another reason,Insurance,Very good,The external environment,Staff,03/11/2024
+English,100304-5,35,Female,No,,At home,Within 1 hour,Yes,No,No,Some,I didn't understand the need,Yes,Another reason,Insurance,Very bad,Laboratory/testing,Staff,04/01/2024
+English,100280-7,42,Female,Yes,8,At home,Within 1 hour,No,No,No,No,I didn't understand the need,Some,Out of stock,Insurance,Normal,The external environment,Toilets,03/01/2024
+English,102755-6,30,Male,,,At home,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Very bad,Staff,Toilets,03/26/2024
+Kiswahili,104020-3,36,Male,,,At home,More than 3 hours,Yes,Yes,No,Yes,I didn't understand the need,Yes,Out of stock,Free,Bad,Laboratory/testing,Toilets,04/09/2024
+English,101162-6,27,Female,No,,At the facility,Between 1-2 hours,Yes,No,No,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Very good,Laboratory/testing,Cleanliness,04/27/2024
+English,104020-3,44,Female,No,,At home,More than 3 hours,Yes,No,Yes,No,I didn't understand the need,Some,Couldn't afford,Out of pocket,Very good,Cleanliness,Toilets,03/29/2024
+Kiswahili,102269-8,35,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,Yes,No,They were not available,No,Another reason,Out of pocket,Bad,Staff,Waiting time,04/10/2024
+Kiswahili,113222-4,43,Female,Yes,4,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,Yes,Another reason,Out of pocket,Bad,Staff,Waiting time,03/12/2024
+English,111007-1,33,Female,No,,At home,Between 1-2 hours,Yes,No,No,No,They were not available,No,Out of stock,Free,Very good,Laboratory/testing,Waiting time,04/09/2024
+English,103582-3,18,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Yes,I didn't understand the need,No,Couldn't afford,Free,Bad,Laboratory/testing,Staff,04/21/2024
+English,101777-1,43,Male,,,At the facility,More than 3 hours,No,No,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Insurance,Good,The external environment,Cleanliness,04/28/2024
+Kiswahili,110723-4,26,Male,,,At home,Within 1 hour,Yes,Yes,Yes,Yes,They were not available,Yes,Couldn't afford,Insurance,Very bad,The external environment,Toilets,04/15/2024
+English,107732-0,41,Female,Yes,9,At the facility,Between 2-3 hours,Yes,No,No,No,They were not available,No,Couldn't afford,Insurance,Very bad,The external environment,Toilets,04/10/2024
+Kiswahili,111582-3,18,Male,,,At home,Between 2-3 hours,Yes,No,No,Some,I didn't understand the need,Some,Couldn't afford,Out of pocket,Good,Laboratory/testing,Toilets,04/28/2024
+English,111844-7,25,Male,,,At the facility,More than 3 hours,Yes,No,No,Some,I didn't understand the need,Some,Another reason,Insurance,Bad,Staff,Staff,04/27/2024
+English,103587-2,33,Female,Yes,4,At home,Between 2-3 hours,No,No,Yes,Yes,I couldn't afford the cost,Some,Another reason,Insurance,Very bad,The external environment,Staff,03/16/2024
+English,111005-5,33,Female,No,,At home,More than 3 hours,No,No,No,No,They were not available,No,Out of stock,Free,Normal,The external environment,Toilets,04/27/2024
+Kiswahili,103684-7,27,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Another reason,Insurance,Good,Laboratory/testing,Waiting time,03/26/2024
+Kiswahili,101415-8,41,Female,No,,At the facility,Within 1 hour,No,Yes,No,No,I couldn't afford the cost,Yes,Out of stock,Insurance,Very good,The external environment,Toilets,03/04/2024
+Kiswahili,113222-4,22,Male,,,At home,Between 1-2 hours,No,No,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Bad,Laboratory/testing,Toilets,03/06/2024
+Kiswahili,112955-0,36,Female,No,,At home,Between 1-2 hours,No,No,Yes,Yes,They were not available,No,Out of stock,Insurance,Normal,The external environment,Cleanliness,04/21/2024
+Kiswahili,102755-6,45,Female,Yes,5,At home,More than 3 hours,No,Yes,No,Some,They were not available,No,Out of stock,Insurance,Good,Cleanliness,Waiting time,03/06/2024
+English,102775-4,21,Male,,,At the facility,More than 3 hours,No,No,No,Some,I couldn't afford the cost,No,Another reason,Insurance,Very good,Cleanliness,Staff,04/18/2024
+English,102557-6,34,Male,,,At home,Between 2-3 hours,No,No,No,No,I didn't understand the need,No,Another reason,Out of pocket,Very bad,Cleanliness,Toilets,03/27/2024
+Kiswahili,100304-5,27,Female,Yes,6,At the facility,More than 3 hours,Yes,No,No,Yes,I didn't understand the need,Some,Another reason,Free,Good,The external environment,Cleanliness,03/23/2024
+English,120365-2,32,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,They were not available,Some,Out of stock,Insurance,Very good,Laboratory/testing,Toilets,03/15/2024
+English,101415-8,29,Female,Yes,9,At the facility,More than 3 hours,Yes,Yes,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very bad,Laboratory/testing,Cleanliness,04/13/2024
+Kiswahili,100280-7,39,Male,,,At the facility,Within 1 hour,No,No,Yes,Yes,They were not available,Yes,Couldn't afford,Free,Very bad,Laboratory/testing,Waiting time,04/21/2024
+Kiswahili,101777-1,44,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Some,I didn't understand the need,Some,Out of stock,Insurance,Good,Cleanliness,Staff,04/21/2024
+Kiswahili,100556-0,29,Female,Yes,7,At the facility,Within 1 hour,Yes,Yes,No,Some,They were not available,Some,Out of stock,Out of pocket,Very bad,Staff,Cleanliness,03/15/2024
+English,102269-8,33,Female,Yes,9,At the facility,Within 1 hour,Yes,No,Yes,No,They were not available,Yes,Out of stock,Insurance,Good,Cleanliness,Staff,04/15/2024
+English,121317-2,25,Male,,,At home,Between 2-3 hours,Yes,Yes,No,No,I didn't understand the need,Some,Out of stock,Insurance,Very bad,Laboratory/testing,Staff,03/06/2024
+English,113550-8,21,Male,,,At home,More than 3 hours,No,Yes,Yes,Yes,They were not available,Some,Out of stock,Insurance,Bad,Staff,Staff,03/28/2024
+English,113222-4,31,Female,Yes,8,At home,More than 3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Insurance,Good,Staff,Staff,04/24/2024
+Kiswahili,102557-6,35,Male,,,At home,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Free,Good,Laboratory/testing,Cleanliness,03/05/2024
+Kiswahili,113632-4,38,Male,,,At home,Between 1-2 hours,No,Yes,No,No,They were not available,Yes,Another reason,Free,Bad,Cleanliness,Waiting time,04/22/2024
+Kiswahili,113625-8,23,Female,Yes,9,At the facility,Between 2-3 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Very good,Staff,Staff,03/29/2024
+Kiswahili,101777-1,24,Female,Yes,6,At the facility,More than 3 hours,No,Yes,Yes,Yes,They were not available,No,Out of stock,Free,Very bad,Cleanliness,Staff,04/09/2024
+Kiswahili,113550-8,23,Male,,,At the facility,Within 1 hour,No,Yes,No,No,They were not available,Yes,Couldn't afford,Free,Very bad,Laboratory/testing,Cleanliness,03/15/2024
+Kiswahili,103086-5,20,Male,,,At home,Within 1 hour,No,Yes,Yes,Some,They were not available,No,Couldn't afford,Free,Normal,Cleanliness,Staff,04/09/2024
+Kiswahili,102507-1,31,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Another reason,Insurance,Bad,Staff,Toilets,04/16/2024
+English,110723-4,24,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Normal,Laboratory/testing,Cleanliness,03/02/2024
+Kiswahili,111784-5,35,Male,,,At home,Between 2-3 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Free,Normal,Laboratory/testing,Waiting time,03/09/2024
+Kiswahili,113222-4,26,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Some,Another reason,Free,Bad,Laboratory/testing,Cleanliness,04/29/2024
+English,102507-1,38,Male,,,At home,Within 1 hour,Yes,Yes,Yes,No,I didn't understand the need,Yes,Out of stock,Free,Very good,Cleanliness,Waiting time,03/22/2024
+English,111844-7,39,Female,No,,At home,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Normal,Laboratory/testing,Cleanliness,04/03/2024
+Kiswahili,113628-2,26,Male,,,At home,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Out of stock,Free,Bad,Staff,Waiting time,03/31/2024
+English,111005-5,34,Female,Yes,3,At home,Between 1-2 hours,Yes,No,No,Some,I didn't understand the need,No,Another reason,Out of pocket,Very bad,Cleanliness,Staff,03/21/2024
+English,113222-4,33,Female,No,,At the facility,More than 3 hours,No,Yes,No,No,They were not available,Some,Another reason,Out of pocket,Normal,Cleanliness,Toilets,03/11/2024
+Kiswahili,103388-5,37,Male,,,At home,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Very bad,Staff,Staff,04/29/2024
+Kiswahili,112955-0,30,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Yes,Out of stock,Out of pocket,Very bad,The external environment,Staff,04/16/2024
+English,103399-2,31,Male,,,At home,Between 1-2 hours,No,Yes,No,Yes,I didn't understand the need,No,Out of stock,Insurance,Bad,Laboratory/testing,Staff,03/07/2024
+English,112955-0,33,Male,,,At home,More than 3 hours,No,No,No,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Normal,Staff,Toilets,04/16/2024
+English,101295-4,40,Male,,,At the facility,Within 1 hour,Yes,Yes,No,No,I didn't understand the need,Some,Another reason,Free,Bad,Cleanliness,Toilets,03/06/2024
+Kiswahili,111782-9,28,Female,No,,At the facility,More than 3 hours,Yes,No,Yes,No,They were not available,Yes,Out of stock,Insurance,Bad,The external environment,Staff,04/02/2024
+English,102558-4,36,Male,,,At home,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,Yes,Couldn't afford,Free,Normal,Cleanliness,Staff,03/24/2024
+Kiswahili,101462-0,36,Male,,,At home,Within 1 hour,Yes,Yes,Yes,No,They were not available,Some,Couldn't afford,Free,Very bad,The external environment,Toilets,03/12/2024
+Kiswahili,111491-7,21,Male,,,At the facility,Within 1 hour,No,No,Yes,Yes,I didn't understand the need,Yes,Out of stock,Free,Good,Staff,Waiting time,04/26/2024
+Kiswahili,100304-5,44,Male,,,At the facility,Between 2-3 hours,No,No,No,Some,They were not available,Yes,Out of stock,Insurance,Bad,Laboratory/testing,Toilets,03/17/2024
+English,110721-8,31,Female,No,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,Staff,Staff,03/25/2024
+Kiswahili,102755-6,45,Female,No,,At the facility,Within 1 hour,Yes,No,Yes,Yes,They were not available,No,Couldn't afford,Insurance,Very bad,Cleanliness,Toilets,03/20/2024
+English,103582-3,45,Female,No,,At the facility,More than 3 hours,No,No,No,Yes,I didn't understand the need,No,Out of stock,Free,Very good,Staff,Cleanliness,03/29/2024
+Kiswahili,103684-7,37,Male,,,At the facility,More than 3 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Another reason,Out of pocket,Very good,Cleanliness,Toilets,04/16/2024
+English,100556-0,21,Male,,,At home,Between 2-3 hours,Yes,No,Yes,No,They were not available,Some,Couldn't afford,Out of pocket,Normal,Laboratory/testing,Staff,04/30/2024
+English,113222-4,37,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,No,I didn't understand the need,No,Out of stock,Insurance,Good,The external environment,Staff,03/22/2024
+Kiswahili,121317-2,26,Female,Yes,7,At the facility,Within 1 hour,No,No,Yes,Yes,I didn't understand the need,Some,Out of stock,Free,Very good,Cleanliness,Cleanliness,03/18/2024
+English,103110-3,38,Female,Yes,7,At home,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,Yes,Out of stock,Insurance,Good,Laboratory/testing,Toilets,03/23/2024
+English,109848-2,19,Female,Yes,7,At the facility,Within 1 hour,Yes,Yes,Yes,Some,They were not available,No,Out of stock,Free,Very good,Cleanliness,Staff,04/17/2024
+English,103684-7,40,Male,,,At the facility,Within 1 hour,Yes,No,Yes,No,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Good,Staff,Waiting time,04/17/2024
+Kiswahili,111957-7,27,Female,No,,At home,Within 1 hour,Yes,Yes,No,Some,They were not available,Yes,Couldn't afford,Out of pocket,Normal,The external environment,Cleanliness,03/13/2024
+Kiswahili,111491-7,32,Female,Yes,7,At the facility,Within 1 hour,Yes,Yes,Yes,No,They were not available,No,Couldn't afford,Free,Good,Cleanliness,Toilets,03/19/2024
+English,101777-1,33,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,They were not available,No,Another reason,Out of pocket,Very bad,Laboratory/testing,Toilets,04/14/2024
+Kiswahili,101224-4,32,Female,No,,At the facility,Within 1 hour,No,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Good,Staff,Staff,04/01/2024
+Kiswahili,102258-1,35,Male,,,At home,More than 3 hours,Yes,No,No,No,I didn't understand the need,Yes,Another reason,Free,Very bad,Staff,Staff,04/21/2024
+English,100220-3,19,Female,No,,At the facility,Between 2-3 hours,No,Yes,Yes,No,They were not available,Yes,Out of stock,Out of pocket,Good,Laboratory/testing,Staff,04/19/2024
+English,101162-6,24,Female,Yes,6,At home,Between 2-3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Free,Very bad,Cleanliness,Waiting time,03/18/2024
+Kiswahili,104520-2,28,Female,No,,At home,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Bad,Laboratory/testing,Waiting time,04/14/2024
+English,103457-8,24,Female,Yes,7,At home,More than 3 hours,Yes,No,No,Yes,They were not available,Yes,Another reason,Out of pocket,Bad,Staff,Waiting time,04/18/2024
+Kiswahili,103394-3,43,Female,Yes,4,At home,Between 2-3 hours,Yes,Yes,Yes,No,I didn't understand the need,Some,Couldn't afford,Insurance,Good,Laboratory/testing,Waiting time,04/06/2024
+English,103086-5,19,Female,Yes,8,At home,Between 2-3 hours,No,No,No,No,They were not available,Yes,Out of stock,Out of pocket,Very bad,Laboratory/testing,Staff,03/28/2024
+English,101162-6,21,Female,No,,At the facility,Within 1 hour,Yes,No,Yes,Yes,They were not available,No,Another reason,Out of pocket,Very good,The external environment,Waiting time,04/13/2024
+Kiswahili,111784-5,19,Male,,,At the facility,More than 3 hours,No,No,No,Yes,I couldn't afford the cost,No,Another reason,Free,Very bad,The external environment,Toilets,04/03/2024
+Kiswahili,112880-0,42,Female,Yes,4,At the facility,More than 3 hours,No,No,No,Yes,I didn't understand the need,No,Out of stock,Free,Normal,The external environment,Waiting time,03/28/2024
+English,102755-6,35,Male,,,At the facility,Within 1 hour,No,No,Yes,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Normal,Staff,Toilets,04/10/2024
+Kiswahili,102775-4,32,Female,Yes,1,At the facility,Between 1-2 hours,No,No,No,No,They were not available,Yes,Out of stock,Out of pocket,Very good,Staff,Cleanliness,04/05/2024
+English,111489-1,23,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,I didn't understand the need,No,Out of stock,Free,Very good,The external environment,Staff,03/30/2024
+English,101777-1,20,Female,No,,At home,Between 2-3 hours,No,No,No,Some,They were not available,Yes,Couldn't afford,Out of pocket,Very good,Staff,Waiting time,04/30/2024
+English,120960-0,25,Male,,,At home,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Some,Another reason,Free,Very bad,Staff,Toilets,03/30/2024
+Kiswahili,101162-6,43,Female,Yes,4,At home,Between 1-2 hours,Yes,No,Yes,No,They were not available,Some,Couldn't afford,Free,Very good,Laboratory/testing,Staff,03/24/2024
+Kiswahili,111007-1,29,Female,No,,At the facility,Between 2-3 hours,No,No,No,Some,They were not available,Some,Another reason,Insurance,Very good,Cleanliness,Staff,03/03/2024
+English,101415-8,21,Male,,,At home,Between 2-3 hours,No,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Insurance,Bad,Laboratory/testing,Waiting time,04/11/2024
+English,110723-4,19,Male,,,At home,Between 1-2 hours,Yes,No,No,No,They were not available,Yes,Couldn't afford,Free,Bad,Laboratory/testing,Cleanliness,03/01/2024
+English,110723-4,29,Female,Yes,6,At the facility,Within 1 hour,No,No,Yes,Yes,I didn't understand the need,No,Couldn't afford,Free,Bad,Cleanliness,Staff,03/15/2024
+English,100280-7,28,Female,Yes,4,At home,Between 2-3 hours,No,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Free,Very good,Laboratory/testing,Toilets,03/25/2024
+English,103474-3,24,Female,No,,At home,Within 1 hour,Yes,No,No,No,I didn't understand the need,Some,Couldn't afford,Insurance,Good,Staff,Toilets,04/22/2024
+Kiswahili,111782-9,21,Male,,,At the facility,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,No,Another reason,Insurance,Very bad,The external environment,Toilets,04/21/2024
+Kiswahili,102507-1,43,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,They were not available,No,Couldn't afford,Free,Normal,The external environment,Toilets,03/07/2024
+Kiswahili,103390-1,32,Male,,,At home,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Free,Good,Cleanliness,Waiting time,03/13/2024
+Kiswahili,101295-4,28,Male,,,At home,Within 1 hour,Yes,Yes,No,Yes,They were not available,Yes,Couldn't afford,Insurance,Good,The external environment,Staff,04/30/2024
+English,111844-7,22,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Yes,They were not available,Some,Another reason,Insurance,Very good,The external environment,Toilets,03/05/2024
+Kiswahili,111998-1,29,Female,Yes,8,At the facility,Between 1-2 hours,No,Yes,No,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Very bad,Laboratory/testing,Staff,04/20/2024
+English,101224-4,26,Male,,,At the facility,Within 1 hour,No,No,Yes,No,I couldn't afford the cost,No,Couldn't afford,Free,Very good,The external environment,Cleanliness,03/25/2024
+Kiswahili,100304-5,43,Female,No,,At the facility,Between 1-2 hours,No,No,No,No,They were not available,Some,Couldn't afford,Insurance,Very bad,Cleanliness,Toilets,03/28/2024
+Kiswahili,102269-8,35,Female,Yes,1,At home,Between 2-3 hours,No,Yes,No,Yes,I didn't understand the need,No,Another reason,Free,Normal,The external environment,Staff,03/02/2024
+English,103394-3,24,Female,Yes,8,At home,Within 1 hour,No,No,Yes,Yes,They were not available,Yes,Couldn't afford,Insurance,Normal,The external environment,Staff,03/07/2024
+Kiswahili,111007-1,22,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad,Cleanliness,Staff,03/23/2024
+Kiswahili,103429-7,33,Male,,,At home,Between 2-3 hours,No,No,No,Some,They were not available,Yes,Couldn't afford,Insurance,Very bad,The external environment,Toilets,03/22/2024
+English,112006-2,25,Male,,,At home,Between 2-3 hours,Yes,Yes,No,Some,I didn't understand the need,Some,Another reason,Out of pocket,Good,Laboratory/testing,Staff,03/29/2024
+English,103457-8,38,Female,No,,At home,Between 2-3 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very good,Cleanliness,Toilets,04/24/2024
+Kiswahili,103474-3,38,Female,No,,At the facility,Between 1-2 hours,No,Yes,No,Some,I couldn't afford the cost,No,Another reason,Insurance,Bad,The external environment,Staff,04/14/2024
+English,120365-2,26,Male,,,At the facility,More than 3 hours,Yes,No,Yes,No,I couldn't afford the cost,No,Out of stock,Insurance,Bad,The external environment,Toilets,03/25/2024
+English,103457-8,27,Female,Yes,7,At the facility,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,No,Another reason,Insurance,Normal,Cleanliness,Cleanliness,04/08/2024
+Kiswahili,111491-7,27,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I couldn't afford the cost,Some,Out of stock,Free,Very good,Staff,Toilets,03/25/2024
+English,111957-7,37,Female,No,,At home,Between 1-2 hours,No,No,Yes,Some,They were not available,No,Out of stock,Out of pocket,Good,Staff,Staff,03/24/2024
+Kiswahili,103474-3,33,Female,Yes,4,At home,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,Some,Another reason,Out of pocket,Very good,Laboratory/testing,Toilets,03/18/2024
+Kiswahili,107732-0,42,Female,No,,At home,Between 2-3 hours,Yes,No,Yes,Some,I didn't understand the need,Some,Couldn't afford,Free,Very bad,Laboratory/testing,Waiting time,04/21/2024
+Kiswahili,113632-4,36,Male,,,At home,More than 3 hours,No,No,Yes,No,I didn't understand the need,No,Out of stock,Out of pocket,Bad,Laboratory/testing,Toilets,04/07/2024
+English,101415-8,28,Female,Yes,6,At home,Between 2-3 hours,No,No,No,Some,They were not available,Yes,Couldn't afford,Insurance,Very good,Cleanliness,Toilets,03/24/2024
+English,103684-7,33,Female,No,,At home,Within 1 hour,Yes,Yes,No,Some,They were not available,Some,Out of stock,Out of pocket,Normal,The external environment,Cleanliness,03/17/2024
+English,104020-3,37,Female,Yes,5,At the facility,More than 3 hours,No,Yes,Yes,Yes,I didn't understand the need,Yes,Out of stock,Insurance,Very bad,Staff,Toilets,03/18/2024
+English,112880-0,41,Male,,,At home,Between 1-2 hours,No,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Good,Staff,Waiting time,04/28/2024
+Kiswahili,113222-4,24,Male,,,At home,More than 3 hours,No,No,No,No,I didn't understand the need,Yes,Another reason,Out of pocket,Very bad,Cleanliness,Waiting time,03/17/2024
+Kiswahili,103390-1,40,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,Yes,I couldn't afford the cost,No,Another reason,Free,Very bad,Laboratory/testing,Waiting time,03/27/2024
+English,103388-5,35,Female,Yes,2,At home,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Normal,Staff,Staff,04/03/2024
+English,113632-4,34,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Free,Normal,Cleanliness,Waiting time,03/28/2024
+Kiswahili,111491-7,44,Female,Yes,9,At the facility,More than 3 hours,No,Yes,No,No,They were not available,Yes,Out of stock,Insurance,Good,Laboratory/testing,Staff,03/22/2024
+Kiswahili,111491-7,30,Male,,,At the facility,More than 3 hours,Yes,Yes,No,No,They were not available,Yes,Another reason,Insurance,Very good,Laboratory/testing,Cleanliness,03/05/2024
+English,111998-1,23,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Normal,Laboratory/testing,Waiting time,03/07/2024
+English,111998-1,18,Female,No,,At home,More than 3 hours,Yes,No,No,Some,I didn't understand the need,No,Couldn't afford,Insurance,Very bad,Cleanliness,Cleanliness,03/26/2024
+English,100304-5,34,Male,,,At the facility,Within 1 hour,No,No,Yes,Some,They were not available,No,Couldn't afford,Free,Very bad,The external environment,Staff,03/10/2024
+Kiswahili,103110-3,40,Male,,,At the facility,Between 1-2 hours,No,No,No,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Good,The external environment,Toilets,04/15/2024
+English,111489-1,39,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,They were not available,Some,Another reason,Insurance,Normal,Laboratory/testing,Cleanliness,03/18/2024
+Kiswahili,103587-2,24,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Good,Cleanliness,Cleanliness,04/27/2024
+English,103086-5,44,Male,,,At home,Within 1 hour,Yes,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Free,Normal,Cleanliness,Waiting time,03/10/2024
+Kiswahili,102269-8,44,Female,Yes,6,At the facility,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Very bad,Staff,Waiting time,03/06/2024
+Kiswahili,100304-5,31,Male,,,At home,Within 1 hour,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Bad,Laboratory/testing,Staff,03/29/2024
+Kiswahili,101415-8,42,Female,Yes,5,At the facility,Between 1-2 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Normal,The external environment,Waiting time,04/01/2024
+English,120283-7,45,Male,,,At home,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Yes,Another reason,Free,Normal,Staff,Staff,03/23/2024
+Kiswahili,120960-0,44,Male,,,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,No,Couldn't afford,Insurance,Good,The external environment,Toilets,04/13/2024
+English,120960-0,23,Female,Yes,4,At the facility,Between 2-3 hours,Yes,No,Yes,No,I didn't understand the need,Some,Couldn't afford,Insurance,Normal,Staff,Staff,03/07/2024
+Kiswahili,103429-7,45,Female,No,,At the facility,Between 1-2 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Insurance,Good,Laboratory/testing,Cleanliness,03/28/2024
+Kiswahili,100304-5,34,Female,Yes,1,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Very good,Laboratory/testing,Toilets,04/03/2024
+English,121317-2,18,Female,Yes,4,At home,Within 1 hour,Yes,Yes,No,Yes,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very bad,Laboratory/testing,Toilets,04/23/2024
+Kiswahili,113632-4,39,Female,No,,At the facility,Within 1 hour,No,No,No,Yes,I couldn't afford the cost,Yes,Another reason,Out of pocket,Bad,Cleanliness,Cleanliness,04/27/2024
+English,102558-4,18,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Some,I didn't understand the need,No,Out of stock,Out of pocket,Good,Cleanliness,Staff,03/09/2024
+English,100304-5,33,Female,Yes,9,At home,More than 3 hours,No,Yes,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Very good,Cleanliness,Cleanliness,03/23/2024
+English,112955-0,20,Male,,,At the facility,Between 2-3 hours,No,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Good,Laboratory/testing,Staff,04/10/2024
+Kiswahili,103394-3,44,Female,Yes,2,At the facility,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Free,Good,Cleanliness,Waiting time,03/25/2024
+English,110721-8,24,Female,Yes,6,At the facility,Between 1-2 hours,No,No,Yes,Some,They were not available,No,Out of stock,Insurance,Normal,Cleanliness,Waiting time,04/01/2024
+Kiswahili,111998-1,41,Female,No,,At home,More than 3 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Bad,The external environment,Waiting time,04/19/2024
+Kiswahili,112490-8,29,Male,,,At home,More than 3 hours,Yes,Yes,No,Yes,I didn't understand the need,Some,Out of stock,Out of pocket,Normal,Staff,Staff,04/08/2024
+Kiswahili,101224-4,30,Female,No,,At home,Within 1 hour,No,No,No,Yes,I couldn't afford the cost,No,Another reason,Free,Very good,Staff,Staff,04/06/2024
+English,103457-8,32,Female,Yes,6,At the facility,Within 1 hour,No,Yes,Yes,Some,They were not available,Some,Couldn't afford,Out of pocket,Good,Cleanliness,Cleanliness,03/10/2024
+Kiswahili,103110-3,32,Female,Yes,9,At home,Within 1 hour,Yes,No,Yes,Yes,They were not available,No,Another reason,Free,Good,Staff,Waiting time,03/16/2024
+English,103582-3,24,Female,Yes,8,At the facility,Within 1 hour,No,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Good,The external environment,Waiting time,03/20/2024
+English,100220-3,18,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Yes,I didn't understand the need,Some,Another reason,Insurance,Very good,The external environment,Waiting time,03/24/2024
+Kiswahili,101379-6,38,Male,,,At home,More than 3 hours,Yes,No,Yes,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Very good,The external environment,Waiting time,03/21/2024
+English,112882-6,41,Female,Yes,8,At home,More than 3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Another reason,Out of pocket,Very good,Cleanliness,Toilets,04/26/2024
+English,103684-7,31,Male,,,At the facility,Between 2-3 hours,No,No,No,No,I didn't understand the need,Some,Another reason,Insurance,Good,The external environment,Waiting time,03/30/2024
+English,107732-0,32,Female,No,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,Some,Out of stock,Insurance,Very bad,The external environment,Waiting time,03/31/2024
+Kiswahili,111957-7,30,Female,Yes,1,At home,More than 3 hours,No,No,No,Some,I didn't understand the need,Yes,Out of stock,Free,Very bad,Cleanliness,Cleanliness,03/13/2024
+Kiswahili,102258-1,35,Female,Yes,9,At the facility,Within 1 hour,No,No,Yes,Yes,They were not available,Some,Couldn't afford,Out of pocket,Very good,Staff,Toilets,03/06/2024
+Kiswahili,111957-7,22,Male,,,At home,Between 2-3 hours,Yes,No,No,No,I didn't understand the need,Some,Out of stock,Out of pocket,Good,Cleanliness,Cleanliness,04/29/2024
+English,101777-1,18,Male,,,At the facility,Within 1 hour,No,Yes,No,No,I couldn't afford the cost,No,Another reason,Out of pocket,Good,The external environment,Cleanliness,04/09/2024
+Kiswahili,111582-3,24,Female,Yes,4,At the facility,More than 3 hours,No,Yes,Yes,Some,They were not available,Some,Out of stock,Free,Normal,The external environment,Toilets,03/21/2024
+English,103587-2,32,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Good,Staff,Toilets,04/11/2024
+English,103474-3,27,Male,,,At the facility,Within 1 hour,No,Yes,Yes,No,They were not available,Yes,Out of stock,Insurance,Good,Cleanliness,Cleanliness,03/16/2024
+English,120283-7,32,Female,Yes,8,At the facility,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Very bad,The external environment,Cleanliness,03/05/2024
+English,101295-4,42,Male,,,At the facility,More than 3 hours,No,No,Yes,Some,I didn't understand the need,Yes,Another reason,Insurance,Good,Laboratory/testing,Staff,03/15/2024
+English,102557-6,28,Female,Yes,6,At the facility,Within 1 hour,No,No,No,No,I couldn't afford the cost,No,Another reason,Out of pocket,Bad,Staff,Staff,04/02/2024
+English,101379-6,22,Male,,,At the facility,More than 3 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Insurance,Good,The external environment,Waiting time,04/16/2024
+Kiswahili,111784-5,27,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,No,Out of stock,Insurance,Bad,Cleanliness,Toilets,03/05/2024
+English,111998-1,37,Female,No,,At home,More than 3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Some,Couldn't afford,Free,Bad,The external environment,Staff,04/20/2024
+English,113625-8,25,Female,No,,At home,Between 2-3 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Very bad,Staff,Waiting time,03/19/2024
+English,112882-6,37,Female,Yes,6,At the facility,More than 3 hours,No,No,Yes,No,I didn't understand the need,Some,Another reason,Free,Very good,Staff,Waiting time,03/18/2024
+Kiswahili,104520-2,45,Male,,,At the facility,Between 1-2 hours,No,Yes,No,No,They were not available,No,Couldn't afford,Free,Good,Cleanliness,Waiting time,03/09/2024
+Kiswahili,101224-4,26,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,They were not available,Some,Couldn't afford,Insurance,Normal,Laboratory/testing,Staff,04/24/2024
+Kiswahili,112955-0,35,Female,Yes,7,At the facility,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,No,Another reason,Free,Normal,The external environment,Staff,04/18/2024
+Kiswahili,101379-6,32,Female,No,,At home,Within 1 hour,Yes,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,Cleanliness,Toilets,04/03/2024
+English,103587-2,28,Male,,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Very bad,Cleanliness,Toilets,03/18/2024
+Kiswahili,102558-4,19,Female,No,,At the facility,Between 1-2 hours,No,Yes,No,Some,I couldn't afford the cost,No,Another reason,Insurance,Bad,Cleanliness,Cleanliness,04/22/2024
+Kiswahili,111489-1,22,Female,Yes,1,At home,More than 3 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Couldn't afford,Out of pocket,Very bad,Staff,Cleanliness,03/23/2024
+English,109848-2,37,Male,,,At the facility,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Good,Laboratory/testing,Staff,04/24/2024
+Kiswahili,111782-9,32,Male,,,At home,More than 3 hours,No,No,No,No,They were not available,No,Another reason,Free,Very bad,Laboratory/testing,Staff,04/06/2024
+English,103086-5,24,Male,,,At the facility,Within 1 hour,Yes,No,No,Some,I didn't understand the need,Some,Couldn't afford,Insurance,Good,Staff,Cleanliness,04/28/2024
+English,103410-7,40,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,I couldn't afford the cost,No,Out of stock,Insurance,Normal,Cleanliness,Cleanliness,03/15/2024
+Kiswahili,102755-6,39,Female,Yes,4,At home,Between 2-3 hours,No,Yes,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Bad,The external environment,Toilets,04/09/2024
+English,103390-1,26,Female,Yes,7,At the facility,Between 1-2 hours,No,No,Yes,Yes,They were not available,Some,Couldn't afford,Out of pocket,Good,The external environment,Toilets,04/08/2024
+English,113550-8,19,Male,,,At home,More than 3 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Another reason,Out of pocket,Very good,Laboratory/testing,Waiting time,04/10/2024
+English,111782-9,44,Male,,,At home,Between 2-3 hours,Yes,No,No,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Good,Staff,Staff,04/04/2024
+Kiswahili,101462-0,30,Female,No,,At home,Between 2-3 hours,Yes,No,No,No,I couldn't afford the cost,Yes,Out of stock,Free,Very bad,Cleanliness,Toilets,03/19/2024
+Kiswahili,101415-8,34,Male,,,At home,More than 3 hours,No,Yes,No,No,They were not available,Some,Another reason,Out of pocket,Very good,Laboratory/testing,Waiting time,03/06/2024
+Kiswahili,111491-7,32,Male,,,At home,Within 1 hour,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Another reason,Insurance,Bad,Staff,Waiting time,04/15/2024
+English,111782-9,45,Male,,,At the facility,Between 1-2 hours,No,No,No,Yes,I didn't understand the need,Yes,Another reason,Free,Very bad,The external environment,Waiting time,03/21/2024
+English,113632-4,32,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,I couldn't afford the cost,No,Another reason,Free,Very good,Cleanliness,Waiting time,04/26/2024
+English,120283-7,45,Male,,,At the facility,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Yes,Another reason,Insurance,Very good,The external environment,Toilets,03/09/2024
+English,111489-1,24,Male,,,At home,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Very bad,Laboratory/testing,Toilets,04/04/2024
+Kiswahili,103684-7,19,Male,,,At the facility,More than 3 hours,Yes,No,Yes,No,They were not available,Yes,Out of stock,Free,Normal,The external environment,Waiting time,03/17/2024
+Kiswahili,102755-6,18,Male,,,At home,More than 3 hours,No,No,Yes,Yes,I didn't understand the need,Some,Out of stock,Free,Bad,Laboratory/testing,Staff,04/27/2024
+Kiswahili,100556-0,25,Female,Yes,2,At the facility,Between 2-3 hours,Yes,Yes,No,No,I didn't understand the need,Some,Another reason,Insurance,Normal,The external environment,Waiting time,03/25/2024
+English,110723-4,44,Female,Yes,9,At the facility,Within 1 hour,Yes,No,No,Yes,They were not available,Some,Another reason,Insurance,Bad,Staff,Toilets,03/19/2024
+Kiswahili,111782-9,45,Male,,,At the facility,Within 1 hour,Yes,No,No,Yes,I couldn't afford the cost,Some,Out of stock,Free,Bad,Laboratory/testing,Staff,04/30/2024
+English,120283-7,21,Female,No,,At home,Between 1-2 hours,No,No,No,No,They were not available,Yes,Out of stock,Free,Good,Laboratory/testing,Cleanliness,04/06/2024
+English,101295-4,39,Female,No,,At the facility,Within 1 hour,No,Yes,No,No,They were not available,No,Couldn't afford,Insurance,Very good,Laboratory/testing,Waiting time,03/13/2024
+English,113632-4,19,Female,No,,At the facility,Within 1 hour,Yes,No,No,No,They were not available,Some,Another reason,Insurance,Normal,Cleanliness,Toilets,04/11/2024
+English,120960-0,20,Female,No,,At home,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Free,Good,Laboratory/testing,Cleanliness,04/30/2024
+English,101777-1,40,Male,,,At home,Between 1-2 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Some,Another reason,Free,Normal,The external environment,Staff,04/16/2024
+English,101162-6,37,Female,No,,At the facility,More than 3 hours,No,No,No,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Good,Laboratory/testing,Staff,03/09/2024
+Kiswahili,103410-7,40,Male,,,At the facility,Between 2-3 hours,Yes,No,No,No,I couldn't afford the cost,Some,Another reason,Free,Good,The external environment,Toilets,04/10/2024
+Kiswahili,111844-7,33,Male,,,At home,Between 2-3 hours,Yes,No,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Good,Staff,Toilets,04/21/2024
+Kiswahili,111005-5,32,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Out of stock,Insurance,Very bad,Cleanliness,Waiting time,04/11/2024
+Kiswahili,101462-0,41,Female,No,,At home,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Insurance,Normal,Staff,Toilets,03/19/2024
+Kiswahili,101295-4,35,Male,,,At the facility,Within 1 hour,No,No,No,Some,I didn't understand the need,No,Couldn't afford,Out of pocket,Normal,Laboratory/testing,Cleanliness,03/16/2024
+Kiswahili,103457-8,29,Female,Yes,2,At home,More than 3 hours,No,No,No,No,I didn't understand the need,Yes,Out of stock,Insurance,Normal,Laboratory/testing,Toilets,03/26/2024
+Kiswahili,109848-2,30,Female,No,,At home,Within 1 hour,No,No,No,Yes,I didn't understand the need,Yes,Out of stock,Free,Good,Cleanliness,Cleanliness,04/20/2024
+English,102269-8,18,Female,Yes,4,At the facility,More than 3 hours,No,Yes,No,Some,They were not available,Some,Out of stock,Out of pocket,Very good,Laboratory/testing,Waiting time,03/15/2024
+Kiswahili,100304-5,45,Female,Yes,5,At home,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Out of stock,Insurance,Bad,The external environment,Staff,04/18/2024
+English,120283-7,42,Male,,,At home,Between 1-2 hours,No,No,No,Yes,They were not available,No,Another reason,Out of pocket,Bad,Staff,Cleanliness,03/26/2024
+Kiswahili,112006-2,39,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Free,Normal,Cleanliness,Waiting time,04/13/2024
+Kiswahili,103388-5,20,Male,,,At home,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,No,Another reason,Out of pocket,Bad,Laboratory/testing,Staff,03/17/2024
+English,102755-6,30,Female,Yes,7,At the facility,Between 1-2 hours,No,No,Yes,Some,I didn't understand the need,No,Out of stock,Insurance,Very bad,The external environment,Cleanliness,03/20/2024
+Kiswahili,113632-4,41,Female,Yes,8,At the facility,Between 2-3 hours,Yes,Yes,No,Some,They were not available,Yes,Couldn't afford,Out of pocket,Bad,Cleanliness,Toilets,04/01/2024
+Kiswahili,113222-4,22,Male,,,At the facility,Within 1 hour,No,No,Yes,No,They were not available,Some,Another reason,Free,Good,The external environment,Cleanliness,04/19/2024
+Kiswahili,101777-1,26,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Free,Normal,Cleanliness,Waiting time,03/20/2024
+Kiswahili,103086-5,35,Male,,,At the facility,Within 1 hour,No,No,No,Some,I didn't understand the need,No,Another reason,Out of pocket,Good,Laboratory/testing,Toilets,03/07/2024
+English,102258-1,20,Female,Yes,2,At the facility,More than 3 hours,No,No,No,No,I didn't understand the need,Some,Out of stock,Free,Bad,Laboratory/testing,Staff,03/23/2024
+English,103399-2,24,Male,,,At home,Between 1-2 hours,Yes,No,No,Yes,I didn't understand the need,Yes,Another reason,Out of pocket,Very bad,Cleanliness,Staff,04/15/2024
+Kiswahili,100220-3,30,Female,Yes,4,At the facility,Between 2-3 hours,Yes,Yes,Yes,No,I didn't understand the need,Yes,Out of stock,Free,Good,Cleanliness,Cleanliness,04/23/2024
+Kiswahili,104520-2,41,Female,Yes,3,At the facility,Between 2-3 hours,Yes,Yes,Yes,Some,I didn't understand the need,No,Another reason,Out of pocket,Bad,Cleanliness,Staff,03/29/2024
+Kiswahili,103399-2,24,Female,No,,At home,More than 3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Free,Bad,Cleanliness,Staff,04/19/2024
+English,111582-3,40,Male,,,At the facility,Between 2-3 hours,No,No,No,No,I didn't understand the need,Yes,Couldn't afford,Free,Very bad,The external environment,Cleanliness,03/05/2024
+Kiswahili,107732-0,37,Female,Yes,1,At home,Between 2-3 hours,Yes,Yes,Yes,No,I didn't understand the need,Some,Another reason,Insurance,Very good,Laboratory/testing,Toilets,03/02/2024
+English,103457-8,44,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Some,They were not available,No,Another reason,Insurance,Good,Cleanliness,Cleanliness,04/24/2024
+Kiswahili,102755-6,21,Male,,,At home,Within 1 hour,Yes,Yes,No,No,I didn't understand the need,Some,Couldn't afford,Free,Normal,Laboratory/testing,Waiting time,04/21/2024
+English,103582-3,35,Female,No,,At the facility,More than 3 hours,No,No,No,Yes,I didn't understand the need,Yes,Out of stock,Free,Good,Laboratory/testing,Cleanliness,04/13/2024
+Kiswahili,111489-1,41,Female,Yes,9,At the facility,Between 1-2 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Another reason,Out of pocket,Normal,The external environment,Cleanliness,04/24/2024
+English,111782-9,43,Female,Yes,1,At home,More than 3 hours,Yes,Yes,No,Yes,They were not available,No,Out of stock,Insurance,Normal,Laboratory/testing,Cleanliness,04/30/2024
+English,100280-7,40,Female,Yes,7,At the facility,Between 1-2 hours,No,Yes,No,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Normal,Cleanliness,Cleanliness,03/07/2024
+Kiswahili,112006-2,43,Female,No,,At home,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Out of stock,Insurance,Bad,The external environment,Staff,03/13/2024
+English,109848-2,30,Female,Yes,1,At home,Between 1-2 hours,No,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Very bad,Staff,Toilets,03/01/2024
+Kiswahili,101162-6,24,Female,No,,At home,Within 1 hour,No,No,No,No,I didn't understand the need,No,Out of stock,Out of pocket,Good,The external environment,Waiting time,03/19/2024
+English,113222-4,22,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Staff,04/06/2024
+English,113222-4,36,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Yes,They were not available,No,Out of stock,Out of pocket,Very good,Cleanliness,Toilets,04/14/2024
+English,111489-1,31,Female,Yes,4,At home,Between 1-2 hours,Yes,No,No,No,They were not available,Some,Another reason,Insurance,Normal,Cleanliness,Staff,03/29/2024
+Kiswahili,121317-2,35,Female,No,,At home,Between 1-2 hours,No,Yes,Yes,No,They were not available,No,Couldn't afford,Free,Bad,The external environment,Toilets,04/12/2024
+English,101415-8,22,Female,Yes,7,At home,Between 2-3 hours,No,Yes,Yes,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Normal,Laboratory/testing,Toilets,04/11/2024
+English,101224-4,30,Male,,,At the facility,Between 1-2 hours,No,Yes,No,No,I couldn't afford the cost,Yes,Another reason,Free,Very good,Laboratory/testing,Toilets,04/15/2024
+English,112880-0,22,Male,,,At the facility,Within 1 hour,Yes,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Normal,Staff,Waiting time,03/29/2024
+English,112880-0,33,Female,No,,At the facility,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Normal,Laboratory/testing,Cleanliness,03/30/2024
+English,101462-0,39,Male,,,At home,More than 3 hours,Yes,No,Yes,No,I couldn't afford the cost,Some,Another reason,Free,Very good,Laboratory/testing,Waiting time,04/10/2024
+Kiswahili,103587-2,33,Male,,,At home,Within 1 hour,No,Yes,No,No,I didn't understand the need,Some,Out of stock,Out of pocket,Normal,Cleanliness,Cleanliness,03/26/2024
+Kiswahili,103474-3,32,Female,Yes,5,At the facility,More than 3 hours,Yes,Yes,No,Some,They were not available,No,Couldn't afford,Free,Good,Cleanliness,Staff,03/07/2024
+Kiswahili,102269-8,25,Female,Yes,4,At the facility,Within 1 hour,Yes,No,Yes,No,I didn't understand the need,No,Couldn't afford,Free,Very good,The external environment,Waiting time,03/04/2024
+Kiswahili,103388-5,23,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,Some,Another reason,Free,Normal,Cleanliness,Cleanliness,04/30/2024
+Kiswahili,113625-8,24,Female,Yes,8,At home,Between 1-2 hours,Yes,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Staff,03/05/2024
+English,111782-9,36,Male,,,At home,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Out of stock,Out of pocket,Bad,Staff,Waiting time,03/31/2024
+Kiswahili,111844-7,40,Male,,,At home,More than 3 hours,No,No,Yes,Some,They were not available,Some,Couldn't afford,Out of pocket,Good,Cleanliness,Staff,04/19/2024
+English,110721-8,24,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Some,Couldn't afford,Free,Very good,Cleanliness,Waiting time,04/28/2024
+Kiswahili,101295-4,24,Female,Yes,6,At the facility,Between 1-2 hours,No,No,No,No,I didn't understand the need,Yes,Couldn't afford,Free,Bad,Staff,Waiting time,03/18/2024
+Kiswahili,113625-8,28,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Normal,Cleanliness,Cleanliness,03/28/2024
+English,111782-9,29,Female,Yes,7,At home,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,Some,Out of stock,Insurance,Bad,The external environment,Staff,04/24/2024
+English,110721-8,31,Female,Yes,3,At home,Between 1-2 hours,No,No,Yes,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Good,The external environment,Toilets,04/09/2024
+English,100556-0,38,Female,Yes,3,At the facility,More than 3 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Very bad,Staff,Toilets,03/22/2024
+Kiswahili,102269-8,25,Female,No,,At the facility,Between 2-3 hours,Yes,No,Yes,No,I didn't understand the need,Yes,Another reason,Out of pocket,Very good,The external environment,Toilets,04/21/2024
+Kiswahili,103474-3,41,Female,No,,At home,Between 1-2 hours,Yes,Yes,No,No,They were not available,Some,Another reason,Insurance,Normal,Laboratory/testing,Cleanliness,04/10/2024
+English,111489-1,37,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Another reason,Free,Normal,The external environment,Staff,04/22/2024
+English,112882-6,24,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Another reason,Free,Good,Laboratory/testing,Toilets,03/21/2024
+Kiswahili,102269-8,44,Female,Yes,2,At the facility,Between 2-3 hours,No,No,Yes,Yes,I couldn't afford the cost,No,Out of stock,Out of pocket,Good,The external environment,Cleanliness,04/01/2024
+Kiswahili,113628-2,19,Female,No,,At the facility,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Normal,Staff,Cleanliness,03/12/2024
+Kiswahili,101224-4,27,Female,Yes,7,At the facility,Within 1 hour,Yes,Yes,No,Yes,I couldn't afford the cost,No,Out of stock,Free,Bad,Laboratory/testing,Waiting time,04/13/2024
+English,102269-8,19,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Free,Normal,Staff,Toilets,04/02/2024
+English,102507-1,35,Female,No,,At the facility,More than 3 hours,No,Yes,No,Yes,They were not available,No,Couldn't afford,Free,Good,The external environment,Cleanliness,04/12/2024
+Kiswahili,113628-2,42,Male,,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Very bad,Cleanliness,Toilets,03/01/2024
+Kiswahili,103388-5,39,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Free,Normal,Staff,Cleanliness,04/15/2024
+Kiswahili,111957-7,35,Male,,,At home,Between 1-2 hours,Yes,No,No,Yes,I didn't understand the need,No,Out of stock,Out of pocket,Normal,Staff,Staff,04/26/2024
+English,120960-0,37,Female,Yes,5,At the facility,Between 2-3 hours,Yes,No,No,No,They were not available,No,Couldn't afford,Free,Very good,The external environment,Cleanliness,04/03/2024
+Kiswahili,112955-0,38,Male,,,At the facility,Between 1-2 hours,Yes,No,No,No,I didn't understand the need,Some,Another reason,Out of pocket,Very bad,Cleanliness,Cleanliness,04/12/2024
+English,111998-1,27,Female,Yes,3,At the facility,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Waiting time,03/29/2024
+English,103110-3,18,Female,No,,At home,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Cleanliness,04/13/2024
+Kiswahili,102507-1,26,Male,,,At home,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,No,Another reason,Insurance,Bad,Staff,Staff,04/21/2024
+Kiswahili,111582-3,29,Male,,,At home,Within 1 hour,No,No,Yes,No,They were not available,Some,Another reason,Free,Normal,Cleanliness,Waiting time,04/05/2024
+Kiswahili,102558-4,25,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,No,Couldn't afford,Free,Good,Laboratory/testing,Toilets,03/19/2024
+Kiswahili,103457-8,32,Male,,,At home,Between 2-3 hours,No,Yes,Yes,Some,I didn't understand the need,Some,Out of stock,Insurance,Good,Laboratory/testing,Toilets,04/25/2024
+Kiswahili,102269-8,32,Male,,,At home,Within 1 hour,Yes,No,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Bad,Cleanliness,Toilets,04/15/2024
+Kiswahili,102755-6,36,Female,Yes,2,At home,Between 1-2 hours,No,No,No,Some,They were not available,Some,Couldn't afford,Insurance,Very good,Staff,Waiting time,04/21/2024
+Kiswahili,101777-1,32,Female,No,,At the facility,More than 3 hours,No,Yes,No,Yes,They were not available,Yes,Another reason,Insurance,Very good,Staff,Waiting time,04/15/2024
+English,100280-7,39,Female,Yes,4,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I didn't understand the need,No,Another reason,Out of pocket,Bad,Laboratory/testing,Staff,03/30/2024
+Kiswahili,103086-5,28,Male,,,At home,Within 1 hour,No,No,Yes,Yes,I couldn't afford the cost,No,Couldn't afford,Free,Good,Cleanliness,Toilets,04/20/2024
+Kiswahili,103410-7,40,Female,Yes,1,At home,Between 1-2 hours,No,Yes,Yes,No,They were not available,Some,Out of stock,Insurance,Normal,Laboratory/testing,Toilets,04/07/2024
+Kiswahili,111007-1,30,Male,,,At home,Between 2-3 hours,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Out of pocket,Good,The external environment,Toilets,03/27/2024
+English,103390-1,39,Male,,,At home,Between 1-2 hours,No,Yes,Yes,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Bad,Staff,Staff,03/15/2024
+Kiswahili,103388-5,42,Female,No,,At home,Within 1 hour,No,Yes,No,Yes,I couldn't afford the cost,Yes,Another reason,Insurance,Bad,The external environment,Staff,04/20/2024
+Kiswahili,111844-7,40,Female,Yes,1,At the facility,Between 1-2 hours,Yes,Yes,Yes,Some,I didn't understand the need,No,Out of stock,Free,Very bad,Staff,Cleanliness,03/06/2024
+English,111782-9,34,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Some,I didn't understand the need,Yes,Another reason,Out of pocket,Normal,Laboratory/testing,Staff,03/30/2024
+Kiswahili,113550-8,37,Female,No,,At home,Between 2-3 hours,Yes,No,No,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Good,Staff,Cleanliness,04/16/2024
+Kiswahili,112955-0,32,Female,No,,At home,More than 3 hours,No,No,No,No,They were not available,Some,Couldn't afford,Free,Very good,The external environment,Cleanliness,04/22/2024
+English,107732-0,27,Female,No,,At the facility,Between 1-2 hours,Yes,No,No,No,I didn't understand the need,Some,Out of stock,Out of pocket,Very bad,The external environment,Waiting time,03/20/2024
+Kiswahili,120960-0,40,Female,Yes,6,At home,Within 1 hour,No,No,Yes,Some,They were not available,Some,Out of stock,Free,Good,Laboratory/testing,Waiting time,03/31/2024
+Kiswahili,100220-3,27,Male,,,At home,More than 3 hours,Yes,No,Yes,Some,They were not available,Yes,Another reason,Out of pocket,Normal,Staff,Cleanliness,03/31/2024
+Kiswahili,113628-2,18,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,They were not available,Yes,Out of stock,Free,Good,The external environment,Waiting time,04/11/2024
+Kiswahili,102558-4,18,Female,Yes,3,At home,Between 2-3 hours,No,No,No,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Good,Staff,Waiting time,04/29/2024
+English,111784-5,28,Female,Yes,5,At the facility,Between 1-2 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Bad,Staff,Waiting time,04/15/2024
+English,109848-2,40,Female,Yes,9,At the facility,More than 3 hours,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Good,Staff,Staff,04/06/2024
+English,112880-0,23,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Very bad,The external environment,Cleanliness,04/14/2024
+Kiswahili,103684-7,45,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,Some,I didn't understand the need,No,Couldn't afford,Insurance,Bad,Laboratory/testing,Toilets,03/02/2024
+English,103399-2,32,Female,No,,At the facility,Between 1-2 hours,Yes,No,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,Cleanliness,Waiting time,04/28/2024
+English,102269-8,40,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,No,I didn't understand the need,Some,Another reason,Insurance,Very good,The external environment,Cleanliness,04/25/2024
+Kiswahili,103399-2,45,Male,,,At home,Between 1-2 hours,Yes,Yes,Yes,Some,They were not available,Some,Out of stock,Out of pocket,Normal,The external environment,Staff,03/05/2024
+Kiswahili,103587-2,18,Female,No,,At the facility,More than 3 hours,Yes,Yes,Yes,No,They were not available,Yes,Another reason,Out of pocket,Good,Cleanliness,Cleanliness,03/24/2024
+English,100304-5,42,Male,,,At home,Within 1 hour,Yes,No,Yes,No,I didn't understand the need,Some,Another reason,Free,Very bad,Staff,Staff,03/14/2024
+English,101162-6,26,Male,,,At the facility,More than 3 hours,Yes,No,Yes,Some,I didn't understand the need,Yes,Out of stock,Free,Bad,Laboratory/testing,Cleanliness,03/27/2024
+Kiswahili,101462-0,30,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,They were not available,Some,Another reason,Out of pocket,Very bad,Cleanliness,Staff,03/06/2024
+Kiswahili,104520-2,43,Male,,,At the facility,Between 1-2 hours,No,No,No,No,I didn't understand the need,Some,Another reason,Insurance,Normal,The external environment,Cleanliness,03/12/2024
+English,102507-1,19,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Out of stock,Out of pocket,Good,Staff,Cleanliness,03/17/2024
+Kiswahili,111582-3,25,Female,Yes,4,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,I didn't understand the need,Yes,Another reason,Insurance,Normal,Laboratory/testing,Waiting time,04/28/2024
+English,101295-4,23,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,Yes,I didn't understand the need,No,Couldn't afford,Insurance,Bad,Cleanliness,Waiting time,03/05/2024
+English,112880-0,36,Female,Yes,5,At the facility,Between 2-3 hours,No,Yes,No,Yes,They were not available,Yes,Couldn't afford,Out of pocket,Normal,The external environment,Cleanliness,03/23/2024
+English,102557-6,27,Female,Yes,1,At the facility,More than 3 hours,Yes,Yes,No,Some,I didn't understand the need,Yes,Couldn't afford,Insurance,Bad,The external environment,Toilets,03/21/2024
+Kiswahili,111957-7,43,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Yes,I couldn't afford the cost,Some,Another reason,Insurance,Good,The external environment,Cleanliness,03/20/2024
+Kiswahili,109848-2,37,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,No,I couldn't afford the cost,Some,Out of stock,Free,Very bad,Staff,Waiting time,03/19/2024
+English,113625-8,37,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Couldn't afford,Free,Bad,Laboratory/testing,Toilets,03/10/2024
+English,111957-7,24,Female,No,,At home,Between 1-2 hours,No,No,No,Some,I couldn't afford the cost,Yes,Out of stock,Free,Bad,Laboratory/testing,Waiting time,04/23/2024
+English,111782-9,45,Female,Yes,1,At the facility,Between 2-3 hours,Yes,No,Yes,Some,They were not available,Yes,Couldn't afford,Free,Bad,The external environment,Toilets,03/14/2024
+Kiswahili,100280-7,29,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Good,Laboratory/testing,Cleanliness,04/12/2024
+English,103394-3,23,Male,,,At home,Within 1 hour,Yes,No,No,Some,They were not available,No,Couldn't afford,Free,Very bad,Cleanliness,Cleanliness,03/09/2024
+English,102775-4,20,Female,No,,At the facility,Between 1-2 hours,No,Yes,Yes,Some,They were not available,Some,Out of stock,Free,Bad,The external environment,Staff,04/14/2024
+English,111782-9,27,Male,,,At the facility,More than 3 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Couldn't afford,Out of pocket,Good,The external environment,Cleanliness,04/19/2024
+Kiswahili,101462-0,28,Female,Yes,6,At home,Between 1-2 hours,Yes,No,Yes,Some,I couldn't afford the cost,Some,Another reason,Insurance,Normal,Staff,Toilets,04/28/2024
+Kiswahili,102558-4,31,Female,No,,At the facility,More than 3 hours,Yes,No,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very bad,The external environment,Waiting time,03/03/2024
+English,103429-7,27,Female,No,,At the facility,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Free,Very bad,Staff,Cleanliness,04/02/2024
+Kiswahili,100304-5,35,Male,,,At the facility,More than 3 hours,Yes,Yes,No,Yes,They were not available,No,Couldn't afford,Insurance,Bad,Laboratory/testing,Cleanliness,03/31/2024
+Kiswahili,103410-7,45,Male,,,At home,More than 3 hours,No,Yes,No,Some,They were not available,Some,Out of stock,Insurance,Very good,Staff,Cleanliness,03/11/2024
+English,104520-2,21,Male,,,At the facility,More than 3 hours,Yes,Yes,No,No,They were not available,Some,Out of stock,Insurance,Good,The external environment,Cleanliness,03/11/2024
+Kiswahili,101379-6,18,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very good,Staff,Staff,04/10/2024
+Kiswahili,101162-6,26,Female,No,,At the facility,Within 1 hour,Yes,No,No,No,I didn't understand the need,Some,Couldn't afford,Free,Very bad,Laboratory/testing,Cleanliness,04/16/2024
+Kiswahili,103394-3,28,Female,No,,At the facility,Between 1-2 hours,Yes,No,Yes,No,I didn't understand the need,No,Out of stock,Free,Normal,Laboratory/testing,Waiting time,04/02/2024
+Kiswahili,102558-4,22,Female,Yes,3,At home,Between 1-2 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Very good,The external environment,Cleanliness,04/17/2024
+Kiswahili,111998-1,41,Female,No,,At home,Between 1-2 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,Laboratory/testing,Toilets,04/25/2024
+Kiswahili,101162-6,24,Male,,,At the facility,Within 1 hour,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Out of pocket,Very bad,The external environment,Cleanliness,03/19/2024
+Kiswahili,121317-2,23,Male,,,At home,Within 1 hour,No,Yes,No,Yes,I didn't understand the need,Some,Couldn't afford,Insurance,Very bad,The external environment,Waiting time,03/30/2024
+English,102269-8,35,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Some,Couldn't afford,Insurance,Good,The external environment,Cleanliness,03/11/2024
+English,109848-2,23,Female,No,,At the facility,More than 3 hours,Yes,Yes,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Very good,The external environment,Toilets,03/13/2024
+English,100220-3,18,Male,,,At home,Between 1-2 hours,No,Yes,No,Yes,They were not available,Some,Out of stock,Free,Very bad,Staff,Cleanliness,04/21/2024
+Kiswahili,113625-8,33,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,They were not available,Some,Another reason,Free,Bad,The external environment,Staff,04/01/2024
+Kiswahili,113632-4,25,Female,Yes,3,At the facility,Between 2-3 hours,Yes,No,No,No,I didn't understand the need,Yes,Another reason,Out of pocket,Good,Cleanliness,Staff,04/17/2024
+Kiswahili,120960-0,25,Male,,,At home,More than 3 hours,Yes,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Out of pocket,Normal,Staff,Staff,04/10/2024
+English,121317-2,27,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Free,Very good,Staff,Toilets,03/20/2024
+English,111844-7,29,Male,,,At home,Within 1 hour,No,No,Yes,No,They were not available,Yes,Couldn't afford,Out of pocket,Normal,Cleanliness,Staff,03/09/2024
+English,102269-8,29,Female,No,,At home,Between 1-2 hours,No,Yes,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Very good,The external environment,Staff,04/26/2024
+Kiswahili,103457-8,24,Male,,,At home,Between 1-2 hours,No,Yes,Yes,Some,They were not available,No,Another reason,Free,Bad,Laboratory/testing,Staff,03/29/2024
+Kiswahili,101162-6,26,Female,Yes,4,At the facility,Between 2-3 hours,No,Yes,No,Some,I didn't understand the need,Yes,Couldn't afford,Free,Very good,Cleanliness,Cleanliness,04/26/2024
+English,112006-2,22,Female,Yes,7,At the facility,Between 2-3 hours,Yes,No,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad,Cleanliness,Staff,04/17/2024
+English,113628-2,20,Female,Yes,9,At home,Between 1-2 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Out of stock,Free,Very bad,Laboratory/testing,Cleanliness,04/26/2024
+English,103587-2,21,Female,Yes,4,At home,Between 1-2 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Good,Cleanliness,Staff,03/18/2024
+Kiswahili,110721-8,23,Male,,,At the facility,Within 1 hour,No,No,No,Some,They were not available,No,Out of stock,Out of pocket,Very good,Cleanliness,Cleanliness,03/08/2024
+Kiswahili,103410-7,34,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,They were not available,Some,Out of stock,Free,Very bad,The external environment,Toilets,04/16/2024
+English,103587-2,41,Male,,,At home,Between 2-3 hours,Yes,No,Yes,No,They were not available,Yes,Another reason,Free,Bad,Staff,Waiting time,03/23/2024
+English,103429-7,35,Male,,,At home,Between 1-2 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Normal,Cleanliness,Toilets,03/10/2024
+English,103110-3,23,Male,,,At home,More than 3 hours,No,No,No,Yes,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Toilets,04/30/2024
+Kiswahili,104520-2,26,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,No,I didn't understand the need,No,Couldn't afford,Insurance,Very good,Staff,Toilets,04/18/2024
+Kiswahili,113550-8,35,Male,,,At home,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very bad,Staff,Staff,03/30/2024
+Kiswahili,100304-5,31,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,They were not available,Yes,Out of stock,Insurance,Very bad,Laboratory/testing,Staff,03/15/2024
+Kiswahili,101295-4,18,Female,Yes,4,At the facility,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Very bad,The external environment,Waiting time,03/29/2024
+English,120960-0,19,Female,No,,At the facility,Between 2-3 hours,No,Yes,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Good,Cleanliness,Cleanliness,04/06/2024
+English,101415-8,35,Female,Yes,3,At the facility,Within 1 hour,Yes,No,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Free,Very good,The external environment,Staff,03/27/2024
+Kiswahili,112955-0,28,Female,Yes,8,At the facility,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Yes,Another reason,Free,Normal,The external environment,Toilets,04/18/2024
+English,111489-1,34,Female,No,,At the facility,Within 1 hour,No,No,No,No,They were not available,No,Another reason,Out of pocket,Good,Cleanliness,Cleanliness,04/07/2024
+English,103582-3,29,Female,Yes,5,At the facility,Between 2-3 hours,No,No,No,Yes,I didn't understand the need,No,Another reason,Free,Normal,Laboratory/testing,Toilets,04/17/2024
+English,111005-5,38,Male,,,At the facility,Between 2-3 hours,No,Yes,No,Some,I didn't understand the need,Some,Couldn't afford,Free,Bad,Cleanliness,Waiting time,03/29/2024
+Kiswahili,107732-0,44,Female,Yes,5,At home,More than 3 hours,Yes,No,No,Some,I didn't understand the need,Yes,Out of stock,Free,Very good,Cleanliness,Toilets,03/05/2024
+English,100220-3,22,Male,,,At the facility,Within 1 hour,No,No,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Good,Staff,Cleanliness,03/28/2024
+Kiswahili,102775-4,38,Female,Yes,9,At the facility,Between 2-3 hours,Yes,No,No,Yes,I didn't understand the need,Yes,Out of stock,Insurance,Very bad,Laboratory/testing,Waiting time,03/08/2024
+English,113628-2,24,Female,Yes,5,At the facility,More than 3 hours,No,Yes,No,Some,They were not available,Yes,Out of stock,Out of pocket,Very good,The external environment,Waiting time,04/20/2024
+English,100304-5,40,Female,Yes,2,At home,More than 3 hours,Yes,No,Yes,No,They were not available,Yes,Couldn't afford,Out of pocket,Normal,Cleanliness,Toilets,03/26/2024
+Kiswahili,104520-2,20,Female,Yes,8,At home,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Bad,Staff,Staff,03/21/2024
+Kiswahili,111489-1,21,Female,No,,At home,Between 2-3 hours,Yes,No,Yes,No,I didn't understand the need,Yes,Out of stock,Out of pocket,Normal,Cleanliness,Cleanliness,03/25/2024
+Kiswahili,103457-8,39,Male,,,At the facility,Between 2-3 hours,No,Yes,No,No,I couldn't afford the cost,No,Out of stock,Free,Bad,Staff,Waiting time,03/13/2024
+English,112490-8,26,Male,,,At the facility,Within 1 hour,No,Yes,No,Some,They were not available,Yes,Out of stock,Insurance,Very good,The external environment,Cleanliness,04/03/2024
+English,113632-4,27,Male,,,At the facility,More than 3 hours,No,Yes,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,Staff,Waiting time,04/15/2024
+Kiswahili,102507-1,45,Female,No,,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,No,Another reason,Out of pocket,Normal,Laboratory/testing,Toilets,04/28/2024
+Kiswahili,103582-3,21,Female,No,,At the facility,More than 3 hours,Yes,No,No,Some,They were not available,Some,Out of stock,Out of pocket,Normal,Laboratory/testing,Cleanliness,03/20/2024
+Kiswahili,103587-2,21,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very good,The external environment,Waiting time,03/17/2024
+English,109848-2,29,Female,No,,At home,More than 3 hours,No,No,No,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Bad,Cleanliness,Cleanliness,03/18/2024
+Kiswahili,111491-7,25,Female,No,,At the facility,Between 1-2 hours,No,No,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Free,Good,Staff,Staff,03/26/2024
+English,102775-4,41,Male,,,At the facility,Between 1-2 hours,No,No,No,Some,They were not available,Yes,Couldn't afford,Out of pocket,Bad,The external environment,Toilets,04/27/2024
+English,103110-3,28,Male,,,At home,Between 2-3 hours,No,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Insurance,Good,Cleanliness,Cleanliness,03/11/2024
+English,103582-3,45,Female,Yes,8,At the facility,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Very bad,Staff,Cleanliness,03/30/2024
+English,111489-1,37,Male,,,At home,More than 3 hours,Yes,No,No,Yes,They were not available,Some,Couldn't afford,Insurance,Bad,Cleanliness,Staff,04/12/2024
+English,103457-8,39,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,Some,They were not available,Yes,Out of stock,Insurance,Very bad,Cleanliness,Toilets,03/21/2024
+Kiswahili,112880-0,35,Female,No,,At home,More than 3 hours,Yes,Yes,No,Some,They were not available,Yes,Couldn't afford,Insurance,Good,Staff,Waiting time,03/11/2024
+English,113222-4,44,Female,Yes,7,At home,Between 2-3 hours,No,No,Yes,Some,I didn't understand the need,Yes,Out of stock,Out of pocket,Good,The external environment,Toilets,03/12/2024
+English,101295-4,43,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,They were not available,Yes,Out of stock,Out of pocket,Normal,Staff,Staff,04/30/2024
+English,111491-7,32,Male,,,At the facility,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,Some,Another reason,Free,Good,The external environment,Toilets,04/09/2024
+English,103388-5,38,Male,,,At the facility,More than 3 hours,Yes,No,No,Yes,I couldn't afford the cost,Some,Another reason,Insurance,Bad,The external environment,Cleanliness,03/31/2024
+English,103390-1,44,Female,Yes,6,At home,Within 1 hour,Yes,No,No,No,I couldn't afford the cost,Some,Out of stock,Free,Very bad,Laboratory/testing,Waiting time,04/08/2024
+Kiswahili,113550-8,38,Male,,,At home,More than 3 hours,No,Yes,Yes,No,They were not available,Yes,Out of stock,Out of pocket,Very bad,Cleanliness,Waiting time,04/20/2024
+Kiswahili,103582-3,32,Male,,,At home,Between 1-2 hours,No,No,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,Laboratory/testing,Cleanliness,03/23/2024
+Kiswahili,102775-4,41,Male,,,At home,Between 2-3 hours,No,No,No,Yes,I didn't understand the need,No,Another reason,Free,Bad,Laboratory/testing,Toilets,03/01/2024
+English,112955-0,34,Female,Yes,5,At home,Between 2-3 hours,Yes,No,Yes,No,They were not available,Yes,Couldn't afford,Out of pocket,Normal,Staff,Toilets,03/09/2024
+Kiswahili,120365-2,21,Female,No,,At the facility,Within 1 hour,No,Yes,No,Yes,They were not available,No,Another reason,Free,Bad,The external environment,Waiting time,04/20/2024
+English,112006-2,22,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,I didn't understand the need,Some,Couldn't afford,Free,Very bad,Staff,Staff,03/30/2024
+English,111844-7,41,Male,,,At the facility,Within 1 hour,Yes,No,Yes,Some,They were not available,No,Out of stock,Free,Bad,Staff,Cleanliness,03/24/2024
+Kiswahili,111005-5,24,Female,No,,At home,More than 3 hours,No,Yes,Yes,No,They were not available,No,Out of stock,Insurance,Normal,Cleanliness,Toilets,04/17/2024
+Kiswahili,101224-4,25,Female,No,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Some,Out of stock,Insurance,Very good,Laboratory/testing,Cleanliness,03/26/2024
+Kiswahili,121317-2,18,Male,,,At the facility,Between 1-2 hours,No,No,No,Some,I couldn't afford the cost,No,Out of stock,Free,Very bad,Laboratory/testing,Cleanliness,03/25/2024
+English,101777-1,34,Male,,,At the facility,Within 1 hour,No,Yes,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Free,Bad,The external environment,Toilets,04/05/2024
+English,120960-0,41,Male,,,At the facility,Between 1-2 hours,Yes,No,Yes,Yes,They were not available,Some,Out of stock,Out of pocket,Good,Laboratory/testing,Staff,03/09/2024
+Kiswahili,111582-3,35,Male,,,At home,Between 2-3 hours,No,No,No,Yes,I didn't understand the need,Some,Another reason,Insurance,Bad,Cleanliness,Waiting time,04/26/2024
+English,100280-7,40,Female,No,,At home,Between 2-3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Another reason,Insurance,Good,Laboratory/testing,Toilets,03/01/2024
+English,100304-5,42,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Very good,Laboratory/testing,Waiting time,04/09/2024
+English,100304-5,42,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Very bad,Cleanliness,Cleanliness,04/04/2024
+Kiswahili,113550-8,27,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Out of stock,Insurance,Good,Laboratory/testing,Waiting time,04/07/2024
+English,113628-2,29,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Normal,Staff,Cleanliness,03/12/2024
+English,112955-0,31,Female,No,,At the facility,Between 1-2 hours,No,No,Yes,Some,I couldn't afford the cost,Some,Out of stock,Out of pocket,Normal,Laboratory/testing,Staff,03/16/2024
+Kiswahili,112006-2,31,Female,Yes,9,At home,Within 1 hour,Yes,No,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Bad,Cleanliness,Toilets,03/09/2024
+English,112006-2,21,Female,No,,At the facility,Within 1 hour,No,Yes,Yes,Some,I couldn't afford the cost,Some,Out of stock,Out of pocket,Very good,Cleanliness,Cleanliness,03/18/2024
+English,120960-0,37,Male,,,At home,Between 1-2 hours,No,No,No,Yes,I couldn't afford the cost,Yes,Another reason,Free,Very bad,Cleanliness,Waiting time,04/22/2024
+English,111844-7,38,Male,,,At the facility,Between 1-2 hours,No,No,No,No,They were not available,Some,Couldn't afford,Free,Very bad,The external environment,Toilets,03/29/2024
+English,103086-5,41,Female,No,,At the facility,Between 1-2 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Very good,Cleanliness,Waiting time,03/08/2024
+English,101224-4,30,Female,No,,At the facility,Between 1-2 hours,No,No,Yes,Some,I didn't understand the need,Some,Another reason,Out of pocket,Normal,Staff,Cleanliness,03/24/2024
+Kiswahili,103390-1,32,Female,No,,At home,Between 2-3 hours,No,No,Yes,No,I didn't understand the need,No,Out of stock,Free,Bad,Staff,Toilets,04/19/2024
+Kiswahili,111782-9,35,Male,,,At home,Between 2-3 hours,Yes,No,Yes,Some,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,The external environment,Toilets,03/29/2024
+English,101777-1,39,Female,Yes,3,At home,More than 3 hours,Yes,Yes,Yes,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Good,Laboratory/testing,Cleanliness,04/13/2024
+Kiswahili,102507-1,21,Male,,,At home,More than 3 hours,Yes,No,No,No,I didn't understand the need,No,Another reason,Free,Very bad,Laboratory/testing,Toilets,04/17/2024
+English,112006-2,38,Female,Yes,5,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Some,Couldn't afford,Out of pocket,Good,Staff,Cleanliness,04/22/2024
+Kiswahili,103394-3,42,Male,,,At home,Between 1-2 hours,No,Yes,Yes,No,I didn't understand the need,Yes,Couldn't afford,Free,Very good,Staff,Toilets,04/26/2024
+Kiswahili,103474-3,30,Male,,,At home,Within 1 hour,No,No,No,Yes,I didn't understand the need,No,Out of stock,Free,Bad,The external environment,Toilets,03/26/2024
+English,112880-0,42,Male,,,At the facility,Between 2-3 hours,No,No,No,Some,They were not available,Yes,Out of stock,Free,Bad,Laboratory/testing,Cleanliness,04/20/2024
+Kiswahili,112006-2,35,Male,,,At home,Between 2-3 hours,No,No,No,No,I didn't understand the need,Some,Another reason,Insurance,Good,Cleanliness,Toilets,03/01/2024
+Kiswahili,103587-2,28,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Some,They were not available,Some,Another reason,Insurance,Very bad,Cleanliness,Staff,04/13/2024
+Kiswahili,101224-4,28,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Good,Cleanliness,Staff,03/12/2024
+Kiswahili,104020-3,34,Male,,,At the facility,Within 1 hour,No,No,No,Yes,They were not available,Yes,Out of stock,Insurance,Normal,Laboratory/testing,Staff,03/08/2024
+Kiswahili,120365-2,38,Male,,,At home,Between 2-3 hours,No,No,No,No,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Bad,Cleanliness,Toilets,03/31/2024
+Kiswahili,113550-8,27,Female,Yes,3,At home,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Couldn't afford,Insurance,Good,The external environment,Waiting time,04/17/2024
+English,109848-2,28,Male,,,At home,Between 2-3 hours,No,Yes,Yes,Some,I didn't understand the need,Some,Couldn't afford,Insurance,Good,Cleanliness,Staff,04/15/2024
+English,112490-8,21,Female,No,,At the facility,More than 3 hours,No,No,No,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Normal,Cleanliness,Waiting time,03/09/2024
+English,102507-1,20,Male,,,At home,Between 1-2 hours,No,No,Yes,Some,They were not available,Some,Out of stock,Out of pocket,Bad,The external environment,Staff,04/20/2024
+English,103390-1,45,Female,No,,At home,More than 3 hours,Yes,No,No,No,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very bad,Laboratory/testing,Cleanliness,03/05/2024
+English,103110-3,44,Male,,,At home,Between 2-3 hours,Yes,No,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Free,Normal,Laboratory/testing,Cleanliness,04/22/2024
+English,109848-2,44,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,Yes,No,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Very bad,Staff,Toilets,03/12/2024
+English,103410-7,31,Male,,,At the facility,More than 3 hours,No,Yes,No,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Very bad,Cleanliness,Staff,04/20/2024
+English,103086-5,44,Male,,,At home,Between 2-3 hours,No,Yes,No,No,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,The external environment,Staff,04/23/2024
+Kiswahili,111957-7,32,Male,,,At home,Between 1-2 hours,No,Yes,No,Some,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,The external environment,Cleanliness,04/27/2024
+Kiswahili,113632-4,33,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Yes,They were not available,Some,Out of stock,Insurance,Normal,The external environment,Staff,03/08/2024
+English,103110-3,40,Male,,,At home,Within 1 hour,Yes,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Very good,Staff,Cleanliness,04/15/2024
+Kiswahili,104020-3,32,Male,,,At home,More than 3 hours,Yes,No,No,No,They were not available,Some,Couldn't afford,Free,Good,Staff,Waiting time,03/14/2024
+English,102557-6,19,Female,Yes,3,At the facility,Between 1-2 hours,Yes,No,Yes,No,They were not available,Some,Another reason,Out of pocket,Bad,The external environment,Toilets,03/31/2024
+Kiswahili,101462-0,18,Male,,,At the facility,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Yes,Out of stock,Insurance,Bad,Laboratory/testing,Toilets,03/08/2024
+English,101379-6,19,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Another reason,Insurance,Good,The external environment,Cleanliness,04/22/2024
+Kiswahili,121317-2,34,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Another reason,Out of pocket,Bad,The external environment,Waiting time,03/12/2024
+English,109848-2,36,Male,,,At the facility,More than 3 hours,Yes,No,No,Yes,They were not available,Yes,Out of stock,Out of pocket,Very bad,The external environment,Toilets,04/26/2024
+Kiswahili,113550-8,23,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Another reason,Free,Very good,Staff,Staff,03/03/2024
+Kiswahili,102258-1,28,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Yes,Another reason,Out of pocket,Good,Cleanliness,Toilets,03/09/2024
+Kiswahili,103390-1,38,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Yes,They were not available,Yes,Couldn't afford,Free,Bad,Staff,Toilets,04/08/2024
+Kiswahili,103582-3,32,Female,No,,At home,Within 1 hour,No,Yes,Yes,No,They were not available,Some,Another reason,Out of pocket,Good,Staff,Cleanliness,04/28/2024
+Kiswahili,101295-4,19,Female,No,,At home,More than 3 hours,Yes,No,No,Some,They were not available,Some,Another reason,Free,Very bad,Cleanliness,Toilets,04/08/2024
+Kiswahili,102775-4,31,Male,,,At the facility,More than 3 hours,No,No,No,Some,I didn't understand the need,Some,Out of stock,Free,Very bad,The external environment,Waiting time,03/21/2024
+Kiswahili,113632-4,35,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,No,I didn't understand the need,Yes,Another reason,Free,Normal,Laboratory/testing,Toilets,04/12/2024
+English,100304-5,24,Male,,,At home,Within 1 hour,No,Yes,Yes,Some,They were not available,Some,Couldn't afford,Free,Bad,The external environment,Waiting time,03/11/2024
+Kiswahili,103429-7,45,Female,No,,At the facility,Within 1 hour,No,No,No,Yes,I didn't understand the need,Some,Another reason,Insurance,Very bad,Staff,Waiting time,03/15/2024
+English,102558-4,24,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,Yes,They were not available,Some,Another reason,Out of pocket,Good,Staff,Waiting time,04/07/2024
+Kiswahili,112882-6,43,Male,,,At home,Within 1 hour,Yes,No,No,Some,I didn't understand the need,No,Couldn't afford,Out of pocket,Bad,Staff,Cleanliness,04/16/2024
+Kiswahili,113222-4,20,Female,Yes,4,At the facility,Between 1-2 hours,No,No,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Very good,Staff,Toilets,04/05/2024
+English,104020-3,23,Male,,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,No,Out of stock,Free,Normal,The external environment,Toilets,03/07/2024
+Kiswahili,103582-3,21,Female,No,,At home,Between 1-2 hours,Yes,No,Yes,Some,I didn't understand the need,Some,Couldn't afford,Out of pocket,Very bad,Laboratory/testing,Toilets,04/27/2024
+English,110723-4,30,Female,Yes,2,At the facility,Within 1 hour,No,No,No,Yes,I couldn't afford the cost,Some,Another reason,Free,Very good,The external environment,Toilets,04/02/2024
+Kiswahili,112882-6,26,Female,Yes,2,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Very good,Laboratory/testing,Staff,03/01/2024
+English,103474-3,18,Female,Yes,1,At home,Within 1 hour,Yes,No,Yes,No,They were not available,Yes,Another reason,Out of pocket,Very good,Laboratory/testing,Cleanliness,04/23/2024
+Kiswahili,107732-0,24,Male,,,At the facility,Within 1 hour,Yes,No,No,Yes,They were not available,No,Another reason,Free,Normal,The external environment,Waiting time,04/05/2024
+English,103429-7,22,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,Laboratory/testing,Staff,04/23/2024
+English,103110-3,32,Male,,,At the facility,Between 1-2 hours,No,No,Yes,Some,I couldn't afford the cost,Some,Another reason,Out of pocket,Very bad,Laboratory/testing,Toilets,04/19/2024
+English,104520-2,23,Female,Yes,3,At home,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Good,Cleanliness,Cleanliness,04/16/2024
+English,112880-0,31,Male,,,At home,Within 1 hour,No,No,Yes,Yes,They were not available,Yes,Out of stock,Free,Very bad,The external environment,Cleanliness,03/18/2024
+Kiswahili,110721-8,23,Female,No,,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Out of pocket,Bad,Staff,Toilets,04/01/2024
+English,120365-2,39,Male,,,At the facility,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Free,Good,Cleanliness,Staff,03/13/2024
+English,121317-2,30,Male,,,At home,Between 1-2 hours,Yes,Yes,No,Yes,They were not available,Yes,Out of stock,Insurance,Bad,The external environment,Staff,03/31/2024
+Kiswahili,103410-7,30,Male,,,At home,Within 1 hour,No,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Insurance,Very bad,Staff,Staff,04/08/2024
+Kiswahili,103684-7,45,Female,Yes,4,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,I didn't understand the need,No,Another reason,Out of pocket,Good,Staff,Cleanliness,03/07/2024
+English,101462-0,28,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Bad,Staff,Staff,04/26/2024
+English,111998-1,18,Female,Yes,9,At home,Between 2-3 hours,No,No,Yes,No,They were not available,No,Couldn't afford,Out of pocket,Very bad,The external environment,Waiting time,03/28/2024
+Kiswahili,111489-1,26,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Some,I didn't understand the need,No,Couldn't afford,Free,Bad,The external environment,Toilets,03/16/2024
+Kiswahili,100220-3,42,Male,,,At home,Within 1 hour,No,No,Yes,Some,They were not available,No,Couldn't afford,Out of pocket,Good,Cleanliness,Waiting time,03/06/2024
+English,113550-8,43,Female,No,,At the facility,Between 1-2 hours,Yes,No,Yes,Yes,They were not available,No,Out of stock,Out of pocket,Bad,Laboratory/testing,Waiting time,03/24/2024
+Kiswahili,112882-6,33,Female,No,,At home,Between 2-3 hours,Yes,Yes,No,Yes,They were not available,Yes,Out of stock,Free,Bad,The external environment,Waiting time,03/12/2024
+Kiswahili,103390-1,30,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,I couldn't afford the cost,No,Out of stock,Free,Very good,Staff,Toilets,03/31/2024
+Kiswahili,102269-8,36,Female,Yes,7,At home,Between 1-2 hours,No,Yes,No,Some,I didn't understand the need,Yes,Couldn't afford,Insurance,Normal,The external environment,Cleanliness,04/19/2024
+Kiswahili,111007-1,35,Male,,,At home,Between 2-3 hours,No,No,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very bad,Cleanliness,Cleanliness,03/25/2024
+English,113625-8,42,Female,No,,At home,More than 3 hours,No,No,Yes,Some,I didn't understand the need,Yes,Another reason,Insurance,Bad,Staff,Cleanliness,04/24/2024
+Kiswahili,104520-2,44,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Free,Bad,Staff,Cleanliness,04/23/2024
+English,103110-3,27,Female,No,,At the facility,More than 3 hours,Yes,Yes,No,No,I didn't understand the need,Some,Out of stock,Free,Very bad,Staff,Cleanliness,03/12/2024
+English,103457-8,33,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,I didn't understand the need,Some,Out of stock,Insurance,Very good,Cleanliness,Toilets,03/11/2024
+English,103399-2,19,Female,No,,At home,Between 1-2 hours,No,Yes,No,Yes,I couldn't afford the cost,No,Out of stock,Out of pocket,Very good,Laboratory/testing,Staff,04/11/2024
+English,112882-6,38,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Another reason,Out of pocket,Normal,Cleanliness,Staff,03/08/2024
+English,110721-8,42,Male,,,At home,Between 2-3 hours,No,No,No,No,They were not available,Yes,Out of stock,Out of pocket,Bad,Cleanliness,Staff,04/24/2024
+Kiswahili,113222-4,45,Male,,,At home,Between 1-2 hours,Yes,No,Yes,No,I couldn't afford the cost,No,Couldn't afford,Insurance,Bad,Cleanliness,Waiting time,03/18/2024
+English,101462-0,31,Female,Yes,1,At the facility,More than 3 hours,No,No,Yes,Some,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,Staff,Waiting time,03/24/2024
+English,102557-6,20,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,No,They were not available,Yes,Another reason,Insurance,Very bad,Cleanliness,Toilets,03/01/2024
+English,102775-4,26,Female,Yes,8,At home,Within 1 hour,No,No,Yes,Some,I didn't understand the need,Yes,Out of stock,Out of pocket,Normal,The external environment,Staff,04/05/2024
+Kiswahili,107732-0,35,Female,No,,At home,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,Some,Couldn't afford,Insurance,Normal,Cleanliness,Toilets,03/05/2024
+Kiswahili,103086-5,18,Female,No,,At the facility,Between 2-3 hours,No,Yes,No,No,I couldn't afford the cost,Some,Another reason,Insurance,Very good,The external environment,Toilets,03/09/2024
+Kiswahili,121317-2,43,Female,Yes,5,At home,Within 1 hour,No,No,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Very bad,Cleanliness,Toilets,03/15/2024
+English,101162-6,21,Male,,,At home,Within 1 hour,Yes,No,No,Yes,They were not available,Some,Out of stock,Free,Good,Staff,Waiting time,04/27/2024
+Kiswahili,109848-2,31,Female,Yes,6,At home,Between 2-3 hours,No,No,Yes,Some,I didn't understand the need,Some,Another reason,Free,Very bad,Laboratory/testing,Staff,03/27/2024
+Kiswahili,112955-0,33,Male,,,At the facility,More than 3 hours,No,No,No,Some,They were not available,Yes,Out of stock,Free,Bad,Staff,Cleanliness,03/12/2024
+Kiswahili,111784-5,22,Female,No,,At home,More than 3 hours,No,Yes,No,Some,They were not available,Some,Out of stock,Insurance,Good,Staff,Staff,04/25/2024
+English,101415-8,22,Female,Yes,3,At home,Within 1 hour,No,No,No,No,I didn't understand the need,No,Out of stock,Insurance,Very good,The external environment,Waiting time,04/18/2024
+Kiswahili,120365-2,34,Female,No,,At the facility,Between 1-2 hours,No,No,No,Some,I didn't understand the need,Yes,Couldn't afford,Insurance,Normal,Cleanliness,Staff,04/28/2024
+English,103394-3,32,Female,No,,At the facility,More than 3 hours,Yes,No,Yes,No,I didn't understand the need,No,Another reason,Free,Normal,Laboratory/testing,Waiting time,03/29/2024
+Kiswahili,101224-4,19,Female,Yes,5,At the facility,More than 3 hours,Yes,No,No,Some,I couldn't afford the cost,Some,Couldn't afford,Free,Very good,Laboratory/testing,Staff,04/13/2024
+English,112006-2,29,Male,,,At home,Within 1 hour,No,No,No,Yes,I didn't understand the need,No,Another reason,Insurance,Very bad,Cleanliness,Toilets,03/31/2024
+English,111005-5,45,Male,,,At the facility,More than 3 hours,No,No,No,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,The external environment,Cleanliness,03/14/2024
+English,103394-3,19,Female,No,,At the facility,Between 2-3 hours,No,Yes,No,Some,They were not available,Yes,Out of stock,Insurance,Normal,Staff,Toilets,03/11/2024
+Kiswahili,103388-5,31,Male,,,At home,Within 1 hour,Yes,No,No,Yes,I couldn't afford the cost,No,Out of stock,Out of pocket,Normal,The external environment,Staff,04/14/2024
+English,103399-2,37,Female,No,,At home,Within 1 hour,Yes,No,Yes,Some,They were not available,Some,Out of stock,Insurance,Very bad,The external environment,Waiting time,03/18/2024
+Kiswahili,111491-7,24,Female,Yes,1,At the facility,More than 3 hours,No,No,No,No,They were not available,Some,Couldn't afford,Insurance,Bad,The external environment,Staff,03/04/2024
+Kiswahili,103429-7,23,Female,No,,At home,More than 3 hours,No,No,No,Yes,I couldn't afford the cost,No,Another reason,Insurance,Normal,Staff,Cleanliness,03/15/2024
+English,103388-5,18,Male,,,At the facility,More than 3 hours,Yes,Yes,Yes,Yes,I didn't understand the need,Yes,Out of stock,Free,Good,The external environment,Waiting time,03/01/2024
+English,101462-0,25,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Some,They were not available,No,Couldn't afford,Insurance,Very bad,Staff,Cleanliness,03/02/2024
+English,113550-8,28,Male,,,At the facility,Between 1-2 hours,No,Yes,No,No,I didn't understand the need,Some,Out of stock,Out of pocket,Bad,The external environment,Staff,04/07/2024
+English,112006-2,20,Female,No,,At home,Within 1 hour,Yes,Yes,Yes,No,I didn't understand the need,No,Couldn't afford,Free,Normal,Staff,Toilets,03/30/2024
+Kiswahili,111489-1,44,Male,,,At the facility,Between 2-3 hours,Yes,Yes,Yes,No,They were not available,No,Another reason,Insurance,Very bad,Cleanliness,Cleanliness,04/06/2024
+Kiswahili,103086-5,45,Male,,,At the facility,Within 1 hour,Yes,No,No,No,I couldn't afford the cost,No,Another reason,Insurance,Very bad,Laboratory/testing,Cleanliness,04/30/2024
+English,111005-5,25,Female,Yes,7,At home,More than 3 hours,Yes,No,Yes,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Very good,Cleanliness,Staff,04/22/2024
+Kiswahili,113550-8,19,Female,Yes,5,At the facility,More than 3 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Normal,The external environment,Cleanliness,04/23/2024
+Kiswahili,103399-2,34,Male,,,At home,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Very good,The external environment,Toilets,04/15/2024
+Kiswahili,101415-8,20,Female,Yes,9,At home,Within 1 hour,Yes,No,No,Some,I didn't understand the need,No,Another reason,Out of pocket,Very good,Laboratory/testing,Cleanliness,03/12/2024
+Kiswahili,111005-5,29,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Free,Normal,Staff,Toilets,04/24/2024
+English,113632-4,45,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,No,Some,I couldn't afford the cost,Some,Another reason,Out of pocket,Very good,Staff,Toilets,04/22/2024
+Kiswahili,111582-3,22,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Insurance,Very good,Cleanliness,Cleanliness,03/20/2024
+English,101162-6,37,Female,No,,At home,Between 1-2 hours,No,Yes,No,Yes,I didn't understand the need,Yes,Out of stock,Free,Normal,Cleanliness,Toilets,03/24/2024
+English,100304-5,18,Female,No,,At the facility,More than 3 hours,Yes,No,Yes,Some,They were not available,Yes,Couldn't afford,Out of pocket,Very bad,The external environment,Staff,03/30/2024
+English,111782-9,20,Male,,,At the facility,Between 1-2 hours,No,No,Yes,No,They were not available,Some,Out of stock,Insurance,Very bad,Staff,Staff,04/27/2024
+Kiswahili,101295-4,35,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,Yes,They were not available,Some,Another reason,Insurance,Good,Cleanliness,Cleanliness,04/17/2024
+English,111491-7,32,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,I didn't understand the need,No,Couldn't afford,Insurance,Very good,Staff,Staff,03/26/2024
+Kiswahili,103394-3,30,Male,,,At the facility,Within 1 hour,No,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Normal,The external environment,Cleanliness,03/10/2024
+English,110721-8,40,Female,Yes,2,At home,More than 3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Normal,The external environment,Toilets,03/26/2024
+English,101462-0,29,Female,Yes,8,At home,Within 1 hour,Yes,No,No,Some,They were not available,Yes,Couldn't afford,Insurance,Good,The external environment,Toilets,04/18/2024
+Kiswahili,102558-4,26,Male,,,At the facility,Between 1-2 hours,No,No,Yes,No,They were not available,No,Couldn't afford,Free,Good,Staff,Staff,04/04/2024
+English,111491-7,35,Female,Yes,1,At the facility,Between 1-2 hours,Yes,No,No,No,I didn't understand the need,Some,Another reason,Insurance,Very bad,Laboratory/testing,Staff,04/18/2024
+English,100220-3,45,Female,No,,At home,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,No,Another reason,Out of pocket,Good,Laboratory/testing,Staff,04/24/2024
+Kiswahili,111582-3,35,Female,No,,At home,Within 1 hour,No,Yes,Yes,Some,I couldn't afford the cost,Yes,Couldn't afford,Free,Good,Laboratory/testing,Staff,04/19/2024
+English,113632-4,40,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Out of stock,Out of pocket,Very good,Staff,Toilets,03/27/2024
+English,101462-0,42,Female,Yes,7,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,I didn't understand the need,Yes,Couldn't afford,Insurance,Very bad,Laboratory/testing,Cleanliness,04/26/2024
+English,101162-6,34,Female,Yes,1,At home,Between 1-2 hours,No,No,Yes,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Very bad,Cleanliness,Staff,03/11/2024
+English,111005-5,23,Female,No,,At the facility,Within 1 hour,Yes,No,No,Some,They were not available,Yes,Out of stock,Out of pocket,Very good,Laboratory/testing,Toilets,03/11/2024
+Kiswahili,111491-7,41,Male,,,At home,More than 3 hours,Yes,Yes,Yes,Yes,They were not available,Yes,Couldn't afford,Free,Very good,Laboratory/testing,Staff,03/05/2024
+Kiswahili,112006-2,31,Female,Yes,3,At the facility,More than 3 hours,No,Yes,Yes,Yes,They were not available,Yes,Out of stock,Out of pocket,Bad,Cleanliness,Staff,03/12/2024
+English,101415-8,24,Male,,,At home,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Another reason,Free,Very good,Cleanliness,Staff,04/04/2024
+Kiswahili,110723-4,37,Male,,,At home,More than 3 hours,No,No,Yes,Some,I couldn't afford the cost,No,Out of stock,Free,Normal,Staff,Cleanliness,03/24/2024
+English,111957-7,18,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very bad,Laboratory/testing,Toilets,03/22/2024
+Kiswahili,101462-0,27,Female,No,,At home,Between 2-3 hours,Yes,No,Yes,No,I didn't understand the need,Yes,Another reason,Out of pocket,Good,Laboratory/testing,Waiting time,03/12/2024
+Kiswahili,102775-4,23,Female,No,,At the facility,More than 3 hours,No,No,No,Yes,They were not available,Yes,Another reason,Insurance,Normal,Staff,Waiting time,04/14/2024
+English,112882-6,36,Female,No,,At home,Between 1-2 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Insurance,Good,Laboratory/testing,Waiting time,03/19/2024
+English,101777-1,20,Male,,,At home,Within 1 hour,Yes,No,Yes,Some,I didn't understand the need,No,Another reason,Insurance,Good,Laboratory/testing,Cleanliness,03/15/2024
+English,112955-0,23,Male,,,At the facility,Between 1-2 hours,No,Yes,No,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Very bad,Staff,Waiting time,04/07/2024
+Kiswahili,101462-0,40,Female,Yes,2,At home,Between 1-2 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Another reason,Free,Very good,Cleanliness,Toilets,04/08/2024
+Kiswahili,102775-4,29,Male,,,At the facility,Within 1 hour,No,No,Yes,No,They were not available,Yes,Out of stock,Free,Very good,The external environment,Cleanliness,03/28/2024
+Kiswahili,102258-1,27,Male,,,At home,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,Some,Another reason,Insurance,Very bad,Laboratory/testing,Cleanliness,03/16/2024
+Kiswahili,120960-0,27,Female,Yes,5,At home,More than 3 hours,Yes,No,No,Yes,They were not available,Some,Another reason,Free,Very good,Cleanliness,Waiting time,04/02/2024
+Kiswahili,103474-3,30,Female,Yes,5,At home,Between 2-3 hours,Yes,No,No,Yes,I couldn't afford the cost,No,Couldn't afford,Insurance,Very bad,The external environment,Cleanliness,04/10/2024
+Kiswahili,111784-5,29,Female,Yes,9,At home,Between 1-2 hours,No,Yes,No,Some,They were not available,No,Couldn't afford,Insurance,Very bad,Laboratory/testing,Cleanliness,04/02/2024
+English,103390-1,29,Female,Yes,3,At home,Within 1 hour,Yes,No,Yes,Some,They were not available,Yes,Couldn't afford,Out of pocket,Normal,Staff,Waiting time,03/31/2024
+Kiswahili,120283-7,32,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Some,They were not available,Yes,Out of stock,Insurance,Good,Staff,Waiting time,03/09/2024
+Kiswahili,103587-2,19,Male,,,At the facility,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,Yes,Another reason,Insurance,Normal,Cleanliness,Toilets,03/09/2024
+English,111489-1,32,Female,No,,At the facility,Between 1-2 hours,No,Yes,No,Yes,I couldn't afford the cost,No,Out of stock,Insurance,Bad,The external environment,Toilets,04/29/2024
+Kiswahili,113222-4,24,Female,No,,At the facility,More than 3 hours,No,Yes,Yes,Some,I couldn't afford the cost,Some,Another reason,Free,Very bad,The external environment,Waiting time,04/28/2024
+English,120283-7,26,Female,No,,At the facility,Between 1-2 hours,Yes,Yes,No,Yes,They were not available,Yes,Couldn't afford,Free,Very bad,The external environment,Toilets,03/07/2024
+Kiswahili,113550-8,32,Male,,,At the facility,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,Some,Another reason,Free,Good,Cleanliness,Waiting time,03/05/2024
+English,111005-5,21,Female,No,,At the facility,Between 1-2 hours,No,No,No,No,I didn't understand the need,Some,Out of stock,Insurance,Very good,Cleanliness,Staff,04/04/2024
+English,111489-1,18,Male,,,At home,Between 2-3 hours,No,No,Yes,Yes,I didn't understand the need,No,Another reason,Out of pocket,Normal,Cleanliness,Cleanliness,04/03/2024
+English,101162-6,41,Female,Yes,2,At the facility,Within 1 hour,Yes,Yes,Yes,No,They were not available,Some,Out of stock,Free,Normal,Staff,Toilets,03/21/2024
+English,120365-2,44,Female,Yes,6,At the facility,Within 1 hour,Yes,Yes,Yes,Some,I didn't understand the need,Yes,Out of stock,Free,Very bad,Cleanliness,Staff,03/22/2024
+English,121317-2,44,Female,No,,At home,More than 3 hours,Yes,No,Yes,No,I couldn't afford the cost,No,Couldn't afford,Insurance,Good,Cleanliness,Toilets,03/12/2024
+Kiswahili,102558-4,25,Female,No,,At home,Between 2-3 hours,Yes,No,No,No,I didn't understand the need,Yes,Another reason,Free,Good,Cleanliness,Waiting time,04/12/2024
+English,113625-8,20,Male,,,At home,Between 1-2 hours,No,Yes,No,Some,They were not available,Some,Another reason,Out of pocket,Normal,The external environment,Toilets,03/12/2024
+English,104020-3,20,Female,No,,At home,Within 1 hour,Yes,Yes,No,Yes,They were not available,No,Couldn't afford,Out of pocket,Normal,The external environment,Toilets,04/09/2024
+English,112490-8,32,Female,Yes,7,At home,Between 1-2 hours,Yes,No,Yes,Yes,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Staff,03/11/2024
+Kiswahili,112006-2,38,Female,Yes,8,At the facility,Within 1 hour,No,No,Yes,No,They were not available,Yes,Another reason,Insurance,Very good,Laboratory/testing,Cleanliness,04/22/2024
+English,103582-3,42,Female,Yes,1,At the facility,Between 2-3 hours,Yes,No,Yes,No,I couldn't afford the cost,Yes,Out of stock,Free,Normal,Laboratory/testing,Toilets,04/16/2024
+Kiswahili,111582-3,18,Female,Yes,1,At home,Between 1-2 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Another reason,Out of pocket,Good,Cleanliness,Staff,04/22/2024
+English,102558-4,33,Female,Yes,1,At home,Between 1-2 hours,Yes,Yes,No,No,They were not available,No,Out of stock,Free,Normal,Cleanliness,Staff,04/07/2024
+English,112490-8,37,Female,No,,At the facility,Between 2-3 hours,No,Yes,No,Some,I couldn't afford the cost,Yes,Out of stock,Out of pocket,Very good,Staff,Staff,04/12/2024
+English,102258-1,39,Male,,,At the facility,Between 2-3 hours,Yes,No,Yes,Some,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,Laboratory/testing,Cleanliness,03/25/2024
+Kiswahili,103394-3,19,Female,No,,At home,Within 1 hour,No,No,No,Some,I didn't understand the need,No,Couldn't afford,Free,Very good,Staff,Staff,03/10/2024
+Kiswahili,103388-5,19,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Some,I couldn't afford the cost,Yes,Another reason,Out of pocket,Very bad,Staff,Toilets,04/11/2024
+English,101295-4,38,Female,No,,At home,Within 1 hour,No,Yes,Yes,No,I didn't understand the need,Some,Out of stock,Out of pocket,Very good,The external environment,Waiting time,03/17/2024
+Kiswahili,103399-2,27,Male,,,At the facility,Within 1 hour,No,No,No,Yes,They were not available,No,Couldn't afford,Insurance,Very bad,Cleanliness,Staff,04/02/2024
+English,103399-2,28,Female,No,,At home,More than 3 hours,Yes,Yes,No,Yes,They were not available,Yes,Couldn't afford,Out of pocket,Normal,Staff,Staff,03/25/2024
+English,120283-7,31,Male,,,At home,Between 1-2 hours,No,Yes,Yes,No,They were not available,Some,Couldn't afford,Out of pocket,Good,Laboratory/testing,Cleanliness,04/11/2024
+English,101224-4,39,Female,No,,At the facility,Within 1 hour,Yes,Yes,No,No,They were not available,Yes,Couldn't afford,Out of pocket,Very bad,Laboratory/testing,Waiting time,04/18/2024
+Kiswahili,104520-2,43,Female,Yes,7,At home,Within 1 hour,Yes,No,No,Yes,I didn't understand the need,No,Out of stock,Free,Normal,Laboratory/testing,Toilets,03/26/2024
+Kiswahili,111782-9,34,Male,,,At home,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Some,Out of stock,Free,Very good,Laboratory/testing,Toilets,03/05/2024
+Kiswahili,100556-0,36,Female,Yes,6,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Out of stock,Free,Good,Staff,Staff,04/04/2024
+Kiswahili,113632-4,40,Female,Yes,1,At the facility,Within 1 hour,Yes,No,Yes,Yes,They were not available,Yes,Another reason,Free,Very bad,Laboratory/testing,Cleanliness,03/05/2024
+Kiswahili,100556-0,39,Female,No,,At home,Between 2-3 hours,Yes,Yes,No,Some,I couldn't afford the cost,Some,Couldn't afford,Insurance,Normal,Laboratory/testing,Staff,03/06/2024
+Kiswahili,120365-2,28,Male,,,At the facility,More than 3 hours,No,No,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Out of pocket,Very good,Laboratory/testing,Waiting time,04/17/2024
+Kiswahili,111998-1,19,Female,Yes,3,At the facility,Between 1-2 hours,Yes,Yes,Yes,No,I didn't understand the need,Some,Couldn't afford,Out of pocket,Bad,Laboratory/testing,Staff,03/05/2024
+Kiswahili,111007-1,28,Female,No,,At the facility,More than 3 hours,Yes,No,Yes,Yes,I couldn't afford the cost,Yes,Couldn't afford,Free,Normal,The external environment,Staff,04/30/2024
+Kiswahili,113222-4,31,Male,,,At home,Between 1-2 hours,No,Yes,Yes,Some,They were not available,Some,Another reason,Free,Very bad,Staff,Staff,03/04/2024
+Kiswahili,112882-6,43,Male,,,At home,Between 1-2 hours,Yes,No,No,Some,They were not available,Some,Couldn't afford,Out of pocket,Very bad,The external environment,Waiting time,03/31/2024
+English,102558-4,34,Female,No,,At the facility,Within 1 hour,No,Yes,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Normal,Cleanliness,Cleanliness,04/15/2024
+Kiswahili,103587-2,42,Female,No,,At the facility,More than 3 hours,No,Yes,No,Yes,I didn't understand the need,No,Another reason,Free,Very bad,Cleanliness,Waiting time,04/10/2024
+Kiswahili,112490-8,30,Female,No,,At home,More than 3 hours,Yes,No,No,No,I didn't understand the need,Yes,Couldn't afford,Free,Very bad,Staff,Cleanliness,04/08/2024
+Kiswahili,101224-4,43,Male,,,At the facility,More than 3 hours,Yes,Yes,No,No,I didn't understand the need,Yes,Couldn't afford,Insurance,Bad,Cleanliness,Cleanliness,03/20/2024
+Kiswahili,112880-0,20,Male,,,At home,More than 3 hours,Yes,No,No,Some,They were not available,No,Couldn't afford,Out of pocket,Normal,The external environment,Staff,03/27/2024
+English,111784-5,19,Female,Yes,8,At home,Between 1-2 hours,Yes,No,No,Some,I couldn't afford the cost,No,Out of stock,Free,Bad,Cleanliness,Cleanliness,03/16/2024
+Kiswahili,111005-5,26,Male,,,At the facility,Between 1-2 hours,No,Yes,Yes,Yes,They were not available,No,Couldn't afford,Out of pocket,Very bad,Staff,Waiting time,04/15/2024
+English,101295-4,23,Male,,,At the facility,Within 1 hour,Yes,Yes,No,Some,I didn't understand the need,No,Another reason,Free,Good,Cleanliness,Cleanliness,03/29/2024
+Kiswahili,120960-0,43,Female,Yes,6,At home,More than 3 hours,No,Yes,No,Some,They were not available,Some,Another reason,Free,Very bad,The external environment,Toilets,03/05/2024
+English,111957-7,43,Male,,,At the facility,Between 2-3 hours,Yes,No,No,Yes,I didn't understand the need,No,Out of stock,Insurance,Very bad,Laboratory/testing,Staff,04/03/2024
+English,101415-8,22,Male,,,At home,More than 3 hours,Yes,No,No,No,They were not available,Yes,Out of stock,Insurance,Bad,Laboratory/testing,Cleanliness,03/19/2024
+English,103684-7,40,Female,No,,At home,More than 3 hours,No,No,No,Some,They were not available,Yes,Another reason,Out of pocket,Very bad,Cleanliness,Staff,04/20/2024
+English,103474-3,42,Female,Yes,3,At home,Between 2-3 hours,Yes,No,No,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Good,Cleanliness,Cleanliness,03/25/2024
+Kiswahili,101295-4,28,Male,,,At home,Within 1 hour,No,Yes,No,Yes,I didn't understand the need,Some,Out of stock,Out of pocket,Good,Staff,Toilets,04/21/2024
+Kiswahili,113625-8,38,Female,Yes,6,At home,Within 1 hour,No,Yes,No,Yes,I couldn't afford the cost,Some,Out of stock,Insurance,Very good,The external environment,Cleanliness,04/05/2024
+Kiswahili,120365-2,21,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Some,They were not available,No,Another reason,Out of pocket,Normal,Cleanliness,Cleanliness,03/15/2024
+Kiswahili,111844-7,18,Female,No,,At the facility,Within 1 hour,No,No,No,No,I didn't understand the need,Some,Another reason,Insurance,Bad,Staff,Cleanliness,04/30/2024
+Kiswahili,112880-0,45,Female,No,,At the facility,Between 1-2 hours,No,Yes,Yes,Some,I didn't understand the need,No,Couldn't afford,Insurance,Bad,Staff,Toilets,03/23/2024
+English,111844-7,39,Male,,,At the facility,Within 1 hour,Yes,No,No,Yes,I didn't understand the need,No,Couldn't afford,Out of pocket,Very good,The external environment,Waiting time,04/27/2024
+English,112490-8,30,Female,No,,At the facility,Between 2-3 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,Yes,Out of stock,Free,Bad,Staff,Waiting time,03/01/2024
+Kiswahili,102775-4,34,Female,No,,At the facility,Between 1-2 hours,No,Yes,Yes,Some,I didn't understand the need,Yes,Couldn't afford,Out of pocket,Very good,Staff,Toilets,03/29/2024
+Kiswahili,102258-1,32,Female,No,,At home,Between 1-2 hours,Yes,Yes,Yes,No,They were not available,Yes,Another reason,Insurance,Good,Staff,Staff,04/20/2024
+English,111007-1,19,Female,Yes,8,At the facility,More than 3 hours,No,No,No,Yes,I didn't understand the need,No,Couldn't afford,Free,Normal,Cleanliness,Staff,04/15/2024
+English,103388-5,40,Female,Yes,9,At the facility,Between 2-3 hours,Yes,Yes,No,No,I didn't understand the need,Some,Another reason,Insurance,Bad,The external environment,Toilets,03/18/2024
+Kiswahili,102558-4,25,Male,,,At the facility,Within 1 hour,Yes,Yes,Yes,Yes,I couldn't afford the cost,Some,Out of stock,Out of pocket,Good,Cleanliness,Toilets,04/24/2024
+Kiswahili,104020-3,20,Male,,,At the facility,Between 1-2 hours,No,No,No,No,I couldn't afford the cost,Some,Out of stock,Free,Normal,The external environment,Cleanliness,04/07/2024
+English,113632-4,35,Male,,,At the facility,Between 2-3 hours,Yes,Yes,No,No,They were not available,Some,Another reason,Insurance,Very good,Staff,Staff,03/20/2024
+Kiswahili,111005-5,25,Female,Yes,5,At home,Between 2-3 hours,Yes,Yes,No,Yes,I didn't understand the need,Some,Another reason,Out of pocket,Very good,Laboratory/testing,Staff,04/19/2024
+English,103394-3,24,Male,,,At home,Within 1 hour,No,Yes,Yes,No,I couldn't afford the cost,Some,Out of stock,Out of pocket,Normal,Staff,Toilets,04/24/2024
+Kiswahili,111844-7,19,Female,Yes,1,At home,More than 3 hours,No,Yes,No,Yes,I couldn't afford the cost,Some,Another reason,Out of pocket,Bad,Laboratory/testing,Waiting time,04/12/2024
+Kiswahili,113632-4,31,Male,,,At the facility,More than 3 hours,No,Yes,No,No,I didn't understand the need,No,Another reason,Out of pocket,Good,Staff,Cleanliness,03/24/2024
+English,103429-7,41,Female,No,,At the facility,Between 1-2 hours,No,No,No,No,They were not available,Some,Out of stock,Out of pocket,Good,Staff,Staff,03/13/2024
+Kiswahili,111844-7,19,Female,No,,At home,Between 2-3 hours,Yes,No,No,No,I couldn't afford the cost,Some,Another reason,Out of pocket,Normal,Laboratory/testing,Cleanliness,04/26/2024
+Kiswahili,111582-3,30,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,No,I couldn't afford the cost,Some,Another reason,Insurance,Normal,Laboratory/testing,Staff,04/02/2024
+Kiswahili,111491-7,27,Male,,,At home,Within 1 hour,Yes,No,No,Yes,I didn't understand the need,Some,Out of stock,Free,Bad,Laboratory/testing,Toilets,04/30/2024
+Kiswahili,111784-5,24,Male,,,At home,More than 3 hours,Yes,Yes,No,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Bad,Laboratory/testing,Staff,03/12/2024
+English,100280-7,27,Female,Yes,4,At home,Between 1-2 hours,No,No,No,No,I didn't understand the need,No,Out of stock,Free,Very bad,The external environment,Staff,03/30/2024
+English,111491-7,28,Male,,,At home,More than 3 hours,Yes,No,No,No,They were not available,Yes,Another reason,Insurance,Very good,Staff,Toilets,03/23/2024
+Kiswahili,100556-0,40,Male,,,At home,More than 3 hours,No,Yes,No,No,They were not available,Yes,Couldn't afford,Insurance,Normal,The external environment,Cleanliness,03/11/2024
+English,103086-5,45,Female,No,,At home,Between 2-3 hours,Yes,No,Yes,No,I couldn't afford the cost,Yes,Another reason,Insurance,Normal,Laboratory/testing,Staff,03/07/2024
+English,102558-4,32,Female,Yes,8,At the facility,Between 1-2 hours,Yes,Yes,No,No,I didn't understand the need,No,Couldn't afford,Insurance,Normal,Staff,Staff,03/22/2024
+Kiswahili,112880-0,24,Female,Yes,3,At the facility,Between 1-2 hours,Yes,Yes,No,Some,I couldn't afford the cost,No,Out of stock,Out of pocket,Very good,Cleanliness,Cleanliness,03/01/2024
+Kiswahili,103410-7,32,Female,Yes,9,At the facility,More than 3 hours,No,No,Yes,Yes,I couldn't afford the cost,No,Another reason,Free,Good,The external environment,Cleanliness,04/04/2024
+Kiswahili,120960-0,27,Male,,,At home,Within 1 hour,No,Yes,No,Some,They were not available,Yes,Another reason,Insurance,Good,Laboratory/testing,Toilets,03/17/2024
+English,111489-1,20,Female,No,,At the facility,Between 2-3 hours,No,Yes,No,Yes,I couldn't afford the cost,Yes,Out of stock,Insurance,Bad,The external environment,Staff,03/08/2024
+English,113550-8,20,Female,Yes,3,At home,More than 3 hours,Yes,Yes,Yes,No,They were not available,No,Couldn't afford,Insurance,Good,Cleanliness,Toilets,04/21/2024
+English,111582-3,23,Male,,,At home,Between 1-2 hours,No,No,Yes,No,I couldn't afford the cost,No,Out of stock,Free,Bad,Cleanliness,Toilets,03/10/2024
+English,100280-7,24,Female,Yes,2,At home,More than 3 hours,No,Yes,No,Some,I didn't understand the need,Yes,Out of stock,Insurance,Bad,Laboratory/testing,Toilets,03/28/2024
+English,111784-5,45,Male,,,At home,Between 2-3 hours,No,No,Yes,No,I couldn't afford the cost,Some,Couldn't afford,Insurance,Good,Laboratory/testing,Staff,04/09/2024
+English,103457-8,19,Female,Yes,1,At the facility,More than 3 hours,Yes,No,No,Some,I didn't understand the need,Some,Another reason,Free,Bad,Laboratory/testing,Cleanliness,03/12/2024
+Kiswahili,102558-4,25,Female,No,,At the facility,Between 2-3 hours,No,Yes,Yes,Some,I couldn't afford the cost,No,Out of stock,Insurance,Normal,Staff,Waiting time,03/06/2024
+Kiswahili,113628-2,20,Male,,,At home,Between 2-3 hours,No,Yes,Yes,No,I couldn't afford the cost,Yes,Couldn't afford,Free,Bad,The external environment,Toilets,03/15/2024
+Kiswahili,111582-3,35,Female,Yes,6,At the facility,More than 3 hours,No,Yes,Yes,No,I couldn't afford the cost,No,Out of stock,Insurance,Good,Staff,Waiting time,04/16/2024
+English,111782-9,41,Male,,,At the facility,Between 2-3 hours,No,No,Yes,Some,I didn't understand the need,No,Out of stock,Free,Very good,The external environment,Staff,03/05/2024
+Kiswahili,102507-1,27,Male,,,At the facility,Between 2-3 hours,No,Yes,Yes,No,They were not available,Yes,Out of stock,Free,Normal,Cleanliness,Toilets,04/02/2024
+English,111957-7,21,Male,,,At the facility,Between 1-2 hours,No,No,Yes,Some,They were not available,Yes,Couldn't afford,Insurance,Very bad,Staff,Toilets,03/22/2024
+Kiswahili,113625-8,25,Male,,,At the facility,Between 1-2 hours,Yes,Yes,Yes,Yes,I couldn't afford the cost,No,Couldn't afford,Out of pocket,Very good,Laboratory/testing,Cleanliness,04/05/2024

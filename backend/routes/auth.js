@@ -17,13 +17,22 @@ router.post('/login', (req, res) => {
         const user = stmt.get(username, password);
 
         if (user) {
-            //Save user info in session
+            // Save user info in session
             req.session.user = {
                 user_id: user.user_id,
                 username: user.username,
                 usertype: user.usertype
             };
-            return res.redirect('/facilities');
+        
+            if (user.usertype === 'governement') {
+                return res.redirect('/governement');
+            }
+        
+            // Add more redirection logic for other user types if needed
+            return res.redirect('/facilities'); // Default redirection
+        
+        
+
         }
         else {
             res.send('Invalid username or password');

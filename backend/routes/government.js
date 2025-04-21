@@ -9,6 +9,7 @@ const facilityModel = new FacilityModel(db);
 const responseModel = new ResponseModel(db);
 
 router.get("/", (req, res) => {
+  const username = req.session.user?.username;
   const areas = ["Toilets", "Pharmacy/Drugs", "Reception", "Doctor's room"];
   const {
     region,
@@ -88,6 +89,7 @@ router.get("/", (req, res) => {
 
 
   res.render("government", {
+    username,
     filters:          req.query,
     areas,
     bestBy,
