@@ -15,12 +15,7 @@
 <div id="map"></div>
 
 <script>
-  const facilities = [
-    { name: "Muhimbili National Hospital", lat: -6.7985, lng: 39.2796 },
-    { name: "Bugando Medical Centre", lat: -2.5200, lng: 32.9312 },
-    { name: "Kilimanjaro Christian Medical Centre", lat: -3.2447, lng: 37.3352 }
-    // Add more here!
-  ];
+  const facilities = <%- JSON.stringify(facilities) %>;
 
   function initMap() {
     const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
@@ -31,7 +26,7 @@
 
     facilities.forEach(facility => {
       const marker = new google.maps.Marker({
-        position: { lat: facility.lat, lng: facility.lng },
+        position: { lat: facility.ltd, lng: facility.lng },
         map: map,
         title: facility.name
       });
@@ -45,7 +40,9 @@
       });
     });
   }
+  
 </script>
+  
 
 <script async
   src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">

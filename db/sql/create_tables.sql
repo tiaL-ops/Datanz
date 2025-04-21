@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS Facility (
     headO_name TEXT,
     headO_contact TEXT,
     date_opened TEXT,
-    ltd TEXT,
-    lng TEXT
+    ltd INTEGER,
+    lng INTEGER
 );
 --i don't think we need report , rather just response i think
 CREATE TABLE IF NOT EXISTS Response (
