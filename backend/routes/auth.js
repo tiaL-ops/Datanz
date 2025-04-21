@@ -15,6 +15,7 @@ router.post('/login', (req, res) => {
         //run sql query to check if credentials match a user in the database
         const stmt = db.prepare("SELECT * FROM Auth WHERE username = ? AND password = ?");
         const user = stmt.get(username, password);
+        
 
         if (user) {
             // Save user info in session
@@ -23,9 +24,10 @@ router.post('/login', (req, res) => {
                 username: user.username,
                 usertype: user.usertype
             };
-        
-            if (user.usertype === 'governement') {
-                return res.redirect('/governement');
+            console.log("Here is its usertype:", user.usertype);
+
+            if (user.usertype === 'government') {
+                return res.redirect('/government');
             }
         
             // Add more redirection logic for other user types if needed
@@ -38,7 +40,7 @@ router.post('/login', (req, res) => {
             res.send('Invalid username or password');
         }
     } catch (error) {
-        console.error(err);
+        console.error(error);
         res.send('Error logging in');
     }
 });
