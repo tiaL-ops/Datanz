@@ -10,21 +10,6 @@ const { connectToDatabase } = require("./database");
 const db = connectToDatabase();
 
 
-// ! important , please drop tables and create new one because we d
-// check the table first to see if it is already populate the uncomment this if needed
-const questionModel = new QuestionModel(db); 
-//questionModel.importFromCSV("./csv/Question&Answer - Sheet1.csv"); 
-
-const authModel= new AuthModel(db);
-//authModel.createUser("hello", "hellotest@gmail.com", "doctor","hnfjsknfjsk%679");
-
-const facilityModel= new FacilityModel(db);
-//facilityModel.loadFromCSV("./csv/SampleCSV - Facilities.csv");
-
-const responseModel= new ResponseModel(db);
-
-//responseModel.loadFromSurveyCSV("./csv/SampleCSV - SampleMock.csv");
-
 
 
 const fs = require('fs');
