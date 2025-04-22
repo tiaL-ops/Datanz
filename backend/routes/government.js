@@ -98,4 +98,16 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/map", (req, res) => {
+  try {
+    const allFacilities = facilityModel.getAllFacilities();
+    res.render("map", {
+      facilities: allFacilities
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Failed to fetch facilities");
+  }
+});
+
 module.exports = router;
