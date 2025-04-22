@@ -110,7 +110,7 @@ class ResponseModel{
                 const facilityCode = row['FacilityCode']?.trim();
                 const facility =  facilityModel.getFacilityByCode(facilityCode);
 
-                console.log("here are information", patientId, facility);
+
                 if (!facility) return;
 
                 const facilityId = facility.facility_id;
@@ -121,14 +121,14 @@ class ResponseModel{
 
                     const question = getQuestionId.get(questionText);
                     if (!question) {
-                        console.warn(`Question not found: ${questionText}`);
+                       //console.warn(`Question not found: ${questionText}`);
                         continue;
                     }
 
                     const questionId = question.question_id;
                     const answer = getAnswerOptionId.get(questionId, answerText);
                     if (!answer) {
-                        console.warn(`Answer option not found: "${answerText}" for question "${questionText}"`);
+                        //console.warn(`Answer option not found: "${answerText}" for question "${questionText}"`);
                         continue;
                     }
                     
