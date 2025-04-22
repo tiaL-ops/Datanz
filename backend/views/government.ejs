@@ -1,417 +1,218 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>District Official</title>
-  
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 2rem;
-      }
-  
-      form>div {
-        margin-bottom: 1rem;
-      }
-  
-      label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
-      }
-  
-      input,
-      select {
-        width: 100%;
-        padding: 0.5rem;
-        box-sizing: border-box;
-      }
-  
-      button {
-        padding: 0.6rem 1.2rem;
-        font-size: 1rem;
-      }
-  
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 2rem;
-      }
-  
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 0.5rem;
-        text-align: left;
-      }
-  
-      th {
-        background: #f0f0f0;
-      }
-  
-      caption {
-        text-align: left;
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-  
-      section {
-        margin-top: 2rem;
-        padding: 1rem;
-        border: 1px solid #ccc;
-      }
-  
-      section h2 {
-        margin-top: 0;
-      }
-  
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
-  
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-  
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-  
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-  
-      input:checked+.slider {
-        background-color: #2196F3;
-      }
-  
-      input:focus+.slider {
-        box-shadow: 0 0 1px #2196F3;
-      }
-  
-      input:checked+.slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-  
-      .slider.round {
-        border-radius: 34px;
-      }
-  
-      .slider.round:before {
-        border-radius: 50%;
-      }
-  
-      #map {
-        display: none;
-        height: 500px;
-        width: 500px;
-      }
-    </style>
-  </head>
-
+  <link rel="stylesheet" href="/styles/government.css" />
+</head>
 <body>
-  <h2>Toggle Switch</h2>
 
+  <h1>Welcome <%= username %></h1>
 
-
-  <h1>Welcome [should display then ame here pls someone do it i wanna slleep] </h1>
-
-
+ 
   <form method="get">
-    <div>
+    <h2>Refine Search</h2>
+  
+    <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
+      Use the filters below to find facilities that meet your expectations.
+    </p>
+  
+    <!-- left column -->
+    <div class="filter-group">
       <label for="region">Region</label>
       <select id="region" name="region">
         <option value="">Any</option>
-        <option value="Arusha" <%=filters.region==='Arusha' ? 'selected' : '' %>>Arusha</option>
-        <option value="Kilimanjaro" <%=filters.region==='Kilimanjaro' ? 'selected' : '' %>>Kilimanjaro</option>
-        <option value="Tanga" <%=filters.region==='Tanga' ? 'selected' : '' %>>Tanga</option>
+        <option value="Arusha"      <%= filters.region==='Arusha'      ? 'selected' : '' %>>Arusha</option>
+        <option value="Kilimanjaro" <%= filters.region==='Kilimanjaro' ? 'selected' : '' %>>Kilimanjaro</option>
+        <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
       </select>
     </div>
-
-
-    <div>
+  
+    <div class="filter-group">
       <label for="waitThreshold">
-        Long waits: avg wait &gt;
-        <input id="waitThreshold" name="waitThreshold" type="number" step="1" style="width:4rem;"
-          value="<%= filters.waitThreshold || '' %>"> min
+        Show facilities where average wait is more than 
+        <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> minutes
       </label>
+      <input
+        id="waitThreshold"
+        name="waitThreshold"
+        type="range"
+        min="0" max="300"
+        value="<%= filters.waitThreshold||0 %>"
+        oninput="waitVal.textContent = this.value"
+      >
     </div>
-
-
-    <div>
+  
+    <div class="filter-group">
       <label for="satThreshold">
-        Low satisfaction: avg score &lt;
-        <input id="satThreshold" name="satThreshold" type="number" min="1" max="5" step="1" style="width:4rem;"
-          value="<%= filters.satThreshold || '' %>"> /5
+        Only show facilities where satisfaction is below 
+        <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> out of 5
       </label>
+      <input
+        id="satThreshold"
+        name="satThreshold"
+        type="range"
+        min="1" max="5"
+        value="<%= filters.satThreshold||5 %>"
+        oninput="satVal.textContent = this.value"
+      >
     </div>
-
-    <div>
+  
+    <div class="filter-group">
       <label for="confiThreshold">
-        Confidentiality: ≥
-        <input id="confiThreshold" name="confiThreshold" type="number" step="1" style="width:4rem;"
-          value="<%= filters.confiThreshold || '' %>">% said “No”
+        Facilities with confidentiality concerns in 
+        <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>% or more of visits
       </label>
+      <input
+        id="confiThreshold"
+        name="confiThreshold"
+        type="range"
+        min="0" max="100"
+        value="<%= filters.confiThreshold||0 %>"
+        oninput="confVal.textContent = this.value"
+      >
     </div>
-
-
-    <div>
+  
+    <!-- right column -->
+    <div class="filter-group">
       <label for="permThreshold">
-        Permission issues: ≥
-        <input id="permThreshold" name="permThreshold" type="number" step="1" style="width:4rem;"
-          value="<%= filters.permThreshold || '' %>">% NOT asked
+        Show facilities where permission was not respected in 
+        <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>% or more of visits
       </label>
+      <input
+        id="permThreshold"
+        name="permThreshold"
+        type="range"
+        min="0" max="100"
+        value="<%= filters.permThreshold||0 %>"
+        oninput="permVal.textContent = this.value"
+      >
     </div>
-
-
-    <div>
+  
+    <div class="filter-group">
       <label for="testThreshold">
-        Tests missing: ≥
-        <input id="testThreshold" name="testThreshold" type="number" step="1" style="width:4rem;"
-          value="<%= filters.testThreshold || '' %>">% did NOT get all
+        Highlight where 
+        <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>% or more visits had missing tests
       </label>
+      <input
+        id="testThreshold"
+        name="testThreshold"
+        type="range"
+        min="0" max="100"
+        value="<%= filters.testThreshold||0 %>"
+        oninput="testVal.textContent = this.value"
+      >
     </div>
-
-
-    <div>
+  
+    <div class="filter-group">
       <label for="medThreshold">
-        Meds gap: ≥
-        <input id="medThreshold" name="medThreshold" type="number" step="1" style="width:4rem;"
-          value="<%= filters.medThreshold || '' %>">% some/none
+        Facilities where patients missed medications in 
+        <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>% or more visits
       </label>
+      <input
+        id="medThreshold"
+        name="medThreshold"
+        type="range"
+        min="0" max="100"
+        value="<%= filters.medThreshold||0 %>"
+        oninput="medVal.textContent = this.value"
+      >
     </div>
-
-
-
-
-
-    <div>
-      <label for="paymentMode">Dominant payment type</label>
+  
+    <div class="filter-group">
+      <label for="paymentMode">Prefer facilities where most patients pay with:</label>
       <select id="paymentMode" name="paymentMode">
         <option value="">Any</option>
-        <option value="Cash" <%=filters.paymentMode==='Cash' ? 'selected' : '' %>>Cash</option>
-        <option value="Insurance" <%=filters.paymentMode==='Insurance' ? 'selected' : '' %>>Insurance</option>
-        <option value="Free" <%=filters.paymentMode==='Free' ? 'selected' : '' %>>Free</option>
+        <option value="Cash"      <%= filters.paymentMode==='Cash'      ? 'selected' : '' %>>Cash</option>
+        <option value="Insurance" <%= filters.paymentMode==='Insurance' ? 'selected' : '' %>>Insurance</option>
+        <option value="Free"      <%= filters.paymentMode==='Free'      ? 'selected' : '' %>>Free</option>
       </select>
     </div>
-
-
-    <div>
-      <label for="bestCategory">Best facility in:</label>
+  
+    <div class="filter-group">
+      <label for="bestCategory">Highlight the best facilities in this area:</label>
       <select id="bestCategory" name="bestCategory">
         <option value="">— none —</option>
-        <% areas.forEach(area=> { %>
-          <option value="<%= area %>" <%=filters.bestCategory===area ? 'selected' : '' %>><%= area %>
-          </option>
-          <% }) %>
+        <% areas.forEach(area => { %>
+          <option value="<%= area %>" <%= filters.bestCategory===area ? 'selected' : '' %>><%= area %></option>
+        <% }) %>
       </select>
     </div>
-
-    <div>
-      <label for="worstCategory">Worst facility in:</label>
+  
+    <div class="filter-group">
+      <label for="worstCategory">Highlight the worst facilities in this area:</label>
       <select id="worstCategory" name="worstCategory">
         <option value="">— none —</option>
-        <% areas.forEach(area=> { %>
-          <option value="<%= area %>" <%=filters.worstCategory===area ? 'selected' : '' %>><%= area %>
-          </option>
-          <% }) %>
+        <% areas.forEach(area => { %>
+          <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
+        <% }) %>
       </select>
     </div>
-
-
-    <div>
-      <label for="negativeCategory">Show only facilities with any negative feedback in:</label>
-      <select id="negativeCategory" name="negativeCategory">
-        <option value="">— none —</option>
-        <% areas.forEach(area=> { %>
-          <option value="<%= area %>" <%=filters.negativeCategory===area ? 'selected' : '' %>><%= area %>
-          </option>
-          <% }) %>
-      </select>
-    </div>
-
+  
     <button type="submit">Apply Filters</button>
   </form>
-
-  <br>
-  <label class="switch">
-    <input type="checkbox" id="myToggle">
-    <span class="slider round"></span>
-  </label>
-
-  <% if (!toggled){ %> 
   
-   
-  <% } else { %>
- 
-  <%} %>
+
+
   <% if (bestBy) { %>
     <section>
       <h2>Best facility for “<%= bestBy.area %>”</h2>
       <p>
-        <strong>
-          <%= bestBy.best.facility_name %>
-        </strong>
+        <strong><%= bestBy.best.facility_name %></strong>
         (Code: <%= bestBy.best.facility_code %>)<br>
-          Mentions: <%= bestBy.best.good_count %>
+      
       </p>
     </section>
-    <% } %>
+  <% } %>
 
 
   <% if (worstBy) { %>
     <section>
       <h2>Worst facility for “<%= worstBy.area %>”</h2>
       <p>
-        <strong>
-          <%= worstBy.worst.facility_name %>
-        </strong>
+        <strong><%= worstBy.worst.facility_name %></strong>
         (Code: <%= worstBy.worst.facility_code %>)<br>
-          Mentions: <%= worstBy.worst.bad_count %>
+        Mentions: <%= worstBy.worst.bad_count %>
       </p>
     </section>
-    <% } %>
+  <% } %>
 
-
+  
   <% if (results && results.length) { %>
     <table>
-      <caption>Matching Facilities: <%= results.length %>
-      </caption>
+      <caption>Matching Facilities: <%= results.length %></caption>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Code</th>
-          <th>Location</th>
-          <th>Avg Wait</th>
-          <th>Avg Sat</th>
-          <th>% No Privacy</th>
-          <th>% No Permission</th>
-          <th>% Missed Tests</th>
-          <th>% Meds Gap</th>
-          <th>Top Payment</th>
-          <th>Top Problems</th>
-          <th>Top Positives</th>
+          <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+          <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+          <th>% Missed Tests</th><th>% Meds Gap</th><th>Top Payment</th>
+          <th>Top Problems</th><th>Top Positives</th>
         </tr>
       </thead>
-<tbody>
-  <% results.forEach(fac=> {
-    const m = fac.metrics;
-    %>
-    <tr>
-      <td>
-        <%= fac.name %>
-      </td>
-      <td>
-        <%= fac.facility_code %>
-      </td>
-      <td>
-        <%= fac.location %>
-      </td>
-      <td>
-        <%= m.avgWait.toFixed(1) %> min
-      </td>
-      <td>
-        <%= m.avgSat %>
-      </td>
-      <td>
-        <%= (100 - m.yesConfi).toFixed(0) %>%
-      </td>
-      <td>
-        <%= (100 - m.yesPerm).toFixed(0) %>%
-      </td>
-      <td>
-        <%= (100 - m.yesTests).toFixed(0) %>%
-      </td>
-      <td>
-        <%= (100 - m.yesMeds).toFixed(0) %>%
-      </td>
-      <td>
-        <%= m.topPayMode %>
-      </td>
-      <td>
-        <%= m.topProblems.slice(0,3).join(", ") %></td>
-    <td><%= m.topPositives.slice(0,3).join(" , ") %></td>
-  </tr>
-  <% }) %>
-</tbody>
+      <tbody>
+        <% results.forEach(fac => {
+             const m = fac.metrics;
+        %>
+        <tr>
+          <td><%= fac.name %></td>
+          <td><%= fac.facility_code %></td>
+          <td><%= fac.location %></td>
+          <td><%= m.avgWait.toFixed(1) %> min</td>
+          <td><%= m.avgSat %></td>
+          <td><%= (100 - m.yesConfi).toFixed(0) %>%</td>
+          <td><%= (100 - m.yesPerm).toFixed(0) %>%</td>
+          <td><%= (100 - m.yesTests).toFixed(0) %>%</td>
+          <td><%= (100 - m.yesMeds).toFixed(0) %>%</td>
+          <td><%= m.topPayMode %></td>
+          <td><%= m.topProblems.slice(0,3).join(", ") %></td>
+          <td><%= m.topPositives.slice(0,3).join(", ") %></td>
+        </tr>
+        <% }) %>
+      </tbody>
     </table>
   <% } else { %>
     <p><em>No facilities match those filters.</em></p>
   <% } %>
-<br>
-
-<div id="map"></div>
 
 </body>
-<script>
-  const checkbox = document.getElementById('myToggle');
-  const table = document.querySelector('table');
-
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      table.style.display = 'none';
-      document.getElementById('map').style.display = 'block';
-    } else {
-      table.style.display = 'table';
-      document.getElementById('map').style.display = 'none';
-
-    }
-  });
-
-  const facilities = <%- JSON.stringify(facilities) %>;
-
-function initMap() {
-  const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 9,
-    center: tanzaniaCenter,
-  });
-
-  facilities.forEach(facility => {
-    const marker = new google.maps.Marker({
-      position: { lat: facility.ltd, lng: facility.lng },
-      map: map,
-      title: facility.name
-    });
-
-    const infoWindow = new google.maps.InfoWindow({
-      content: `<strong>${facility.name}</strong>`
-    });
-
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
-    });
-  });
-}
-</script>
-
-  <script async
-  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
-
-</script>
-
 </html>
