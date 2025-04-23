@@ -79,7 +79,6 @@ router.get("/", (req, res) => {
     });
   }
 
- 
   let bestBy = null, worstBy = null;
   if (bestCategory) {
     bestBy = responseModel.getBestWorstByArea(bestCategory);
@@ -87,6 +86,7 @@ router.get("/", (req, res) => {
   if (worstCategory) {
     worstBy = responseModel.getBestWorstByArea(worstCategory);
   }
+
   let allFacilities;
   try {
      allFacilities = facilityModel.getAllFacilities();
@@ -103,9 +103,7 @@ router.get("/", (req, res) => {
     bestBy,
     worstBy,
     results:          filtered,
-    toggled: false,
-    facilities:allFacilities
-  });
+    toggled: false  });
 });
 
 
