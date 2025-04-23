@@ -19,7 +19,7 @@
       </ul>
     </header>
 
-
+    <main class="scroll-container">
     <section class="hero">
       <h1>WELCOME TO DATANZ</h1>
       <h2>your guide to healthcare in Tanzania</h2>
@@ -81,6 +81,36 @@
         the list of all available facilities.
       </p>
     </section>
+  </main>
+  <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
 
+  <script>
+    const backToTopBtn = document.getElementById("backToTop");
+    const scrollContainer = document.querySelector(".scroll-container");
+  
+    // Show the button when the scroll container is scrolled down
+    scrollContainer.addEventListener("scroll", () => {
+      if (scrollContainer.scrollTop > 0) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+  
+    // Scroll to top of the container on click
+    backToTopBtn.addEventListener("click", () => {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+  
   </body>
+</main>
+
+
+
+  
+  
 </html>
