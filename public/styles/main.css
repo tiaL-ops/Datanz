@@ -14,6 +14,10 @@ body {
 
 /* 1. Top Navigation */
 .top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,12 +25,16 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
-.nav-links {
+.nav-links{
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -43,13 +51,30 @@ body {
   color: #666;
 }
 
+.logo  a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.logo a:hover {
+  color: #666;
+}
+
+/* 2. Hero Section */
 /* 2. Hero Section */
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
   text-align: center;
   padding: 4rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
+
 
 .hero h1 {
   font-size: 2.5rem;
@@ -179,3 +204,51 @@ body {
     max-width: 250px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroll-container > section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  #backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    display: none;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #backToTop.show {
+    display: block; /* Show when scrolled down */
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #backToTop:hover {
+    background-color: #0056b3;
+  }
+
