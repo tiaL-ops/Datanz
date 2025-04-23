@@ -29,9 +29,12 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
 }
 
-.nav-links {
+.nav-links{
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -45,6 +48,16 @@ body {
 }
 
 .nav-links li a:hover {
+  color: #666;
+}
+
+.logo  a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.logo a:hover {
   color: #666;
 }
 
