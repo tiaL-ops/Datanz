@@ -69,6 +69,12 @@ body {
   color: #555;
 }
 
+.login-msg {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
 .hero-buttons {
   display: flex;
   justify-content: center;
