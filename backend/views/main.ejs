@@ -6,19 +6,19 @@
     <title>DATANZ - Healthcare Guide</title>
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
-
   <body>
 
     <header class="top-nav">
-      <div class="logo">DATANZ</div>
+      <div class="logo"><a href = "/">DATANZ</a></div>
       <ul class="nav-links">
-        <li><a href="#team">Our Team</a></li>
         <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href = "/facilities">Facilities</a></li>
         <li><a href="/auth?type=login">Login</a></li>
       </ul>
     </header>
 
-
+    <main class="scroll-container">
     <section class="hero">
       <h1>WELCOME TO DATANZ</h1>
       <h2>your guide to healthcare in Tanzania</h2>
@@ -34,6 +34,21 @@
       </div>
     </section>
 
+    <section id="mission" class="mission-section">
+      <h2>OUR MISSION</h2>
+      <p>
+        Our goal is to help citizens of Tanzania make informed, data-driven decisions on where
+        to receive the most high-quality healthcare and treatments.
+      </p>
+      <p>
+        Everyone has their personal preferences, so we provide a detailed way of filtering the 
+        facilities that match you the best.
+      </p>
+      <p>
+        And if you’re too indecisive, don’t worry. You can always just view 
+        the list of all available facilities.
+      </p>
+    </section>
  
     <section id="team" class="team-section">
       <h2>OUR TEAM</h2>
@@ -69,21 +84,37 @@
     </section>
 
     
-    <section id="mission" class="mission-section">
-      <h2>OUR MISSION</h2>
-      <p>
-        Our goal is to help citizens of Tanzania make informed, data-driven decisions on where
-        to receive the most high-quality healthcare and treatments.
-      </p>
-      <p>
-        Everyone has their personal preferences, so we provide a detailed way of filtering the 
-        facilities that match you the best.
-      </p>
-      <p>
-        And if you’re too indecisive, don’t worry. You can always just view 
-        the list of all available facilities.
-      </p>
-    </section>
+   
+  </main>
+  <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
 
+  <script>
+    const backToTopBtn = document.getElementById("backToTop");
+    const scrollContainer = document.querySelector(".scroll-container");
+  
+    // Show the button when the scroll container is scrolled down
+    scrollContainer.addEventListener("scroll", () => {
+      if (scrollContainer.scrollTop > 0) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+  
+    // Scroll to top of the container on click
+    backToTopBtn.addEventListener("click", () => {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+  
   </body>
+</main>
+
+
+
+  
+  
 </html>

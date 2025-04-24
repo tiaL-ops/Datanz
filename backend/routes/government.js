@@ -9,6 +9,8 @@ const facilityModel = new FacilityModel(db);
 const responseModel = new ResponseModel(db);
 
 router.get("/", (req, res) => {
+  let toggled = false;
+  const username = req.session.user?.username;
   const areas = ["Toilets", "Pharmacy/Drugs", "Reception", "Doctor's room"];
   const {
     region,
@@ -77,7 +79,6 @@ router.get("/", (req, res) => {
     });
   }
 
- 
   let bestBy = null, worstBy = null;
   if (bestCategory) {
     bestBy = responseModel.getBestWorstByArea(bestCategory);
@@ -86,14 +87,24 @@ router.get("/", (req, res) => {
     worstBy = responseModel.getBestWorstByArea(worstCategory);
   }
 
+  let allFacilities;
+  try {
+     allFacilities = facilityModel.getAllFacilities();
+    
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Failed to fetch facilities");
+  }
 
   res.render("government", {
+    username,
     filters:          req.query,
     areas,
     bestBy,
     worstBy,
-    results:          filtered
-  });
+    results:          filtered,
+    toggled: false  });
 });
+
 
 module.exports = router;

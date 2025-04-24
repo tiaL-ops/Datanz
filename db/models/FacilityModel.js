@@ -54,8 +54,8 @@ class FacilityModel{
     loadFromCSV(filePath) {
         const insertFacility = this.db.prepare(`
             INSERT INTO Facility (
-                facility_code, name, location, facility_type, headO_name, headO_contact, date_opened
-            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                facility_code, name, location, facility_type, headO_name, headO_contact, date_opened, ltd, lng
+            ) VALUES (?, ?, ?, ?, ?, ?, ?,?,?)
         `);
 
         fs.createReadStream(filePath)
@@ -77,6 +77,8 @@ class FacilityModel{
                 const headO_name = this.generateRandomName();
                 const headO_contact = row['Official Phone Number']?.trim() || null;
                 const date_opened = row['Date Opened']?.trim() || null;
+                const ltd = row['Latitude']?.trim() || null;
+                const lng = row['Longitude']?.trim() || null;
 
                 if (facility_code && name) {
                     insertFacility.run(
@@ -86,7 +88,9 @@ class FacilityModel{
                         facility_type,
                         headO_name,
                         headO_contact,
-                        date_opened
+                        date_opened,
+                        ltd,
+                        lng
                     );
                 }
             })
@@ -112,11 +116,11 @@ class FacilityModel{
     }
 
     getFacilityByCode(code){
-        console.log("this is the code",code)
+        
         const query= `SELECT facility_id FROM Facility WHERE facility_code = ?`
         const stmt= this.db.prepare(query);
         const result= stmt.get(code);
-        console.log("this is resule",result);
+ 
         return result;
 
     }
