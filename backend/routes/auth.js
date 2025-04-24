@@ -2,27 +2,30 @@ const express = require('express');
 const router = express.Router();
 const { connectToDatabase } = require('../../db/database');
 const db = connectToDatabase();
+const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
     const type  = req.query.type; //Determine if it's login or signup
     res.render('auth', { type });
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try{
         //run sql query to check if credentials match a user in the database
-        const stmt = db.prepare("SELECT * FROM Auth WHERE username = ? AND password = ?");
-        const user = stmt.get(username, password);
+        const stmt = db.prepare("SELECT * FROM Auth WHERE username = ?");
+        const user = stmt.get(username);
 
-        if (user) {
+        if (user && await bcrypt.compare(password, user.password)) {
             //Save user info in session
             req.session.user = {
                 user_id: user.user_id,
                 username: user.username,
-                usertype: user.usertype
+                usertype: user.usertype,
+                password_changed: user.password_changed
             };
+
             if (user.usertype === 'government' && user.password_changed === 0) {
                 //Redirect to change password page
                 return res.redirect('/auth?type=change');
@@ -51,28 +54,37 @@ router.get('/change-password', (req, res) => {
     res.render('auth', { type: 'change' });
 });
 
-router.post('/change-password', (req, res) => {
+router.post('/change-password', async (req, res) => {
     const { newPassword } = req.body;
+
     if (!req.session.user){
         return res.redirect('/auth?type=login');
     }
 
     try {
-        //update password in database
-        const stmt = db.prepare("UPDATE Auth SET password = ?, password_changed = 1 WHERE user_id = ?");
-        stmt.run(newPassword, req.session.user.user_id);
+        // Retrieve current user info 
+        const stmt = db.prepare("SELECT * FROM Auth WHERE user_id = ?");
+        const user = stmt.get(req.session.user.user_id);
 
-        //Update session user info
-        req.session.user.password_changed = 1;
+        if (user && await bcrypt.compare(newPassword, user.password)) {
+            //Hash the new password and update the database 
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+            const updateStmt = db.prepare("UPDATE Auth SET password = ?, password_changed = 1 WHERE user_id = ?");
+            updateStmt.run(hashedPassword, req.session.user.user_id);
 
-        req.session.message = "Password changed successfully!";
-        res.redirect('/government');
-    } catch (err) {
-        console.error(err);
-        res.send("Error changing password");
+            req.session.user.password_changed = 1;
+            req.session.message = "Password changed successfully!";
+            return res.redirect('/government');
+        }
+        else {
+            req.session.message = "Current password is incorrect!";
+            return res.redirect('/auth?type=change');
+        }
+    } catch (error) {
+        console.error(error);
+        res.send('Error changing password');
     }
 });
-
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');

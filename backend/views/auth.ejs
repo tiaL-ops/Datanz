@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles/auth.css">
     <title>Authentication Page</title>
 </head>
 <body>
@@ -16,14 +16,6 @@
             <label>Username: <input type = "text" name = "username" required></label>
             <label>Password: <input type = "password" name = "password" required></label>
             <button type="submit">Log In</button>
-        </form>
-    <% } else if (type === 'change') { %>
-        <h2>Change Your Password</h2>
-        <form action = "/auth/change-password" method="POST">
-            <!-- Change password inputs -->
-            <label>Current Password: <input type = "password" name = "currentPassword" required></label>
-            <label>New Password: <input type = "password" name = "newPassword" required></label>
-            <button type="submit">Change Password</button>
         </form>
     <% } %> 
 </body>
