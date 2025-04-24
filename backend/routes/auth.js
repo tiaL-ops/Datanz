@@ -51,7 +51,7 @@ router.get('/change-password', (req, res) => {
     if (!req.session.user){
         return res.redirect('/auth?type=login');
     }
-    res.render('auth', { type: 'change' });
+    res.render('change-password');
 });
 
 router.post('/change-password', async (req, res) => {
