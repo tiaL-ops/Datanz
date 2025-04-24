@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS AnswerOption (
     question_id INTEGER NOT NULL,
     answer_value TEXT NOT NULL,
     answer_text TEXT NOT NULL,
-    FOREIGN KEY (question_id) REFERENCES Question(question_id),
-    answer_weight INTEGER ,
+    answer_weight INTEGER,
+    FOREIGN KEY (question_id) REFERENCES Question(question_id)
 );
 
 -- Facility table

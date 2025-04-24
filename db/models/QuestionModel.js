@@ -8,6 +8,8 @@ class QuestionModel {
         this.db = db;
     }
 
+    
+
     readAndLogQA(filePath) {
         fs.createReadStream(filePath)
           .pipe(csv({ headers: false }))
@@ -29,6 +31,38 @@ class QuestionModel {
       }
       
       importFromCSV(filePath) {
+        const weightMap = {
+          Q8: {
+            "Within 1 hour": 0,
+            "Between 2-3 hours": 1,
+            "More than 3 hours": 2,
+          },
+          Q9: {
+            "Yes": 1,
+            "No": 0,
+          },
+          Q10: {
+            "Yes": 1,
+            "No": 0,
+          },
+          Q12: {
+            "Yes": 0,
+            "Some": 1,
+            "None": 2,
+          },
+          Q14: {
+            "Yes": 1,
+            "Some": 0,
+          },
+          Q17: {
+            "Bad service": 0,
+            "Not satisfied": 1,
+            "Normal": 2,
+            "Good Service": 3,
+            "Very good": 4,
+          }
+        };
+      
         return new Promise((resolve, reject) => {
           fs.createReadStream(filePath)
             .pipe(csv({ headers: false }))
@@ -38,7 +72,6 @@ class QuestionModel {
       
               if (!question) return;
       
-              // Insert question
               const insertQuestion = this.db.prepare(
                 `INSERT INTO Question (question_text) VALUES (?)`
               );
@@ -48,15 +81,24 @@ class QuestionModel {
               if (rawAnswers) {
                 const answers = rawAnswers.split('\n').map(a => a.trim());
                 const insertAnswer = this.db.prepare(
-                  `INSERT INTO AnswerOption (question_id, answer_value, answer_text) VALUES (?, ?, ?)`
+                  `INSERT INTO AnswerOption (question_id, answer_value, answer_text, answer_weight) VALUES (?, ?, ?, ?)`
                 );
+      
+                const questionCodeMatch = question.match(/(Q\d+)/);
+                const questionCode = questionCodeMatch ? questionCodeMatch[1] : null;
       
                 answers.forEach(answer => {
                   const match = answer.match(/^(\d+)\.\s*(.+)$/);
                   if (match) {
                     const value = match[1];
                     const text = match[2];
-                    insertAnswer.run(questionId, value, text);
+                    let weight = null;
+      
+                    if (questionCode && weightMap[questionCode] && weightMap[questionCode][text] !== undefined) {
+                      weight = weightMap[questionCode][text];
+                    }
+      
+                    insertAnswer.run(questionId, value, text, weight);
                   }
                 });
               }
@@ -70,6 +112,7 @@ class QuestionModel {
             });
         });
       }
+      
       
 
     
