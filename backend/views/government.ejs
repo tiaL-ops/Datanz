@@ -246,11 +246,21 @@
   const facilities = <%- JSON.stringify(results) %>;
 
 function initMap() {
-  const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
+  const tanzaniaCenter = { lat: -3.3815250467144917, lng:  36.69821409099155 };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 9,
+    zoom: 15,
     center: tanzaniaCenter,
   });
+
+  const marker = new google.maps.Marker({
+    position: tanzaniaCenter,
+    map: map,
+    title: "Tanzania",
+    icon: {
+    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png" // Change to pink-dot.png, yellow-dot.png, etc.
+    }
+  });
+
 
   facilities.forEach(facility => {
     const marker = new google.maps.Marker({
@@ -258,7 +268,6 @@ function initMap() {
       map: map,
       title: facility.name
     });
-
     const infoWindow = new google.maps.InfoWindow({
       content: `<strong>${facility.name}</strong>`
     });
