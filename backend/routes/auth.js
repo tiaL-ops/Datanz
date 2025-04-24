@@ -39,7 +39,7 @@ router.post('/login', (req, res) => {
             res.send('Invalid username or password');
         }
     } catch (error) {
-        console.error(err);
+        console.error(error);
         res.send('Error logging in');
     }
 });
@@ -65,6 +65,7 @@ router.post('/change-password', (req, res) => {
         //Update session user info
         req.session.user.password_changed = 1;
 
+        req.session.message = "Password changed successfully!";
         res.redirect('/government');
     } catch (err) {
         console.error(err);
