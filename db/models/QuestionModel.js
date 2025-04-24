@@ -31,35 +31,36 @@ class QuestionModel {
       }
       
       importFromCSV(filePath) {
+        //so this weightMap is --> {question_id: {answer_value : weight}}
         const weightMap = {
-          Q8: {
-            "Within 1 hour": 0,
-            "Between 2-3 hours": 1,
-            "More than 3 hours": 2,
+          8: {
+            1: 0,
+            2: 1,
+            3: 2,
           },
-          Q9: {
-            "Yes": 1,
-            "No": 0,
+          9: {
+            1: 1,
+            3: 0,
           },
-          Q10: {
-            "Yes": 1,
-            "No": 0,
+          10: {
+            1: 1,
+            2: 0,
           },
-          Q12: {
-            "Yes": 0,
-            "Some": 1,
-            "None": 2,
+          12: {
+            1: 0,
+            2: 1,
+            3: 2,
           },
-          Q14: {
-            "Yes": 1,
-            "Some": 0,
+          14: {
+            1: 1,
+            2: 0,
           },
-          Q17: {
-            "Bad service": 0,
-            "Not satisfied": 1,
-            "Normal": 2,
-            "Good Service": 3,
-            "Very good": 4,
+          17: {
+            1: 0,
+            2: 1,
+            3: 2,
+            4: 3,
+            5: 4,
           }
         };
       
@@ -83,34 +84,43 @@ class QuestionModel {
                 const insertAnswer = this.db.prepare(
                   `INSERT INTO AnswerOption (question_id, answer_value, answer_text, answer_weight) VALUES (?, ?, ?, ?)`
                 );
-      
-                const questionCodeMatch = question.match(/(Q\d+)/);
-                const questionCode = questionCodeMatch ? questionCodeMatch[1] : null;
+                const questionCodeMatch= 0;
+                const questionMatchWeight = weightMap[questionId];
+               
+                
+              
+                const questionCode = weightMap[questionId];
+          
       
                 answers.forEach(answer => {
                   const match = answer.match(/^(\d+)\.\s*(.+)$/);
                   if (match) {
-                    const value = match[1];
+                    const value = match[1]; 
                     const text = match[2];
-                    let weight = null;
-      
-                    if (questionCode && weightMap[questionCode] && weightMap[questionCode][text] !== undefined) {
-                      weight = weightMap[questionCode][text];
-                    }
-      
-                    insertAnswer.run(questionId, value, text, weight);
+                
+              
+                    const numericValue = Number(value);
+                
+            
+                    const questionWeights = weightMap[questionId];
+                    const weight = questionWeights ? questionWeights[numericValue] ?? 0 : 0;
+                
+                    insertAnswer.run(questionId, numericValue, text, weight);
                   }
                 });
+                
               }
             })
             .on('end', () => {
-              console.log('CSV import completed.');
+              console.log('CSV Question& Answer import completed.');
               resolve();
             })
             .on('error', (err) => {
               reject(err);
             });
-        });
+        }
+      );
+        
       }
       
       
