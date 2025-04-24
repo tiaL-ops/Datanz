@@ -13,88 +13,27 @@ const db = connectToDatabase();
 // ! important , please drop tables and create new one because we d
 // check the table first to see if it is already populate the uncomment this if needed
 const questionModel = new QuestionModel(db); 
-questionModel.importFromCSV("./csv/Question&Answer - Sheet1.csv"); 
+
 
 const authModel= new AuthModel(db);
-authModel.createUser("hello", "hellotest@gmail.com", "doctor","hnfjsknfjsk%679");
+
 
 const facilityModel= new FacilityModel(db);
-facilityModel.loadFromCSV("/Users/norashaipi/Downloads/Facilities.csv");
+
 
 const responseModel= new ResponseModel(db);
+authModel.createUser("hi", "hi@gmail", "hi","government");
 
-responseModel.loadFromSurveyCSV("./csv/SampleCSV - SampleMock.csv");
+
 
 
 
 
 const fs = require('fs');
 
-const reportLines = [];
-
-reportLines.push("FACILITY DATA REPORT");
-reportLines.push("====================");
-reportLines.push(`Facility ID: 1`);
-reportLines.push(`Date: ${new Date().toLocaleDateString()}`);
-reportLines.push("\n");
-
-// Helper to format sections
-function addSection(title, data) {
-    reportLines.push(`${title}`);
-    reportLines.push("-".repeat(title.length));
-    if (Array.isArray(data)) {
-        if (data.length === 0) {
-            reportLines.push("No data available.");
-        } else {
-            data.forEach(row => {
-                reportLines.push(
-                    Object.entries(row).map(([key, val]) => `  ${key}: ${val}`).join("\n")
-                );
-                reportLines.push(""); 
-            });
-        }
-    } else {
-        Object.entries(data).forEach(([key, val]) => {
-            reportLines.push(`  ${key}: ${val}`);
-        });
-    }
-    reportLines.push("\n");
-}
-
-// Add sections
-addSection("Average Wait Time Stats", responseModel.getWaitingTimeStats(1));
-addSection("Satisfaction Distribution", responseModel.getSatisfactionDistribution(1));
-addSection("Confidentiality Stats", responseModel.getConfidentialityStats(1));
-addSection("Permission Before Exam Stats", responseModel.getPermissionBeforeExamStats(1));
-addSection("Test Completion Stats", responseModel.getTestCompletionStats(1));
-addSection("Medication Completion Stats", responseModel.getMedicationCompletionStats(1));
-addSection("Service Payment Modes", responseModel.getServicePaymentModes(1));
-addSection("Problem Area Frequency", responseModel.getProblemAreaFrequency(1));
-addSection("Positive Area Frequency", responseModel.getPositiveAreaFrequency(1));
-addSection("Total Response Count", responseModel.getResponseCount(1));
-addSection("Summary Stats", responseModel.getSummaryStats(1));
-addSection("Latest Responses from March 1, 2025", responseModel.getLatestResponses(1, '2025-03-01', 10));
-
-// Write to file
-fs.writeFileSync('datareport.txt', reportLines.join('\n'), 'utf-8');
 
 
 
-console.log(responseModel.getFacilityResponsesById(1));
-const facilityStats = {
-    facility_id: 1,
-    wait_time: responseModel.getWaitingTimeStats(1),
-    satisfaction: responseModel.getSatisfactionDistribution(1),
-    confidentiality: responseModel.getConfidentialityStats(1),
-    permission_before_exam: responseModel.getPermissionBeforeExamStats(1),
-    test_completion: responseModel.getTestCompletionStats(1),
-    medication_completion: responseModel.getMedicationCompletionStats(1),
-    payment_modes: responseModel.getServicePaymentModes(1),
-    problem_areas: responseModel.getProblemAreaFrequency(1),
-    positive_areas: responseModel.getPositiveAreaFrequency(1),
-  };
-  
-  fs.writeFileSync('facility_1_data.json', JSON.stringify(facilityStats, null, 2), 'utf-8');
 
 //const tes = responseModel.getServicePaymentModes(1);
 //console.log(tes);
