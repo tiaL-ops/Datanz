@@ -12,7 +12,7 @@
 
   <div class="scroll-wrapper">
     <h2>Top Best Facilities</h2>
-    <button type="button" class="scroll-arrow left" onclick="scrollLeft('bestScroll')">&#8249;</button>
+    <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
 
     <div class="scroll-container" id="bestScroll">
       <% topThreeBest.forEach(facility => { %>
@@ -28,7 +28,7 @@
 
   <div class="scroll-wrapper">
     <h2>Top Worst Facilities</h2>
-    <button type="button" class="scroll-arrow left" onclick="scrollLeft('worstScroll')">&#8249;</button>
+    <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
     <div class="scroll-container" id="worstScroll">
       <% bottomTenWorst.forEach(facility => { %>
         <div class="card">
@@ -244,27 +244,29 @@
 
 </body>
 <script>
-  function scrollLeft(id) {
+  function lefti(id) {
+    console.log("hiiii left");
     const container = document.getElementById(id);
     if (container) {
       container.scrollBy({
-        left: -300, // Scroll left by 300 pixels (adjust as needed)
-        behavior: 'smooth' // Smooth scrolling effect
+        left: -300,
+        behavior: 'smooth' 
       });
-      // console.log("Scrolled left for", id); // Optional: for debugging
+     
     } else {
       console.error("Scroll container not found with ID:", id);
     }
   }
 
   function scrollRight(id) {
+    console.log("hiiii right");
     const container = document.getElementById(id);
      if (container) {
       container.scrollBy({
         left: 300, 
         behavior: 'smooth' 
       });
-      // console.log("Scrolled right for", id); 
+    
      } else {
        console.error("Scroll container not found with ID:", id);
      }
