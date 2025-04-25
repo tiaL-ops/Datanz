@@ -89,15 +89,16 @@ router.get("/", (req, res) => {
     worstBy = responseModel.getBestWorstByArea(worstCategory);
   }
 
-  // 🔥 Sort using avgWeight from getWeightOfFacility()
+
   const sortedByWeight = [...filtered].sort((a, b) => {
     return (b.metrics.avgWeight || 0) - (a.metrics.avgWeight || 0);
   });
+  console.log(sortedByWeight);
   
   
 
-  const topThreeBest = sortedByWeight.slice(0, 3).map(f => f.metrics.avgWeight);
-  const bottomTenWorst = sortedByWeight.slice(-10).reverse().map(f => f.metrics.avgWeight);
+  const topThreeBest = sortedByWeight.slice(0, 3).map(f => f.name);
+  const bottomTenWorst = sortedByWeight.slice(-10).reverse().map(f => f.name);
   
 
   res.render("government", {
