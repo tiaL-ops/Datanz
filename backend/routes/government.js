@@ -86,8 +86,32 @@ router.get("/", (req, res) => {
     bestBy = responseModel.getBestWorstByArea(bestCategory);
   }
   if (worstCategory) {
-    worstBy = responseModel.getBestWorstByArea(worstCategory);
+    // Map which question_id matches each category
+    const questionMap = {
+      'waiting_time': 8,
+      'permission': 9,
+      'confidentiality': 10,
+      'tests': 12,
+      'medications': 14,
+      'satisfaction': 17
+    };
+  
+    const questionId = questionMap[worstCategory];
+  
+    if (questionId) {
+      const facilities = responseModel.getFacilityWeightByQuestion(questionId);
+      if (facilities.length > 0) {
+        worstBy = {
+          area: worstCategory,
+          worstFacilities: facilities.slice(0, 10) 
+        };
+      }
+    } else {
+      
+      worstBy = responseModel.getBestWorstByArea(worstCategory);
+    }
   }
+  
 
 
   const sortedByWeight = [...filtered].sort((a, b) => {

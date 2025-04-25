@@ -144,6 +144,8 @@ class QuestionModel {
         const stmt = this.db.prepare(query);
         stmt.run(); 
     }
+   
+
 }
 
 module.exports = QuestionModel;

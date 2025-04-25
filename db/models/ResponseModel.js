@@ -599,6 +599,27 @@ getBestWorstByArea(areaName) {
     }
     return { area: areaName, best, worst };
   }
+
+
+  getFacilityWeightByQuestion(question_id) {
+    const query = `
+      SELECT
+        f.facility_id,
+        f.name AS facility_name,
+        f.facility_code AS facility_code,
+        AVG(ao.answer_weight) AS average_weight,
+        COUNT(*) AS response_count
+      FROM Facility f
+      JOIN Response r ON f.facility_id = r.facility_id
+      JOIN AnswerOption ao ON r.answer_option_id = ao.id
+      WHERE r.question_id = ?
+        AND ao.answer_weight IS NOT NULL
+      GROUP BY f.facility_id
+      ORDER BY average_weight ASC
+    `;
+    return this.db.prepare(query).all(question_id);
+  }
+  
   
     
     

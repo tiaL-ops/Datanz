@@ -10,21 +10,7 @@
 
   <h1>Welcome <%= username %></h1>
 
-  <div class="scroll-wrapper">
-    <h2>Top Best Facilities</h2>
-    <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
-
-    <div class="scroll-container" id="bestScroll">
-      <% topThreeBest.forEach(facility => { %>
-        <div class="card">
-          <h3><%= facility %></h3>
-          <button>View Details</button>
-        </div>
-      <% }) %>
-    </div>
-
-    <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
-  </div>
+ 
 
   <div class="scroll-wrapper">
     <h2>Top Worst Facilities</h2>
@@ -40,7 +26,72 @@
 
     <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
   </div>
+  <div class="scroll-wrapper">
+    <h2>Top Best Facilities</h2>
+    <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
 
+    <div class="scroll-container" id="bestScroll">
+      <% topThreeBest.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility %></h3>
+          <button>View Details</button>
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
+  </div>
+  <section>
+    <h2>Highlight Worst Facilities by Area</h2>
+    <form method="get">
+      <div class="filter-group">
+        <label for="worstCategory">Select Area:</label>
+        <select id="worstCategory" name="worstCategory">
+          <option value="">— none —</option>
+  
+          <optgroup label="Metrics (Weight-based)">
+            <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
+            <option value="permission" <%= filters.worstCategory==='permission' ? 'selected' : '' %>>Permission Before Exam</option>
+            <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>>Confidentiality</option>
+            <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>>Receiving All Tests</option>
+            <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>>Receiving All Medications</option>
+            <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>>Overall Satisfaction</option>
+          </optgroup>
+  
+          <optgroup label="Facility Areas (Mention-based)">
+            <% areas.forEach(area => { %>
+              <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
+            <% }) %>
+          </optgroup>
+        </select>
+      </div>
+  
+      <button type="submit">Apply</button>
+    </form>
+  </section>
+  
+  <% if (worstBy) { %>
+    <section>
+      <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
+      <div class="scroll-wrapper">
+        <div class="scroll-container" id="areaWorstScroll">
+          <% worstBy.worstFacilities.forEach(facility => { %>
+            <div class="card">
+              <h3><%= facility.facility_name %></h3>
+              <p>Code: <%= facility.facility_code %></p>
+              <% if (facility.bad_count !== undefined) { %>
+                <p>Mentions: <%= facility.bad_count %></p>
+              <% } else { %>
+                <p>Average Weight: <%= facility.average_weight.toFixed(2) %></p>
+              <% } %>
+            </div>
+          <% }) %>
+        </div>
+        <button type="button" class="scroll-arrow left" onclick="lefti('areaWorstScroll')">&#8249;</button>
+        <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
+      </div>
+    </section>
+  <% } %>
   <form method="get">
     <h2>Refine Search</h2>
 
@@ -168,15 +219,7 @@
       </select>
     </div>
 
-    <div class="filter-group">
-      <label for="worstCategory">Highlight the worst facilities in this area:</label>
-      <select id="worstCategory" name="worstCategory">
-        <option value="">— none —</option>
-        <% areas.forEach(area => { %>
-          <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
-        <% }) %>
-      </select>
-    </div>
+   
 
     <button type="submit">Apply Filters</button>
   </form>
@@ -194,16 +237,9 @@
   <% } %>
 
 
-  <% if (worstBy) { %>
-    <section>
-      <h2>Worst facility for “<%= worstBy.area %>”</h2>
-      <p>
-        <strong><%= worstBy.worst.facility_name %></strong>
-        (Code: <%= worstBy.worst.facility_code %>)<br>
-        Mentions: <%= worstBy.worst.bad_count %>
-      </p>
-    </section>
-  <% } %>
+
+  
+  
 
 
   <% if (results && results.length) { %>
