@@ -12,11 +12,36 @@
 
  
   <form method="get">
-    <div>
-      here are top best : <%=topThreeBest %>
-      here are top worst : <%=bottomTenWorst %>
- 
-    </div>
+ <!-- Top Best -->
+<div class="scroll-container">
+  <h2>Top Best Facilities</h2>
+  <button class="scroll-arrow left" onclick="scrollLeft('bestRow')">&#8249;</button>
+  <div class="scroll-row" id="bestRow">
+    <% topThreeBest.forEach(function(facility) { %>
+      <div class="card">
+        <h3><%= facility %></h3>
+        <button>View Details</button>
+      </div>
+    <% }); %>
+  </div>
+  <button class="scroll-arrow right" onclick="scrollRight('bestRow')">&#8250;</button>
+</div>
+
+<!-- Top Worst -->
+<div class="scroll-container">
+  <h2>Top Worst Facilities</h2>
+  <button class="scroll-arrow left" onclick="scrollLeft('worstRow')">&#8249;</button>
+  <div class="scroll-row" id="worstRow">
+    <% bottomTenWorst.slice(0, 3).forEach(function(facility) { %>
+      <div class="card">
+        <h3><%= facility %></h3>
+        <button>View Details</button>
+      </div>
+    <% }); %>
+  </div>
+  <button class="scroll-arrow right" onclick="scrollRight('worstRow')">&#8250;</button>
+</div>
+    
     <h2>Refine Search</h2>
   
     <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
@@ -221,4 +246,13 @@
   <% } %>
 
 </body>
+<script>
+  function scrollLeft(id) {
+    document.getElementById(id).scrollBy({ left: -220, behavior: 'smooth' });
+  }
+
+  function scrollRight(id) {
+    document.getElementById(id).scrollBy({ left: 220, behavior: 'smooth' });
+  }
+</script>
 </html>

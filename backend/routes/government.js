@@ -93,7 +93,7 @@ router.get("/", (req, res) => {
   const sortedByWeight = [...filtered].sort((a, b) => {
     return (b.metrics.avgWeight || 0) - (a.metrics.avgWeight || 0);
   });
-  console.log(sortedByWeight);
+
   
   
 
