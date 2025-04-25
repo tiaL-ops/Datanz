@@ -97,7 +97,7 @@ router.get("/", (req, res) => {
   
   
 
-  const topThreeBest = sortedByWeight.slice(0, 3).map(f => f.name);
+  const topThreeBest = sortedByWeight.slice(0,10).map(f => f.name);
   const bottomTenWorst = sortedByWeight.slice(-10).reverse().map(f => f.name);
   
 

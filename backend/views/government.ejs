@@ -4,51 +4,50 @@
   <meta charset="UTF-8">
   <title>District Official</title>
   <link rel="stylesheet" href="/styles/government.css" />
+  
 </head>
 <body>
 
   <h1>Welcome <%= username %></h1>
 
+  <div class="scroll-wrapper">
+    <h2>Top Best Facilities</h2>
+    <button type="button" class="scroll-arrow left" onclick="scrollLeft('bestScroll')">&#8249;</button>
 
- 
+    <div class="scroll-container" id="bestScroll">
+      <% topThreeBest.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility %></h3>
+          <button>View Details</button>
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
+  </div>
+
+  <div class="scroll-wrapper">
+    <h2>Top Worst Facilities</h2>
+    <button type="button" class="scroll-arrow left" onclick="scrollLeft('worstScroll')">&#8249;</button>
+    <div class="scroll-container" id="worstScroll">
+      <% bottomTenWorst.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility %></h3>
+          <button>View Details</button>
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
+  </div>
+
   <form method="get">
- <!-- Top Best -->
-<div class="scroll-container">
-  <h2>Top Best Facilities</h2>
-  <button class="scroll-arrow left" onclick="scrollLeft('bestRow')">&#8249;</button>
-  <div class="scroll-row" id="bestRow">
-    <% topThreeBest.forEach(function(facility) { %>
-      <div class="card">
-        <h3><%= facility %></h3>
-        <button>View Details</button>
-      </div>
-    <% }); %>
-  </div>
-  <button class="scroll-arrow right" onclick="scrollRight('bestRow')">&#8250;</button>
-</div>
-
-<!-- Top Worst -->
-<div class="scroll-container">
-  <h2>Top Worst Facilities</h2>
-  <button class="scroll-arrow left" onclick="scrollLeft('worstRow')">&#8249;</button>
-  <div class="scroll-row" id="worstRow">
-    <% bottomTenWorst.slice(0, 3).forEach(function(facility) { %>
-      <div class="card">
-        <h3><%= facility %></h3>
-        <button>View Details</button>
-      </div>
-    <% }); %>
-  </div>
-  <button class="scroll-arrow right" onclick="scrollRight('worstRow')">&#8250;</button>
-</div>
-    
     <h2>Refine Search</h2>
-  
+
     <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
       Use the filters below to find facilities that meet your expectations.
     </p>
-  
-    <!-- left column -->
+
     <div class="filter-group">
       <label for="region">Region</label>
       <select id="region" name="region">
@@ -58,10 +57,10 @@
         <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
       </select>
     </div>
-  
+
     <div class="filter-group">
       <label for="waitThreshold">
-        Show facilities where average wait is more than 
+        Show facilities where average wait is more than
         <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> minutes
       </label>
       <input
@@ -73,10 +72,10 @@
         oninput="waitVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="satThreshold">
-        Only show facilities where satisfaction is below 
+        Only show facilities where satisfaction is below
         <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> out of 5
       </label>
       <input
@@ -88,10 +87,10 @@
         oninput="satVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="confiThreshold">
-        Facilities with confidentiality concerns in 
+        Facilities with confidentiality concerns in
         <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>% or more of visits
       </label>
       <input
@@ -103,11 +102,10 @@
         oninput="confVal.textContent = this.value"
       >
     </div>
-  
-    <!-- right column -->
+
     <div class="filter-group">
       <label for="permThreshold">
-        Show facilities where permission was not respected in 
+        Show facilities where permission was not respected in
         <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>% or more of visits
       </label>
       <input
@@ -119,10 +117,10 @@
         oninput="permVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="testThreshold">
-        Highlight where 
+        Highlight where
         <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>% or more visits had missing tests
       </label>
       <input
@@ -134,10 +132,10 @@
         oninput="testVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="medThreshold">
-        Facilities where patients missed medications in 
+        Facilities where patients missed medications in
         <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>% or more visits
       </label>
       <input
@@ -149,7 +147,7 @@
         oninput="medVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="paymentMode">Prefer facilities where most patients pay with:</label>
       <select id="paymentMode" name="paymentMode">
@@ -159,7 +157,7 @@
         <option value="Free"      <%= filters.paymentMode==='Free'      ? 'selected' : '' %>>Free</option>
       </select>
     </div>
-  
+
     <div class="filter-group">
       <label for="bestCategory">Highlight the best facilities in this area:</label>
       <select id="bestCategory" name="bestCategory">
@@ -169,7 +167,7 @@
         <% }) %>
       </select>
     </div>
-  
+
     <div class="filter-group">
       <label for="worstCategory">Highlight the worst facilities in this area:</label>
       <select id="worstCategory" name="worstCategory">
@@ -179,10 +177,9 @@
         <% }) %>
       </select>
     </div>
-  
+
     <button type="submit">Apply Filters</button>
   </form>
-  
 
 
   <% if (bestBy) { %>
@@ -191,7 +188,7 @@
       <p>
         <strong><%= bestBy.best.facility_name %></strong>
         (Code: <%= bestBy.best.facility_code %>)<br>
-      
+
       </p>
     </section>
   <% } %>
@@ -208,7 +205,7 @@
     </section>
   <% } %>
 
-  
+
   <% if (results && results.length) { %>
     <table>
       <caption>Matching Facilities: <%= results.length %></caption>
@@ -228,7 +225,7 @@
           <td><%= fac.name %></td>
           <td><%= fac.facility_code %></td>
           <td><%= fac.location %></td>
-          <td><%= m.avgWait.toFixed(1) %> min</td>
+          <td><%= m.avgWait.toFixed(1) %>&nbsp;min</td>
           <td><%= m.avgSat %></td>
           <td><%= (100 - m.yesConfi).toFixed(0) %>%</td>
           <td><%= (100 - m.yesPerm).toFixed(0) %>%</td>
@@ -248,11 +245,29 @@
 </body>
 <script>
   function scrollLeft(id) {
-    document.getElementById(id).scrollBy({ left: -220, behavior: 'smooth' });
+    const container = document.getElementById(id);
+    if (container) {
+      container.scrollBy({
+        left: -300, // Scroll left by 300 pixels (adjust as needed)
+        behavior: 'smooth' // Smooth scrolling effect
+      });
+      // console.log("Scrolled left for", id); // Optional: for debugging
+    } else {
+      console.error("Scroll container not found with ID:", id);
+    }
   }
 
   function scrollRight(id) {
-    document.getElementById(id).scrollBy({ left: 220, behavior: 'smooth' });
+    const container = document.getElementById(id);
+     if (container) {
+      container.scrollBy({
+        left: 300, 
+        behavior: 'smooth' 
+      });
+      // console.log("Scrolled right for", id); 
+     } else {
+       console.error("Scroll container not found with ID:", id);
+     }
   }
 </script>
 </html>
