@@ -527,6 +527,38 @@ getResponseBreakdownByQuestion(facility_id, question_id) {
     
         return this.db.prepare(query).all(facility_id);
     }
+
+    getWeightOfFacility(facility_id) {
+        const query = `
+            WITH weighted_responses AS (
+                SELECT 
+                    r.patient_id,
+                    r.facility_id,
+                    SUM(a.answer_weight) AS total_patient_weight
+                FROM Response r
+                JOIN AnswerOption a ON r.answer_option_id = a.id
+                WHERE r.facility_id = ?
+                  AND r.question_id IN (8, 9, 10, 12, 14, 17)
+                  AND a.answer_weight IS NOT NULL
+                GROUP BY r.patient_id, r.facility_id
+            )
+            SELECT 
+                f.facility_id,
+                f.name,
+                AVG(wr.total_patient_weight) AS average_weight,
+                SUM(wr.total_patient_weight) AS total_weight,
+                COUNT(wr.patient_id) AS total_responses
+            FROM Facility f
+            JOIN weighted_responses wr ON f.facility_id = wr.facility_id
+            WHERE f.facility_id = ?
+            GROUP BY f.facility_id;
+        `;
+    
+        return this.db.prepare(query).get(facility_id, facility_id);
+    }
+    
+    
+    
  
 
   
@@ -567,6 +599,27 @@ getBestWorstByArea(areaName) {
     }
     return { area: areaName, best, worst };
   }
+
+
+  getFacilityWeightByQuestion(question_id) {
+    const query = `
+      SELECT
+        f.facility_id,
+        f.name AS facility_name,
+        f.facility_code AS facility_code,
+        AVG(ao.answer_weight) AS average_weight,
+        COUNT(*) AS response_count
+      FROM Facility f
+      JOIN Response r ON f.facility_id = r.facility_id
+      JOIN AnswerOption ao ON r.answer_option_id = ao.id
+      WHERE r.question_id = ?
+        AND ao.answer_weight IS NOT NULL
+      GROUP BY f.facility_id
+      ORDER BY average_weight ASC
+    `;
+    return this.db.prepare(query).all(question_id);
+  }
+  
   
     
     

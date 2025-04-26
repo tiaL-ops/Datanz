@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cs-205-s25/project-2-a#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "better-sqlite3": "^11.9.1",
     "csv-parser": "^3.2.0",
     "ejs": "^3.1.10",

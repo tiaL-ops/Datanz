@@ -131,6 +131,97 @@
       color: #374151;
       border-bottom: 1px solid #E5E7EB;
     }
+ 
+
+    .scroll-wrapper {
+      position: relative;
+      margin-bottom: 40px;
+    }
+  
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 10px 40px;
+    }
+  
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+  
+    .scroll-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      cursor: pointer;
+      z-index: 1;
+      border-radius: 50%;
+    }
+  
+    .scroll-arrow.left {
+      left: 0;
+    }
+  
+    .scroll-arrow.right {
+      right: 0;
+    }
+  
+    .card {
+      width: 250px;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      background: white;
+      text-align: center;
+    }
+  
+    .card button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  
+    h2 {
+      margin: 10px 40px;
+    }
+
+    /*modal*/
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 80%;
+      max-width: 1000px;
+      position: relative;
+    }
+    
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    
     .switch {
       position: relative;
       display: inline-block;

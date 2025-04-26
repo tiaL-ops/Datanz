@@ -10,14 +10,108 @@
   <h1>Welcome <%= username %></h1>
 
  
+
+  <div class="scroll-wrapper">
+    <h2>Top Worst Facilities</h2>
+    <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
+    <div class="scroll-container" id="worstScroll">
+      <% bottomTenWorst.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility.name %></h3>
+          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
+
+            View Details
+          </button>
+          
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
+  </div>
+  <div class="scroll-wrapper">
+    <h2>Top Best Facilities</h2>
+    <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
+
+    <div class="scroll-container" id="bestScroll">
+      <% topThreeBest.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility.name %></h3>
+          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
+
+            View Details
+          </button>
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
+  </div>
+  <section>
+    <h2>Highlight Worst Facilities by Area</h2>
+    <form method="get">
+      <div class="filter-group">
+        <label for="worstCategory">Select Area:</label>
+        <select id="worstCategory" name="worstCategory">
+          <option value="">— none —</option>
+  
+          <optgroup label="Metrics (Weight-based)">
+            <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
+            <option value="permission" <%= filters.worstCategory==='permission' ? 'selected' : '' %>>Permission Before Exam</option>
+            <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>>Confidentiality</option>
+            <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>>Receiving All Tests</option>
+            <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>>Receiving All Medications</option>
+            <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>>Overall Satisfaction</option>
+          </optgroup>
+  
+          <optgroup label="Facility Areas (Mention-based)">
+            <% areas.forEach(area => { %>
+              <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
+            <% }) %>
+          </optgroup>
+        </select>
+      </div>
+  
+      <button type="submit">Apply</button>
+    </form>
+  </section>
+  
+  <% if (worstBy) { %>
+    <section>
+      <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
+      <div class="scroll-wrapper">
+        <div class="scroll-container" id="areaWorstScroll">
+          <% worstBy.worstFacilities.forEach(facility => { %>
+            <div class="card">
+              <h3><%= facility.facility_name %></h3>
+              <p>Code: <%= facility.facility_code %></p>
+  
+              <% if (facility.bad_count !== undefined) { %>
+                <p>Mentions: <%= facility.bad_count %></p>
+              <% } else { %>
+                <p>Average Weight: <%= facility.average_weight.toFixed(2) %></p>
+              <% } %>
+  
+              <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)'>
+                View Details
+              </button>
+            </div>
+          <% }) %>
+        </div>
+  
+        <button type="button" class="scroll-arrow left" onclick="lefti('areaWorstScroll')">&#8249;</button>
+        <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
+      </div>
+    </section>
+  <% } %>
+  
   <form method="get">
     <h2>Refine Search</h2>
-  
+
     <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
       Use the filters below to find facilities that meet your expectations.
     </p>
-  
-    <!-- left column -->
+
     <div class="filter-group">
       <label for="region">Region</label>
       <select id="region" name="region">
@@ -27,10 +121,10 @@
         <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
       </select>
     </div>
-  
+
     <div class="filter-group">
       <label for="waitThreshold">
-        Show facilities where average wait is more than 
+        Show facilities where average wait is more than
         <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> minutes
       </label>
       <input
@@ -42,10 +136,10 @@
         oninput="waitVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="satThreshold">
-        Only show facilities where satisfaction is below 
+        Only show facilities where satisfaction is below
         <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> out of 5
       </label>
       <input
@@ -57,10 +151,10 @@
         oninput="satVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="confiThreshold">
-        Facilities with confidentiality concerns in 
+        Facilities with confidentiality concerns in
         <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>% or more of visits
       </label>
       <input
@@ -72,11 +166,10 @@
         oninput="confVal.textContent = this.value"
       >
     </div>
-  
-    <!-- right column -->
+
     <div class="filter-group">
       <label for="permThreshold">
-        Show facilities where permission was not respected in 
+        Show facilities where permission was not respected in
         <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>% or more of visits
       </label>
       <input
@@ -88,10 +181,10 @@
         oninput="permVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="testThreshold">
-        Highlight where 
+        Highlight where
         <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>% or more visits had missing tests
       </label>
       <input
@@ -103,10 +196,10 @@
         oninput="testVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="medThreshold">
-        Facilities where patients missed medications in 
+        Facilities where patients missed medications in
         <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>% or more visits
       </label>
       <input
@@ -118,7 +211,7 @@
         oninput="medVal.textContent = this.value"
       >
     </div>
-  
+
     <div class="filter-group">
       <label for="paymentMode">Prefer facilities where most patients pay with:</label>
       <select id="paymentMode" name="paymentMode">
@@ -128,7 +221,7 @@
         <option value="Free"      <%= filters.paymentMode==='Free'      ? 'selected' : '' %>>Free</option>
       </select>
     </div>
-  
+
     <div class="filter-group">
       <label for="bestCategory">Highlight the best facilities in this area:</label>
       <select id="bestCategory" name="bestCategory">
@@ -138,17 +231,9 @@
         <% }) %>
       </select>
     </div>
-  
-    <div class="filter-group">
-      <label for="worstCategory">Highlight the worst facilities in this area:</label>
-      <select id="worstCategory" name="worstCategory">
-        <option value="">— none —</option>
-        <% areas.forEach(area => { %>
-          <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
-        <% }) %>
-      </select>
-    </div>
-  
+
+   
+
     <button type="submit">Apply Filters</button>
   </form>
   
@@ -170,24 +255,17 @@
       <p>
         <strong><%= bestBy.best.facility_name %></strong>
         (Code: <%= bestBy.best.facility_code %>)<br>
-      
+
       </p>
     </section>
   <% } %>
 
 
-  <% if (worstBy) { %>
-    <section>
-      <h2>Worst facility for “<%= worstBy.area %>”</h2>
-      <p>
-        <strong><%= worstBy.worst.facility_name %></strong>
-        (Code: <%= worstBy.worst.facility_code %>)<br>
-        Mentions: <%= worstBy.worst.bad_count %>
-      </p>
-    </section>
-  <% } %>
 
   
+  
+
+
   <% if (results && results.length) { %>
     <table>
       <caption>Matching Facilities: <%= results.length %></caption>
@@ -207,7 +285,7 @@
           <td><%= fac.name %></td>
           <td><%= fac.facility_code %></td>
           <td><%= fac.location %></td>
-          <td><%= m.avgWait.toFixed(1) %> min</td>
+          <td><%= m.avgWait.toFixed(1) %>&nbsp;min</td>
           <td><%= m.avgSat %></td>
           <td><%= (100 - m.yesConfi).toFixed(0) %>%</td>
           <td><%= (100 - m.yesPerm).toFixed(0) %>%</td>
@@ -227,52 +305,77 @@
 
 <div id="map"></div>
 
+  <div id="facilityModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
+      <h2 id="modalFacilityName"></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+            <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+            <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
+            <th>Top Problems</th><th>Top Positives</th>
+          </tr>
+        </thead>
+        <tbody id="modalFacilityDetails">
+          <!-- Dynamic content -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  </div>
+  
+
 </body>
+
+<script src="/js/government.js"></script>
 <script>
   const checkbox = document.getElementById('myToggle');
-  const table = document.querySelector('table');
+const table = document.querySelector('table');
 
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      table.style.display = 'none';
-      document.getElementById('map').style.display = 'block';
-    } else {
-      table.style.display = 'table';
-      document.getElementById('map').style.display = 'none';
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    table.style.display = 'none';
+    document.getElementById('map').style.display = 'block';
+  } else {
+    table.style.display = 'table';
+    document.getElementById('map').style.display = 'none';
 
-    }
-  });
+  }
+});
 
-  const facilities = <%- JSON.stringify(results) %>;
+const facilities = <%- JSON.stringify(results) %>;
 
 function initMap() {
-  const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 9,
-    center: tanzaniaCenter,
+const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
+const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 9,
+  center: tanzaniaCenter,
+});
+
+facilities.forEach(facility => {
+  const marker = new google.maps.Marker({
+    position: { lat: facility.ltd, lng: facility.lng },
+    map: map,
+    title: facility.name
   });
 
-  facilities.forEach(facility => {
-    const marker = new google.maps.Marker({
-      position: { lat: facility.ltd, lng: facility.lng },
-      map: map,
-      title: facility.name
-    });
-
-    const infoWindow = new google.maps.InfoWindow({
-      content: `<strong>${facility.name}</strong>`
-    });
-
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
-    });
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<strong>${facility.name}</strong>`
   });
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+});
 }
 </script>
 
-  <script async
+<script async
   src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
-
 </script>
+
 
 </html>

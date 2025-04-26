@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS Auth (
     usertype TEXT NOT NULL, -- e.g. 'government', 'doctor' // agian not usre if doctor will acutally be there, need duisussion
     password TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
-    created_at TEXT NOT NULL
+    created_at TEXT NOT NULL,
+    password_changed INTEGER DEFAULT 0,
 );
 
 -- Question table: stores question text
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS AnswerOption (
     question_id INTEGER NOT NULL,
     answer_value TEXT NOT NULL,
     answer_text TEXT NOT NULL,
+    answer_weight INTEGER,
     FOREIGN KEY (question_id) REFERENCES Question(question_id)
 );
 

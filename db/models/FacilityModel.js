@@ -115,15 +115,16 @@ class FacilityModel{
 
     }
 
-    getFacilityByCode(code){
-        
-        const query= `SELECT facility_id FROM Facility WHERE facility_code = ?`
-        const stmt= this.db.prepare(query);
-        const result= stmt.get(code);
- 
-        return result;
 
-    }
+    getFacilityByCode(facilityCode) {
+        const query = `
+          SELECT facility_id, facility_code, name, location
+          FROM Facility
+          WHERE facility_code = ?
+        `;
+        return this.db.prepare(query).get(facilityCode);
+      }
+      
 
 getFacilityHeadContact(id){
      const query= `SELECT headO_name, headO_contact  FROM Facility WHERE facility_id = ?`
@@ -148,6 +149,8 @@ deleteFacility(id){
      const stmt= this.db.prepare(query);
     return stmt.run(id);
 }
+
+
 
 }
 module.exports = FacilityModel;
