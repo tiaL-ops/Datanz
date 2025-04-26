@@ -8,8 +8,6 @@ class QuestionModel {
         this.db = db;
     }
 
-    
-
     readAndLogQA(filePath) {
         fs.createReadStream(filePath)
           .pipe(csv({ headers: false }))
