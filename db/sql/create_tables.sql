@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS AnswerOption (
     question_id INTEGER NOT NULL,
     answer_value TEXT NOT NULL,
     answer_text TEXT NOT NULL,
+    answer_weight INTEGER,
     FOREIGN KEY (question_id) REFERENCES Question(question_id)
 );
 
