@@ -86,7 +86,6 @@ router.get("/", (req, res) => {
     bestBy = responseModel.getBestWorstByArea(bestCategory);
   }
   if (worstCategory) {
-    // Map which question_id matches each category
     const questionMap = {
       'waiting_time': 8,
       'permission': 9,
@@ -99,18 +98,80 @@ router.get("/", (req, res) => {
     const questionId = questionMap[worstCategory];
   
     if (questionId) {
-      const facilities = responseModel.getFacilityWeightByQuestion(questionId);
+      let facilities = responseModel.getFacilityWeightByQuestion(questionId);
+  
+      // ADD METRICS here
+      facilities = facilities.map(f => {
+        const facility = facilityModel.getFacilityByCode(f.facility_code); // get full facility row
+        if (!facility) return null;
+  
+        const id = facility.facility_id;
+        const weightStats = responseModel.getWeightOfFacility(id) || {};
+  
+        const metrics = {
+          avgWeight: weightStats.average_weight || 0,
+          totalWeight: weightStats.total_weight || 0,
+          totalResponses: weightStats.total_responses || 0,
+          avgWait: responseModel.getWaitingTimeStats(id).average_wait_time_minutes || 0,
+          avgSat: Number(responseModel.getSatisfactionDistribution(id).average) || 0,
+          yesConfi: Number(responseModel.getConfidentialityStats(id).average_percent_yes) || 0,
+          yesPerm: Number(responseModel.getPermissionBeforeExamStats(id).average_percent_yes) || 0,
+          yesTests: Number(responseModel.getTestCompletionStats(id).average_percent_yes) || 0,
+          yesMeds: Number(responseModel.getMedicationCompletionStats(id).average_percent_yes) || 0,
+          topProblems: responseModel.getProblemAreaFrequency(id).map(p => p.problem_area),
+          topPositives: responseModel.getPositiveAreaFrequency(id).map(p => p.positive_area),
+          topPayMode: responseModel.getServicePaymentModes(id).most_common,
+          areaSatisfaction: responseModel.getAreaSatisfactionWithScore(id)
+        };
+  
+        return { ...facility, ...f, metrics };
+      }).filter(Boolean); // remove nulls if facility not found
+  
       if (facilities.length > 0) {
         worstBy = {
           area: worstCategory,
-          worstFacilities: facilities.slice(0, 10) 
+          worstFacilities: facilities.slice(0, 10)
         };
       }
+  
     } else {
-      
-      worstBy = responseModel.getBestWorstByArea(worstCategory);
+      // normal area based, not metric based
+      let facilities = responseModel.getBestWorstByArea(worstCategory).worstFacilities || [];
+  
+      facilities = facilities.map(f => {
+        const facility = facilityModel.getFacilityByCode(f.facility_code);
+        if (!facility) return null;
+  
+        const id = facility.facility_id;
+        const weightStats = responseModel.getWeightOfFacility(id) || {};
+  
+        const metrics = {
+          avgWeight: weightStats.average_weight || 0,
+          totalWeight: weightStats.total_weight || 0,
+          totalResponses: weightStats.total_responses || 0,
+          avgWait: responseModel.getWaitingTimeStats(id).average_wait_time_minutes || 0,
+          avgSat: Number(responseModel.getSatisfactionDistribution(id).average) || 0,
+          yesConfi: Number(responseModel.getConfidentialityStats(id).average_percent_yes) || 0,
+          yesPerm: Number(responseModel.getPermissionBeforeExamStats(id).average_percent_yes) || 0,
+          yesTests: Number(responseModel.getTestCompletionStats(id).average_percent_yes) || 0,
+          yesMeds: Number(responseModel.getMedicationCompletionStats(id).average_percent_yes) || 0,
+          topProblems: responseModel.getProblemAreaFrequency(id).map(p => p.problem_area),
+          topPositives: responseModel.getPositiveAreaFrequency(id).map(p => p.positive_area),
+          topPayMode: responseModel.getServicePaymentModes(id).most_common,
+          areaSatisfaction: responseModel.getAreaSatisfactionWithScore(id)
+        };
+  
+        return { ...facility, ...f, metrics };
+      }).filter(Boolean);
+  
+      worstBy = {
+        area: worstCategory,
+        worstFacilities: facilities.slice(0, 10)
+      };
     }
   }
+  
+   
   
 
 
@@ -121,8 +182,9 @@ router.get("/", (req, res) => {
   
   
 
-  const topThreeBest = sortedByWeight.slice(0,10).map(f => f.name);
-  const bottomTenWorst = sortedByWeight.slice(-10).reverse().map(f => f.name);
+  const topThreeBest = sortedByWeight.slice(0, 10); 
+  const bottomTenWorst = sortedByWeight.slice(-10).reverse();
+  
   
 
   res.render("government", {
