@@ -9,6 +9,7 @@ const facilityModel = new FacilityModel(db);
 const responseModel = new ResponseModel(db);
 
 router.get("/", (req, res) => {
+  let toggled = false;
   const username = req.session.user?.username;
   const areas = ["Toilets", "Pharmacy/Drugs", "Reception", "Doctor's room"];
 
@@ -195,21 +196,12 @@ router.get("/", (req, res) => {
     worstBy,
     results: filtered,
     topThreeBest,
-    bottomTenWorst
+    bottomTenWorst,
+    toggled: false  
   });
 });
 
 
-router.get("/map", (req, res) => {
-  try {
-    const allFacilities = facilityModel.getAllFacilities();
-    res.render("map", {
-      facilities: allFacilities
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Failed to fetch facilities");
-  }
-});
+
 
 module.exports = router;

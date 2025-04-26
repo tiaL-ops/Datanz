@@ -236,8 +236,19 @@
 
     <button type="submit">Apply Filters</button>
   </form>
+  
+  <br>
+  <label class="switch">
+    <input type="checkbox" id="myToggle">
+    <span class="slider round"></span>
+  </label>
 
-
+  <% if (!toggled){ %> 
+  
+   
+  <% } else { %>
+ 
+  <%} %>
   <% if (bestBy) { %>
     <section>
       <h2>Best facility for “<%= bestBy.area %>”</h2>
@@ -290,6 +301,9 @@
   <% } else { %>
     <p><em>No facilities match those filters.</em></p>
   <% } %>
+<br>
+
+<div id="map"></div>
 
   <div id="facilityModal" class="modal" style="display:none;">
     <div class="modal-content">
@@ -315,6 +329,53 @@
   
 
 </body>
+
 <script src="/js/government.js"></script>
+<script>
+  const checkbox = document.getElementById('myToggle');
+const table = document.querySelector('table');
+
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    table.style.display = 'none';
+    document.getElementById('map').style.display = 'block';
+  } else {
+    table.style.display = 'table';
+    document.getElementById('map').style.display = 'none';
+
+  }
+});
+
+const facilities = <%- JSON.stringify(results) %>;
+
+function initMap() {
+const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
+const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 9,
+  center: tanzaniaCenter,
+});
+
+facilities.forEach(facility => {
+  const marker = new google.maps.Marker({
+    position: { lat: facility.ltd, lng: facility.lng },
+    map: map,
+    title: facility.name
+  });
+
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<strong>${facility.name}</strong>`
+  });
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+});
+}
+</script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+</script>
+
 
 </html>

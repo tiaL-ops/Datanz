@@ -1,3 +1,5 @@
+
+
 function lefti(id) {
     console.log("hiiii left");
     const container = document.getElementById(id);

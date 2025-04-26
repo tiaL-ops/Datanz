@@ -11,9 +11,19 @@ const db = connectToDatabase();
 
 
 
-const responseModel= new ResponseModel(db);
+// use this to add user to the database
+
+
+
+const authModel= new AuthModel(db);
+authModel.createUser("hi", "hi@gmail", "hi","government");
 
 
 
 
-console.log(responseModel.getWeightOfFacility(10));
+
+
+
+
+
+
