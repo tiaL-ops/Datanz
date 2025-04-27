@@ -59,88 +59,122 @@ class ResponseModel{
     constructor(db){
         this.db=db;
     }
+    parseDate(raw) {
+        if (!raw || typeof raw !== 'string') return null;
+    
+        // Try MM/DD/YYYY or M/D/YYYY
+        const parts = raw.trim().split('/');
+        if (parts.length === 3) {
+          let [m, d, y] = parts;
+          if (y.length === 2) y = '20' + y;
+          m = m.padStart(2,'0');
+          d = d.padStart(2,'0');
+          const iso = `${y}-${m}-${d}T00:00:00Z`;
+          if (!isNaN(Date.parse(iso))) {
+            return iso;
+          }
+        }
+    
+        // Try ISO
+        const dt = new Date(raw);
+        if (!isNaN(dt.getTime())) {
+          return dt.toISOString();
+        }
+    
+        // on failure, return null
+        return null;
+      }
 
     generatePatientId() {
         return crypto.randomBytes(6).toString('hex'); // e.g. 'ab12cd34ef56'
     }
 
     loadFromSurveyCSV(filePath) {
-        const facilityModel= new FacilityModel(db);
-        console.log("here");
-        const getFacilityId = this.db.prepare(`SELECT facility_id FROM Facility WHERE facility_code = ?`);
-        const getQuestionId = this.db.prepare(`SELECT question_id FROM Question WHERE question_text = ?`);
+        const facilityModel = new FacilityModel(db);
+    
+        const getFacilityId = this.db.prepare(`
+            SELECT facility_id FROM Facility WHERE facility_code = ?
+        `);
+    
+        const getQuestionId = this.db.prepare(`
+            SELECT question_id FROM Question WHERE question_text = ?
+        `);
+    
         const getAnswerOptionId = this.db.prepare(`
             SELECT id FROM AnswerOption WHERE question_id = ? AND answer_text = ?
         `);
+    
         const insertResponse = this.db.prepare(`
-            INSERT INTO Response (patient_id, facility_id, question_id, answer_option_id)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO Response (patient_id, facility_id, question_id, answer_option_id, submitted_at)
+            VALUES (?, ?, ?, ?, ?)
         `);
-
-        // Map CSV headers to question text in DB
+    
+        // Map CSV headers to database questions
         const questionMap = {
-           'Language': 'Thank you for reaching out to the government Client Feedback system for health services. Select your preferred language.',
-           'FacilityCode': "Please enter the health facility code as written on the poster/leaflet or shared by the Health facility worker.",
-           'Age':'Please enter your age in years (between 10 and 99 years)',
-    'Gender': 'What is your gender?',
-    'Pregnant': 'Are you currently pregnant?',
-    'GestionalAge':'Please state your gestational age (pregnancy) by week. (If you answered 1 in question 5)',
-    'Location':'Where are you located as you provide this feedback?',
-    "WaitingTime":'After arriving at the facility, how long did it take you to get attended?',
-    "Confidentiality" :'Were you satisfied with the confidentiality while receiving treatment?',
-    "Communication": 'Did the HCW use easy language to help you understand what services you were receiving?',
-    'GotAllTests': 'Did you get all the tests that had been written/prescribed?',
-    "TestReasons":'Why didnt you get all the tests you were prescribed? (If you answer 2 or 3 to question 12)',
-    "Permission":'Were you asked for permission before being examined?',
-    'GotAllMedecines': 'Did you get all your prescribed medication?',
-    'MedecineReason': 'Why didnt you get all the prescribed medicines? (If you answered 2 or 3 to question 14)',
-
-
-    'Payment method': 'How did you pay for services at the health center?',
-    'Overall satisfaction': 'Are you satisfied with all our services in general?',
-    'Good':'Which area has satisfied you? (If you answer 4 or 5 to question 17)',
-    'Bad':'Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)',
-    'Time received':'Time submitted',
+            'Language': 'Thank you for reaching out to the government Client Feedback system for health services. Select your preferred language.',
+            'FacilityCode': "Please enter the health facility code as written on the poster/leaflet or shared by the Health facility worker.",
+            'Age': 'Please enter your age in years (between 10 and 99 years)',
+            'Gender': 'What is your gender?',
+            'Pregnant': 'Are you currently pregnant?',
+            'GestionalAge': 'Please state your gestational age (pregnancy) by week. (If you answered 1 in question 5)',
+            'Location': 'Where are you located as you provide this feedback?',
+            'WaitingTime': 'After arriving at the facility, how long did it take you to get attended?',
+            'Confidentiality': 'Were you satisfied with the confidentiality while receiving treatment?',
+            'Communication': 'Did the HCW use easy language to help you understand what services you were receiving?',
+            'GotAllTests': 'Did you get all the tests that had been written/prescribed?',
+            'TestReasons': 'Why didnt you get all the tests you were prescribed? (If you answer 2 or 3 to question 12)',
+            'Permission': 'Were you asked for permission before being examined?',
+            'GotAllMedecines': 'Did you get all your prescribed medication?',
+            'MedecineReason': 'Why didnt you get all the prescribed medicines? (If you answered 2 or 3 to question 14)',
+            'Payment method': 'How did you pay for services at the health center?',
+            'Overall satisfaction': 'Are you satisfied with all our services in general?',
+            'Good': 'Which area has satisfied you? (If you answer 4 or 5 to question 17)',
+            'Bad': 'Which area did not satisfy you? (If you answered 1, 2 or 3 to question 17)',
+            'Time received': 'Time submitted' // internal mapping
         };
-
+    
         fs.createReadStream(filePath)
             .pipe(csv())
             .on('data', (row) => {
                 const patientId = this.generatePatientId();
+    
                 const facilityCode = row['FacilityCode']?.trim();
-                const facility =  facilityModel.getFacilityByCode(facilityCode);
-
-
+                if (!facilityCode) return;
+    
+                const facility = facilityModel.getFacilityByCode(facilityCode);
                 if (!facility) return;
-
+    
                 const facilityId = facility.facility_id;
-
+    
+                const timeReceivedRaw = row['Time received']?.trim();
+                const timeReceived = this.parseDate(timeReceivedRaw); // 👈 parse date properly
+    
+                if (!timeReceived) return; // if no time, skip
+    
                 for (const [csvKey, questionText] of Object.entries(questionMap)) {
+                    if (csvKey === 'FacilityCode' || csvKey === 'Time received') {
+                        continue; // skip these special fields
+                    }
+    
                     const answerText = row[csvKey]?.trim();
                     if (!answerText) continue;
-
+    
                     const question = getQuestionId.get(questionText);
-                    if (!question) {
-                       //console.warn(`Question not found: ${questionText}`);
-                        continue;
-                    }
-
+                    if (!question) continue;
+    
                     const questionId = question.question_id;
+    
                     const answer = getAnswerOptionId.get(questionId, answerText);
-                    if (!answer) {
-                        //console.warn(`Answer option not found: "${answerText}" for question "${questionText}"`);
-                        continue;
-                    }
-                    
-
-                    insertResponse.run(patientId, facilityId, questionId, answer.id);
+                    if (!answer) continue;
+    
+                    insertResponse.run(patientId, facilityId, questionId, answer.id, timeReceived);
                 }
             })
             .on('end', () => {
                 console.log('All patient responses inserted into the Response table.');
             });
     }
-
+    
 
 
 

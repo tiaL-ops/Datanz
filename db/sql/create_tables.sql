@@ -2,12 +2,13 @@
 CREATE TABLE IF NOT EXISTS Auth (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
-    usertype TEXT NOT NULL, -- e.g. 'government', 'doctor' // agian not usre if doctor will acutally be there, need duisussion
+    usertype TEXT NOT NULL, -- e.g. 'government', 'doctor'
     password TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     created_at TEXT NOT NULL,
-    password_changed INTEGER DEFAULT 0,
+    password_changed INTEGER DEFAULT 0
 );
+
 
 -- Question table: stores question text
 CREATE TABLE IF NOT EXISTS Question (
@@ -45,8 +46,9 @@ CREATE TABLE IF NOT EXISTS Response (
     facility_id INTEGER,
     question_id INTEGER,
     answer_option_id INTEGER,
-    submitted_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    submitted_at DATETIME NOT NULL,
     FOREIGN KEY (facility_id) REFERENCES Facility(facility_id),
     FOREIGN KEY (question_id) REFERENCES Question(question_id),
     FOREIGN KEY (answer_option_id) REFERENCES AnswerOption(id)
 );
+
