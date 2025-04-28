@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Auth (
     password TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     created_at TEXT NOT NULL,
-    password_changed INTEGER DEFAULT 0,
+    password_changed INTEGER DEFAULT 0
 );
 
 -- Question table: stores question text
