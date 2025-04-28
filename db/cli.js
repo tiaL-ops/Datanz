@@ -13,10 +13,13 @@ const db = connectToDatabase();
 
 // use this to add user to the database
 
-
-
 const authModel= new AuthModel(db);
-authModel.createUser("hi", "hi@gmail", "hi","government");
+//authModel.createUser("hi", "hi@gmail", "hi","government");
+
+const responseModel = new ResponseModel(db);
+
+const results = responseModel.getFacilityWeightbyTime(17, '2024-04-01', '2024-04-30');
+console.log(results);
 
 
 
