@@ -6,6 +6,18 @@ const { connectToDatabase } = require("../../db/database");
 const db = connectToDatabase();
 const fs = require('fs');
 
+
+router.get('/map-view', async (req, res) => {
+  try {
+    const facilityInstance = new facilityModel(db);
+    const facilities = await facilityInstance.getAllFacilities();
+    res.render('map-view', { facilities });
+  } catch (error) {
+    console.error('Error fetching facilities for map view:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 router.get('/', async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = 50;
@@ -57,16 +69,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/map-view', async (req, res) => {
-  try {
-    const facilityInstance = new facilityModel(db);
-    const facilities = await facilityInstance.getAllFacilities();
-    res.render('map-view', { facilities });
-  } catch (error) {
-    console.error('Error fetching facilities for map view:', error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+
 
 router.get('/:id', async (req, res) => {
   try {

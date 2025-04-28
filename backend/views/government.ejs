@@ -337,12 +337,20 @@ checkbox.addEventListener('change', () => {
 const facilities = <%- JSON.stringify(results) %>;
 
 function initMap() {
-const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
+const tanzaniaCenter = { lat: -3.383545, lng:  36.689744};
 const map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 9,
+  zoom: 13,
   center: tanzaniaCenter,
 });
-
+const market = new google.maps.Marker({
+    position: tanzaniaCenter,
+    map: map,
+    title: "Tanzania Center",
+    icon: {
+        url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    }
+});
 facilities.forEach(facility => {
   const marker = new google.maps.Marker({
     position: { lat: facility.ltd, lng: facility.lng },
