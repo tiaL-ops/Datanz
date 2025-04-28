@@ -18,7 +18,7 @@ const authModel= new AuthModel(db);
 
 const responseModel = new ResponseModel(db);
 
-const results = responseModel.getFacilityWeightbyTime(17, '2024-04-01', '2024-04-30');
+const results = responseModel.getAverageSatisfactionOverTime('2024-04-01', '2024-04-30');
 console.log(results);
 
 

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>District Official</title>
   <link rel="stylesheet" href="/styles/government.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
 
@@ -13,6 +15,8 @@
 
   <div class="scroll-wrapper">
     <h2>Top Worst Facilities</h2>
+    <button type="button" onclick="setLastMonth()">Last 30 Days</button>
+
     <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
     <div class="scroll-container" id="worstScroll">
       <% bottomTenWorst.forEach(facility => { %>
@@ -104,6 +108,12 @@
       </div>
     </section>
   <% } %>
+
+  <section>
+    <h2>Facility Trend Over Time</h2>
+    <canvas id="timeTrendChart" style="max-width: 100%; height: 400px;"></canvas>
+  </section>
+  
   
   <form method="get">
     <h2>Refine Search</h2>
@@ -121,6 +131,26 @@
         <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
       </select>
     </div>
+    <div class="filter-group">
+      <label for="startDate">Start Date</label>
+      <input
+        id="startDate"
+        name="startDate"
+        type="date"
+        value="<%= filters.startDate || '' %>"
+      >
+    </div>
+    
+    <div class="filter-group">
+      <label for="endDate">End Date</label>
+      <input
+        id="endDate"
+        name="endDate"
+        type="date"
+        value="<%= filters.endDate || '' %>"
+      >
+    </div>
+    
 
     <div class="filter-group">
       <label for="waitThreshold">
@@ -331,6 +361,7 @@
 </body>
 
 <script src="/js/government.js"></script>
+
 <script>
   const checkbox = document.getElementById('myToggle');
 const table = document.querySelector('table');
@@ -370,6 +401,44 @@ facilities.forEach(facility => {
     infoWindow.open(map, marker);
   });
 });
+}
+
+const trendData = <%- JSON.stringify(trendData) %>;
+  
+if (trendData && trendData.length) {
+  const ctx = document.getElementById('timeTrendChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: trendData.map(item => item.date),
+      datasets: [{
+        label: 'Average Satisfaction',
+        data: trendData.map(item => item.average_satisfaction),
+        fill: false,
+        borderColor: 'blue',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Date'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Satisfaction Score'
+          },
+          min: 0,
+          max: 5
+        }
+      }
+    }
+  });
 }
 </script>
 

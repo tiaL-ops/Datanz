@@ -58,3 +58,11 @@ function lefti(id) {
 function closeFacilityPopup() {
   document.getElementById('facilityModal').style.display = 'none';
 }
+function setLastMonth() {
+  const today = new Date();
+  const lastMonth = new Date();
+  lastMonth.setDate(today.getDate() - 30);
+
+  document.getElementById('startDate').value = lastMonth.toISOString().split('T')[0];
+  document.getElementById('endDate').value = today.toISOString().split('T')[0];
+}

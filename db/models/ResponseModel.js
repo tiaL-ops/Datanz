@@ -676,6 +676,21 @@ getBestWorstByArea(areaName) {
     
     return this.db.prepare(query).all(question_id, startDate, endDate);
 }
+getAverageSatisfactionOverTime(startDate, endDate) {
+    const query = `
+      SELECT 
+        DATE(submitted_at) as date,
+        AVG(CASE WHEN ao.answer_weight IS NOT NULL THEN ao.answer_weight ELSE NULL END) as average_satisfaction
+      FROM Response r
+      JOIN AnswerOption ao ON r.answer_option_id = ao.id
+      WHERE r.question_id = 17
+        AND DATE(submitted_at) BETWEEN DATE(?) AND DATE(?)
+      GROUP BY DATE(submitted_at)
+      ORDER BY DATE(submitted_at)
+    `;
+    return this.db.prepare(query).all(startDate, endDate);
+  }
+  
 
     
     
