@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   const responseModel = new ResponseModel(db);
 
   try {
-    const facilityInstance = new facilityModel(db); 
+    const facilityInstance = new facilityModel(db);
     const facilities = await facilityInstance.getAllFacilities();
 
     const fullStats = facilities.map(facility => {
@@ -57,6 +57,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/map-view', async (req, res) => {
+  try {
+    const facilityInstance = new facilityModel(db);
+    const facilities = await facilityInstance.getAllFacilities();
+    res.render('map-view', { facilities });
+  } catch (error) {
+    console.error('Error fetching facilities for map view:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 router.get('/:id', async (req, res) => {
   try {
@@ -66,7 +76,7 @@ router.get('/:id', async (req, res) => {
     const gov = false;
     const head0_name = null;
 
-    
+
     const facilityDetails = await facilityInstance.getFacilityById(id);
     const facility = await facilityInstance.getFacilityById(id);
 
@@ -80,26 +90,26 @@ router.get('/:id', async (req, res) => {
     const paymentModes = await responseModel.getServicePaymentModes(id);
     const problemAreas = await responseModel.getProblemAreaFrequency(id);
     const positiveAreas = await responseModel.getPositiveAreaFrequency(id);
-    const recentResponses = await responseModel.getLatestResponses(id); 
-    const summaryStats = await responseModel.getSummaryStats(id); 
-/*
-    const report = responseModel.generateFacilityReport({
-      id,
-      date: new Date().toLocaleDateString(),
-      waitTime,
-      satisfaction,
-      confidentiality,
-      permission,
-      testCompletion,
-      medCompletion,
-      paymentModes,
-      problemAreas,
-      positiveAreas,
-      recentResponses,
-      summaryStats,
-    });
-*/
-    
+    const recentResponses = await responseModel.getLatestResponses(id);
+    const summaryStats = await responseModel.getSummaryStats(id);
+    /*
+        const report = responseModel.generateFacilityReport({
+          id,
+          date: new Date().toLocaleDateString(),
+          waitTime,
+          satisfaction,
+          confidentiality,
+          permission,
+          testCompletion,
+          medCompletion,
+          paymentModes,
+          problemAreas,
+          positiveAreas,
+          recentResponses,
+          summaryStats,
+        });
+    */
+
     res.render('facilities_id', {
       id,
       gov,
@@ -122,7 +132,7 @@ router.get('/:id', async (req, res) => {
         summaryStats
       }
     });
-    
+
 
   } catch (error) {
     console.error('Error fetching facility responses:', error);
@@ -131,95 +141,96 @@ router.get('/:id', async (req, res) => {
 });
 
 function applyFilters(facility, filters) {
-    // 1. Wait time
-    if (filters.wait_time) {
-      const actualWait = facility.wait_time.average_wait_time_minutes;
-      console.log(actualWait);
-      if (actualWait < Number(filters.wait_time)) return false;
+  // 1. Wait time
+  if (filters.wait_time) {
+    const actualWait = facility.wait_time.average_wait_time_minutes;
+    console.log(actualWait);
+    if (actualWait < Number(filters.wait_time)) return false;
+  }
+  if (filters.satisfaction) {
+    const actualSatisfaction = facility.satisfaction.average;
+    console.log(actualSatisfaction);
+    if (actualSatisfaction < Number(filters.satisfaction)) return false;
+  }
+
+  // 2. Confidentiality
+  /*
+  if (filters.confidentiality === 'yes') {
+      const percent = facility.confidentiality.average_percent_yes;
+      if (!percent || percent < 50) return false;
     }
-    if (filters.satisfaction) {
-        const actualSatisfaction = facility.satisfaction.average;
-        console.log(actualSatisfaction);
-        if (actualSatisfaction < Number(filters.satisfaction)) return false;
-      }
-  
-    // 2. Confidentiality
-    /*
-    if (filters.confidentiality === 'yes') {
-        const percent = facility.confidentiality.average_percent_yes;
-        if (!percent || percent < 50) return false;
-      }
-        */
-      if (filters.confidentiality) {
-        const percent = facility.confidentiality.average_percent_yes || 0;
-        console.log("confi",percent);
-        if (filters.confidentiality === 'somewhat') {
-          if (percent < 50) return false;
-        }
-      
-        if (filters.confidentiality === 'very') {
-          if (percent < 70) return false;
-        }
-      
-        // if it's "not", we skip filtering
-        return true;
-      }
-    
-  
-    // 3. Permission before exam
-    if (filters.permission_before_exam) {
-        const percent = facility.permission_before_exam.average_percent_yes || 0;
-        console.log("per",percent);
-        if (filters.confidentiality === 'somewhat') {
-          if (percent < 50) return false;
-        }
-      
-        if (filters.confidentiality === 'very') {
-          if (percent < 70) return false;
-        }
-      
-        // if it's "not", we skip filtering
-        return true;
+      */
+  if (filters.confidentiality) {
+    const percent = facility.confidentiality.average_percent_yes || 0;
+    console.log("confi", percent);
+    if (filters.confidentiality === 'somewhat') {
+      if (percent < 50) return false;
     }
-  
-    // 4. Gave all tes eds test_completion
-    if (filters.received_all_tests) {
-        const percent = facility.test_completion.average_percent_yes || 0;
-        console.log("periii",percent);
-        if (filters.confidentiality === 'somewhat') {
-          if (percent < 50) return false;
-        }
-      
-        if (filters.confidentiality === 'very') {
-          if (percent < 70) return false;
-        }
-      
-        // if it's "not", we skip filtering
-        return true;
+
+    if (filters.confidentiality === 'very') {
+      if (percent < 70) return false;
     }
-     // 4. Gave all meds test_completion
-     if (filters.received_all_meds) {
-        const percent = facility.medication_completion.average_percent_yes || 0;
-        console.log("poi",percent);
-        if (filters.confidentiality === 'somewhat') {
-          if (percent < 50) return false;
-        }
-      
-        if (filters.confidentiality === 'very') {
-          if (percent < 70) return false;
-        }
-      
-        // if it's "not", we skip filtering
-        return true;
-    }
-  
-    // 5. Payment method
-    if (filters.service_payment_mode) {
-      const found = facility.payment_modes.find(e => e.service_payment_mode === filters.service_payment_mode)?.count || 0;
-      if (found === 0) return false;
-    }
-  
+
+    // if it's "not", we skip filtering
     return true;
   }
-  
+
+
+  // 3. Permission before exam
+  if (filters.permission_before_exam) {
+    const percent = facility.permission_before_exam.average_percent_yes || 0;
+    console.log("per", percent);
+    if (filters.confidentiality === 'somewhat') {
+      if (percent < 50) return false;
+    }
+
+    if (filters.confidentiality === 'very') {
+      if (percent < 70) return false;
+    }
+
+    // if it's "not", we skip filtering
+    return true;
+  }
+
+  // 4. Gave all tes eds test_completion
+  if (filters.received_all_tests) {
+    const percent = facility.test_completion.average_percent_yes || 0;
+    console.log("periii", percent);
+    if (filters.confidentiality === 'somewhat') {
+      if (percent < 50) return false;
+    }
+
+    if (filters.confidentiality === 'very') {
+      if (percent < 70) return false;
+    }
+
+    // if it's "not", we skip filtering
+    return true;
+  }
+  // 4. Gave all meds test_completion
+  if (filters.received_all_meds) {
+    const percent = facility.medication_completion.average_percent_yes || 0;
+    console.log("poi", percent);
+    if (filters.confidentiality === 'somewhat') {
+      if (percent < 50) return false;
+    }
+
+    if (filters.confidentiality === 'very') {
+      if (percent < 70) return false;
+    }
+
+    // if it's "not", we skip filtering
+    return true;
+  }
+
+  // 5. Payment method
+  if (filters.service_payment_mode) {
+    const found = facility.payment_modes.find(e => e.service_payment_mode === filters.service_payment_mode)?.count || 0;
+    if (found === 0) return false;
+  }
+
+  return true;
+}
+
+
 module.exports = router;
