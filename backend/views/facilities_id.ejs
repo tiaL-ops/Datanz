@@ -8,12 +8,10 @@
 </head>
 <body>
 
- 
   <header class="facility-header">
     <h1>Facility <%= facilityDetails.facility_id %> – <%= facilityDetails.name %></h1>
     <p>Here’s what we have to say.</p>
   </header>
-
 
   <section class="facility-summary">
     <ul>
@@ -25,9 +23,14 @@
     </ul>
   </section>
 
-
   <section class="qa-section">
     <div class="qa-grid">
+
+      <% function rateQuality(value, goodThreshold, badThreshold) {
+          if (value >= goodThreshold) return 'Good';
+          if (value < badThreshold) return 'Bad';
+          return 'Average';
+      } %>
 
       
       <div class="qa-item">
@@ -35,38 +38,43 @@
         <p><%= reportData.waitTime.average_wait_time_minutes %> minutes</p>
       </div>
 
-      
+    
       <div class="qa-item">
         <h3>Satisfaction</h3>
-        <p>Average: <%= reportData.satisfaction.average %></p>
+        <p>Status: <%= rateQuality(reportData.satisfaction.average, 4, 2.5) %></p>
+        <p>Average Score: <%= reportData.satisfaction.average %></p>
         <p>Total Responses: <%= reportData.satisfaction.total %></p>
       </div>
 
    
       <div class="qa-item">
         <h3>Confidentiality</h3>
+        <p>Status: <%= rateQuality(reportData.confidentiality.average_percent_yes, 80, 50) %></p>
         <p>Yes (%): <%= reportData.confidentiality.average_percent_yes %></p>
       </div>
 
      
       <div class="qa-item">
         <h3>Permission Before Exam</h3>
+        <p>Status: <%= rateQuality(reportData.permission.average_percent_yes, 80, 50) %></p>
         <p>Yes (%): <%= reportData.permission.average_percent_yes %></p>
       </div>
 
       
       <div class="qa-item">
         <h3>Test Completion</h3>
+        <p>Status: <%= rateQuality(reportData.testCompletion.average_percent_yes, 80, 50) %></p>
         <p>Yes (%): <%= reportData.testCompletion.average_percent_yes %></p>
       </div>
 
-   
+      
       <div class="qa-item">
         <h3>Medication Completion</h3>
+        <p>Status: <%= rateQuality(reportData.medCompletion.average_percent_yes, 80, 50) %></p>
         <p>Yes (%): <%= reportData.medCompletion.average_percent_yes %></p>
       </div>
 
-      
+
       <div class="qa-item">
         <h3>Payment Modes</h3>
         <p>Most Common: <%= reportData.paymentModes.most_common %></p>
@@ -87,7 +95,7 @@
         </ul>
       </div>
 
-      
+    
       <div class="qa-item">
         <h3>Positive Areas</h3>
         <ul>
@@ -97,7 +105,7 @@
         </ul>
       </div>
 
-     
+    
       <div class="qa-item">
         <h3>Summary Stats</h3>
         <ul>
@@ -110,7 +118,6 @@
 
     </div>
   </section>
-
 
   <section class="back-link">
     <% if (gov) { %>
