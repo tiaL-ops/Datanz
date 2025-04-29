@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>District Official</title>
+  <style>
+    #map {
+        height: 650px;
+        width: 90%;
+        margin: 0 auto; /* Centers the map horizontally */
+        display: block; /* Ensures the map is treated as a block element */
+    }
+
+    .back {
+        text-decoration: underline; /* Adds an underline to the link */
+
+        padding: 20px ;
+  font-size: 1.5rem;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+    .back  a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.back a:hover {
+  color: #666;
+}
+
+   
+</style>
+      <link rel="stylesheet" href="/styles/facilities.css" />
+
+</head>
+<body>
+    <header class="top-nav">
+        <div class="logo"><a href="/">DATANZ</a></div>
+        <ul class="nav-links">
+          <li><a href="/">Home page</a></li>
+          <li><a href="/auth?type=login">Login</a></li>
+    
+        </ul>
+      </header>
+      <div class="back"><a href = "/facilities">
+        <ul>Go Back</a></ul>
+    </div>
+    <div id="map"></div>
+    <br>
+</body>
+<script>
+const facilities = <%- JSON.stringify(facilities) %>;
+
+function initMap() {
+const tanzaniaCenter = { lat: -3.383545, lng:  36.689744 };
+const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 15,
+  center: tanzaniaCenter,
+});
+const market = new google.maps.Marker({
+    position: tanzaniaCenter,
+    map: map,
+    title: "Tanzania Center",
+    icon: {
+        url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    }
+});
+
+facilities.forEach(facility => {
+  const marker = new google.maps.Marker({
+    position: { lat: facility.ltd, lng: facility.lng },
+    map: map,
+    title: facility.name
+  });
+
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<strong>${facility.name}</strong>`
+  });
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+});
+}
+</script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+</script>
+</html>

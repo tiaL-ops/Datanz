@@ -295,12 +295,6 @@
     <span class="slider round"></span>
   </label>
 
-  <% if (!toggled){ %> 
-  
-   
-  <% } else { %>
- 
-  <%} %>
   <% if (bestBy) { %>
     <section>
       <h2>Best facility for “<%= bestBy.area %>”</h2>
@@ -311,12 +305,6 @@
       </p>
     </section>
   <% } %>
-
-
-
-  
-  
-
 
   <% if (results && results.length) { %>
     <table>
@@ -408,12 +396,17 @@ checkbox.addEventListener('change', () => {
 const facilities = <%- JSON.stringify(results) %>;
 
 function initMap() {
-const tanzaniaCenter = { lat: -6.3690, lng: 34.8888 };
+const tanzaniaCenter = { lat: -3.383545, lng:  36.689744};
 const map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 9,
+  zoom: 13,
   center: tanzaniaCenter,
 });
-
+const market = new google.maps.Marker({
+    position: tanzaniaCenter,
+    map: map,
+    title: "Tanzania Center",
+   
+});
 facilities.forEach(facility => {
   const marker = new google.maps.Marker({
     position: { lat: facility.ltd, lng: facility.lng },
@@ -421,9 +414,27 @@ facilities.forEach(facility => {
     title: facility.name
   });
 
+  if(facility.metrics.avgWeight <= 3){
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  } else if (facility.metrics.avgWeight > 3 && facility.metrics.avgWeight <= 4) {
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  } else if (facility.metrics.avgWeight > 4 && facility.metrics.avgWeight <= 5) {
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  }
+
   const infoWindow = new google.maps.InfoWindow({
-    content: `<strong>${facility.name}</strong>`
-  });
+  content: `<strong><a href="/facilities/${facility.facility_id}">${facility.name}</a></strong>`
+});
+
 
   marker.addListener("click", () => {
     infoWindow.open(map, marker);
