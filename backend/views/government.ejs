@@ -11,9 +11,8 @@
 
 
   <header class="top-nav">
-    <div class="logo"><a href="/">DATANZ</a></div>
+    <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
     <ul class="nav-links">
-      <li><a href="/">Home page</a></li>
       <li><a href="/auth/logout">Signout</a></li>
 
     </ul>
@@ -30,10 +29,8 @@
         <div class="card">
           <h3><%= facility.name %></h3>
           <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
-
             View Details
           </button>
-          
         </div>
       <% }) %>
     </div>
@@ -527,7 +524,23 @@ async function loadTrendData() {
     console.error('Error fetching trend data:', err);
   }
 }
+  // Select the DATANZ link
+  const datanzLink = document.getElementById("datanzLink");
 
+ // Add a click event listener
+datanzLink.addEventListener("click", (event) => {
+  event.preventDefault(); // Prevent the default link behavior
+
+  // Display a confirmation dialog
+  const userConfirmed = confirm(
+    "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
+  );
+
+  // If the user clicks "OK", navigate to the main page
+  if (userConfirmed) {
+    window.location.href = "/"; // Redirect to the main page
+  }
+});
 
 
 </script>
