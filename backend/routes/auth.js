@@ -85,9 +85,9 @@ router.post('/change-password', async (req, res) => {
         res.send('Error changing password');
     }
 });
+
 router.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
+    res.render('auth', { type: 'logout' });
 } );
 
 

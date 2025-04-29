@@ -9,12 +9,19 @@
 </head>
 <body>
 
+
+  <header class="top-nav">
+    <div class="logo"><a href="/">DATANZ</a></div>
+    <ul class="nav-links">
+      <li><a href="/">Home page</a></li>
+      <li><a href="/auth/logout">Signout</a></li>
+
+    </ul>
+  </header>
   <h1>Welcome <%= username %></h1>
 
- 
-
   <div class="scroll-wrapper">
-    <h2>Top Worst Facilities</h2>
+    <h2>Worst Facilities</h2>
     <button type="button" onclick="setLastMonth()">Last 30 Days</button>
 
     <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
@@ -34,7 +41,7 @@
     <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
   </div>
   <div class="scroll-wrapper">
-    <h2>Top Best Facilities</h2>
+    <h2>Best Facilities</h2>
     <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
 
     <div class="scroll-container" id="bestScroll">
