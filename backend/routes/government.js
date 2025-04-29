@@ -198,7 +198,6 @@ router.get("/", (req, res) => {
   });
 
   const topThreeBest = sortedByWeight.slice(0, 10); 
-  const topThreeBest = sortedByWeight.slice(0, 10);
   const bottomTenWorst = sortedByWeight.slice(-10).reverse();
 
   // Render
