@@ -707,6 +707,23 @@ getAverageSatisfactionOverTime(startDate, endDate) {
     return this.db.prepare(query).all(facilityid, startDate, endDate);
   }
   
+  getAverageSatisfactionOverTimeRegion(regionName, startDate, endDate) {
+    const query = `
+      SELECT 
+        DATE(r.submitted_at) AS date,
+        AVG(CASE WHEN ao.answer_weight IS NOT NULL THEN ao.answer_weight ELSE NULL END) AS average_satisfaction
+      FROM Response r
+      JOIN Facility f ON r.facility_id = f.facility_id
+      JOIN AnswerOption ao ON r.answer_option_id = ao.id
+      WHERE r.question_id = 17
+        AND f.location LIKE ?
+        AND DATE(r.submitted_at) BETWEEN DATE(?) AND DATE(?)
+      GROUP BY DATE(r.submitted_at)
+      ORDER BY DATE(r.submitted_at)
+    `;
+    return this.db.prepare(query).all(`${regionName} Region%`, startDate, endDate);
+  }
+  
   
 
     

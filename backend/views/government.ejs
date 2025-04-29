@@ -116,14 +116,24 @@
       <label for="trendFacilitySelect">Select Facility for Trend:</label>
       <select id="trendFacilitySelect">
         <option value="all" selected>All Facilities (default)</option>
-        <% results.forEach(facility => { %>
-          <option value="<%= facility.facility_id %>"><%= facility.name %></option>
-        <% }); %>
+      
+        <optgroup label="By Facility">
+          <% results.forEach(facility => { %>
+            <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
+          <% }); %>
+        </optgroup>
+      
+        <optgroup label="By Region">
+          <option value="region-Arusha">Arusha</option>
+          <option value="region-Kilimanjaro">Kilimanjaro</option>
+          <option value="region-Tanga">Tanga</option>
+        </optgroup>
       </select>
       
     </div>
   
-    <canvas id="timeTrendChart" style="max-width: 100%; height: 400px;"></canvas>
+    <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
+
   </section>
   
   
@@ -425,6 +435,8 @@ let chart = null;
 
 function drawTrend(trendData) {
   const ctx = document.getElementById('timeTrendChart').getContext('2d');
+ 
+
 
   if (chart) {
     chart.destroy();  // destroy previous chart
@@ -452,38 +464,52 @@ function drawTrend(trendData) {
   });
 }
 
-document.getElementById('trendFacilitySelect').addEventListener('change', async (e) => {
-  const facilityId = e.target.value;
-  
-  if (!facilityId) return;
 
-  const startDate = document.getElementById('startDate')?.value || '';
-  const endDate = document.getElementById('endDate')?.value || '';
+const trendSelect = document.getElementById('trendFacilitySelect');
+const startInput  = document.getElementById('startDate');
+const endInput    = document.getElementById('endDate');
 
-  const url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
+trendSelect.addEventListener('change', loadTrendData);
+startInput?.addEventListener('change', loadTrendData);
+endInput?.addEventListener('change', loadTrendData);
 
-  const res = await fetch(url);
-  const data = await res.json();
 
-  drawTrend(data);
-});
+window.addEventListener('DOMContentLoaded', loadTrendData);
+
 async function loadTrendData() {
-  const facilityId = document.getElementById('trendFacilitySelect').value;
-  const startDate = document.getElementById('startDate')?.value || '';
-  const endDate = document.getElementById('endDate')?.value || '';
+  const selected  = trendSelect.value;
+  const startDate = startInput?.value || '';
+  const endDate   = endInput?.value   || '';
 
   let url;
-  if (facilityId === 'all') {
+  if (selected === 'all') {
     url = `/government/api/trend-all?startDate=${startDate}&endDate=${endDate}`;
-  } else {
+  } 
+  else if (selected.startsWith('facility-')) {
+    // facility-123 → 123
+    const facilityId = selected.substring('facility-'.length);
     url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
+  } 
+  else if (selected.startsWith('region-')) {
+    // region-North → North
+    const regionName = selected.substring('region-'.length);
+    url = `/government/api/trend-region/${encodeURIComponent(regionName)}?startDate=${startDate}&endDate=${endDate}`;
+  } 
+  else {
+    console.error('Invalid selection:', selected);
+    return;
   }
 
-  const res = await fetch(url);
-  const data = await res.json();
-
-  drawTrend(data);
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.statusText);
+    const data = await res.json();
+    drawTrend(data);
+  } catch (err) {
+    console.error('Error fetching trend data:', err);
+  }
 }
+
 
 
 </script>

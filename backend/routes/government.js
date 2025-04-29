@@ -234,6 +234,20 @@ router.get('/api/trend-all', (req, res) => {
   
   res.json(trend);
 });
+router.get("/api/trend-region/:region", (req, res) => {
+  console.log("called aoi region");
+  const { region } = req.params;
+  const { startDate, endDate } = req.query;
+
+  try {
+    let data = responseModel.getAverageSatisfactionOverTimeRegion(region, startDate || "2024-01-01",  endDate || '2024-12-31');
+    
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch region trend data." });
+  }
+});
 
 
 
