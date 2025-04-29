@@ -1,20 +1,71 @@
-/* 1. Global Resets & Typography */
+/* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & Font Settings */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+/* 1. Top Navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #666;
+}
+
+.logo  a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.logo a:hover {
+  color: #666;
+}
   
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  h1, h2, h3 {
-    margin-bottom: 0.5rem;
-    font-weight: normal;
-  }
+
   
   /* 2. Filter Section */
   .filter-container {
@@ -32,34 +83,74 @@
 .filter-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem; /* previously 1rem */
     margin-top: 2rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
   
-  .filter-item {
-    width: 100%;
-    text-align: left;
-  }
-  
-  
+
   .filter-item select,
   .filter-item input[type="range"] {
-    margin-top: 0.5rem;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 1rem;
     padding: 0.4rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 0px solid #ccc;
+    background-color: white; /* <-- this ensures the white background */
   }
   
-  /* Range slider label (minutes) */
-  #waitValue {
+
+   .filter-item {
+    position: relative;
     display: inline-block;
-    margin-left: 0.5rem;
-    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    min-width: 160px;
+    z-index: 1;
+    background-color: white;
+
   }
+  
+  
+   
+   input[type="range"] {
+    -webkit-appearance: none;
+   }
+   
+   input[type="range"]:focus {
+    outline: none;
+   }
+
+   input[type="range"]::-webkit-slider-runnable-track {
+    background: tomato;
+    height: 5px;
+   }
+   
+   input[type="range"]::-moz-range-track {
+    background: tomato;
+    height: 5px;
+   }
+
+   input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: pink;
+    margin-top: -5px;
+    border-radius: 50%;
+   }
+   
+   input[type="range"]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background: pink;
+    margin-top: -5px;
+    border-radius: 50%;
+   }
+   
+   
   
   /* Search & Clear Button */
   .filter-button {
@@ -185,54 +276,6 @@
   .facility-card a:hover {
     background-color: #333;
   }
-  
-/* 1. Top Navigation */
-.top-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links{
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links li a:hover {
-  color: #666;
-}
-
-.logo  a {
-  text-decoration: none;
-  color: #000;
-  transition: color 0.2s ease;
-}
-
-.logo a:hover {
-  color: #666;
-}
 
 
 .scroll-container {
@@ -241,8 +284,6 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
-
-
 
   #backToTop {
     position: fixed;
