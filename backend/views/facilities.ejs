@@ -88,7 +88,7 @@
 
       <button type="submit" class="filter-button">Search</button>
       <p class="view-link">
-        OR <a href="/<%= gov ? 'government/' : '' %>facilities">View all facilities</a>
+        OR <a href="/facilities/map-view">View Facilities Near You</a>
       </p>
     </form>
   </section>
@@ -130,7 +130,6 @@
   </main>
 <br>
   <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
-
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
