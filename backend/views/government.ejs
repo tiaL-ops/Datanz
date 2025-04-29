@@ -115,11 +115,12 @@
     <div class="filter-group">
       <label for="trendFacilitySelect">Select Facility for Trend:</label>
       <select id="trendFacilitySelect">
-        <option value="">--Select a Facility--</option>
+        <option value="all" selected>All Facilities (default)</option>
         <% results.forEach(facility => { %>
           <option value="<%= facility.facility_id %>"><%= facility.name %></option>
         <% }); %>
       </select>
+      
     </div>
   
     <canvas id="timeTrendChart" style="max-width: 100%; height: 400px;"></canvas>
@@ -372,6 +373,12 @@
 </body>
 
 <script src="/js/government.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    loadTrendData();
+  });
+</script>
+
 
 <script>
   const checkbox = document.getElementById('myToggle');
@@ -460,6 +467,24 @@ document.getElementById('trendFacilitySelect').addEventListener('change', async 
 
   drawTrend(data);
 });
+async function loadTrendData() {
+  const facilityId = document.getElementById('trendFacilitySelect').value;
+  const startDate = document.getElementById('startDate')?.value || '';
+  const endDate = document.getElementById('endDate')?.value || '';
+
+  let url;
+  if (facilityId === 'all') {
+    url = `/government/api/trend-all?startDate=${startDate}&endDate=${endDate}`;
+  } else {
+    url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
+  }
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  drawTrend(data);
+}
+
 
 </script>
 

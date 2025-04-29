@@ -228,5 +228,13 @@ router.get("/api/trend/:facilityId", (req, res) => {
   res.json(trendData);
 });
 
+router.get('/api/trend-all', (req, res) => {
+  const { startDate, endDate } = req.query;
+  const trend = responseModel.getAverageSatisfactionOverTime(startDate || '2024-01-01', endDate || '2024-12-31');
+  
+  res.json(trend);
+});
+
+
 
 module.exports = router;
