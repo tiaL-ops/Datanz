@@ -5,11 +5,8 @@
   <title>District Official</title>
   <link rel="stylesheet" href="/styles/government.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 <body>
-
-
   <header class="top-nav">
     <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
     <ul class="nav-links">
@@ -19,9 +16,10 @@
   </header>
   <h1>Welcome <%= username %></h1>
 
+  <main>
   <div class="scroll-wrapper">
     <h2>Worst Facilities</h2>
-    <button type="button" onclick="setLastMonth()">Last 30 Days</button>
+    <!-- <button type="button" onclick="setLastMonth()">Last 30 Days</button> -->
 
     <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
     <div class="scroll-container" id="worstScroll">
@@ -52,13 +50,12 @@
         </div>
       <% }) %>
     </div>
-
     <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
-  </div>
   <section>
+  </div>
+
     <h2>Highlight Worst Facilities by Area</h2>
-    <form method="get">
-      <div class="filter-group">
+    <form method="get" class = "filter-group">
         <label for="worstCategory">Select Area:</label>
         <select id="worstCategory" name="worstCategory">
           <option value="">— none —</option>
@@ -78,9 +75,7 @@
             <% }) %>
           </optgroup>
         </select>
-      </div>
-  
-      <button type="submit">Apply</button>
+      <button type="submit" class = "btn-app">Apply</button>
     </form>
   </section>
   
@@ -371,7 +366,7 @@
   
   </div>
   
-
+</main>
 </body>
 
 <script src="/js/government.js"></script>
