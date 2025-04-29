@@ -373,8 +373,9 @@ facilities.forEach(facility => {
   }
 
   const infoWindow = new google.maps.InfoWindow({
-    content: `<strong>${facility.name}</strong>`
-  });
+  content: `<strong><a href="/facilities/${facility.facility_id}">${facility.name}</a></strong>`
+});
+
 
   marker.addListener("click", () => {
     infoWindow.open(map, marker);
