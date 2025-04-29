@@ -13,7 +13,8 @@
           <li><a href="/auth/logout">Signout</a></li>
         </ul>
       </header>
-      <h2>Highlight Worst Facilities by Area</h2>
+      <main>
+      <h2>Highlight Worst Facilities by Criteria</h2>
       <form method="get" class = "filter-group">
           <label for="worstCategory">Select Area:</label>
           <select id="worstCategory" name="worstCategory">
@@ -51,9 +52,9 @@
                 <% if (facility.bad_count !== undefined) { %>
                   <p>Mentions: <%= facility.bad_count %></p>
                 <% } else { %>
-                  <p>Average Weight: <%= facility.average_weight.toFixed(2) %></p>
+                  <p>Average Score: <%= facility.average_weight.toFixed(2) %></p>
                 <% } %>
-    
+                <br> 
                 <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)' class = "btn-app">
                   View Details
                 </button>
@@ -86,9 +87,14 @@
           </table>
         </div>
       </div>
+
     <section class="back-link">
-    <a href="/government">← Back to government main page</a>
-  </section>
-<script src="/js/government.js"></script>
+    <a href="/government" style="  margin: auto;
+    width: 100px;
+    padding: 10px; ">← Back to government main page</a>
+    </section>
+</main>
 </body>
+<script src="/js/government.js"></script>
+
 </html>
