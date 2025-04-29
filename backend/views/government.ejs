@@ -355,12 +355,12 @@ facilities.forEach(facility => {
     title: facility.name
   });
 
-  if(facility.metrics.avgWeight <= 2){
+  if(facility.metrics.avgWeight <= 3){
     marker.setIcon({
       url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
       scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
     });
-  } else if (facility.metrics.avgWeight > 2 && facility.metrics.avgWeight <= 4) {
+  } else if (facility.metrics.avgWeight > 3 && facility.metrics.avgWeight <= 4) {
     marker.setIcon({
       url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
       scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
