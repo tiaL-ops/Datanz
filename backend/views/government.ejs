@@ -53,12 +53,13 @@
     <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
   <section>
   </div>
-
-    <h2>Highlight Worst Facilities by Area</h2>
+  <p><a href = "/government/worst">OR View Worst Facilities by Area</a></p>
+  <br>
+    <!-- <h2>Highlight Worst Facilities by Area</h2>
     <form method="get" class = "filter-group">
         <label for="worstCategory">Select Area:</label>
         <select id="worstCategory" name="worstCategory">
-          <option value="">— none —</option>
+          <option value="">Select Option</option>
   
           <optgroup label="Metrics (Weight-based)">
             <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
@@ -75,7 +76,7 @@
             <% }) %>
           </optgroup>
         </select>
-      <button type="submit" class = "btn-app">Apply</button>
+      <button type = "submit" class = "btn-app" >Apply</button>
     </form>
   </section>
   
@@ -95,7 +96,7 @@
                 <p>Average Weight: <%= facility.average_weight.toFixed(2) %></p>
               <% } %>
   
-              <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)'>
+              <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)' class = "btn-app">
                 View Details
               </button>
             </div>
@@ -106,7 +107,7 @@
         <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
       </div>
     </section>
-  <% } %>
+  <% } %> -->
 
   <section>
     <h2>Facility Trend Over Time</h2>
@@ -536,8 +537,6 @@ datanzLink.addEventListener("click", (event) => {
     window.location.href = "/"; // Redirect to the main page
   }
 });
-
-
 </script>
 
 <script async

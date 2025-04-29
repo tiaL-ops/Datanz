@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter HTML</title>
+  <link rel="stylesheet" href="/styles/government.css"/>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+        <ul class="nav-links">
+          <li><a href="/auth/logout">Signout</a></li>
+        </ul>
+      </header>
+      <h2>Highlight Worst Facilities by Area</h2>
+      <form method="get" class = "filter-group">
+          <label for="worstCategory">Select Area:</label>
+          <select id="worstCategory" name="worstCategory">
+            <option value="">Select Option</option>
+    
+            <optgroup label="Metrics (Weight-based)">
+              <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
+              <option value="permission" <%= filters.worstCategory==='permission' ? 'selected' : '' %>>Permission Before Exam</option>
+              <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>>Confidentiality</option>
+              <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>>Receiving All Tests</option>
+              <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>>Receiving All Medications</option>
+              <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>>Overall Satisfaction</option>
+            </optgroup>
+    
+            <optgroup label="Facility Areas (Mention-based)">
+              <% areas.forEach(area => { %>
+                <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
+              <% }) %>
+            </optgroup>
+          </select>
+        <button type = "submit" class = "btn-app" >Apply</button>
+      </form>
+    </section>
+    
+    <% if (worstBy) { %>
+      <section>
+        <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
+        <div class="scroll-wrapper">
+          <div class="scroll-container" id="areaWorstScroll">
+            <% worstBy.worstFacilities.forEach(facility => { %>
+              <div class="card">
+                <h3><%= facility.facility_name %></h3>
+                <p>Code: <%= facility.facility_code %></p>
+    
+                <% if (facility.bad_count !== undefined) { %>
+                  <p>Mentions: <%= facility.bad_count %></p>
+                <% } else { %>
+                  <p>Average Weight: <%= facility.average_weight.toFixed(2) %></p>
+                <% } %>
+    
+                <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            <% }) %>
+          </div>
+    
+          <button type="button" class="scroll-arrow left" onclick="lefti('areaWorstScroll')">&#8249;</button>
+          <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
+        </div>
+      </section>
+    <% } %>
+
+    <div id="facilityModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
+          <h2 id="modalFacilityName"></h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+                <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+                <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
+                <th>Top Problems</th><th>Top Positives</th>
+              </tr>
+            </thead>
+            <tbody id="modalFacilityDetails">
+              <!-- Dynamic content -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <section class="back-link">
+    <a href="/government">← Back to government main page</a>
+  </section>
+<script src="/js/government.js"></script>
+</body>
+</html>
