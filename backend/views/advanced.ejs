@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Page</title>
+  <link rel="stylesheet" href="/styles/government.css"> 
+
+</head>
+<body>
+    <header class="top-nav">
+        <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+        <ul class="nav-links">
+          <div class="dropdown">
+            <li class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+              <a href="/government">Home</a>
+              <a href="/government/worst">Find the Worst Facilities</a>
+              <a href="/government/advanced/search">Advanced Search</a>
+            </div>
+          </div>
+          <li><a href="/auth/logout">Sign Out</a></li>
+        </ul>
+      </header>
+  <main>
+    <form method="get">
+        <h2>Refine Search</h2>
+    
+        <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
+          Use the filters below to find facilities that meet your expectations.
+        </p>
+    
+        <div class="filter-group">
+          <label for="region">Region</label>
+          <select id="region" name="region">
+            <option value="">Any</option>
+            <option value="Arusha"      <%= filters.region==='Arusha'      ? 'selected' : '' %>>Arusha</option>
+            <option value="Kilimanjaro" <%= filters.region==='Kilimanjaro' ? 'selected' : '' %>>Kilimanjaro</option>
+            <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="startDate">Start Date</label>
+          <input
+            id="startDate"
+            name="startDate"
+            type="date"
+            value="<%= filters.startDate || '' %>"
+          >
+        </div>
+        
+        <div class="filter-group">
+          <label for="endDate">End Date</label>
+          <input
+            id="endDate"
+            name="endDate"
+            type="date"
+            value="<%= filters.endDate || '' %>"
+          >
+        </div>
+        
+    
+        <div class="filter-group">
+          <label for="waitThreshold">
+            Show facilities where average wait is more than
+            <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> minutes
+          </label>
+          <input
+            id="waitThreshold"
+            name="waitThreshold"
+            type="range"
+            min="0" max="300"
+            value="<%= filters.waitThreshold||0 %>"
+            oninput="waitVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="satThreshold">
+            Only show facilities where satisfaction is below
+            <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> out of 5
+          </label>
+          <input
+            id="satThreshold"
+            name="satThreshold"
+            type="range"
+            min="1" max="5"
+            value="<%= filters.satThreshold||5 %>"
+            oninput="satVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="confiThreshold">
+            Facilities with confidentiality concerns in
+            <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>% or more of visits
+          </label>
+          <input
+            id="confiThreshold"
+            name="confiThreshold"
+            type="range"
+            min="0" max="100"
+            value="<%= filters.confiThreshold||0 %>"
+            oninput="confVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="permThreshold">
+            Show facilities where permission was not respected in
+            <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>% or more of visits
+          </label>
+          <input
+            id="permThreshold"
+            name="permThreshold"
+            type="range"
+            min="0" max="100"
+            value="<%= filters.permThreshold||0 %>"
+            oninput="permVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="testThreshold">
+            Highlight where
+            <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>% or more visits had missing tests
+          </label>
+          <input
+            id="testThreshold"
+            name="testThreshold"
+            type="range"
+            min="0" max="100"
+            value="<%= filters.testThreshold||0 %>"
+            oninput="testVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="medThreshold">
+            Facilities where patients missed medications in
+            <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>% or more visits
+          </label>
+          <input
+            id="medThreshold"
+            name="medThreshold"
+            type="range"
+            min="0" max="100"
+            value="<%= filters.medThreshold||0 %>"
+            oninput="medVal.textContent = this.value"
+          >
+        </div>
+    
+        <div class="filter-group">
+          <label for="paymentMode">Prefer facilities where most patients pay with:</label>
+          <select id="paymentMode" name="paymentMode">
+            <option value="">Any</option>
+            <option value="Cash"      <%= filters.paymentMode==='Cash'      ? 'selected' : '' %>>Cash</option>
+            <option value="Insurance" <%= filters.paymentMode==='Insurance' ? 'selected' : '' %>>Insurance</option>
+            <option value="Free"      <%= filters.paymentMode==='Free'      ? 'selected' : '' %>>Free</option>
+          </select>
+        </div>
+    
+        <div class="filter-group">
+          <label for="bestCategory">Highlight the best facilities in this area:</label>
+          <select id="bestCategory" name="bestCategory">
+            <option value="">— none —</option>
+            <% areas.forEach(area => { %>
+              <option value="<%= area %>" <%= filters.bestCategory===area ? 'selected' : '' %>><%= area %></option>
+            <% }) %>
+          </select>
+        </div>
+    
+       
+    
+        <button type="submit">Apply Filters</button>
+      </form>
+      
+      <br>
+      <label class="switch">
+        <input type="checkbox" id="myToggle">
+        <span class="slider round"></span>
+      </label>
+    
+      <% if (bestBy) { %>
+        <section>
+          <h2>Best facility for “<%= bestBy.area %>”</h2>
+          <p>
+            <strong><%= bestBy.best.facility_name %></strong>
+            (Code: <%= bestBy.best.facility_code %>)<br>
+    
+          </p>
+        </section>
+      <% } %>
+    
+      <% if (results && results.length) { %>
+        <table>
+          <caption>Matching Facilities: <%= results.length %></caption>
+          <thead>
+            <tr>
+              <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+              <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+              <th>% Missed Tests</th><th>% Meds Gap</th><th>Top Payment</th>
+              <th>Top Problems</th><th>Top Positives</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% results.forEach(fac => {
+                 const m = fac.metrics;
+            %>
+            <tr>
+              <td><%= fac.name %></td>
+              <td><%= fac.facility_code %></td>
+              <td><%= fac.location %></td>
+              <td><%= m.avgWait.toFixed(1) %>&nbsp;min</td>
+              <td><%= m.avgSat %></td>
+              <td><%= (100 - m.yesConfi).toFixed(0) %>%</td>
+              <td><%= (100 - m.yesPerm).toFixed(0) %>%</td>
+              <td><%= (100 - m.yesTests).toFixed(0) %>%</td>
+              <td><%= (100 - m.yesMeds).toFixed(0) %>%</td>
+              <td><%= m.topPayMode %></td>
+              <td><%= m.topProblems.slice(0,3).join(", ") %></td>
+              <td><%= m.topPositives.slice(0,3).join(", ") %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <p><em>No facilities match those filters.</em></p>
+      <% } %>
+    <br>
+    
+    <div id="map"></div>
+    
+      <div id="facilityModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
+          <h2 id="modalFacilityName"></h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+                <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+                <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
+                <th>Top Problems</th><th>Top Positives</th>
+              </tr>
+            </thead>
+            <tbody id="modalFacilityDetails">
+              <!-- Dynamic content -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+  </main>
+  <script src="/js/government.js"></script>
+<script>
+     const checkbox = document.getElementById('myToggle');
+const table = document.querySelector('table');
+
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    table.style.display = 'none';
+    document.getElementById('map').style.display = 'block';
+  } else {
+    table.style.display = 'table';
+    document.getElementById('map').style.display = 'none';
+
+  }
+});
+
+ 
+
+const facilities = <%- JSON.stringify(results) %>;
+
+function initMap() {
+const tanzaniaCenter = { lat: -3.383545, lng:  36.689744};
+const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 13,
+  center: tanzaniaCenter,
+});
+const market = new google.maps.Marker({
+    position: tanzaniaCenter,
+    map: map,
+    title: "Tanzania Center",
+   
+});
+facilities.forEach(facility => {
+  const marker = new google.maps.Marker({
+    position: { lat: facility.ltd, lng: facility.lng },
+    map: map,
+    title: facility.name
+  });
+
+  if(facility.metrics.avgWeight <= 3){
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  } else if (facility.metrics.avgWeight > 3 && facility.metrics.avgWeight <= 4) {
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  } else if (facility.metrics.avgWeight > 4 && facility.metrics.avgWeight <= 5) {
+    marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    });
+  }
+
+  const infoWindow = new google.maps.InfoWindow({
+  content: `<strong><a href="/facilities/${facility.facility_id}">${facility.name}</a></strong>`
+});
+
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+});
+}
+// Select the DATANZ link
+const datanzLink = document.getElementById("datanzLink");
+
+// Add a click event listener
+datanzLink.addEventListener("click", (event) => {
+ event.preventDefault(); // Prevent the default link behavior
+
+ // Display a confirmation dialog
+ const userConfirmed = confirm(
+   "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
+ );
+
+ // If the user clicks "OK", navigate to the main page
+ if (userConfirmed) {
+   window.location.href = "/"; // Redirect to the main page
+ }
+});
+</script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+</script>
+
+</body>
+</html>

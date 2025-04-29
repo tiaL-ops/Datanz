@@ -429,7 +429,7 @@
 .dropbtn {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
-   font-weight: 500;
+  font-weight: 500;
   border: none;
   cursor: pointer;
 }
@@ -445,9 +445,10 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 120px;
+  min-width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  font-size: 14px;
 }
 
 /* Links inside the dropdown */

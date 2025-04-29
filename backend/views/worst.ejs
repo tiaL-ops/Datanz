@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="/styles/government.css"/>
 </head>
 <body>
-    <header class="top-nav">
-        <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
-        <ul class="nav-links">
-          <li><a href="/auth/logout">Signout</a></li>
-        </ul>
-      </header>
+  <header class="top-nav">
+    <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+    <ul class="nav-links">
+      <div class="dropdown">
+        <li class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/government">Home</a>
+          <a href="/government/worst">Find the Worst Facilities</a>
+          <a href="/government/advanced-search">Advanced Search</a>
+        </div>
+      </div>
+      <li><a href="/auth/logout">Sign Out</a></li>
+    </ul>
+  </header>
       <main>
       <h2>Highlight Worst Facilities by Criteria</h2>
       <form method="get" class = "filter-group">
@@ -87,7 +95,7 @@
           </table>
         </div>
       </div>
-
+    <br>
     <section class="back-link">
     <a href="/government" style="  margin: auto;
     width: 100px;
@@ -96,5 +104,21 @@
 </main>
 </body>
 <script src="/js/government.js"></script>
+<script>// Select the DATANZ link
+  const datanzLink = document.getElementById("datanzLink");
 
+ // Add a click event listener
+datanzLink.addEventListener("click", (event) => {
+  event.preventDefault(); // Prevent the default link behavior
+
+  // Display a confirmation dialog
+  const userConfirmed = confirm(
+    "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
+  );
+
+  // If the user clicks "OK", navigate to the main page
+  if (userConfirmed) {
+    window.location.href = "/"; // Redirect to the main page
+  }
+});</script>
 </html>
