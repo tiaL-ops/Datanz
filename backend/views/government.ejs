@@ -111,6 +111,17 @@
 
   <section>
     <h2>Facility Trend Over Time</h2>
+  
+    <div class="filter-group">
+      <label for="trendFacilitySelect">Select Facility for Trend:</label>
+      <select id="trendFacilitySelect">
+        <option value="">--Select a Facility--</option>
+        <% results.forEach(facility => { %>
+          <option value="<%= facility.facility_id %>"><%= facility.name %></option>
+        <% }); %>
+      </select>
+    </div>
+  
     <canvas id="timeTrendChart" style="max-width: 100%; height: 400px;"></canvas>
   </section>
   
@@ -402,12 +413,17 @@ facilities.forEach(facility => {
   });
 });
 }
+//trend dchart
+let chart = null;
 
-const trendData = <%- JSON.stringify(trendData) %>;
-  
-if (trendData && trendData.length) {
+function drawTrend(trendData) {
   const ctx = document.getElementById('timeTrendChart').getContext('2d');
-  const chart = new Chart(ctx, {
+
+  if (chart) {
+    chart.destroy();  // destroy previous chart
+  }
+
+  chart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: trendData.map(item => item.date),
@@ -422,24 +438,29 @@ if (trendData && trendData.length) {
     options: {
       responsive: true,
       scales: {
-        x: {
-          title: {
-            display: true,
-            text: 'Date'
-          }
-        },
-        y: {
-          title: {
-            display: true,
-            text: 'Satisfaction Score'
-          },
-          min: 0,
-          max: 5
-        }
+        x: { title: { display: true, text: 'Date' } },
+        y: { title: { display: true, text: 'Satisfaction Score' }, min: 0, max: 5 }
       }
     }
   });
 }
+
+document.getElementById('trendFacilitySelect').addEventListener('change', async (e) => {
+  const facilityId = e.target.value;
+  
+  if (!facilityId) return;
+
+  const startDate = document.getElementById('startDate')?.value || '';
+  const endDate = document.getElementById('endDate')?.value || '';
+
+  const url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  drawTrend(data);
+});
+
 </script>
 
 <script async

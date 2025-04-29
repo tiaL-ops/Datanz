@@ -216,4 +216,17 @@ router.get("/", (req, res) => {
   });
 });
 
+router.get("/api/trend/:facilityId", (req, res) => {
+  const { facilityId } = req.params;
+  const { startDate, endDate } = req.query;
+
+  let trendData = [];
+  if (facilityId) {
+    trendData = responseModel.getAverageSatisfactionOverTimeFacilities(facilityId, startDate || '2020-01-01', endDate || '2100-01-01');
+  }
+  
+  res.json(trendData);
+});
+
+
 module.exports = router;

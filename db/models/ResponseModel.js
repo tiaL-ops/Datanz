@@ -691,6 +691,23 @@ getAverageSatisfactionOverTime(startDate, endDate) {
     return this.db.prepare(query).all(startDate, endDate);
   }
   
+  getAverageSatisfactionOverTimeFacilities(facilityid, startDate, endDate) {
+    const query = `
+      SELECT 
+        DATE(submitted_at) AS date,
+        AVG(CASE WHEN ao.answer_weight IS NOT NULL THEN ao.answer_weight ELSE NULL END) AS average_satisfaction
+      FROM Response r
+      JOIN AnswerOption ao ON r.answer_option_id = ao.id
+      WHERE r.question_id = 17
+        AND r.facility_id = ?
+        AND DATE(submitted_at) BETWEEN DATE(?) AND DATE(?)
+      GROUP BY DATE(submitted_at)
+      ORDER BY DATE(submitted_at)
+    `;
+    return this.db.prepare(query).all(facilityid, startDate, endDate);
+  }
+  
+  
 
     
     
