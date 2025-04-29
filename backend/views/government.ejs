@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>District Official</title>
   <link rel="stylesheet" href="/styles/government.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
 
@@ -13,6 +15,8 @@
 
   <div class="scroll-wrapper">
     <h2>Top Worst Facilities</h2>
+    <button type="button" onclick="setLastMonth()">Last 30 Days</button>
+
     <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
     <div class="scroll-container" id="worstScroll">
       <% bottomTenWorst.forEach(facility => { %>
@@ -104,6 +108,34 @@
       </div>
     </section>
   <% } %>
+
+  <section>
+    <h2>Facility Trend Over Time</h2>
+  
+    <div class="filter-group">
+      <label for="trendFacilitySelect">Select Facility for Trend:</label>
+      <select id="trendFacilitySelect">
+        <option value="all" selected>All Facilities (default)</option>
+      
+        <optgroup label="By Facility">
+          <% results.forEach(facility => { %>
+            <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
+          <% }); %>
+        </optgroup>
+      
+        <optgroup label="By Region">
+          <option value="region-Arusha">Arusha</option>
+          <option value="region-Kilimanjaro">Kilimanjaro</option>
+          <option value="region-Tanga">Tanga</option>
+        </optgroup>
+      </select>
+      
+    </div>
+  
+    <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
+
+  </section>
+  
   
   <form method="get">
     <h2>Refine Search</h2>
@@ -121,6 +153,26 @@
         <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
       </select>
     </div>
+    <div class="filter-group">
+      <label for="startDate">Start Date</label>
+      <input
+        id="startDate"
+        name="startDate"
+        type="date"
+        value="<%= filters.startDate || '' %>"
+      >
+    </div>
+    
+    <div class="filter-group">
+      <label for="endDate">End Date</label>
+      <input
+        id="endDate"
+        name="endDate"
+        type="date"
+        value="<%= filters.endDate || '' %>"
+      >
+    </div>
+    
 
     <div class="filter-group">
       <label for="waitThreshold">
@@ -332,6 +384,13 @@
 
 <script src="/js/government.js"></script>
 <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    loadTrendData();
+  });
+</script>
+
+
+<script>
   const checkbox = document.getElementById('myToggle');
 const table = document.querySelector('table');
 
@@ -371,6 +430,88 @@ facilities.forEach(facility => {
   });
 });
 }
+//trend dchart
+let chart = null;
+
+function drawTrend(trendData) {
+  const ctx = document.getElementById('timeTrendChart').getContext('2d');
+ 
+
+
+  if (chart) {
+    chart.destroy();  // destroy previous chart
+  }
+
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: trendData.map(item => item.date),
+      datasets: [{
+        label: 'Average Satisfaction',
+        data: trendData.map(item => item.average_satisfaction),
+        fill: false,
+        borderColor: 'blue',
+        tension: 0.1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: { title: { display: true, text: 'Date' } },
+        y: { title: { display: true, text: 'Satisfaction Score' }, min: 0, max: 5 }
+      }
+    }
+  });
+}
+
+
+const trendSelect = document.getElementById('trendFacilitySelect');
+const startInput  = document.getElementById('startDate');
+const endInput    = document.getElementById('endDate');
+
+trendSelect.addEventListener('change', loadTrendData);
+startInput?.addEventListener('change', loadTrendData);
+endInput?.addEventListener('change', loadTrendData);
+
+
+window.addEventListener('DOMContentLoaded', loadTrendData);
+
+async function loadTrendData() {
+  const selected  = trendSelect.value;
+  const startDate = startInput?.value || '';
+  const endDate   = endInput?.value   || '';
+
+  let url;
+  if (selected === 'all') {
+    url = `/government/api/trend-all?startDate=${startDate}&endDate=${endDate}`;
+  } 
+  else if (selected.startsWith('facility-')) {
+    // facility-123 → 123
+    const facilityId = selected.substring('facility-'.length);
+    url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
+  } 
+  else if (selected.startsWith('region-')) {
+    // region-North → North
+    const regionName = selected.substring('region-'.length);
+    url = `/government/api/trend-region/${encodeURIComponent(regionName)}?startDate=${startDate}&endDate=${endDate}`;
+  } 
+  else {
+    console.error('Invalid selection:', selected);
+    return;
+  }
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(res.statusText);
+    const data = await res.json();
+    drawTrend(data);
+  } catch (err) {
+    console.error('Error fetching trend data:', err);
+  }
+}
+
+
+
 </script>
 
 <script async
