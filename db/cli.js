@@ -14,7 +14,7 @@ const db = connectToDatabase();
 // use this to add user to the database
 
 const authModel= new AuthModel(db);
-//authModel.createUser("hi", "hi@gmail", "hi","government");
+authModel.createUser("hi", "hi@gmail", "hi","government");
 
 const responseModel = new ResponseModel(db);
 

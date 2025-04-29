@@ -10,8 +10,15 @@
   <header class="top-nav">
     <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
     <ul class="nav-links">
-      <li><a href="/auth/logout">Signout</a></li>
-
+      <div class="dropdown">
+        <li class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div>
+      <li><a href="/auth/logout">Sign Out</a></li>
     </ul>
   </header>
   <h1>Welcome <%= username %></h1>
@@ -53,10 +60,9 @@
     <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
   <section>
   </div>
-  <p><a href = "/government/worst">OR View Worst Facilities by Criteria</a></p>
   <br>
   <section>
-    <h2>Facility Trend Over Time</h2>
+    <h2>Facility Rating Trends Over Time</h2>
   
     <div class="filter-group">
       <label for="trendFacilitySelect">Select Facility for Trend:</label>
@@ -81,8 +87,12 @@
     <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
 
   </section>
+  <br> 
+  <h2>Other actions</h2>
+  <p><a href = "/government/worst">View Worst Facilities by Criteria</a></p>
+  <p><a href = "/government/advanced-search">Advanced Search</a></p>
   
-  
+  <br>
   <form method="get">
     <h2>Refine Search</h2>
 
