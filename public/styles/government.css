@@ -286,3 +286,45 @@
       height: 500px;
       width: 500px;
   }
+
+
+  /*trennd*/
+  /* Base styling for select box */
+.filter-group select, 
+#trendFacilitySelect {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.75rem;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-caret-down-fill" viewBox="0 0 16 16"> <path d="M7.247 11.14l-4.796-5.481A.5.5 0 0 1 2.5 5h11a.5.5 0 0 1 .374.659l-4.796 5.481a.5.5 0 0 1-.748 0z"/> </svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+.filter-group select:hover,
+#trendFacilitySelect:hover {
+  border-color: #999;
+}
+
+/* Focused */
+.filter-group select:focus,
+#trendFacilitySelect:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Optional: label styling for consistency */
+.filter-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+}
