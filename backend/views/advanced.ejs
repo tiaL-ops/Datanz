@@ -229,7 +229,6 @@
       <% } %>
     <br>
     
-    <div id="map"></div>
     
       <div id="facilityModal" class="modal" style="display:none;">
         <div class="modal-content">
@@ -252,6 +251,8 @@
       </div>
       </div>
   </main>
+  <div id="map"></div>
+
   <script src="/js/government.js"></script>
 <script>
      const checkbox = document.getElementById('myToggle');
@@ -262,6 +263,7 @@ checkbox.addEventListener('change', () => {
     table.style.display = 'none';
     document.getElementById('map').style.display = 'block';
   } else {
+    console.log("HI");
     table.style.display = 'table';
     document.getElementById('map').style.display = 'none';
 
@@ -319,22 +321,7 @@ facilities.forEach(facility => {
 });
 }
 // Select the DATANZ link
-const datanzLink = document.getElementById("datanzLink");
 
-// Add a click event listener
-datanzLink.addEventListener("click", (event) => {
- event.preventDefault(); // Prevent the default link behavior
-
- // Display a confirmation dialog
- const userConfirmed = confirm(
-   "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
- );
-
- // If the user clicks "OK", navigate to the main page
- if (userConfirmed) {
-   window.location.href = "/"; // Redirect to the main page
- }
-});
 </script>
 
 <script async
