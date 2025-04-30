@@ -73,13 +73,6 @@
    color: #666;
  }
 
- main {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
- }
 
  form {
    display: grid;
@@ -416,7 +409,7 @@
 
  .btn-app{ 
   margin: auto;
-  width: 100px;
+  width: 110px;
   padding: 10px;
  }
 
@@ -470,4 +463,20 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   color: gray;
+}
+
+.rating {
+  float: left;
+  width: 400px;
+}
+
+.page {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }

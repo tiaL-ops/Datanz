@@ -21,9 +21,11 @@
       <li><a href="/auth/logout">Sign Out</a></li>
     </ul>
   </header>
+  <main>
+    <section class = "page">
+
   <h1>Welcome <%= username %></h1>
 
-  <main>
   <div class="scroll-wrapper">
     <h2>Worst Facilities</h2>
     <!-- <button type="button" onclick="setLastMonth()">Last 30 Days</button> -->
@@ -33,14 +35,14 @@
       <% bottomTenWorst.forEach(facility => { %>
         <div class="card">
           <h3><%= facility.name %></h3>
-          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
+          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)' class = "btn-app">
             View Details
           </button>
         </div>
       <% }) %>
     </div>
 
-    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll') ">&#8250;</button>
   </div>
   <div class="scroll-wrapper">
     <h2>Best Facilities</h2>
@@ -50,7 +52,7 @@
       <% topThreeBest.forEach(facility => { %>
         <div class="card">
           <h3><%= facility.name %></h3>
-          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
+          <button type="button" class = "btn-app" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
 
             View Details
           </button>
@@ -58,14 +60,15 @@
       <% }) %>
     </div>
     <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
-  <section>
   </div>
+
+  </section>
+
   <br>
-  <section>
+  <section class = "page">
     <h2>Facility Rating Trends Over Time</h2>
-  
     <div class="filter-group">
-      <label for="trendFacilitySelect">Select Facility for Trend:</label>
+      <label for="trendFacilitySelect" style = "text-align: center;">Select Facility:</label>
       <select id="trendFacilitySelect">
         <option value="all" selected>All Facilities (default)</option>
       
@@ -81,20 +84,16 @@
           <option value="region-Tanga">Tanga</option>
         </optgroup>
       </select>
-      
     </div>
-  
     <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
-
   </section>
-  <br> 
+
+  <section class = "page">
   <h2>Other actions</h2>
+  <img src="/assets/cs204.png" alt="rating" class="rating">
   <p><a href = "/government/worst">View Worst Facilities by Criteria</a></p>
   <p><a href = "/government/advanced-search">Advanced Search</a></p>
-  
-
-  
-
+  </section>
 
   <div id="facilityModal" class="modal" style="display:none;">
     <div class="modal-content">
@@ -124,11 +123,6 @@
   window.addEventListener('DOMContentLoaded', () => {
     loadTrendData();
   });
-</script>
-
-
-<script>
-
 //trend dchart
 let chart = null;
 
