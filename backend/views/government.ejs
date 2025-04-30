@@ -89,7 +89,7 @@
   </section>
 
   <section class = "page">
-  <h2>Other actions</h2>
+  <h1>Other actions</h2>
   <img src="/assets/cs204.png" alt="rating" class="rating">
   <p><a href = "/government/worst">View Worst Facilities by Criteria</a></p>
   <p><a href = "/government/advanced-search">Advanced Search</a></p>
@@ -116,109 +116,14 @@
   </div>
   </div>
 </main>
+<button id="backToTop" class="back-to-top" title="Go to top">↑</button>
+
 </body>
 
 <script src="/js/government.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    loadTrendData();
-  });
-//trend dchart
-let chart = null;
-
-function drawTrend(trendData) {
-  const ctx = document.getElementById('timeTrendChart').getContext('2d');
  
 
-
-  if (chart) {
-    chart.destroy();  // destroy previous chart
-  }
-
-  chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: trendData.map(item => item.date),
-      datasets: [{
-        label: 'Average Satisfaction',
-        data: trendData.map(item => item.average_satisfaction),
-        fill: false,
-        borderColor: 'blue',
-        tension: 0.1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        x: { title: { display: true, text: 'Date' } },
-        y: { title: { display: true, text: 'Satisfaction Score' }, min: 0, max: 5 }
-      }
-    }
-  });
-}
-
-
-const trendSelect = document.getElementById('trendFacilitySelect');
-const startInput  = document.getElementById('startDate');
-const endInput    = document.getElementById('endDate');
-
-trendSelect.addEventListener('change', loadTrendData);
-startInput?.addEventListener('change', loadTrendData);
-endInput?.addEventListener('change', loadTrendData);
-
-
-window.addEventListener('DOMContentLoaded', loadTrendData);
-
-async function loadTrendData() {
-  const selected  = trendSelect.value;
-  const startDate = startInput?.value || '';
-  const endDate   = endInput?.value   || '';
-
-  let url;
-  if (selected === 'all') {
-    url = `/government/api/trend-all?startDate=${startDate}&endDate=${endDate}`;
-  } 
-  else if (selected.startsWith('facility-')) {
-    // facility-123 → 123
-    const facilityId = selected.substring('facility-'.length);
-    url = `/government/api/trend/${facilityId}?startDate=${startDate}&endDate=${endDate}`;
-  } 
-  else if (selected.startsWith('region-')) {
-    // region-North → North
-    const regionName = selected.substring('region-'.length);
-    url = `/government/api/trend-region/${encodeURIComponent(regionName)}?startDate=${startDate}&endDate=${endDate}`;
-  } 
-  else {
-    console.error('Invalid selection:', selected);
-    return;
-  }
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(res.statusText);
-    const data = await res.json();
-    drawTrend(data);
-  } catch (err) {
-    console.error('Error fetching trend data:', err);
-  }
-}
-  // Select the DATANZ link
-  const datanzLink = document.getElementById("datanzLink");
-
- // Add a click event listener
-datanzLink.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent the default link behavior
-
-  // Display a confirmation dialog
-  const userConfirmed = confirm(
-    "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
-  );
-
-  // If the user clicks "OK", navigate to the main page
-  if (userConfirmed) {
-    window.location.href = "/"; // Redirect to the main page
-  }
-});
 </script>
 
 

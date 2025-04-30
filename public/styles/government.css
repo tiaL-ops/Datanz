@@ -480,3 +480,31 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  display: none;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop.show {
+  display: block; /* Show when scrolled down */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  background-color: #0056b3;
+}
