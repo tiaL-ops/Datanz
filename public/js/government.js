@@ -166,3 +166,23 @@ if (userConfirmed) {
   window.location.href = "/"; // Redirect to the main page
 }
 });
+
+const backToTopBtn = document.getElementById("backToTop");
+
+// Show button when page is scrolled
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+// Smooth scroll to top
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
