@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
 
             if (user.usertype === 'government' && user.password_changed === 0) {
                 //Redirect to change password page
-                return res.redirect('/auth?type=change');
+                return res.redirect('/auth/change-password');
             } 
             
             if (user.usertype === 'government') {
