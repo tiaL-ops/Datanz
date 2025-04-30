@@ -1,4 +1,5 @@
 
+const bcrypt = require('bcrypt');
 /* This will ensure login info */
 
 class AuthModel {
@@ -21,7 +22,7 @@ getAllUsersByRole(role) – List users by role (doctor, gov)
 */
 
 
-createUser(name, email, password,usertype) {
+async createUser(name, email, password,usertype) {
     const createdAt = new Date().toISOString();
 
     const query = `
@@ -59,9 +60,8 @@ findByUsername(username) {
     const user = stmt.get(username); 
     return user;
   }
-  
 
-  validatePassword(inputPassword, email) {
+  async validatePassword(inputPassword, email) {
     const query = `
       SELECT password FROM Auth WHERE email = ?
     `;
@@ -70,8 +70,9 @@ findByUsername(username) {
     const row = stmt.get(email);
   
     if (!row) return false; 
+    const match = await this.bcrypt.compare(inputPassword, row.password);
   
-    return row.password === inputPassword;
+    return match;
   }
   
   getAllUsersByRole(role) {
