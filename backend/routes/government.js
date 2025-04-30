@@ -200,6 +200,20 @@ router.get("/", (req, res) => {
   const topThreeBest = sortedByWeight.slice(0, 10); 
   const bottomTenWorst = sortedByWeight.slice(-10).reverse();
 
+  // overall avergae wait
+    const weights = filtered.map(item => item.metrics.avgWeight || 0);
+    const total = weights.reduce((sum, w) => sum + w, 0);
+    const averageWeight = total / weights.length;
+
+
+    const belowAverage = filtered.filter(item => (item.metrics.avgWeight || 0) < averageWeight);
+    const countBelowAverage = belowAverage.length;
+  
+
+    const worstPerformers = [...belowAverage].sort((a, b) => {
+  return (a.metrics.avgWeight || 0) - (b.metrics.avgWeight || 0);
+});
+
   // Render
   const trendData = responseModel.getAverageSatisfactionOverTime(startDate || '2024-01-01', endDate || '2024-12-31');
   res.render("government", {
@@ -212,6 +226,8 @@ router.get("/", (req, res) => {
     topThreeBest,
     bottomTenWorst,
     trendData,
+    belowAverage,
+    countBelowAverage,
     toggled: false
   });
 });

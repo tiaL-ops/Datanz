@@ -10,7 +10,29 @@
 <body>
 
   <h1>Welcome <%= username %></h1>
+   
+  <div class="scroll-wrapper">
+    <h2>Facilities doing worst than average : <%= countBelowAverage %> facilities </h2>
+  
 
+    <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
+    <div class="scroll-container" id="worstScroll">
+      <% belowAverage.forEach(facility => { %>
+        <div class="card">
+          <h3><%= facility.name %></h3>
+          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
+
+            View Details
+          </button>
+          
+        </div>
+      <% }) %>
+    </div>
+
+    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
+  </div>
+
+   
  
 
   <div class="scroll-wrapper">
