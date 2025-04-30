@@ -8,6 +8,7 @@ const PORT = 3000;
 const { connectToDatabase } = require("../db/database");
 const db = connectToDatabase();
 
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +31,8 @@ const startRoutes = require("./routes/main");
 const authRoutes = require("./routes/auth");
 const facilitiesRoutes = require("./routes/facilities");
 const governmentRoutes = require("./routes/government");
+const adminRoutes = require("./routes/admin");
+app.use("/admin", adminRoutes);
 
 
 

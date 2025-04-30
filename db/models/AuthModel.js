@@ -61,8 +61,18 @@ findByUsername(username) {
     return user;
   }
 
-  async validatePassword(inputPassword, email) {
+  getUserByEmail(email) {
     const query = `
+      SELECT * FROM Auth WHERE email = ?
+    `;
+    const stmt = this.db.prepare(query);
+    const user = stmt.get(email); 
+    return user;
+  }
+
+  async validatePassword(inputPassword, hashedPassword) {
+    return await bcrypt.compare
+ /*   const query = `
       SELECT password FROM Auth WHERE email = ?
     `;
     
@@ -72,7 +82,7 @@ findByUsername(username) {
     if (!row) return false; 
     const match = await this.bcrypt.compare(inputPassword, row.password);
   
-    return match;
+    return match;*/
   }
   
   getAllUsersByRole(role) {
