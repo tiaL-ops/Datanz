@@ -33,10 +33,14 @@
       } %>
 
       
-      <div class="qa-item">
-        <h3>Average Wait Time</h3>
-        <p><%= reportData.waitTime.average_wait_time_minutes %> minutes</p>
-      </div>
+   
+<div class="qa-item">
+  <h3>Average Wait Time</h3>
+  <% const waitTime = reportData.waitTime.average_wait_time_minutes; %>
+  <p>Status: <%= rateQuality(120 - waitTime, 90, 0) %></p>
+  <p><%= waitTime %> minutes</p>
+</div>
+
 
     
       <div class="qa-item">
@@ -49,28 +53,28 @@
    
       <div class="qa-item">
         <h3>Confidentiality</h3>
-        <p>Status: <%= rateQuality(reportData.confidentiality.average_percent_yes, 80, 50) %></p>
+        <p>Status: <%= rateQuality(reportData.confidentiality.average_percent_yes, 70, 50) %></p>
         <p>Yes (%): <%= reportData.confidentiality.average_percent_yes %></p>
       </div>
 
      
       <div class="qa-item">
         <h3>Permission Before Exam</h3>
-        <p>Status: <%= rateQuality(reportData.permission.average_percent_yes, 80, 50) %></p>
+        <p>Status: <%= rateQuality(reportData.permission.average_percent_yes, 70, 50) %></p>
         <p>Yes (%): <%= reportData.permission.average_percent_yes %></p>
       </div>
 
       
       <div class="qa-item">
         <h3>Test Completion</h3>
-        <p>Status: <%= rateQuality(reportData.testCompletion.average_percent_yes, 80, 50) %></p>
+        <p>Status: <%= rateQuality(reportData.testCompletion.average_percent_yes, 70, 50) %></p>
         <p>Yes (%): <%= reportData.testCompletion.average_percent_yes %></p>
       </div>
 
       
       <div class="qa-item">
         <h3>Medication Completion</h3>
-        <p>Status: <%= rateQuality(reportData.medCompletion.average_percent_yes, 80, 50) %></p>
+        <p>Status: <%= rateQuality(reportData.medCompletion.average_percent_yes, 70, 50) %></p>
         <p>Yes (%): <%= reportData.medCompletion.average_percent_yes %></p>
       </div>
 
