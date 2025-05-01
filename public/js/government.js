@@ -96,6 +96,7 @@ chart = new Chart(ctx, {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: { title: { display: true, text: 'Date' } },
       y: { title: { display: true, text: 'Satisfaction Score' }, min: 0, max: 5 }
