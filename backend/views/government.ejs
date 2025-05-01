@@ -22,10 +22,31 @@
     </ul>
   </header>
   <main>
-    <section class = "page">
 
   <h1>Welcome to the Dashboard, <%= username %></h1>
-
+  <section class = "page">
+    <h2>Facility Rating Trends Over Time</h2>
+    <div class="filter-group">
+      <label for="trendFacilitySelect" style = "text-align: center;">Select Facility:</label>
+      <select id="trendFacilitySelect">
+        <option value="all" selected>All Facilities (default)</option>
+      
+        <optgroup label="By Facility">
+          <% results.forEach(facility => { %>
+            <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
+          <% }); %>
+        </optgroup>
+      
+        <optgroup label="By Region">
+          <option value="region-Arusha">Arusha</option>
+          <option value="region-Kilimanjaro">Kilimanjaro</option>
+          <option value="region-Tanga">Tanga</option>
+        </optgroup>
+      </select>
+    </div>
+    <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
+  </section>
+  <section class = " page">
   <div class="scroll-wrapper">
     <h2>Worst Facilities</h2>
     <!-- <button type="button" onclick="setLastMonth()">Last 30 Days</button> -->
@@ -65,28 +86,7 @@
   </section>
 
   <br>
-  <section class = "page">
-    <h2>Facility Rating Trends Over Time</h2>
-    <div class="filter-group">
-      <label for="trendFacilitySelect" style = "text-align: center;">Select Facility:</label>
-      <select id="trendFacilitySelect">
-        <option value="all" selected>All Facilities (default)</option>
-      
-        <optgroup label="By Facility">
-          <% results.forEach(facility => { %>
-            <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
-          <% }); %>
-        </optgroup>
-      
-        <optgroup label="By Region">
-          <option value="region-Arusha">Arusha</option>
-          <option value="region-Kilimanjaro">Kilimanjaro</option>
-          <option value="region-Tanga">Tanga</option>
-        </optgroup>
-      </select>
-    </div>
-    <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
-  </section>
+
 
   <section class = "page">
   <h1>Other actions</h2>
