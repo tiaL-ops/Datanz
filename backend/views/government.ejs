@@ -21,103 +21,90 @@
       <li><a href="/auth/logout">Sign Out</a></li>
     </ul>
   </header>
-  <main>
+  <h1 style = "margin: 20px ">Welcome to the Dashboard, <%= username %></h1>
 
-  <h1>Welcome to the Dashboard, <%= username %></h1>
-  <section class = "page">
-    <h2>Facility Rating Trends Over Time</h2>
-    <div class="filter-group">
-      <label for="trendFacilitySelect" style = "text-align: center;">Select Facility:</label>
-      <select id="trendFacilitySelect">
-        <option value="all" selected>All Facilities (default)</option>
-      
-        <optgroup label="By Facility">
-          <% results.forEach(facility => { %>
-            <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
+  <main style="display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;">
+    <div style="min-width: 700px; padding-left: 100px; display: flex; flex-direction: column; gap: 20px;">
+      <!-- Graph + Dropdown -->
+      <section class="page" style="text-align: left; ">
+        <div class="filter-group">
+          <label for="trendFacilitySelect" style="text-align: center;">Select Facility:</label>
+          <select id="trendFacilitySelect" style="font-size: 12px; width: 180px;">
+            <option value="all" selected>All Facilities (default)</option>
+            <optgroup label="By Facility">
+              <% results.forEach(facility => { %>
+                <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
+              <% }); %>
+            </optgroup>
+            <optgroup label="By Region">
+              <option value="region-Arusha">Arusha</option>
+              <option value="region-Kilimanjaro">Kilimanjaro</option>
+              <option value="region-Tanga">Tanga</option>
+            </optgroup>
+          </select>
+        </div>
+        <div style="width: 100%; height: 350px;">
+          <canvas id="timeTrendChart" style="width: 700px; height: 100%;"></canvas>
+        </div>
+        <div id="map" style="width: 550px; height: 200px; display: block;"></div>
+
+      </section>
+
+
+      <!-- MAP (visible or hidden placeholder) -->
+    
+    </div>
+
+  <div style="flex: 1; max-width: 800px; padding-right: 50px;">
+    <section class="page" style="width: 100%;">
+      <div class="scroll-wrapper" style="width: 100%;">
+        <h2 style="font-size: 16px; margin: 0px 0">Facilities Below Average: <%= countBelowAverage %></h2>
+        <button class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
+        <div class="scroll-container" id="worstScroll" style="max-height: 150px; gap: 6px;">
+          <% belowAverage.forEach(facility => { %>
+            <div class="card" style="font-size: 12px; height: 120px; width: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <h3 style="margin: 20px 0; font-size: 13px;"><%= facility.name %></h3>
+              <button onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>View Details</button>
+            </div>
           <% }); %>
-        </optgroup>
+        </div>
+        <button class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
+      </div>
+
+      <div class="scroll-wrapper" style="width: 100%;">
+        <h2 style="font-size: 16px; margin: 0px 0">Worst Facilities</h2>
+        <button class="scroll-arrow left" onclick="lefti('worstScroll2')">&#8249;</button>
+        <div class="scroll-container" id="worstScroll2" style="max-height: 150px; gap: 6px;">
+          <% bottomTenWorst.forEach(facility => { %>
+            <div class="card" style="font-size: 12px; height: 120px; width: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <h3 style="margin: 20px 0; font-size: 13px;"><%= facility.name %></h3>
+              <button class="btn-app" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>View Details</button>
+            </div>
+          <% }); %>
+        </div>
+        <button class="scroll-arrow right" onclick="scrollRight('worstScroll2')">&#8250;</button>
+      </div>
+
+      <div class="scroll-wrapper" style="width: 100%;">
+        <h2 style="font-size: 16px; margin: 0px 0">Best Facilities</h2>
+        <button class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
+        <div class="scroll-container" id="bestScroll" style="max-height: 150px; gap: 6px;">
+          <% topThreeBest.forEach(facility => { %>
+            <div class="card" style="font-size: 12px; height: 120px; width: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <h3 style="margin: 20px 0; font-size: 13px;"><%= facility.name %></h3>
+              <button class="btn-app" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>View Details</button>
+            </div>
+          <% }); %>
+        </div>
+        <button class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
+        <br>
+        <div style = "float: right; text-align: right;">
+        <p><a href = "/government/worst">Find the Worst Facilities by Criteria</a></p>
+        <p><a href = "/government/advanced-search">Advanced Search</a></p>
+      </div>
+      </div>
       
-        <optgroup label="By Region">
-          <option value="region-Arusha">Arusha</option>
-          <option value="region-Kilimanjaro">Kilimanjaro</option>
-          <option value="region-Tanga">Tanga</option>
-        </optgroup>
-      </select>
-    </div>
-    <canvas id="timeTrendChart" style="width: 600px; height: 200px; margin: auto; display: block;"></canvas>
-  </section>
-  <section class = " page">
-   <br>
-   
-  <div class="scroll-wrapper">
-    <h2>Facilities doing below average : <%= countBelowAverage %> facilities </h2>
-
-
-    <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
-    <div class="scroll-container" id="worstScroll">
-      <% belowAverage.forEach(facility => { %>
-        <div class="card">
-          <h3><%= facility.name %></h3>
-          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
-
-            View Details
-          </button>
-          
-        </div>
-      <% }) %>
-    </div>
-
-    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll')">&#8250;</button>
-  </div>
-
-   
-  <div class="scroll-wrapper">
-    <h2>Worst Facilities</h2>
-    <!-- <button type="button" onclick="setLastMonth()">Last 30 Days</button> -->
-
-    <button type="button" class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
-    <div class="scroll-container" id="worstScroll">
-      <% bottomTenWorst.forEach(facility => { %>
-        <div class="card">
-          <h3><%= facility.name %></h3>
-          <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)' class = "btn-app">
-            View Details
-          </button>
-        </div>
-      <% }) %>
-    </div>
-
-    <button type="button" class="scroll-arrow right" onclick="scrollRight('worstScroll') ">&#8250;</button>
-  </div>
-  <div class="scroll-wrapper">
-    <h2>Best Facilities</h2>
-    <button type="button" class="scroll-arrow left" onclick="lefti('bestScroll')">&#8249;</button>
-
-    <div class="scroll-container" id="bestScroll">
-      <% topThreeBest.forEach(facility => { %>
-        <div class="card">
-          <h3><%= facility.name %></h3>
-          <button type="button" class = "btn-app" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, '\\u003c') %>)'>
-
-            View Details
-          </button>
-        </div>
-      <% }) %>
-    </div>
-    <button type="button" class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
-  </div>
-
-  </section>
-
-  <br>
-
-
-  <section class = "page">
-  <h1>Other actions</h2>
-  <img src="/assets/cs204.png" alt="rating" class="rating">
-  <p><a href = "/government/worst">View Worst Facilities by Criteria</a></p>
-  <p><a href = "/government/advanced-search">Advanced Search</a></p>
-  </section>
+    </section>
 
   <div id="facilityModal" class="modal" style="display:none;">
     <div class="modal-content">
@@ -144,4 +131,57 @@
 
 </body>
 <script src="/js/government.js"></script>
+<script>
+  const facilities = <%- JSON.stringify(results) %>;
+
+  function initMap() {
+  const tanzaniaCenter = { lat: -3.383545, lng:  36.689744};
+  const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 13,
+  center: tanzaniaCenter,
+  });
+  const market = new google.maps.Marker({
+      position: tanzaniaCenter,
+      map: map,
+      title: "Tanzania Center",
+  
+  });
+  facilities.forEach(facility => {
+  const marker = new google.maps.Marker({
+      position: { lat: facility.ltd, lng: facility.lng },
+      map: map,
+      title: facility.name
+  });
+
+  if(facility.metrics.avgWeight <= 3){
+      marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+      });
+  } else if (facility.metrics.avgWeight > 3 && facility.metrics.avgWeight <= 4) {
+      marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+      });
+  } else if (facility.metrics.avgWeight > 4 && facility.metrics.avgWeight <= 5) {
+      marker.setIcon({
+      url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+      scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+      });
+  }
+
+  const infoWindow = new google.maps.InfoWindow({
+  content: `<strong><a href="/facilities/${facility.facility_id}">${facility.name}</a></strong>`
+  });
+
+
+  marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+  });
+  });
+  }
+</script>
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+</script>
 </html>
