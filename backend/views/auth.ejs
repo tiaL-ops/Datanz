@@ -20,6 +20,12 @@
                 <button type="submit">Log In</button>
             </form>
     </div>
+    <% } else if (type === 'logout'){ %>
+        <div class = "signout">
+            <h2>Are you sure you want to sign out of the government page?</h2>
+            <p><a href = "/government" >No go back to government page.</a></p>
+            <p><a href = "/">Yes take me to the main page.</a></p>
+        </div>
     <% } %> 
 </body>
 </html>

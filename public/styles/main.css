@@ -10,6 +10,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   background-color: #fff;
+  scroll-behavior: smooth;
+
 }
 
 /* 1. Top Navigation */
@@ -258,3 +260,9 @@ html {
     background-color: #0056b3;
   }
 
+  section {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
