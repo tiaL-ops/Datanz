@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Starter HTML</title>
   <link rel="stylesheet" href="/styles/government.css"/>
+  <style>
+  /* Reset default form styling */
+  form {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  /* Reapply needed layout styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Add some basic styles so things aren't invisible */
+  select {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+  label {
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <header class="top-nav">
@@ -22,11 +51,11 @@
     </ul>
   </header>
       <main>
-      <h2>Highlight Worst Facilities by Criteria</h2>
+      <h2 style = "padding: 20px;">Find the Top 10 Worst Facilities for Any Criterion.</h2>
       <form method="get" class = "filter-group">
-          <label for="worstCategory">Select Area:</label>
+          <label for="worstCategory">Select Criterion:</label>
           <select id="worstCategory" name="worstCategory">
-            <option value="">Select Option</option>
+            <option value="" style = "padding:10px">Select Option</option>
     
             <optgroup label="Metrics (Weight-based)">
               <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
@@ -43,15 +72,18 @@
               <% }) %>
             </optgroup>
           </select>
+          <br>
+          <br>
         <button type = "submit" class = "btn-app" >Apply</button>
       </form>
     </section>
     
+    <br>
     <% if (worstBy) { %>
       <section>
         <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
-        <div class="scroll-wrapper">
-          <div class="scroll-container" id="areaWorstScroll">
+        <div class="scroll-wrapper" style = "margin-left: 20px; margin-right:20px">
+          <div class="scroll-container" id="areaWorstScroll" style = "margin-left: 50px; margin-right:70px">
             <% worstBy.worstFacilities.forEach(facility => { %>
               <div class="card">
                 <h3><%= facility.facility_name %></h3>
@@ -97,10 +129,10 @@
       </div>
     <br>
     <section class="back-link">
-    <a href="/government" style="  margin: auto;
-    width: 100px;
-    padding: 10px; ">← Back to government main page</a>
-    </section>
+      <div style="text-align: center;">
+        <a href="/government">← Back to government main page</a>
+      </div>
+          </section>
 </main>
 </body>
 <script src="/js/government.js"></script>

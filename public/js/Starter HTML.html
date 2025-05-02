@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter HTML</title>
+  <link rel="stylesheet" href="/styles/government.css"/>
+  <style>
+  /* Reset default form styling */
+  form {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  /* Reapply needed layout styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Add some basic styles so things aren't invisible */
+  select {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+  label {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+    <ul class="nav-links">
+      <div class="dropdown">
+        <li class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/government">Home</a>
+          <a href="/government/worst">Find the Worst Facilities</a>
+          <a href="/government/advanced-search">Advanced Search</a>
+        </div>
+      </div>
+      <li><a href="/auth/logout">Sign Out</a></li>
+    </ul>
+  </header>
+      <main>
+      <h2 style = "padding: 20px;">Find the top 10 Worst Facilities for Any Criterion.</h2>
+      <form method="get" class = "filter-group">
+          <label for="worstCategory">Select Criterion:</label>
+          <select id="worstCategory" name="worstCategory">
+            <option value="" style = "padding:10px">Select Option</option>
+    
+            <optgroup label="Metrics (Weight-based)">
+              <option value="waiting_time" selected>Waiting Time</option>
+              <option value="permission" >Permission Before Exam</option>
+              <option value="confidentiality" >Confidentiality</option>
+              <option value="tests" >Receiving All Tests</option>
+              <option value="medications" >Receiving All Medications</option>
+              <option value="satisfaction" >Overall Satisfaction</option>
+            </optgroup>
+    
+            <optgroup label="Facility Areas (Mention-based)">
+              
+                <option value="Toilets" >Toilets</option>
+              
+                <option value="Pharmacy/Drugs" >Pharmacy/Drugs</option>
+              
+                <option value="Reception" >Reception</option>
+              
+                <option value="Doctor&#39;s room" >Doctor&#39;s room</option>
+              
+            </optgroup>
+          </select>
+          <br>
+        <button type = "submit" class = "btn-app" >Apply</button>
+      </form>
+    </section>
+    
+    <br>
+    
+      <section>
+        <h2>Top 10 Worst Facilities for “waiting_time”</h2>
+        <div class="scroll-wrapper" style = "margin-left: 20px; margin-right:20px">
+          <div class="scroll-container" id="areaWorstScroll" style = "margin-left: 50px; margin-right:70px">
+            
+              <div class="card">
+                <h3>KISERENI</h3>
+                <p>Code: 103086-5</p>
+    
+                
+                  <p>Average Score: 0.59</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:28,&#34;facility_code&#34;:&#34;103086-5&#34;,&#34;name&#34;:&#34;KISERENI&#34;,&#34;location&#34;:&#34;Kilimanjaro Region, Hai District, Machame Mashariki&#34;,&#34;facility_name&#34;:&#34;KISERENI&#34;,&#34;average_weight&#34;:0.5882352941176471,&#34;response_count&#34;:17,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.3333333333333335,&#34;totalWeight&#34;:60,&#34;totalResponses&#34;:18,&#34;avgWait&#34;:97.05882352941177,&#34;avgSat&#34;:3.67,&#34;yesConfi&#34;:33.33,&#34;yesPerm&#34;:50,&#34;yesTests&#34;:22.22,&#34;yesMeds&#34;:44.44,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;Laboratory/testing&#34;,&#34;The external environment&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:8,&#34;bad_count&#34;:0,&#34;net_score&#34;:8},{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:4,&#34;net_score&#34;:-4}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>GLORIA</h3>
+                <p>Code: 101224-4</p>
+    
+                
+                  <p>Average Score: 0.60</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:45,&#34;facility_code&#34;:&#34;101224-4&#34;,&#34;name&#34;:&#34;GLORIA&#34;,&#34;location&#34;:&#34;Arusha Region, Arusha District, Sekei&#34;,&#34;facility_name&#34;:&#34;GLORIA&#34;,&#34;average_weight&#34;:0.6,&#34;response_count&#34;:15,&#34;metrics&#34;:{&#34;avgWeight&#34;:4.117647058823529,&#34;totalWeight&#34;:70,&#34;totalResponses&#34;:17,&#34;avgWait&#34;:96,&#34;avgSat&#34;:4.25,&#34;yesConfi&#34;:52.94,&#34;yesPerm&#34;:58.82,&#34;yesTests&#34;:30.77,&#34;yesMeds&#34;:58.33,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;Laboratory/testing&#34;,&#34;The external environment&#34;],&#34;topPayMode&#34;:&#34;Free&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:6,&#34;bad_count&#34;:0,&#34;net_score&#34;:6},{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:2,&#34;bad_count&#34;:0,&#34;net_score&#34;:2},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:3,&#34;net_score&#34;:-3}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>KWATITO</h3>
+                <p>Code: 103394-3</p>
+    
+                
+                  <p>Average Score: 0.62</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:32,&#34;facility_code&#34;:&#34;103394-3&#34;,&#34;name&#34;:&#34;KWATITO&#34;,&#34;location&#34;:&#34;Kilimanjaro Region, Hai District, Machame Kusini&#34;,&#34;facility_name&#34;:&#34;KWATITO&#34;,&#34;average_weight&#34;:0.6153846153846154,&#34;response_count&#34;:13,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.5625,&#34;totalWeight&#34;:57,&#34;totalResponses&#34;:16,&#34;avgWait&#34;:101.53846153846153,&#34;avgSat&#34;:3.6,&#34;yesConfi&#34;:43.75,&#34;yesPerm&#34;:37.5,&#34;yesTests&#34;:25,&#34;yesMeds&#34;:50,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;Laboratory/testing&#34;,&#34;The external environment&#34;],&#34;topPayMode&#34;:&#34;Free&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:5,&#34;bad_count&#34;:0,&#34;net_score&#34;:5},{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:3,&#34;net_score&#34;:-3}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>LEMIRA</h3>
+                <p>Code: 103474-3</p>
+    
+                
+                  <p>Average Score: 0.67</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:35,&#34;facility_code&#34;:&#34;103474-3&#34;,&#34;name&#34;:&#34;LEMIRA&#34;,&#34;location&#34;:&#34;Kilimanjaro Region, Hai District, Masama Kati&#34;,&#34;facility_name&#34;:&#34;LEMIRA&#34;,&#34;average_weight&#34;:0.6666666666666666,&#34;response_count&#34;:9,&#34;metrics&#34;:{&#34;avgWeight&#34;:2.8666666666666667,&#34;totalWeight&#34;:43,&#34;totalResponses&#34;:15,&#34;avgWait&#34;:106.66666666666667,&#34;avgSat&#34;:4.6,&#34;yesConfi&#34;:40,&#34;yesPerm&#34;:46.67,&#34;yesTests&#34;:66.67,&#34;yesMeds&#34;:33.33,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;The external environment&#34;,&#34;Laboratory/testing&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:3,&#34;net_score&#34;:-3}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>GLOBAL</h3>
+                <p>Code: 112006-2</p>
+    
+                
+                  <p>Average Score: 0.67</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:44,&#34;facility_code&#34;:&#34;112006-2&#34;,&#34;name&#34;:&#34;GLOBAL&#34;,&#34;location&#34;:&#34;Arusha Region, Arusha District, Levolosi&#34;,&#34;facility_name&#34;:&#34;GLOBAL&#34;,&#34;average_weight&#34;:0.6666666666666666,&#34;response_count&#34;:15,&#34;metrics&#34;:{&#34;avgWeight&#34;:2.8823529411764706,&#34;totalWeight&#34;:49,&#34;totalResponses&#34;:17,&#34;avgWait&#34;:106,&#34;avgSat&#34;:3.67,&#34;yesConfi&#34;:47.06,&#34;yesPerm&#34;:47.06,&#34;yesTests&#34;:55.56,&#34;yesMeds&#34;:25,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;Laboratory/testing&#34;,&#34;The external environment&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:2,&#34;bad_count&#34;:0,&#34;net_score&#34;:2},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:4,&#34;net_score&#34;:-4}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>FUNTA</h3>
+                <p>Code: 101162-6</p>
+    
+                
+                  <p>Average Score: 0.69</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:9,&#34;facility_code&#34;:&#34;101162-6&#34;,&#34;name&#34;:&#34;FUNTA&#34;,&#34;location&#34;:&#34;Tanga Region, Lushoto District, Funta&#34;,&#34;facility_name&#34;:&#34;FUNTA&#34;,&#34;average_weight&#34;:0.6875,&#34;response_count&#34;:16,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.5,&#34;totalWeight&#34;:70,&#34;totalResponses&#34;:20,&#34;avgWait&#34;:105,&#34;avgSat&#34;:4.43,&#34;yesConfi&#34;:45,&#34;yesPerm&#34;:65,&#34;yesTests&#34;:57.14,&#34;yesMeds&#34;:53.85,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;Laboratory/testing&#34;,&#34;The external environment&#34;],&#34;topPayMode&#34;:&#34;Free&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:6,&#34;bad_count&#34;:0,&#34;net_score&#34;:6},{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:2,&#34;net_score&#34;:-2}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>FMM</h3>
+                <p>Code: 110721-8</p>
+    
+                
+                  <p>Average Score: 0.71</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:40,&#34;facility_code&#34;:&#34;110721-8&#34;,&#34;name&#34;:&#34;FMM&#34;,&#34;location&#34;:&#34;Arusha Region, Arusha District, Sekei&#34;,&#34;facility_name&#34;:&#34;FMM&#34;,&#34;average_weight&#34;:0.7142857142857143,&#34;response_count&#34;:7,&#34;metrics&#34;:{&#34;avgWeight&#34;:4.181818181818182,&#34;totalWeight&#34;:46,&#34;totalResponses&#34;:11,&#34;avgWait&#34;:107.14285714285714,&#34;avgSat&#34;:4.33,&#34;yesConfi&#34;:45.45,&#34;yesPerm&#34;:36.36,&#34;yesTests&#34;:11.11,&#34;yesMeds&#34;:50,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;The external environment&#34;,&#34;Laboratory/testing&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:1,&#34;bad_count&#34;:0,&#34;net_score&#34;:1},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:3,&#34;net_score&#34;:-3}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>HAI</h3>
+                <p>Code: 101295-4</p>
+    
+                
+                  <p>Average Score: 0.78</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:17,&#34;facility_code&#34;:&#34;101295-4&#34;,&#34;name&#34;:&#34;HAI&#34;,&#34;location&#34;:&#34;Kilimanjaro Region, Hai District, Hai Mjini&#34;,&#34;facility_name&#34;:&#34;HAI&#34;,&#34;average_weight&#34;:0.7777777777777778,&#34;response_count&#34;:18,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.227272727272727,&#34;totalWeight&#34;:71,&#34;totalResponses&#34;:22,&#34;avgWait&#34;:115,&#34;avgSat&#34;:3.67,&#34;yesConfi&#34;:59.09,&#34;yesPerm&#34;:54.55,&#34;yesTests&#34;:53.33,&#34;yesMeds&#34;:56.25,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;The external environment&#34;,&#34;Laboratory/testing&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:4,&#34;net_score&#34;:-4}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>GLITZ</h3>
+                <p>Code: 121317-2</p>
+    
+                
+                  <p>Average Score: 0.78</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:43,&#34;facility_code&#34;:&#34;121317-2&#34;,&#34;name&#34;:&#34;GLITZ&#34;,&#34;location&#34;:&#34;Arusha Region, Arusha District, Sekei&#34;,&#34;facility_name&#34;:&#34;GLITZ&#34;,&#34;average_weight&#34;:0.7777777777777778,&#34;response_count&#34;:9,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.2857142857142856,&#34;totalWeight&#34;:46,&#34;totalResponses&#34;:14,&#34;avgWait&#34;:116.66666666666667,&#34;avgSat&#34;:5,&#34;yesConfi&#34;:64.29,&#34;yesPerm&#34;:35.71,&#34;yesTests&#34;:62.5,&#34;yesMeds&#34;:60,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;The external environment&#34;,&#34;Laboratory/testing&#34;],&#34;topPayMode&#34;:&#34;Insurance&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:5,&#34;bad_count&#34;:0,&#34;net_score&#34;:5},{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:5,&#34;net_score&#34;:-5}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+              <div class="card">
+                <h3>KIA RC</h3>
+                <p>Code: 102558-4</p>
+    
+                
+                  <p>Average Score: 0.81</p>
+                
+                <br> 
+                <button type="button" onclick='openFacilityPopup({&#34;facility_id&#34;:25,&#34;facility_code&#34;:&#34;102558-4&#34;,&#34;name&#34;:&#34;KIA RC&#34;,&#34;location&#34;:&#34;Kilimanjaro Region, Hai District, KIA&#34;,&#34;facility_name&#34;:&#34;KIA RC&#34;,&#34;average_weight&#34;:0.8125,&#34;response_count&#34;:16,&#34;metrics&#34;:{&#34;avgWeight&#34;:3.5416666666666665,&#34;totalWeight&#34;:85,&#34;totalResponses&#34;:24,&#34;avgWait&#34;:123.75,&#34;avgSat&#34;:3.73,&#34;yesConfi&#34;:54.17,&#34;yesPerm&#34;:58.33,&#34;yesTests&#34;:46.67,&#34;yesMeds&#34;:53.85,&#34;topProblems&#34;:[&#34;Toilets&#34;],&#34;topPositives&#34;:[&#34;The external environment&#34;,&#34;Laboratory/testing&#34;],&#34;topPayMode&#34;:&#34;Free&#34;,&#34;areaSatisfaction&#34;:[{&#34;area&#34;:&#34;The external environment&#34;,&#34;good_count&#34;:4,&#34;bad_count&#34;:0,&#34;net_score&#34;:4},{&#34;area&#34;:&#34;Laboratory/testing&#34;,&#34;good_count&#34;:3,&#34;bad_count&#34;:0,&#34;net_score&#34;:3},{&#34;area&#34;:&#34;Toilets&#34;,&#34;good_count&#34;:0,&#34;bad_count&#34;:4,&#34;net_score&#34;:-4}]}})' class = "btn-app">
+                  View Details
+                </button>
+              </div>
+            
+          </div>
+    
+          <button type="button" class="scroll-arrow left" onclick="lefti('areaWorstScroll')">&#8249;</button>
+          <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
+        </div>
+      </section>
+    
+
+    <div id="facilityModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
+          <h2 id="modalFacilityName"></h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
+                <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
+                <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
+                <th>Top Problems</th><th>Top Positives</th>
+              </tr>
+            </thead>
+            <tbody id="modalFacilityDetails">
+              <!-- Dynamic content -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <br>
+    <section class="back-link">
+      <div style="text-align: center;">
+        <a href="/government">← Back to government main page</a>
+      </div>
+          </section>
+</main>
+</body>
+<script src="/js/government.js"></script>
+<script>// Select the DATANZ link
+  const datanzLink = document.getElementById("datanzLink");
+
+ // Add a click event listener
+datanzLink.addEventListener("click", (event) => {
+  event.preventDefault(); // Prevent the default link behavior
+
+  // Display a confirmation dialog
+  const userConfirmed = confirm(
+    "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
+  );
+
+  // If the user clicks "OK", navigate to the main page
+  if (userConfirmed) {
+    window.location.href = "/"; // Redirect to the main page
+  }
+});</script>
+</html>

@@ -59,7 +59,7 @@
   <div style="flex: 1; max-width: 800px; padding-right: 50px;margin-top:50px">
     <section class="page" style="width: 100%;">
       <div class="scroll-wrapper" style="width: 100%;">
-        <h2 style="font-size: 16px; margin: 0 0">Facilities Below Average: <%= countBelowAverage %></h2>
+        <h2 style="font-size: 16px; margin: 0 0">Below Average Facilities: <%= countBelowAverage %></h2>
         <button class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
         <div class="scroll-container" id="worstScroll" style="max-height: 150px; gap: 6px;">
           <% belowAverage.forEach(facility => { %>
@@ -100,7 +100,7 @@
         <button class="scroll-arrow right" onclick="scrollRight('bestScroll')">&#8250;</button>
         <br>
         <div style = "float: right; text-align: right; font-weight:bold">
-        <p><a href = "/government/worst">Find the Worst Facilities by Criteria</a></p>
+        <p><a href = "/government/worst">Find the Worst Facilities</a></p>
         <p><a href = "/government/advanced-search">Advanced Search</a></p>
       </div>
       </div>
