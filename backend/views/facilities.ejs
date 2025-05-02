@@ -14,25 +14,19 @@
     <ul class="nav-links">
       <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
       <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
-    </ul>
-    
-    <!-- Language Switch Button -->
-    <div class="language-switcher">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
-    
-      
+        </a>
+      </li>
+    </ul>
   </header>
 
 <main class="scroll-container">
   <!-- Filter Form Section -->
   <section class="filter-container">
-    <h1><%= __('find_facility') %></h1>
+    <h1 style = "text-align: center;"><%= __('find_facility') %></h1>
 
     <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
       <input type="hidden" name="lang" value="<%= currentLang %>" />
@@ -40,7 +34,7 @@
       <label class="filter-item">
         <%= __('max_wait_time') %>
         <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
-               oninput="document.getElementById('waitValue').innerText = this.value + ' ' + __('minutes');" />
+               oninput="updateWaitTime(this.value)" />
         <span id="waitValue">60 <%= __('minutes') %></span>
       </label>
       
@@ -166,6 +160,11 @@
         behavior: "smooth"
       });
     });
-  </script> 
+
+    function updateWaitTime(value) {
+      const minutesText = document.getElementById('waitValue').textContent.split(' ')[1];
+      document.getElementById('waitValue').innerText = value + ' ' + minutesText;
+    }
+  </script>
 </body>
 </html>
