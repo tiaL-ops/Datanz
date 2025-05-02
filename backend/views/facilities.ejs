@@ -37,7 +37,7 @@
                oninput="updateWaitTime(this.value)" />
         <span id="waitValue">60 <%= __('minutes') %></span>
       </label>
-
+      
       <label class="filter-item">
         <%= __('satisfaction_label') %>
         <select name="satisfaction">
@@ -101,6 +101,8 @@
     </form>
   </section>
 
+
+
   <!-- Facility Grid Section -->
   <section class="facility-header">
     <h1><%= __('all_facilities') %></h1>
@@ -133,21 +135,25 @@
       <% }) %>
     </div>
   </section>
-</main>
+  </main>
 <br>
   <button id="backToTop" class="back-to-top" title="<%= __('back_to_top') %>">↑</button>
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
 
+    // Show the button when the scroll container is scrolled down
     scrollContainer.addEventListener("scroll", () => {
+
       if (scrollContainer.scrollTop > 0) {
         backToTopBtn.classList.add("show");
+        console.log("done");
       } else {
         backToTopBtn.classList.remove("show");
       }
     });
-
+  
+    // Scroll to top of the container on click
     backToTopBtn.addEventListener("click", () => {
       scrollContainer.scrollTo({
         top: 0,
