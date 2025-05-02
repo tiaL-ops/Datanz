@@ -10,8 +10,20 @@ const fs = require('fs');
 router.get('/map-view', async (req, res) => {
   try {
     const facilityInstance = new facilityModel(db);
+    const responseModel = new ResponseModel(db);
     const facilities = await facilityInstance.getAllFacilities();
-    res.render('map-view', { facilities });
+    
+    // Add metrics to each facility
+    const facilitiesWithMetrics = facilities.map(facility => {
+      const id = facility.facility_id;
+      const metrics = {
+        avgWeight: responseModel.getWeightOfFacility(id)?.average_weight || 0,
+        avgWait: responseModel.getWaitingTimeStats(id)?.average_wait_time_minutes || 0
+      };
+      return { ...facility, metrics };
+    });
+
+    res.render('map-view', { facilities: facilitiesWithMetrics });
   } catch (error) {
     console.error('Error fetching facilities for map view:', error);
     res.status(500).send('Internal Server Error');
