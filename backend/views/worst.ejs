@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Starter HTML</title>
+  <title>Find the Worst Facilities</title>
   <link rel="stylesheet" href="/styles/government.css"/>
   <style>
   /* Reset default form styling */
@@ -52,8 +52,8 @@
   </header>
       <main>
       <h2 style = "padding: 20px;">Find the Top 10 Worst Facilities for Any Criterion.</h2>
-      <form method="get" class = "filter-group">
-          <label for="worstCategory">Select Criterion:</label>
+      <form method="get" class = " filter-group" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;">
+        <label for="worstCategory">Select Criterion:</label>
           <select id="worstCategory" name="worstCategory">
             <option value="" style = "padding:10px">Select Option</option>
     
@@ -130,7 +130,7 @@
     <br>
     <section class="back-link">
       <div style="text-align: center;">
-        <a href="/government">← Back to government main page</a>
+        <a href="/government">← Back to government dashboard</a>
       </div>
           </section>
 </main>
