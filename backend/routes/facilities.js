@@ -11,7 +11,11 @@ router.get('/map-view', async (req, res) => {
   try {
     const facilityInstance = new facilityModel(db);
     const facilities = await facilityInstance.getAllFacilities();
-    res.render('map-view', { facilities });
+    const lang = req.query.lang || 'en';
+    res.render('map-view', { 
+      facilities,
+      currentLang: lang
+    });
   } catch (error) {
     console.error('Error fetching facilities for map view:', error);
     res.status(500).send('Internal Server Error');
