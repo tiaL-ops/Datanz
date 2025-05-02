@@ -40,7 +40,7 @@
       <label class="filter-item">
         <%= __('max_wait_time') %>
         <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
-               oninput="document.getElementById('waitValue').innerText = this.value + ' ' + __('minutes');" />
+               oninput="updateWaitTime(this.value)" />
         <span id="waitValue">60 <%= __('minutes') %></span>
       </label>
 
@@ -160,6 +160,11 @@
         behavior: "smooth"
       });
     });
+
+    function updateWaitTime(value) {
+      const minutesText = document.getElementById('waitValue').textContent.split(' ')[1];
+      document.getElementById('waitValue').innerText = value + ' ' + minutesText;
+    }
   </script>
 </body>
 </html>
