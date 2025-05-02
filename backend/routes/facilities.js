@@ -113,7 +113,7 @@ router.get('/:id', async (req, res) => {
           summaryStats,
         });
     */
-
+    const lang = req.query.lang || 'en';
     res.render('facilities_id', {
       id,
       gov,
@@ -133,8 +133,10 @@ router.get('/:id', async (req, res) => {
         problemAreas,
         positiveAreas,
         recentResponses,
+      
         summaryStats
-      }
+      },
+      currentLang: lang,
     });
 
 
