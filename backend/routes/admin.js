@@ -18,7 +18,7 @@ router.post('/create-user', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = await authModel.createUser(username, email, hashedPassword, 'government');
-        res.send(`User created successfully! ID: ${newUser.user_id}`);
+        return res.redirect('/');
     } catch (err) {
         console.error(err);
         res.send('Error creating user. Email might already exist.');
