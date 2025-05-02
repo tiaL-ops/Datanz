@@ -13,33 +13,31 @@
 
     .back {
         text-decoration: underline; /* Adds an underline to the link */
+        padding: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+    .back a {
+        text-decoration: none;
+        color: #000;
+        transition: color 0.2s ease;
+    }
 
-        padding: 20px ;
-  font-size: 1.5rem;
-  font-weight: bold;
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-    .back  a {
-  text-decoration: none;
-  color: #000;
-  transition: color 0.2s ease;
-}
-
-.back a:hover {
-  color: #666;
-}
-
-   
-</style>
-      <link rel="stylesheet" href="/styles/facilities.css" />
-
+    .back a:hover {
+        color: #666;
+    }
+  </style>
+  <link rel="stylesheet" href="/styles/facilities.css" />
 </head>
 <body>
     <header class="top-nav">
         <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
         <ul class="nav-links">
+          <li><a href="/">Home page</a></li>
+          <li><a href="/auth?type=login">Login</a></li>
           <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
           <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
           <li>
@@ -49,49 +47,71 @@
             </a>
           </li>
         </ul>
-      </header>
-      <div class="back"><a href = "/facilities">
-        <ul>Go Back</a></ul>
-    </div>
+    </header>
+    <div class="back"><a href="/facilities">Go Back</a></div>
     <div id="map"></div>
 </body>
 <script>
 const facilities = <%- JSON.stringify(facilities) %>;
 
 function initMap() {
-const tanzaniaCenter = { lat: -3.383545, lng:  36.689744 };
-const map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 15,
-  center: tanzaniaCenter,
-});
-const market = new google.maps.Marker({
+  const tanzaniaCenter = { lat: -3.383545, lng: 36.689744 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: tanzaniaCenter,
+  });
+  const marker  = new google.maps.Marker({
     position: tanzaniaCenter,
     map: map,
-    title: "Tanzania Center",
-    icon: {
-        url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-        scaledSize: new google.maps.Size(30, 30) // Adjust size as needed
+    title: "You are here"
+  });
+
+  facilities.forEach(facility => {
+    const marker = new google.maps.Marker({
+      position: { lat: facility.ltd, lng: facility.lng },
+      map: map,
+      title: facility.name
+    });
+
+    // Color code markers based on metrics
+    if (facility.metrics && facility.metrics.avgWeight) {
+      if (facility.metrics.avgWeight <= 3) {
+        marker.setIcon({
+          url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+          scaledSize: new google.maps.Size(30, 30)
+        });
+      } else if (facility.metrics.avgWeight <= 4) {
+        marker.setIcon({
+          url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+          scaledSize: new google.maps.Size(30, 30)
+        });
+      } else {
+        marker.setIcon({
+          url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+          scaledSize: new google.maps.Size(30, 30)
+        });
+      }
     }
-});
 
-facilities.forEach(facility => {
-  const marker = new google.maps.Marker({
-    position: { lat: facility.ltd, lng: facility.lng },
-    map: map,
-    title: facility.name
-  });
+    const infoWindow = new google.maps.InfoWindow({
+      content: `
+        <div style="padding: 10px;">
+          <strong><a href="/facilities/${facility.facility_id}">${facility.name}</a></strong>
+          <p>ID: <a href="/facilities/${facility.facility_id}">${facility.facility_id}</a></p>
+          ${facility.metrics ? `
+            <p>Average Rating: ${facility.metrics.avgWeight.toFixed(2)}</p>
+            <p>Wait Time: ${facility.metrics.avgWait.toFixed(1)} minutes</p>
+          ` : ''}
+        </div>
+      `
+    });
 
-  const infoWindow = new google.maps.InfoWindow({
-    content: `<strong>${facility.name}</strong>`
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
   });
-
-  marker.addListener("click", () => {
-    infoWindow.open(map, marker);
-  });
-});
 }
 </script>
-
 <script async
   src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
 </script>
