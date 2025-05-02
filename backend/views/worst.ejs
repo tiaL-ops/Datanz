@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find the Worst Facilities</title>
+
   <link rel="stylesheet" href="/styles/government.css"/>
   <style>
   /* Reset default form styling */
@@ -37,36 +38,43 @@
 </head>
 <body>
   <header class="top-nav">
-    <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+    <div class="logo"><a href="/" id="datanzLink"><%= __('site_name') %></a></div>
     <ul class="nav-links">
       <div class="dropdown">
-        <li class="dropbtn">Menu</button>
+        <li class="dropbtn"><%= __('menu') %></li>
         <div class="dropdown-content">
-          <a href="/government">Home</a>
-          <a href="/government/worst">Find the Worst Facilities</a>
-          <a href="/government/advanced-search">Advanced Search</a>
+          <a href="/government"><%= __('home') %></a>
+          <a href="/government/worst"><%= __('worst_facilities') %></a>
+          <a href="/government/advanced-search"><%= __('advanced_search') %></a>
         </div>
       </div>
-      <li><a href="/auth/logout">Sign Out</a></li>
+      <li><a href="/auth/logout"><%= __('sign_out') %></a></li>
     </ul>
+    <div class="language-switcher" style="margin-right: 20px;">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
   </header>
       <main>
-      <h2 style = "padding: 20px;">Find the Top 10 Worst Facilities for Any Criterion.</h2>
+      <h2 style = "padding: 20px;><%= __('highlight_worst') %></h2>
       <form method="get" class = " filter-group" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;">
-        <label for="worstCategory">Select Criterion:</label>
+          <label for="worstCategory"><%= __('select_area') %></label>
           <select id="worstCategory" name="worstCategory">
-            <option value="" style = "padding:10px">Select Option</option>
-    
-            <optgroup label="Metrics (Weight-based)">
-              <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>>Waiting Time</option>
-              <option value="permission" <%= filters.worstCategory==='permission' ? 'selected' : '' %>>Permission Before Exam</option>
-              <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>>Confidentiality</option>
-              <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>>Receiving All Tests</option>
-              <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>>Receiving All Medications</option>
-              <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>>Overall Satisfaction</option>
-            </optgroup>
-    
-            <optgroup label="Facility Areas (Mention-based)">
+            <option value=""><%= __('select_option') %></option>
+
+            <optgroup label="<%= __('metrics_group') %>">
+              <option value="waiting_time" <%= filters.worstCategory==='waiting_time' ? 'selected' : '' %>><%= __('waiting_time') %></option>
+              <option value="permission" <%= filters.worstCategory==='permission' ? 'selected' : '' %>><%= __('permission_before_exam') %></option>
+              <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>><%= __('confidentiality') %></option>
+              <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>><%= __('receiving_all_tests') %></option>
+              <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>><%= __('receiving_all_meds') %></option>
+              <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>><%= __('overall_satisfaction') %></option>            </optgroup>
+
+            <optgroup label="<%= __('mention_group') %>">
               <% areas.forEach(area => { %>
                 <option value="<%= area %>" <%= filters.worstCategory===area ? 'selected' : '' %>><%= area %></option>
               <% }) %>
@@ -84,24 +92,33 @@
         <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
         <div class="scroll-wrapper" style = "margin-left: 20px; margin-right:20px">
           <div class="scroll-container" id="areaWorstScroll" style = "margin-left: 50px; margin-right:70px">
+        <button type = "submit" class = "btn-app" ><%= __('apply') %></button>
+      </form>
+    </section>
+
+    <% if (worstBy) { %>
+      <section>
+        <h2><%= __('top_10_worst') %> “<%= worstBy.area %>”</h2>
+        <div class="scroll-wrapper">
+          <div class="scroll-container" id="areaWorstScroll">
             <% worstBy.worstFacilities.forEach(facility => { %>
               <div class="card">
                 <h3><%= facility.facility_name %></h3>
-                <p>Code: <%= facility.facility_code %></p>
-    
+                <p><%= __('code') %>: <%= facility.facility_code %></p>
+
                 <% if (facility.bad_count !== undefined) { %>
-                  <p>Mentions: <%= facility.bad_count %></p>
+                  <p><%= __('mentions') %>: <%= facility.bad_count %></p>
                 <% } else { %>
-                  <p>Average Score: <%= facility.average_weight.toFixed(2) %></p>
+                  <p><%= __('average_score') %>: <%= facility.average_weight.toFixed(2) %></p>
                 <% } %>
                 <br> 
-                <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)' class = "btn-app">
-                  View Details
+                <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\u003c") %>)' class = "btn-app">
+                  <%= __('view_details') %>
                 </button>
               </div>
             <% }) %>
           </div>
-    
+
           <button type="button" class="scroll-arrow left" onclick="lefti('areaWorstScroll')">&#8249;</button>
           <button type="button" class="scroll-arrow right" onclick="scrollRight('areaWorstScroll')">&#8250;</button>
         </div>
@@ -115,10 +132,10 @@
           <table>
             <thead>
               <tr>
-                <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
-                <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
-                <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
-                <th>Top Problems</th><th>Top Positives</th>
+                <th><%= __('modal_headers.name') %></th><th><%= __('modal_headers.code') %></th><th><%= __('modal_headers.location') %></th><th><%= __('modal_headers.avg_wait') %></th>
+                <th><%= __('modal_headers.avg_sat') %></th><th><%= __('modal_headers.no_privacy') %></th><th><%= __('modal_headers.no_permission') %></th>
+                <th><%= __('modal_headers.missed_tests') %></th><th><%= __('modal_headers.missed_meds') %></th><th><%= __('modal_headers.top_payment') %></th>
+                <th><%= __('modal_headers.top_problems') %></th><th><%= __('modal_headers.top_positives') %></th>
               </tr>
             </thead>
             <tbody id="modalFacilityDetails">
@@ -133,6 +150,10 @@
         <a href="/government">← Back to government dashboard</a>
       </div>
           </section>
+    <a href="/government" style="  margin: auto;
+    width: 100px;
+    padding: 10px; ">← <%= __('back_to_government') %></a>
+    </section>
 </main>
 </body>
 <script src="/js/government.js"></script>
@@ -140,12 +161,12 @@
   const datanzLink = document.getElementById("datanzLink");
 
  // Add a click event listener
-datanzLink.addEventListener("click", (event) => {
+ datanzLink.addEventListener("click", (event) => {
   event.preventDefault(); // Prevent the default link behavior
 
   // Display a confirmation dialog
   const userConfirmed = confirm(
-    "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page."
+    __('leave_government_confirm')
   );
 
   // If the user clicks "OK", navigate to the main page

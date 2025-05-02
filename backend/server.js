@@ -3,11 +3,28 @@ const path = require("path");
 const fs = require("fs");
 const session = require('express-session');
 const app = express();
+const i18n = require('i18n');
 const PORT = 3000;
 
 const { connectToDatabase } = require("../db/database");
 const db = connectToDatabase();
-
+i18n.configure({
+    locales: ['en', 'sw'],
+    directory: path.join(__dirname, 'locales'),
+    defaultLocale: 'en',
+    queryParameter: 'lang',
+    cookie: 'lang',
+    autoReload: true,
+    updateFiles: false
+  });
+  
+  app.use(i18n.init);
+  
+  // Make i18n available in all EJS templates
+  app.use((req, res, next) => {
+    res.locals.__ = res.__.bind(req); 
+    next();
+  });
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
