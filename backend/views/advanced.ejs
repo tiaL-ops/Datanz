@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= currentLang %>">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Search</title>
+  <title><%= __('advanced_page_title') %></title>
   <link rel="stylesheet" href="/styles/government.css"> 
   <style>
     /* RESET BROWSER DEFAULT STYLES */
@@ -55,18 +55,26 @@
 </head>
 <body>
     <header class="top-nav">
-        <div class="logo"><a href="/" id="datanzLink">DATANZ</a></div>
+    <div class="logo"><a href="/?lang=<%= currentLang %>" id="datanzLink"><%= __('site_name') %></a></div>
         <ul class="nav-links">
           <div class="dropdown">
-            <li class="dropbtn">Menu</button>
+        <li class="dropbtn"><%= __('menu') %></li>
             <div class="dropdown-content">
-              <a href="/government">Home</a>
-              <a href="/government/worst">Find the Worst Facilities</a>
-              <a href="/government/advanced/search">Advanced Search</a>
+          <a href="/government?lang=<%= currentLang %>"><%= __('home') %></a>
+          <a href="/government/worst?lang=<%= currentLang %>"><%= __('worst_facilities') %></a>
+          <a href="/government/advanced-search?lang=<%= currentLang %>"><%= __('advanced_search') %></a>
             </div>
           </div>
-          <li><a href="/auth/logout">Sign Out</a></li>
+      <li><a href="/auth/logout?lang=<%= currentLang %>"><%= __('sign_out') %></a></li>
         </ul>
+    <div class="language-switcher" style="margin-right: 20px;">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
       </header>
   <main>
     <h2 style = "margin-top: 30px;">Welcome to the Advanced Search page.</h2>
@@ -75,50 +83,32 @@
           Use the filters below to guide you to the facilities that need the most help.
         </h3>
     <form method="get">
-      <div class = "filter-group">
-          <label for="region">Region</label>
-          <select id="region" name="region">
-            <option value="" >Any</option>
-            <option value="Arusha"      <%= filters.region==='Arusha'      ? 'selected' : '' %>>Arusha</option>
-            <option value="Kilimanjaro" <%= filters.region==='Kilimanjaro' ? 'selected' : '' %>>Kilimanjaro</option>
-            <option value="Tanga"       <%= filters.region==='Tanga'       ? 'selected' : '' %>>Tanga</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="bestCategory">Highlight the best facilities in this criterion:</label>
-          <select id="bestCategory" name="bestCategory">
-            <option value="">- Select Option -</option>
-            <% areas.forEach(area => { %>
-              <option value="<%= area %>" <%= filters.bestCategory===area ? 'selected' : '' %>><%= area %></option>
-            <% }) %>
-          </select>
-        </div>
+      <h2><%= __('refine_search') %></h2>
 
-        <div class="filter-group">
-          <label for="startDate">Start Date</label>
-          <input
-            id="startDate"
-            name="startDate"
-            type="date"
-            value="<%= filters.startDate || '' %>"
-          >
+      <p style="grid-column: span 2; font-size: 0.875rem; color: #6B7280; margin-bottom: 1rem;">
+        <%= __('refine_search_description') %>
+      </p>
+
+      <div class="filter-group">
+        <label for="region"><%= __('region_label') %></label>
+          <select id="region" name="region">
+          <option value=""><%= __('any') %></option>
+          <option value="Arusha" <%= filters.region==='Arusha' ? 'selected' : '' %>><%= __('region_arusha') %></option>
+          <option value="Kilimanjaro" <%= filters.region==='Kilimanjaro' ? 'selected' : '' %>><%= __('region_kilimanjaro') %></option>
+          <option value="Tanga" <%= filters.region==='Tanga' ? 'selected' : '' %>><%= __('region_tanga') %></option>
+          </select>
         </div>
-        
         <div class="filter-group">
-          <label for="endDate">End Date</label>
-          <input
-            id="endDate"
-            name="endDate"
-            type="date"
-            value="<%= filters.endDate || '' %>"
-          >
+        <label for="startDate"><%= __('start_date') %></label>
+        <input id="startDate" name="startDate" type="date" value="<%= filters.startDate || '' %>">
         </div>
-        
-    
+        <div class="filter-group">
+        <label for="endDate"><%= __('end_date') %></label>
+        <input id="endDate" name="endDate" type="date" value="<%= filters.endDate || '' %>">
+        </div>
         <div class="filter-group">
           <label for="waitThreshold">
-            Show facilities where average wait is more than
-            <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> minutes
+          <%= __('filter_wait_above') %> <span class="range-value" id="waitVal"><%= filters.waitThreshold||0 %></span> <%= __('minutes') %>
           </label>
           <input
             id="waitThreshold"
@@ -132,125 +122,82 @@
     
         <div class="filter-group">
           <label for="satThreshold">
-            Only show facilities where satisfaction is below
-            <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> out of 5
+          <%= __('filter_sat_below') %> <span class="range-value" id="satVal"><%= filters.satThreshold||5 %></span> <%= __('out_of_5') %>
           </label>
-          <input
-            id="satThreshold"
-            name="satThreshold"
-            type="range"
-            min="1" max="5"
-            value="<%= filters.satThreshold||5 %>"
-            oninput="satVal.textContent = this.value"
-          >
+        <input id="satThreshold" name="satThreshold" type="range" min="1" max="5" value="<%= filters.satThreshold||5 %>" oninput="satVal.textContent = this.value">
         </div>
     
         <div class="filter-group">
           <label for="confiThreshold">
-            Facilities with confidentiality concerns in
-            <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>% or more of visits
+          <%= __('filter_confidentiality') %> <span class="range-value" id="confVal"><%= filters.confiThreshold||0 %></span>%
           </label>
-          <input
-            id="confiThreshold"
-            name="confiThreshold"
-            type="range"
-            min="0" max="100"
-            value="<%= filters.confiThreshold||0 %>"
-            oninput="confVal.textContent = this.value"
-          >
+        <input id="confiThreshold" name="confiThreshold" type="range" min="0" max="100" value="<%= filters.confiThreshold||0 %>" oninput="confVal.textContent = this.value">
         </div>
     
         <div class="filter-group">
           <label for="permThreshold">
-            Show facilities where permission was not respected in
-            <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>% or more of visits
+          <%= __('filter_permission') %> <span class="range-value" id="permVal"><%= filters.permThreshold||0 %></span>%
           </label>
-          <input
-            id="permThreshold"
-            name="permThreshold"
-            type="range"
-            min="0" max="100"
-            value="<%= filters.permThreshold||0 %>"
-            oninput="permVal.textContent = this.value"
-          >
+        <input id="permThreshold" name="permThreshold" type="range" min="0" max="100" value="<%= filters.permThreshold||0 %>" oninput="permVal.textContent = this.value">
         </div>
     
         <div class="filter-group">
           <label for="testThreshold">
-            Highlight where
-            <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>% or more visits had missing tests
+          <%= __('filter_tests_missing') %> <span class="range-value" id="testVal"><%= filters.testThreshold||0 %></span>%
           </label>
-          <input
-            id="testThreshold"
-            name="testThreshold"
-            type="range"
-            min="0" max="100"
-            value="<%= filters.testThreshold||0 %>"
-            oninput="testVal.textContent = this.value"
-          >
+        <input id="testThreshold" name="testThreshold" type="range" min="0" max="100" value="<%= filters.testThreshold||0 %>" oninput="testVal.textContent = this.value">
         </div>
     
         <div class="filter-group">
           <label for="medThreshold">
-            Facilities where patients missed medications in
-            <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>% or more visits
+          <%= __('filter_meds_missing') %> <span class="range-value" id="medVal"><%= filters.medThreshold||0 %></span>%
           </label>
-          <input
-            id="medThreshold"
-            name="medThreshold"
-            type="range"
-            min="0" max="100"
-            value="<%= filters.medThreshold||0 %>"
-            oninput="medVal.textContent = this.value"
-          >
+        <input id="medThreshold" name="medThreshold" type="range" min="0" max="100" value="<%= filters.medThreshold||0 %>" oninput="medVal.textContent = this.value">
         </div>
     
         <div class="filter-group">
-          <label for="paymentMode">Prefer facilities where most patients pay with:</label>
+        <label for="paymentMode"><%= __('filter_payment_mode') %></label>
           <select id="paymentMode" name="paymentMode">
-            <option value="">Any</option>
-            <option value="Cash"      <%= filters.paymentMode==='Cash'      ? 'selected' : '' %>>Cash</option>
-            <option value="Insurance" <%= filters.paymentMode==='Insurance' ? 'selected' : '' %>>Insurance</option>
-            <option value="Free"      <%= filters.paymentMode==='Free'      ? 'selected' : '' %>>Free</option>
+          <option value=""><%= __('any') %></option>
+          <option value="Cash" <%= filters.paymentMode==='Cash' ? 'selected' : '' %>><%= __('cash') %></option>
+          <option value="Insurance" <%= filters.paymentMode==='Insurance' ? 'selected' : '' %>><%= __('insurance') %></option>
+          <option value="Free" <%= filters.paymentMode==='Free' ? 'selected' : '' %>><%= __('free') %></option>
           </select>
         </div>
-    
-       
-    
-       
-    
-        <button type="submit" style = "margin-right: 30px">Apply Filters</button>
+      <div class="filter-group">
+        <label for="bestCategory"><%= __('filter_best_area') %></label>
+        <select id="bestCategory" name="bestCategory">
+          <option value=""><%= __('none') %></option>
+          <% areas.forEach(area => { %>
+            <option value="<%= area %>" <%= filters.bestCategory===area ? 'selected' : '' %>><%= area %></option>
+          <% }) %>
+        </select>
+      </div>
+      <button type="submit"><%= __('apply_filters') %></button>
       </form>
       
       <br>
-      <p style="color: #6B7280; text-align: left; margin-left:30px;">
-        Use the toggle below to switch between the table and map view.
-      </p>
       <label class="switch">
         <input type="checkbox" id="myToggle">
         <span class="slider round"></span>
       </label>
       <% if (bestBy) { %>
         <section>
-          <h2>Best facility for “<%= bestBy.area %>”</h2>
-          <p>
-            <strong><%= bestBy.best.facility_name %></strong>
-            (Code: <%= bestBy.best.facility_code %>)<br>
-    
-          </p>
+        <h2><%= __('best_facility_for') %> “<%= bestBy.area %>”</h2>
+        <p><strong><%= bestBy.best.facility_name %></strong> (<%= __('code') %>: <%= bestBy.best.facility_code %>)</p>
         </section>
       <% } %>
     
       <div style = "margin-left: 30px; margin-right:30px">
       <% if (results && results.length) { %>
         <table>
-          <caption>Matching Facilities: <%= results.length %></caption>
+        <caption><%= __('matching_facilities') %>: <%= results.length %></caption>
           <thead>
             <tr>
-              <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
-              <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
-              <th>% Missed Tests</th><th>% Meds Gap</th><th>Top Payment</th>
-              <th>Top Problems</th><th>Top Positives</th>
+            <th><%= __('modal_headers.name') %></th><th><%= __('modal_headers.code') %></th><th><%= __('modal_headers.location') %></th><th><%= __('modal_headers.avg_wait') %></th>
+            <th><%= __('modal_headers.avg_sat') %></th><th><%= __('modal_headers.no_privacy') %></th><th><%= __('modal_headers.no_permission') %></th>
+            <th><%= __('modal_headers.missed_tests') %></th><th><%= __('modal_headers.missed_meds') %></th><th><%= __('modal_headers.top_payment') %></th>
+            <th><%= __('modal_headers.top_problems') %></th><th><%= __('modal_headers.top_positives') %></th>
             </tr>
           </thead>
           <tbody>
@@ -261,7 +208,7 @@
               <td><%= fac.name %></td>
               <td><%= fac.facility_code %></td>
               <td><%= fac.location %></td>
-              <td><%= m.avgWait.toFixed(1) %>&nbsp;min</td>
+            <td><%= m.avgWait.toFixed(1) %>&nbsp;<%= __('minutes') %></td>
               <td><%= m.avgSat %></td>
               <td><%= (100 - m.yesConfi).toFixed(0) %>%</td>
               <td><%= (100 - m.yesPerm).toFixed(0) %>%</td>
@@ -275,11 +222,9 @@
           </tbody>
         </table>
       <% } else { %>
-        <p><em>No facilities match those filters.</em></p>
+      <p><em><%= __('no_matching_facilities') %></em></p>
       <% } %>
-      </div>
     <br>
-    
       <div id="facilityModal" class="modal" style="display:none;">
         <div class="modal-content">
           <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
@@ -287,10 +232,10 @@
           <table>
             <thead>
               <tr>
-                <th>Name</th><th>Code</th><th>Location</th><th>Avg Wait</th>
-                <th>Avg Sat</th><th>% No Privacy</th><th>% No Permission</th>
-                <th>% Missed Tests</th><th>% Missed Meds</th><th>Top Payment</th>
-                <th>Top Problems</th><th>Top Positives</th>
+              <th><%= __('modal_headers.name') %></th><th><%= __('modal_headers.code') %></th><th><%= __('modal_headers.location') %></th><th><%= __('modal_headers.avg_wait') %></th>
+              <th><%= __('modal_headers.avg_sat') %></th><th><%= __('modal_headers.no_privacy') %></th><th><%= __('modal_headers.no_permission') %></th>
+              <th><%= __('modal_headers.missed_tests') %></th><th><%= __('modal_headers.missed_meds') %></th><th><%= __('modal_headers.top_payment') %></th>
+              <th><%= __('modal_headers.top_problems') %></th><th><%= __('modal_headers.top_positives') %></th>
               </tr>
             </thead>
             <tbody id="modalFacilityDetails">
@@ -320,7 +265,6 @@
         table.style.display = 'none';
         document.getElementById('map').style.display = 'block';
     } else {
-        console.log("HI");
         table.style.display = 'table';
         document.getElementById('map').style.display = 'none';
 
