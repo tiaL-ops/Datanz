@@ -1,98 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= currentLang %>">
   <head>
     <meta charset="UTF-8" />
-    <meta name ="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DATANZ - Healthcare Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= __('site_name') %> - <%= __('healthcare_guide') %></title>
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
 
     <header class="top-nav">
-      <div class="logo"><a href = "/">DATANZ</a></div>
+    <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
       <ul class="nav-links">
-        <li><a href="#mission">Our Mission</a></li>
-        <li><a href="#team">Our Team</a></li>
-        <li><a href = "/facilities">Facilities</a></li>
-        <li><a href="/auth?type=login">Login</a></li>
+      <li><a href="#mission"><%= __('our_mission') %></a></li>
+      <li><a href="#team"><%= __('our_team') %></a></li>
+      <li><a href="/facilities?lang=<%= currentLang %>"><%= __('facilities') %></a></li>
+      <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
       </ul>
+    <div class="language-switcher" style="margin-right: 20px;">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
     </header>
 
     <main class="scroll-container">
     <section class="hero">
-      <h1>WELCOME TO DATANZ</h1>
-      <h2>your guide to healthcare in Tanzania</h2>
+      <h1><%= __('welcome_to') %> <%= __('site_name') %></h1>
+      <h2><%= __('hero_tagline') %></h2>
 
-      <p>Looking for feedback on health facilities near you? Click below to explore available services.</p>
-      <div class = "hero-buttons">
-        <a href="/facilities" class="btn">View Facilities</a>
+      <p><%= __('hero_description') %></p>
+      <div class="hero-buttons">
+        <a href="/facilities?lang=<%= currentLang %>" class="btn"><%= __('view_facilities') %></a>
       </div>
 
-      <p class = "login-msg">Government Official? Log in to access more features.</p>
+      <p class="login-msg"><%= __('government_official_prompt') %></p>
       <div class="hero-buttons">
-        <a href="/auth?type=login" class="btn">Log In</a>
+        <a href="/auth?type=login&lang=<%= currentLang %>" class="btn"><%= __('log_in') %></a>
       </div>
     </section>
 
     <section id="mission" class="mission-section">
-      <h2>OUR MISSION</h2>
-      <p>
-        Our goal is to help citizens of Tanzania make informed, data-driven decisions on where
-        to receive the most high-quality healthcare and treatments.
-      </p>
-      <p>
-        Everyone has their personal preferences, so we provide a detailed way of filtering the 
-        facilities that match you the best.
-      </p>
-      <p>
-        And if you’re too indecisive, don’t worry. You can always just view 
-        the list of all available facilities.
-      </p>
+      <h2><%= __('our_mission') %></h2>
+      <p><%= __('mission_paragraph1') %></p>
+      <p><%= __('mission_paragraph2') %></p>
+      <p><%= __('mission_paragraph3') %></p>
     </section>
  
     <section id="team" class="team-section">
-      <h2>OUR TEAM</h2>
+      <h2><%= __('our_team') %></h2>
       <div class="team-cards">
-      
+        <% const team = [
+          {img: '/assets/nora.jpeg', alt: 'Nora Shaipi', name: 'Nora Shaipi', role: 'Full-Stack Engineer'},
+          {img: '/assets/john.png', alt: 'John Liedtka', name: 'John Liedtka', role: 'Testing Engineer'},
+          {img: '/assets/omi.png', alt: 'Naomi Yilma', name: 'Naomi Yilma', role: 'Back-End Engineer'},
+          {img: '/assets/Landy.png', alt: 'Landy Rakotoarison', name: 'Landy Rakotoarison', role: 'Full-Stack Engineer'}
+        ]; %>
+        <% team.forEach(member => { %>
         <div class="team-card">
-          <img src="/assets/nora.jpeg" alt="Nora Shaipi" />
-          <h3>Nora Shaipi</h3>
-          <p>Full-Stack Engineer</p>
+          <img src="<%= member.img %>" alt="<%= member.alt %>" />
+          <h3><%= member.name %></h3>
+          <p><%= __(member.role.replace(/ /g, '_').toLowerCase()) %></p>
         </div>
-
-     
-        <div class="team-card">
-          <img src="/assets/john.png" alt="John Liedtka" />
-          <h3>John Liedtka</h3>
-          <p>Testing Engineer</p>
-        </div>
-
-       
-        <div class="team-card">
-          <img src="/assets/omi.png" alt="Naomi Yilma" />
-          <h3>Naomi Yilma</h3>
-          <p>Back-End Engineer</p>
-        </div>
-
-   
-        <div class="team-card">
-          <img src="/assets/Landy.png" alt="Landy Rakotoarison" />
-          <h3>Landy Rakotoarison</h3>
-          <p>Full-Stack Engineer</p>
-        </div>
+        <% }) %>
       </div>
     </section>
 
-    
-   
   </main>
-  <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
+  <button id="backToTop" class="back-to-top" title="<%= __('back_to_top') %>">↑</button>
 
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
   
-    // Show the button when the scroll container is scrolled down
     scrollContainer.addEventListener("scroll", () => {
       if (scrollContainer.scrollTop > 0) {
         backToTopBtn.classList.add("show");
