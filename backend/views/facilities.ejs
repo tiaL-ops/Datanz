@@ -32,7 +32,7 @@
 <main class="scroll-container">
   <!-- Filter Form Section -->
   <section class="filter-container">
-    <h1><%= __('find_facility') %></h1>
+    <h1 style = "text-align: center;"><%= __('find_facility') %></h1>
 
     <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
       <input type="hidden" name="lang" value="<%= currentLang %>" />
