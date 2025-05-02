@@ -12,7 +12,15 @@
     <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
 
     <ul class="nav-links">
-      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
+      <li class="dropdown">
+        <button class="dropbtn"><%= __('menu') %></button>
+        <div class="dropdown-content">
+          <a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a>
+          <a href="#mission"><%= __('our_mission') %></a>
+          <a href="#team"><%= __('our_team') %></a>
+        </div>
+      </li>
+      <li><a href="/facilities?lang=<%= currentLang %>"><%= __('view_facilities') %></a></li>
       <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
       <li>
         <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
