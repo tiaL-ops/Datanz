@@ -31,6 +31,37 @@
     "type": "Aina",
     "unknown": "Haijulikani",
     "view_details": "Tazama Maelezo",
-    "back_to_top": "Rudi juu"
+    "back_to_top": "Rudi juu",
+    "actions": "Vitendo",
+  "home": "Nyumbani",
+  "worst_facilities": "Tafuta Vituo Vibaya",
+  "advanced_search": "Utafutaji wa Kina",
+  "sign_out": "Toka",
+  "welcome_dashboard": "Karibu kwenye Dashibodi,",
+  "select_facility": "Chagua Kituo:",
+  "all_facilities_default": "Vituo Vyote (chaguomsingi)",
+  "by_facility": "Kwa Kituo",
+  "by_region": "Kwa Mkoa",
+  "facilities_near_you": "Vituo karibu nawe:",
+  "below_average_facilities": "Vituo Chini ya Wastani:",
+  "worst_facilities_heading": "Vituo Vibaya",
+  "best_facilities": "Vituo Bora",
+  "find_worst_by_criteria": "Tafuta Vituo Vibaya Kwa Vigezo",
+  "advanced_search_link": "Utafutaji wa Kina",
+  "go_to_top": "Rudi juu",
+  "modal_headers": {
+    "name": "Jina",
+    "code": "Nambari",
+    "location": "Mahali",
+    "avg_wait": "Wastani wa Kusubiri",
+    "avg_sat": "Wastani wa Kuridhika",
+    "no_privacy": "% Hakuna Faragha",
+    "no_permission": "% Hakuna Idhini",
+    "missed_tests": "% Vipimo Vilivyokosekana",
+    "missed_meds": "% Dawa Zilizokosekana",
+    "top_payment": "Njia ya Malipo Kuu",
+    "top_problems": "Matatizo Makuu",
+    "top_positives": "Mambo Chanya"
+  }
   }
   

@@ -215,6 +215,7 @@ router.get("/", (req, res) => {
 });
 
   // Render
+  const lang = req.query.lang || 'en';
   const trendData = responseModel.getAverageSatisfactionOverTime(startDate || '2024-01-01', endDate || '2024-12-31');
   res.render("government", {
     username,
@@ -228,6 +229,7 @@ router.get("/", (req, res) => {
     trendData,
     belowAverage,
     countBelowAverage,
+    currentLang: lang,
     toggled: false
   });
 });

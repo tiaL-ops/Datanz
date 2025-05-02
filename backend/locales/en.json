@@ -31,6 +31,39 @@
     "type": "Type",
     "unknown": "Unknown",
     "view_details": "View Details",
-    "back_to_top": "Go to top"
+    "back_to_top": "Go to top",
+
+    "actions": "Actions",
+    "home": "Home",
+    "worst_facilities": "Find the Worst Facilities",
+    "advanced_search": "Advanced Search",
+    "sign_out": "Sign Out",
+    "welcome_dashboard": "Welcome to the Dashboard,",
+    "select_facility": "Select Facility:",
+    "all_facilities_default": "All Facilities (default)",
+    "by_facility": "By Facility",
+    "by_region": "By Region",
+    "facilities_near_you": "Facilities near you:",
+    "below_average_facilities": "Facilities Below Average:",
+   
+    "worst_facilities_heading": "Worst Facilities",
+    "best_facilities": "Best Facilities",
+    "find_worst_by_criteria": "Find the Worst Facilities by Criteria",
+    "advanced_search_link": "Advanced Search",
+    "go_to_top": "Go to top",
+    "modal_headers": {
+      "name": "Name",
+      "code": "Code",
+      "location": "Location",
+      "avg_wait": "Avg Wait",
+      "avg_sat": "Avg Sat",
+      "no_privacy": "% No Privacy",
+      "no_permission": "% No Permission",
+      "missed_tests": "% Missed Tests",
+      "missed_meds": "% Missed Meds",
+      "top_payment": "Top Payment",
+      "top_problems": "Top Problems",
+      "top_positives": "Top Positives"
+    }
   }
   
