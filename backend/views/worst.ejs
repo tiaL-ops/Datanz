@@ -63,14 +63,13 @@
               <div class="card">
                 <h3><%= facility.facility_name %></h3>
                 <p><%= __('code') %>: <%= facility.facility_code %></p>
-
                 <% if (facility.bad_count !== undefined) { %>
                   <p><%= __('mentions') %>: <%= facility.bad_count %></p>
                 <% } else { %>
                   <p><%= __('average_score') %>: <%= facility.average_weight.toFixed(2) %></p>
                 <% } %>
-                <br> 
-                <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\u003c") %>)' class = "btn-app">
+                <br/>
+                <button type="button" onclick='openFacilityPopup(<%= JSON.stringify(facility).replace(/</g, "\\u003c") %>)' class="btn-app">
                   <%= __('view_details') %>
                 </button>
               </div>
@@ -84,48 +83,51 @@
     <% } %>
 
     <div id="facilityModal" class="modal" style="display:none;">
-        <div class="modal-content">
-          <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
-          <h2 id="modalFacilityName"></h2>
-          <table>
-            <thead>
-              <tr>
-                <th><%= __('modal_headers.name') %></th><th><%= __('modal_headers.code') %></th><th><%= __('modal_headers.location') %></th><th><%= __('modal_headers.avg_wait') %></th>
-                <th><%= __('modal_headers.avg_sat') %></th><th><%= __('modal_headers.no_privacy') %></th><th><%= __('modal_headers.no_permission') %></th>
-                <th><%= __('modal_headers.missed_tests') %></th><th><%= __('modal_headers.missed_meds') %></th><th><%= __('modal_headers.top_payment') %></th>
-                <th><%= __('modal_headers.top_problems') %></th><th><%= __('modal_headers.top_positives') %></th>
-              </tr>
-            </thead>
-            <tbody id="modalFacilityDetails">
-              <!-- Dynamic content -->
-            </tbody>
-          </table>
-        </div>
+      <div class="modal-content">
+        <span class="close-button" onclick="closeFacilityPopup()">&times;</span>
+        <h2 id="modalFacilityName"></h2>
+        <table>
+          <thead>
+            <tr>
+              <th><%= __('modal_headers.name') %></th>
+              <th><%= __('modal_headers.code') %></th>
+              <th><%= __('modal_headers.location') %></th>
+              <th><%= __('modal_headers.avg_wait') %></th>
+              <th><%= __('modal_headers.avg_sat') %></th>
+              <th><%= __('modal_headers.no_privacy') %></th>
+              <th><%= __('modal_headers.no_permission') %></th>
+              <th><%= __('modal_headers.missed_tests') %></th>
+              <th><%= __('modal_headers.missed_meds') %></th>
+              <th><%= __('modal_headers.top_payment') %></th>
+              <th><%= __('modal_headers.top_problems') %></th>
+              <th><%= __('modal_headers.top_positives') %></th>
+            </tr>
+          </thead>
+          <tbody id="modalFacilityDetails">
+            <!-- Dynamic content -->
+          </tbody>
+        </table>
       </div>
-    <br>
+    </div>
+
+    <br/>
     <section class="back-link">
     <a href="/government" style="  margin: auto;
     width: 100px;
     padding: 10px; ">← <%= __('back_to_government') %></a>
     </section>
-</main>
+  </main>
+
+  <script src="/js/government.js"></script>
+  <script>
+    const datanzLink = document.getElementById("datanzLink");
+    datanzLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      const userConfirmed = confirm(__('leave_government_confirm'));
+      if (userConfirmed) {
+        window.location.href = "/";
+      }
+    });
+  </script>
 </body>
-<script src="/js/government.js"></script>
-<script>// Select the DATANZ link
-  const datanzLink = document.getElementById("datanzLink");
-
- // Add a click event listener
- datanzLink.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent the default link behavior
-
-  // Display a confirmation dialog
-  const userConfirmed = confirm(
-    __('leave_government_confirm')
-  );
-
-  // If the user clicks "OK", navigate to the main page
-  if (userConfirmed) {
-    window.location.href = "/"; // Redirect to the main page
-  }
-});</script>
 </html>

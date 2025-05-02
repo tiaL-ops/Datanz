@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="<%= currentLang %>">
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= __('site_name') %> - <%= __('healthcare_guide') %></title>
-  <link rel="stylesheet" href="/styles/main.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
 
-  <header class="top-nav">
+    <header class="top-nav">
     <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
 
     <ul class="nav-links">
@@ -31,7 +31,7 @@
     </ul>
   </header>
 
-  <main class="scroll-container">
+    <main class="scroll-container">
     <section class="hero">
       <h1><%= __('welcome_to') %> <%= __('site_name') %></h1>
       <h2><%= __('hero_tagline') %></h2>
@@ -79,7 +79,7 @@
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
-
+  
     scrollContainer.addEventListener("scroll", () => {
       if (scrollContainer.scrollTop > 0) {
         backToTopBtn.classList.add("show");
@@ -87,11 +87,11 @@
         backToTopBtn.classList.remove("show");
       }
     });
-
+  
     backToTopBtn.addEventListener("click", () => {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
-
-</body>
+  
+  </body>
 </html>
