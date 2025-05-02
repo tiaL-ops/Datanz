@@ -10,20 +10,17 @@
 
   <header class="top-nav">
     <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
+
     <ul class="nav-links">
-      <li><a href="#mission"><%= __('our_mission') %></a></li>
-      <li><a href="#team"><%= __('our_team') %></a></li>
-      <li><a href="/facilities?lang=<%= currentLang %>"><%= __('facilities') %></a></li>
+      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
       <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
-    </ul>
-    <div class="language-switcher" style="margin-right: 20px;">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
+        </a>
+      </li>
+    </ul>
   </header>
 
   <main class="scroll-container">

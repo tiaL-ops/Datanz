@@ -14,19 +14,13 @@
     <ul class="nav-links">
       <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
       <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
-    </ul>
-    
-    <!-- Language Switch Button -->
-    <div class="language-switcher">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
-    
-      
+        </a>
+      </li>
+    </ul>
   </header>
 
 <main class="scroll-container">

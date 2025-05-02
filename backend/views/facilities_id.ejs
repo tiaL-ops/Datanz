@@ -8,17 +8,24 @@
 </head>
 <body>
 
+  <header class="top-nav">
+    <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
+
+    <ul class="nav-links">
+      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
+      <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </a>
+      </li>
+    </ul>
+  </header>
+
   <header class="facility-header">
     <h1><%= __('facility') %> <%= facilityDetails.facility_id %> – <%= facilityDetails.name %></h1>
     <p><%= __('here_is_what_we_have') %></p>
-    <div class="language-switcher" style="margin-right: 20px;">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
-          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
   </header>
 
   <section class="facility-summary">

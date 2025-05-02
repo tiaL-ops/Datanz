@@ -9,9 +9,10 @@
 <body>
   <header class="top-nav">
     <div class="logo"><a href="/?lang=<%= currentLang %>" id="datanzLink"><%= __('site_name') %></a></div>
+
     <ul class="nav-links">
       <div class="dropdown">
-        <li class="dropbtn"><%= __('menu') %></li>
+        <li class="dropbtn"><%= __('actions') %></li>
         <div class="dropdown-content">
           <a href="/government?lang=<%= currentLang %>"><%= __('home') %></a>
           <a href="/government/worst?lang=<%= currentLang %>"><%= __('worst_facilities') %></a>
@@ -19,15 +20,13 @@
         </div>
       </div>
       <li><a href="/auth/logout?lang=<%= currentLang %>"><%= __('sign_out') %></a></li>
-    </ul>
-    <div class="language-switcher" style="margin-right: 20px;">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
+        </a>
+      </li>
+    </ul>
   </header>
   <main>
     <form method="get">
@@ -117,7 +116,7 @@
     </label>
     <% if (bestBy) { %>
       <section>
-        <h2><%= __('best_facility_for') %> “<%= bestBy.area %>”</h2>
+        <h2><%= __('best_facility_for') %> "<%= bestBy.area %>"</h2>
         <p><strong><%= bestBy.best.facility_name %></strong> (<%= __('code') %>: <%= bestBy.best.facility_code %>)</p>
       </section>
     <% } %>
