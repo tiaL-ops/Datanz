@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Facility <%= facilityDetails.facility_id %> - <%= facilityDetails.name %></title>
+  <title><%= __('facility') %> <%= facilityDetails.facility_id %> - <%= facilityDetails.name %></title>
   <link rel="stylesheet" href="/styles/facilities_id.css" />
 </head>
 <body>
 
   <header class="facility-header">
-    <h1>Facility <%= facilityDetails.facility_id %> – <%= facilityDetails.name %></h1>
-    <p>Here’s what we have to say.</p>
+    <h1><%= __('facility') %> <%= facilityDetails.facility_id %> – <%= facilityDetails.name %></h1>
+    <p><%= __('here_is_what_we_have') %></p>
+    <div class="language-switcher" style="margin-right: 20px;">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
   </header>
 
   <section class="facility-summary">
     <ul>
-      <li>📍 <%= facilityDetails.location || 'Address not provided' %></li>
-      <li>🏥 <%= facilityDetails.facility_type || 'Facility type not provided' %></li>
-      <li>👤 <%= facilityDetails.headO_name || 'Head officer name not provided' %></li>
-      <li>📱 <%= facilityDetails.headO_contact || 'Contact not provided' %></li>
-      <li>📅 <strong>Date Opened:</strong> <%= facilityDetails.date_opened || 'Unknown' %></li>
+      <li>📍 <%= facilityDetails.location || __('address_not_provided') %></li>
+      <li>🏥 <%= facilityDetails.facility_type || __('facility_type_not_provided') %></li>
+      <li>👤 <%= facilityDetails.headO_name || __('head_officer_name_not_provided') %></li>
+      <li>📱 <%= facilityDetails.headO_contact || __('contact_not_provided') %></li>
+      <li>📅 <strong><%= __('date_opened') %>:</strong> <%= facilityDetails.date_opened || __('unknown') %></li>
     </ul>
   </section>
 
@@ -27,61 +35,52 @@
     <div class="qa-grid">
 
       <% function rateQuality(value, goodThreshold, badThreshold) {
-          if (value >= goodThreshold) return 'Good';
-          if (value < badThreshold) return 'Bad';
-          return 'Average';
+          if (value >= goodThreshold) return __('good');
+          if (value < badThreshold) return __('bad');
+          return __('average');
       } %>
 
-      
-   
-<div class="qa-item">
-  <h3>Average Wait Time</h3>
-  <% const waitTime = reportData.waitTime.average_wait_time_minutes; %>
-  <p>Status: <%= rateQuality(120 - waitTime, 90, 0) %></p>
-  <p><%= waitTime %> minutes</p>
-</div>
-
-
-    
       <div class="qa-item">
-        <h3>Satisfaction</h3>
-        <p>Status: <%= rateQuality(reportData.satisfaction.average, 4, 2.5) %></p>
-        <p>Average Score: <%= reportData.satisfaction.average %></p>
-        <p>Total Responses: <%= reportData.satisfaction.total %></p>
+        <h3><%= __('average_wait_time') %></h3>
+        <% const waitTime = reportData.waitTime.average_wait_time_minutes; %>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(120 - waitTime, 90, 0) %></p>
+        <p><%= waitTime %> <%= __('minutes') %></p>
       </div>
 
-   
       <div class="qa-item">
-        <h3>Confidentiality</h3>
-        <p>Status: <%= rateQuality(reportData.confidentiality.average_percent_yes, 70, 50) %></p>
-        <p>Yes (%): <%= reportData.confidentiality.average_percent_yes %></p>
+        <h3><%= __('satisfaction') %></h3>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.satisfaction.average, 4, 2.5) %></p>
+        <p><%= __('average_score') %>: <%= reportData.satisfaction.average %></p>
+        <p><%= __('total_responses') %>: <%= reportData.satisfaction.total %></p>
       </div>
 
-     
       <div class="qa-item">
-        <h3>Permission Before Exam</h3>
-        <p>Status: <%= rateQuality(reportData.permission.average_percent_yes, 70, 50) %></p>
-        <p>Yes (%): <%= reportData.permission.average_percent_yes %></p>
+        <h3><%= __('confidentiality') %></h3>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.confidentiality.average_percent_yes, 70, 50) %></p>
+        <p><%= __('yes_percent') %>: <%= reportData.confidentiality.average_percent_yes %></p>
       </div>
 
-      
       <div class="qa-item">
-        <h3>Test Completion</h3>
-        <p>Status: <%= rateQuality(reportData.testCompletion.average_percent_yes, 70, 50) %></p>
-        <p>Yes (%): <%= reportData.testCompletion.average_percent_yes %></p>
+        <h3><%= __('permission_before_exam') %></h3>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.permission.average_percent_yes, 70, 50) %></p>
+        <p><%= __('yes_percent') %>: <%= reportData.permission.average_percent_yes %></p>
       </div>
 
-      
       <div class="qa-item">
-        <h3>Medication Completion</h3>
-        <p>Status: <%= rateQuality(reportData.medCompletion.average_percent_yes, 70, 50) %></p>
-        <p>Yes (%): <%= reportData.medCompletion.average_percent_yes %></p>
+        <h3><%= __('test_completion') %></h3>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.testCompletion.average_percent_yes, 70, 50) %></p>
+        <p><%= __('yes_percent') %>: <%= reportData.testCompletion.average_percent_yes %></p>
       </div>
 
+      <div class="qa-item">
+        <h3><%= __('medication_completion') %></h3>
+        <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.medCompletion.average_percent_yes, 70, 50) %></p>
+        <p><%= __('yes_percent') %>: <%= reportData.medCompletion.average_percent_yes %></p>
+      </div>
 
       <div class="qa-item">
-        <h3>Payment Modes</h3>
-        <p>Most Common: <%= reportData.paymentModes.most_common %></p>
+        <h3><%= __('payment_modes') %></h3>
+        <p><strong><%= __('most_common') %>:</strong> <%= reportData.paymentModes.most_common %></p>
         <ul>
           <% reportData.paymentModes.breakdown.forEach(item => { %>
             <li><%= item.service_payment_mode %> - <%= item.count %></li>
@@ -89,9 +88,8 @@
         </ul>
       </div>
 
-      
       <div class="qa-item">
-        <h3>Problem Areas</h3>
+        <h3><%= __('problem_areas') %></h3>
         <ul>
           <% reportData.problemAreas.forEach(area => { %>
             <li><%= area.problem_area %>: <%= area.count %></li>
@@ -99,9 +97,8 @@
         </ul>
       </div>
 
-    
       <div class="qa-item">
-        <h3>Positive Areas</h3>
+        <h3><%= __('positive_areas') %></h3>
         <ul>
           <% reportData.positiveAreas.forEach(area => { %>
             <li><%= area.positive_area %>: <%= area.count %></li>
@@ -109,14 +106,13 @@
         </ul>
       </div>
 
-    
       <div class="qa-item">
-        <h3>Summary Stats</h3>
+        <h3><%= __('summary_stats') %></h3>
         <ul>
-          <li>Questions Answered: <%= reportData.summaryStats.questions_answered %></li>
-          <li>Unique Answers Given: <%= reportData.summaryStats.unique_answers %></li>
-          <li>Unique Patients: <%= reportData.summaryStats.unique_patients %></li>
-          <li>Total Responses: <%= reportData.summaryStats.total_responses %></li>
+          <li><%= __('questions_answered') %>: <%= reportData.summaryStats.questions_answered %></li>
+          <li><%= __('unique_answers_given') %>: <%= reportData.summaryStats.unique_answers %></li>
+          <li><%= __('unique_patients') %>: <%= reportData.summaryStats.unique_patients %></li>
+          <li><%= __('total_responses') %>: <%= reportData.summaryStats.total_responses %></li>
         </ul>
       </div>
 
@@ -124,7 +120,7 @@
   </section>
 
   <section class="back-link">
-    <a href="javascript:window.history.back()">← Back to Facilities</a>
+    <a href="/facilities?lang=<%= currentLang %>">← <%= __('back_to_facilities') %></a>
   </section>
 
 </body>
