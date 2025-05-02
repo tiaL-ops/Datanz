@@ -16,6 +16,8 @@ router.get('/map-view', async (req, res) => {
     // Add metrics to each facility
     const facilitiesWithMetrics = facilities.map(facility => {
       const id = facility.facility_id;
+      const lang = req.query.lang || 'en';
+
       const metrics = {
         avgWeight: responseModel.getWeightOfFacility(id)?.average_weight || 0,
         avgWait: responseModel.getWaitingTimeStats(id)?.average_wait_time_minutes || 0
@@ -23,7 +25,9 @@ router.get('/map-view', async (req, res) => {
       return { ...facility, metrics };
     });
 
-    res.render('map-view', { facilities: facilitiesWithMetrics });
+    res.render('map-view', { facilities: facilitiesWithMetrics ,       currentLang: lang
+});
+
   } catch (error) {
     console.error('Error fetching facilities for map view:', error);
     res.status(500).send('Internal Server Error');

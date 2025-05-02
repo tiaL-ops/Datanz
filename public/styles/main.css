@@ -11,7 +11,6 @@ body {
   color: #333;
   background-color: #fff;
   scroll-behavior: smooth;
-
 }
 
 /* 1. Top Navigation */
@@ -25,21 +24,29 @@ body {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #eee;
+  height: 60px;
 }
-
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+  line-height: 60px;
 }
 
-.nav-links{
+.nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-links li a {
@@ -47,20 +54,90 @@ body {
   color: #000;
   font-weight: 500;
   transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  line-height: 60px;
 }
 
 .nav-links li a:hover {
   color: #666;
 }
 
-.logo  a {
+.logo a {
   text-decoration: none;
   color: #000;
   transition: color 0.2s ease;
+  line-height: 60px;
 }
 
 .logo a:hover {
   color: #666;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: #000;
+  padding: 0 16px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  transition: color 0.2s ease;
+}
+
+.dropbtn:hover {
+  color: #666;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #f1f1f1;
 }
 
 /* 2. Hero Section */

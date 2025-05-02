@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="<%= currentLang %>">
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= __('site_name') %> - <%= __('healthcare_guide') %></title>
-  <link rel="stylesheet" href="/styles/main.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
 
-  <header class="top-nav">
+    <header class="top-nav">
     <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
+
     <ul class="nav-links">
-      <li><a href="#mission"><%= __('our_mission') %></a></li>
-      <li><a href="#team"><%= __('our_team') %></a></li>
-      <li><a href="/facilities?lang=<%= currentLang %>"><%= __('facilities') %></a></li>
+      <li class="dropdown">
+        <button class="dropbtn"><%= __('menu') %></button>
+        <div class="dropdown-content">
+          <a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a>
+          <a href="#mission"><%= __('our_mission') %></a>
+          <a href="#team"><%= __('our_team') %></a>
+        </div>
+      </li>
+      <li><a href="/facilities?lang=<%= currentLang %>"><%= __('view_facilities') %></a></li>
       <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
-    </ul>
-    <div class="language-switcher" style="margin-right: 20px;">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
+        </a>
+      </li>
+    </ul>
   </header>
 
-  <main class="scroll-container">
+    <main class="scroll-container">
     <section class="hero">
       <h1><%= __('welcome_to') %> <%= __('site_name') %></h1>
       <h2><%= __('hero_tagline') %></h2>
@@ -74,7 +79,7 @@
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
-
+  
     scrollContainer.addEventListener("scroll", () => {
       if (scrollContainer.scrollTop > 0) {
         backToTopBtn.classList.add("show");
@@ -82,11 +87,11 @@
         backToTopBtn.classList.remove("show");
       }
     });
-
+  
     backToTopBtn.addEventListener("click", () => {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
-
-</body>
+  
+  </body>
 </html>
