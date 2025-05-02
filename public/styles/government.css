@@ -116,7 +116,7 @@
  /* range sliders */
  .filter-group input[type="range"] {
    -webkit-appearance: none;
-   width: 100%;
+   width: 120px;
    height: 4px;
    background: #E5E7EB;
    border-radius: 9999px;
