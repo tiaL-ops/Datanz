@@ -43,7 +43,7 @@
                 <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
               <% }); %>
             </optgroup>
-            <optgroup label="<%= __('by_region') %>">
+            <optgroup label="By Region">
               <option value="region-Arusha">Arusha</option>
               <option value="region-Kilimanjaro">Kilimanjaro</option>
               <option value="region-Tanga">Tanga</option>
@@ -61,7 +61,7 @@
 
 
       <!-- MAP (visible or hidden placeholder) -->
-
+    
     </div>
   <div style="flex: 1; max-width: 800px; padding-right: 50px;margin-top:50px">
     <section class="page" style="width: 100%;">
@@ -111,7 +111,7 @@
         <p><a href = "/government/advanced-search"><%= __('advanced_search_link') %></a></p>
       </div>
       </div>
-
+      
     </section>
 
   <div id="facilityModal" class="modal" style="display:none;">
@@ -152,7 +152,7 @@
       position: tanzaniaCenter,
       map: map,
       title: "Tanzania Center",
-
+  
   });
   facilities.forEach(facility => {
   const marker = new google.maps.Marker({

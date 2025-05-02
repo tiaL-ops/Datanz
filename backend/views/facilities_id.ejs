@@ -47,13 +47,17 @@
           return __('average');
       } %>
 
-      <div class="qa-item">
+      
+   
+<div class="qa-item">
         <h3><%= __('average_wait_time') %></h3>
-        <% const waitTime = reportData.waitTime.average_wait_time_minutes; %>
+  <% const waitTime = reportData.waitTime.average_wait_time_minutes; %>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(120 - waitTime, 90, 0) %></p>
         <p><%= waitTime %> <%= __('minutes') %></p>
-      </div>
+</div>
 
+
+    
       <div class="qa-item">
         <h3><%= __('satisfaction') %></h3>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.satisfaction.average, 4, 2.5) %></p>
@@ -61,29 +65,34 @@
         <p><%= __('total_responses') %>: <%= reportData.satisfaction.total %></p>
       </div>
 
+   
       <div class="qa-item">
         <h3><%= __('confidentiality') %></h3>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.confidentiality.average_percent_yes, 70, 50) %></p>
         <p><%= __('yes_percent') %>: <%= reportData.confidentiality.average_percent_yes %></p>
       </div>
 
+     
       <div class="qa-item">
         <h3><%= __('permission_before_exam') %></h3>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.permission.average_percent_yes, 70, 50) %></p>
         <p><%= __('yes_percent') %>: <%= reportData.permission.average_percent_yes %></p>
       </div>
 
+      
       <div class="qa-item">
         <h3><%= __('test_completion') %></h3>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.testCompletion.average_percent_yes, 70, 50) %></p>
         <p><%= __('yes_percent') %>: <%= reportData.testCompletion.average_percent_yes %></p>
       </div>
 
+      
       <div class="qa-item">
         <h3><%= __('medication_completion') %></h3>
         <p><strong><%= __('status') %>:</strong> <%= rateQuality(reportData.medCompletion.average_percent_yes, 70, 50) %></p>
         <p><%= __('yes_percent') %>: <%= reportData.medCompletion.average_percent_yes %></p>
       </div>
+
 
       <div class="qa-item">
         <h3><%= __('payment_modes') %></h3>
@@ -95,6 +104,7 @@
         </ul>
       </div>
 
+      
       <div class="qa-item">
         <h3><%= __('problem_areas') %></h3>
         <ul>
@@ -104,6 +114,7 @@
         </ul>
       </div>
 
+    
       <div class="qa-item">
         <h3><%= __('positive_areas') %></h3>
         <ul>
@@ -113,6 +124,7 @@
         </ul>
       </div>
 
+    
       <div class="qa-item">
         <h3><%= __('summary_stats') %></h3>
         <ul>
