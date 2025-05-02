@@ -428,6 +428,7 @@ router.get("/worst", (req, res) => {
   const bottomTenWorst = sortedByWeight.slice(-10).reverse();
 
   // Render
+  const lang = req.query.lang || 'en';
   const trendData = responseModel.getAverageSatisfactionOverTime(startDate || '2024-01-01', endDate || '2024-12-31');
   res.render("worst", {
     username,
@@ -439,6 +440,7 @@ router.get("/worst", (req, res) => {
     topThreeBest,
     bottomTenWorst,
     trendData,
+    currentLang: lang,
     toggled: false
   });
 });
@@ -636,6 +638,7 @@ router.get("/advanced-search", (req, res) => {
   const bottomTenWorst = sortedByWeight.slice(-10).reverse();
 
   // Render
+  const lang = req.query.lang || 'en';
   const trendData = responseModel.getAverageSatisfactionOverTime(startDate || '2024-01-01', endDate || '2024-12-31');
   res.render("advanced", {
     username,
@@ -647,6 +650,7 @@ router.get("/advanced-search", (req, res) => {
     topThreeBest,
     bottomTenWorst,
     trendData,
+    currentLang:lang,
     toggled: false
   });
 });
