@@ -8,7 +8,7 @@ const authModel = new AuthModel(db);
 
 // GET form
 router.get('/create-user', (req, res) => {
-    res.render('create-user'); // make sure you have create-user.ejs or .html
+    res.render('create-user'); 
 });
 
 // POST to create new user
