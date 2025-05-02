@@ -3,37 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facilities</title>
+  <title><%= __('all_facilities') %></title>
   <link rel="stylesheet" href="/styles/facilities.css"/>
 </head>
 <body>
 
   <header class="top-nav">
-    <div class="logo"><a href="/">DATANZ</a></div>
-    <ul class="nav-links">
-      <li><a href="/">Home page</a></li>
-      <li><a href="/auth?type=login">Login</a></li>
+    <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
 
+    <ul class="nav-links">
+      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
+      <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
     </ul>
+    
+    <!-- Language Switch Button -->
+    <div class="language-switcher">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
+    
+      
   </header>
+
 <main class="scroll-container">
   <!-- Filter Form Section -->
   <section class="filter-container">
-    <h1>Find the facility for you.</h1>
+    <h1><%= __('find_facility') %></h1>
 
     <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
+      <input type="hidden" name="lang" value="<%= currentLang %>" />
+      
       <label class="filter-item">
-        What is the maximum time you will wait?
+        <%= __('max_wait_time') %>
         <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
-               oninput="document.getElementById('waitValue').innerText = this.value + ' minutes';" />
-        <span id="waitValue">60 minutes</span>
+               oninput="document.getElementById('waitValue').innerText = this.value + ' ' + __('minutes');" />
+        <span id="waitValue">60 <%= __('minutes') %></span>
       </label>
       
-
       <label class="filter-item">
-        How important is patient satisfaction for you (1–5)?
+        <%= __('satisfaction_label') %>
         <select name="satisfaction">
-          <option value="">Not important</option>
+          <option value=""><%= __('not_important') %></option>
           <% for (let i = 1; i <= 5; i++) { %>
             <option value="<%= i %>"><%= i %></option>
           <% } %>
@@ -41,55 +55,54 @@
       </label>
 
       <label class="filter-item">
-        How important is confidentiality for you?
-
+        <%= __('confidentiality_label') %>
         <select name="confidentiality">
-          <option value="">Not important</option>
-          <option value="somewhat">Somewhat</option>
-          <option value="very">Very important</option>
+          <option value=""><%= __('not_important') %></option>
+          <option value="somewhat"><%= __('somewhat') %></option>
+          <option value="very"><%= __('very_important') %></option>
         </select>
       </label>
 
       <label class="filter-item">
-        How important is consent before a test for you?
+        <%= __('consent_label') %>
         <select name="permission_before_exam">
-          <option value="">Not important</option>
-          <option value="somewhat">Somewhat</option>
-          <option value="very">Very important</option>
+          <option value=""><%= __('not_important') %></option>
+          <option value="somewhat"><%= __('somewhat') %></option>
+          <option value="very"><%= __('very_important') %></option>
         </select>
       </label>
 
       <label class="filter-item">
-        How important is it to receive all necessary tests?
+        <%= __('tests_label') %>
         <select name="received_all_tests">
-          <option value="">Not important</option>
-          <option value="somewhat">Somewhat</option>
-          <option value="very">Very important</option>
+          <option value=""><%= __('not_important') %></option>
+          <option value="somewhat"><%= __('somewhat') %></option>
+          <option value="very"><%= __('very_important') %></option>
         </select>
       </label>
 
       <label class="filter-item">
-        How important is it to receive all necessary medicine?
+        <%= __('meds_label') %>
         <select name="received_all_meds">
-          <option value="">Not important</option>
-          <option value="somewhat">Somewhat</option>
-          <option value="very">Very important</option>
+          <option value=""><%= __('not_important') %></option>
+          <option value="somewhat"><%= __('somewhat') %></option>
+          <option value="very"><%= __('very_important') %></option>
         </select>
       </label>
 
       <label class="filter-item">
-        Accepts payment via:
+        <%= __('payment_mode') %>
         <select name="service_payment_mode">
-          <option value="">Any</option>
-          <option value="Free">Free</option>
-          <option value="Cash">Cash</option>
-          <option value="Insurance">Insurance</option>
+          <option value=""><%= __('any') %></option>
+          <option value="Free"><%= __('free') %></option>
+          <option value="Cash"><%= __('cash') %></option>
+          <option value="Insurance"><%= __('insurance') %></option>
         </select>
       </label>
 
-      <button type="submit" class="filter-button">Search</button>
+      <button type="submit" class="filter-button"><%= __('search') %></button>
       <p class="view-link">
-        OR <a href="/facilities/map-view">View Facilities Near You</a>
+        OR <a href="/facilities/map-view?lang=<%= currentLang %>"><%= __('view_nearby') %></a>
       </p>
     </form>
   </section>
@@ -98,22 +111,22 @@
 
   <!-- Facility Grid Section -->
   <section class="facility-header">
-    <h1>All the facilities.</h1>
-    <p>Don’t get overwhelmed, you can still look it up by name:</p>
-    <input type="text" id="facilitySearch" placeholder="Facility Name" />
+    <h1><%= __('all_facilities') %></h1>
+    <p><%= __('search_by_name') %></p>
+    <input type="text" id="facilitySearch" placeholder="<%= __('facility_name_placeholder') %>" />
   </section>
 
   <section class="facility-grid">
     <!-- Pagination -->
     <div class="pagination">
       <% if (page > 1) { %>
-        <a href="?page=<%= page - 1 %>" class="pagination-link">← Prev</a>
+        <a href="?page=<%= page - 1 %>&lang=<%= currentLang %>" class="pagination-link"><%= __('prev') %></a>
       <% } %>
 
-      <span>Page <%= page %> of <%= Math.ceil(1000/ 50) %></span>
+      <span><%= __('page') %> <%= page %> <%= __('of') %> <%= Math.ceil(1000 / 50) %></span>
 
       <% if (page * 50 < 1000) { %>
-        <a href="?page=<%= page + 1 %>" class="pagination-link">Next →</a>
+        <a href="?page=<%= page + 1 %>&lang=<%= currentLang %>" class="pagination-link"><%= __('next') %></a>
       <% } %>
     </div>
 
@@ -121,16 +134,16 @@
       <% facilities.forEach((facility) => { %>
         <div class="facility-card">
           <h2><%= facility.name %></h2>
-          <p>📍 <%= facility.location || 'Unknown location' %></p>
-          <p>🏥 Type: <%= facility.type || 'Unknown' %></p>
-          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>">View Details</a>
+          <p>📍 <%= facility.location || __('unknown_location') %></p>
+          <p>🏥 <%= __('type') %>: <%= facility.type || __('unknown') %></p>
+          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>?lang=<%= currentLang %>"><%= __('view_details') %></a>
         </div>
       <% }) %>
     </div>
   </section>
   </main>
 <br>
-  <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
+  <button id="backToTop" class="back-to-top" title="<%= __('back_to_top') %>">↑</button>
   <script>
     const backToTopBtn = document.getElementById("backToTop");
     const scrollContainer = document.querySelector(".scroll-container");
