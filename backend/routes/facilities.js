@@ -54,12 +54,13 @@ router.get('/', async (req, res) => {
 
     // Paginate: get only 50 for current page
     const paginated = matched.slice((page - 1) * limit, page * limit);
-
+    const lang = req.query.lang || 'en';
     res.render('facilities', {
       id: null,
       gov,
       facilities: paginated,
       page,
+      currentLang: lang,
       totalCount
     });
 

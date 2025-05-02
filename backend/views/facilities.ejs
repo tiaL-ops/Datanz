@@ -9,11 +9,24 @@
 <body>
 
   <header class="top-nav">
-    <div class="logo"><a href="/"><%= __('site_name') %></a></div>
+    <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
+
     <ul class="nav-links">
-      <li><a href="/"><%= __('home_page') %></a></li>
-      <li><a href="/auth?type=login"><%= __('login') %></a></li>
+      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
+      <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
     </ul>
+    
+    <!-- Language Switch Button -->
+    <div class="language-switcher">
+      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+      <a href="?lang=<%= targetLang %>">
+        <button>
+          <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+        </button>
+      </a>
+    </div>
+    
+      
   </header>
 
 <main class="scroll-container">
@@ -22,6 +35,8 @@
     <h1><%= __('find_facility') %></h1>
 
     <form action="/<%= gov ? 'government/' : '' %>facilities" method="GET" class="filter-form">
+      <input type="hidden" name="lang" value="<%= currentLang %>" />
+      
       <label class="filter-item">
         <%= __('max_wait_time') %>
         <input type="range" name="wait_time" min="0" max="140" value="60" id="waitTime"
@@ -87,7 +102,7 @@
 
       <button type="submit" class="filter-button"><%= __('search') %></button>
       <p class="view-link">
-        OR <a href="/facilities/map-view"><%= __('view_nearby') %></a>
+        OR <a href="/facilities/map-view?lang=<%= currentLang %>"><%= __('view_nearby') %></a>
       </p>
     </form>
   </section>
@@ -103,13 +118,13 @@
     <!-- Pagination -->
     <div class="pagination">
       <% if (page > 1) { %>
-        <a href="?page=<%= page - 1 %>" class="pagination-link"><%= __('prev') %></a>
+        <a href="?page=<%= page - 1 %>&lang=<%= currentLang %>" class="pagination-link"><%= __('prev') %></a>
       <% } %>
 
-      <span><%= __('page') %> <%= page %> <%= __('of') %> <%= Math.ceil(1000/ 50) %></span>
+      <span><%= __('page') %> <%= page %> <%= __('of') %> <%= Math.ceil(1000 / 50) %></span>
 
       <% if (page * 50 < 1000) { %>
-        <a href="?page=<%= page + 1 %>" class="pagination-link"><%= __('next') %></a>
+        <a href="?page=<%= page + 1 %>&lang=<%= currentLang %>" class="pagination-link"><%= __('next') %></a>
       <% } %>
     </div>
 
@@ -119,7 +134,7 @@
           <h2><%= facility.name %></h2>
           <p>📍 <%= facility.location || __('unknown_location') %></p>
           <p>🏥 <%= __('type') %>: <%= facility.type || __('unknown') %></p>
-          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>"><%= __('view_details') %></a>
+          <a href="<%= gov ? '/government/facilities/' : '/facilities/' %><%= facility.facility_id %>?lang=<%= currentLang %>"><%= __('view_details') %></a>
         </div>
       <% }) %>
     </div>
