@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +38,16 @@
 </head>
 <body>
     <header class="top-nav">
-        <div class="logo"><a href="/">DATANZ</a></div>
+        <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
         <ul class="nav-links">
-          <li><a href="/">Home page</a></li>
-          <li><a href="/auth?type=login">Login</a></li>
-    
+          <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
+          <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
+          <li>
+            <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+            <a href="?lang=<%= targetLang %>">
+              <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
+            </a>
+          </li>
         </ul>
       </header>
       <div class="back"><a href = "/facilities">

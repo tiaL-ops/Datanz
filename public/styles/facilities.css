@@ -27,21 +27,33 @@ h1, h2, h3 {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #eee;
+  height: 60px;
 }
-
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+  line-height: 60px;
 }
 
-.nav-links{
+.nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links li:last-child {
+  margin-left: auto;
 }
 
 .nav-links li a {
@@ -49,16 +61,22 @@ h1, h2, h3 {
   color: #000;
   font-weight: 500;
   transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  line-height: 60px;
 }
 
 .nav-links li a:hover {
   color: #666;
 }
 
-.logo  a {
+.logo a {
   text-decoration: none;
   color: #000;
   transition: color 0.2s ease;
+  line-height: 60px;
 }
 
 .logo a:hover {
@@ -71,7 +89,11 @@ h1, h2, h3 {
   .filter-container {
     margin-top: 3rem;
     margin-bottom: 3rem;
-    text-align: center;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
   }
   
   .filter-container h1 {
@@ -83,36 +105,64 @@ h1, h2, h3 {
 .filter-form {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem; /* previously 1rem */
+    gap: 0.8rem;
     margin-top: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
   }
   
+  .filter-item {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+    text-align: left;
+  }
+ 
 
   .filter-item select,
   .filter-item input[type="range"] {
-    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top: 1rem;
-    padding: 0.4rem;
-    font-size: 1rem;
-    border: 0px solid #ccc;
-    background-color: white; /* <-- this ensures the white background */
+    padding: 0.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #111827;
+    text-align: left;
   }
   
 
-   .filter-item {
+   .filter-item select {
     position: relative;
     display: inline-block;
-    width: 100%;
+    width: 140px;
     text-align: left;
     min-width: 160px;
     z-index: 1;
     background-color: white;
-
+    padding: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #111827;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em;
   }
   
+  .filter-item select:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-item select option {
+    padding: 0.5rem;
+    background-color: white;
+  }
   
    
    input[type="range"] {
@@ -124,30 +174,46 @@ h1, h2, h3 {
    }
 
    input[type="range"]::-webkit-slider-runnable-track {
-    background: tomato;
-    height: 5px;
+    background: #E5E7EB;
+    height: 4px;
+    border-radius: 2px;
    }
    
    input[type="range"]::-moz-range-track {
-    background: tomato;
-    height: 5px;
+    background: #E5E7EB;
+    height: 4px;
+    border-radius: 2px;
    }
 
    input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
-    background: pink;
-    margin-top: -5px;
+    height: 16px;
+    width: 16px;
+    background: #000;
+    margin-top: -6px;
     border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease;
    }
    
    input[type="range"]::-moz-range-thumb {
-    height: 15px;
-    width: 15px;
-    background: pink;
-    margin-top: -5px;
+    height: 16px;
+    width: 16px;
+    background: #000;
+    margin-top: -6px;
     border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease;
+   }
+   
+   input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+   }
+
+   input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
    }
    
    
@@ -170,7 +236,7 @@ h1, h2, h3 {
   }
   
   .view-link {
-    text-align: center;
+    text-align: left;
     width: 100%;
     margin-top: 0.5rem;
   }

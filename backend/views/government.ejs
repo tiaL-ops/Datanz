@@ -8,26 +8,25 @@
 </head>
 <body>
   <header class="top-nav">
-    <div class="logo"><a href="/" id="datanzLink"><%= __('site_name') %></a></div>
+    <div class="logo"><a href="/?lang=<%= currentLang %>" id="datanzLink"><%= __('site_name') %></a></div>
+
     <ul class="nav-links">
       <div class="dropdown">
         <li class="dropbtn"><%= __('actions') %></li>
         <div class="dropdown-content">
-          <a href="/government"><%= __('home') %></a>
-          <a href="/government/worst"><%= __('worst_facilities') %></a>
-          <a href="/government/advanced-search"><%= __('advanced_search') %></a>
+          <a href="/government?lang=<%= currentLang %>"><%= __('home') %></a>
+          <a href="/government/worst?lang=<%= currentLang %>"><%= __('worst_facilities') %></a>
+          <a href="/government/advanced-search?lang=<%= currentLang %>"><%= __('advanced_search') %></a>
         </div>
       </div>
-      <li><a href="/auth/logout"><%= __('sign_out') %></a></li>
-    </ul>
-    <div class="language-switcher" style="margin-right: 20px;">
-      <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
-      <a href="?lang=<%= targetLang %>">
-        <button>
+      <li><a href="/auth/logout?lang=<%= currentLang %>"><%= __('sign_out') %></a></li>
+      <li>
+        <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
+        <a href="?lang=<%= targetLang %>">
           <%= targetLang === 'sw' ? '🇰🇪 Swahili' : '🇬🇧 English' %>
-        </button>
-      </a>
-    </div>
+        </a>
+      </li>
+    </ul>
   </header>
   <h1 style = "margin: 10px "><%= __('welcome_dashboard') %> <%= username %></h1>
 
@@ -44,7 +43,7 @@
                 <option value="facility-<%= facility.facility_id %>"><%= facility.name %></option>
               <% }); %>
             </optgroup>
-            <optgroup label="<%= __('by_region') %>">
+            <optgroup label="By Region">
               <option value="region-Arusha">Arusha</option>
               <option value="region-Kilimanjaro">Kilimanjaro</option>
               <option value="region-Tanga">Tanga</option>
@@ -62,7 +61,7 @@
 
 
       <!-- MAP (visible or hidden placeholder) -->
-
+    
     </div>
   <div style="flex: 1; max-width: 800px; padding-right: 50px;margin-top:50px">
     <section class="page" style="width: 100%;">
@@ -112,7 +111,7 @@
         <p><a href = "/government/advanced-search"><%= __('advanced_search_link') %></a></p>
       </div>
       </div>
-
+      
     </section>
 
   <div id="facilityModal" class="modal" style="display:none;">
@@ -153,7 +152,7 @@
       position: tanzaniaCenter,
       map: map,
       title: "Tanzania Center",
-
+  
   });
   facilities.forEach(facility => {
   const marker = new google.maps.Marker({
