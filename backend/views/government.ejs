@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title><%= __('site_name') %></title>
+  <title>Government Dashboard</title>
+
   <link rel="stylesheet" href="/styles/government.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -67,6 +68,7 @@
   <div style="flex: 1; max-width: 800px; padding-right: 50px;margin-top:50px">
     <section class="page" style="width: 100%;">
       <div class="scroll-wrapper" style="width: 100%;">
+
         <h2 style="font-size: 16px; margin: 0 0"><%= __('below_average_facilities') %>: <%= countBelowAverage %></h2>
         <button class="scroll-arrow left" onclick="lefti('worstScroll')">&#8249;</button>
         <div class="scroll-container" id="worstScroll" style="max-height: 150px; gap: 6px;">

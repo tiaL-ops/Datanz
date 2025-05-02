@@ -3,8 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= __('starter_title') %></title>
+  <title>Find the Worst Facilities</title>
+
   <link rel="stylesheet" href="/styles/government.css"/>
+  <style>
+  /* Reset default form styling */
+  form {
+    all: unset;
+    box-sizing: border-box;
+  }
+
+  /* Reapply needed layout styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Add some basic styles so things aren't invisible */
+  select {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+  label {
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <header class="top-nav">
@@ -30,8 +60,8 @@
     </div>
   </header>
       <main>
-      <h2><%= __('highlight_worst') %></h2>
-      <form method="get" class = "filter-group">
+      <h2 style = "padding: 20px;><%= __('highlight_worst') %></h2>
+      <form method="get" class = " filter-group" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-top: 30px;">
           <label for="worstCategory"><%= __('select_area') %></label>
           <select id="worstCategory" name="worstCategory">
             <option value=""><%= __('select_option') %></option>
@@ -42,8 +72,7 @@
               <option value="confidentiality" <%= filters.worstCategory==='confidentiality' ? 'selected' : '' %>><%= __('confidentiality') %></option>
               <option value="tests" <%= filters.worstCategory==='tests' ? 'selected' : '' %>><%= __('receiving_all_tests') %></option>
               <option value="medications" <%= filters.worstCategory==='medications' ? 'selected' : '' %>><%= __('receiving_all_meds') %></option>
-              <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>><%= __('overall_satisfaction') %></option>
-            </optgroup>
+              <option value="satisfaction" <%= filters.worstCategory==='satisfaction' ? 'selected' : '' %>><%= __('overall_satisfaction') %></option>            </optgroup>
 
             <optgroup label="<%= __('mention_group') %>">
               <% areas.forEach(area => { %>
@@ -51,6 +80,18 @@
               <% }) %>
             </optgroup>
           </select>
+          <br>
+          <br>
+        <button type = "submit" class = "btn-app" >Apply</button>
+      </form>
+    </section>
+    
+    <br>
+    <% if (worstBy) { %>
+      <section>
+        <h2>Top 10 Worst Facilities for “<%= worstBy.area %>”</h2>
+        <div class="scroll-wrapper" style = "margin-left: 20px; margin-right:20px">
+          <div class="scroll-container" id="areaWorstScroll" style = "margin-left: 50px; margin-right:70px">
         <button type = "submit" class = "btn-app" ><%= __('apply') %></button>
       </form>
     </section>
@@ -105,6 +146,10 @@
       </div>
     <br>
     <section class="back-link">
+      <div style="text-align: center;">
+        <a href="/government">← Back to government dashboard</a>
+      </div>
+          </section>
     <a href="/government" style="  margin: auto;
     width: 100px;
     padding: 10px; ">← <%= __('back_to_government') %></a>
