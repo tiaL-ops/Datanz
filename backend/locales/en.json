@@ -132,6 +132,25 @@
     "questions_answered": "Questions Answered",
     "unique_answers_given": "Unique Answers Given",
     "unique_patients": "Unique Patients",
-    "back_to_facilities": "Back to Facilities"
+    "back_to_facilities": "Back to Facilities",
+ 
+    "healthcare_guide": "Healthcare Guide",
+    "our_mission": "Our Mission",
+    "our_team": "Our Team",
+    "facilities": "Facilities",
+    
+    "welcome_to": "WELCOME TO",
+    "hero_tagline": "your guide to healthcare in Tanzania",
+    "hero_description": "Looking for feedback on health facilities near you? Click below to explore available services.",
+    "view_facilities": "View Facilities",
+    "government_official_prompt": "Government Official? Log in to access more features.",
+    "log_in": "Log In",
+    "mission_paragraph1": "Our goal is to help citizens of Tanzania make informed, data-driven decisions on where to receive the most high-quality healthcare and treatments.",
+    "mission_paragraph2": "Everyone has their personal preferences, so we provide a detailed way of filtering the facilities that match you the best.",
+    "mission_paragraph3": "And if you’re too indecisive, don’t worry. You can always just view the list of all available facilities.",
+   
+    "full-stack_engineer": "Full-Stack Engineer",
+    "testing_engineer": "Testing Engineer",
+    "back-end_engineer": "Back-End Engineer"
   }
   

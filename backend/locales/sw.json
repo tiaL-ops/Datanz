@@ -99,7 +99,7 @@
   "head_officer_name_not_provided": "Jina la afisa mkuu halikutolewa",
   "contact_not_provided": "Mawasiliano hayakutolewa",
   "date_opened": "Tarehe iliyoanzishwa",
-  "unknown": "Haijulikani",
+  
   "average_wait_time": "Wastani wa Muda wa Kusubiri",
   "status": "Hali",
   "good": "Nzuri",
@@ -120,6 +120,26 @@
   "unique_answers_given": "Majibu ya Kipekee",
   "unique_patients": "Wagonjwa wa Kipekee",
   "back_to_facilities": "Rudi kwenye Vituo",
+ 
+  "healthcare_guide": "Mwongozo wa Afya",
+  "our_mission": "Dhamira Yetu",
+  "our_team": "Timu Yetu",
+  "facilities": "Vituo",
+ 
+  "welcome_to": "KARIBU KATIKA",
+  "hero_tagline": "mwongozo wako wa afya nchini Tanzania",
+  "hero_description": "Unatafuta maoni kuhusu vituo vya afya karibu nawe? Bonyeza hapa chini kuchunguza huduma zinazopatikana.",
+  "view_facilities": "Tazama Vituo",
+  "government_official_prompt": "Afisa wa Serikali? Ingia kupata vipengele zaidi.",
+  "log_in": "Ingia",
+  "mission_paragraph1": "Lengo letu ni kuwasaidia wananchi wa Tanzania kufanya maamuzi yaliyotokana na data kuhusu mahali pa kupata huduma bora za afya.",
+  "mission_paragraph2": "Kila mtu ana upendeleo wake binafsi, hivyo tunatoa njia ya kina ya kuchuja vituo vinavyokufaa zaidi.",
+  "mission_paragraph3": "Na kama hauna uhakika, usijali. Unaweza daima kuona orodha ya vituo vyote vinavyopatikana.",
+
+  "full-stack_engineer": "Mhandisi Kamili (Full-Stack Engineer)",
+  "testing_engineer": "Mhandisi wa Upimaji",
+  "back-end_engineer": "Mhandisi wa Usanifu wa Nyuma (Back-End Engineer)",
+
     "modal_headers": {
       "name": "Jina",
       "code": "Nambari",
