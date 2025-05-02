@@ -13,7 +13,7 @@ i18n.configure({
     directory: path.join(__dirname, 'locales'),
     defaultLocale: 'en',
     queryParameter: 'lang',
-    cookie: 'lang', // optional: for persistent language setting
+    cookie: 'lang',
     autoReload: true,
     updateFiles: false
   });
@@ -22,7 +22,7 @@ i18n.configure({
   
   // Make i18n available in all EJS templates
   app.use((req, res, next) => {
-    res.locals.__ = res.__;
+    res.locals.__ = res.__.bind(req); 
     next();
   });
 

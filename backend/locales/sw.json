@@ -62,6 +62,31 @@
     "top_payment": "Njia ya Malipo Kuu",
     "top_problems": "Matatizo Makuu",
     "top_positives": "Mambo Chanya"
-  }
+    
+  },
+  "starter_title": "HTML ya Mwanzo",
+
+  "menu": "Menyu",
+
+  
+  "highlight_worst": "Chagua Vituo Vibaya kwa Vigezo",
+  "select_area": "Chagua Eneo:",
+  "select_option": "Chagua Chaguo",
+  "metrics_group": "Vigezo (Kwa Uzito)",
+  "mention_group": "Maeneo ya Vituo (Kwa Kurejelewa)",
+  "waiting_time": "Muda wa Kusubiri",
+  "permission_before_exam": "Idhini Kabla ya Uchunguzi",
+  "confidentiality": "Usiri",
+  "receiving_all_tests": "Kupata Vipimo Vyote",
+  "receiving_all_meds": "Kupata Dawa Zote",
+  "overall_satisfaction": "Kuridhika Kwa Jumla",
+  "apply": "Tumia",
+  "top_10_worst": "Vituo 10 Vibaya Zaidi kwa",
+  "code": "Nambari",
+  "mentions": "Marejeleo",
+  "average_score": "Alama ya Wastani",
+ 
+  "back_to_government": "Rudi kwenye ukurasa mkuu wa serikali",
+  "leave_government_confirm": "Unatoka kwenye ukurasa wa Serikali. Bonyeza Ghairi kusitisha au Sawa kurudi kwenye ukurasa mkuu."
   }
   

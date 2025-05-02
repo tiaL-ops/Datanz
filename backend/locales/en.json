@@ -32,7 +32,7 @@
     "unknown": "Unknown",
     "view_details": "View Details",
     "back_to_top": "Go to top",
-
+  
     "actions": "Actions",
     "home": "Home",
     "worst_facilities": "Find the Worst Facilities",
@@ -45,12 +45,32 @@
     "by_region": "By Region",
     "facilities_near_you": "Facilities near you:",
     "below_average_facilities": "Facilities Below Average:",
-   
     "worst_facilities_heading": "Worst Facilities",
     "best_facilities": "Best Facilities",
     "find_worst_by_criteria": "Find the Worst Facilities by Criteria",
     "advanced_search_link": "Advanced Search",
-    "go_to_top": "Go to top",
+    "starter_title": "Starter HTML",
+    "menu": "Menu",
+    "highlight_worst": "Highlight Worst Facilities by Criteria",
+    "select_area": "Select Area:",
+    "select_option": "Select Option",
+    "metrics_group": "Metrics (Weight-based)",
+    "mention_group": "Facility Areas (Mention-based)",
+    "waiting_time": "Waiting Time",
+    "permission_before_exam": "Permission Before Exam",
+    "confidentiality": "Confidentiality",
+    "receiving_all_tests": "Receiving All Tests",
+    "receiving_all_meds": "Receiving All Medications",
+    "overall_satisfaction": "Overall Satisfaction",
+    "apply": "Apply",
+    "top_10_worst": "Top 10 Worst Facilities for",
+    "code": "Code",
+    "mentions": "Mentions",
+    "average_score": "Average Score",
+  
+    "back_to_government": "Back to government main page",
+    "leave_government_confirm": "You are leaving the Government page. Click Cancel to abort action or OK to return to the main page.",
+  
     "modal_headers": {
       "name": "Name",
       "code": "Code",
