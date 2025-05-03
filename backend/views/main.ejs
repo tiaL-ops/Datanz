@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><%= __('site_name') %> - <%= __('healthcare_guide') %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
@@ -32,27 +34,37 @@
   </header>
 
     <main class="scroll-container">
-    <section class="hero">
-      <h1><%= __('welcome_to') %> <%= __('site_name') %></h1>
-      <h2><%= __('hero_tagline') %></h2>
+      <section class="hero">
+        <div class="hero-content">
+          <h1><%= __('welcome_to') %> <%= __('site_name') %></h1>
+          <h2><%= __('hero_tagline') %></h2>
+          <p><%= __('hero_description') %></p>
+      
+          <div class="hero-buttons">
+            <a href="/facilities?lang=<%= currentLang %>" class="hero-btn">
+              <%= __('view_facilities') %>
+            </a>
+            <a href="/auth?type=login&lang=<%= currentLang %>" class="hero-btn">
+              <%= __('log_in') %>
+            </a>
+          </div>
+      
+          <p class="login-msg"><%= __('government_official_prompt') %></p>
+        </div>
+      </section>
+      
 
-      <p><%= __('hero_description') %></p>
-      <div class="hero-buttons">
-        <a href="/facilities?lang=<%= currentLang %>" class="btn"><%= __('view_facilities') %></a>
-      </div>
-
-      <p class="login-msg"><%= __('government_official_prompt') %></p>
-      <div class="hero-buttons">
-        <a href="/auth?type=login&lang=<%= currentLang %>" class="btn"><%= __('log_in') %></a>
-      </div>
-    </section>
-
-    <section id="mission" class="mission-section">
-      <h2><%= __('our_mission') %></h2>
-      <p><%= __('mission_paragraph1') %></p>
-      <p><%= __('mission_paragraph2') %></p>
-      <p><%= __('mission_paragraph3') %></p>
-    </section>
+      <section id="mission" class="mission-section">
+        <div class="mission-container">
+          <h2><i class="fas fa-bullseye icon"></i> <%= __('our_mission') %></h2>
+      
+          <p><i class="fas fa-heart icon"></i> <%= __('mission_paragraph1') %></p>
+          <p><i class="fas fa-hand-holding-medical icon"></i> <%= __('mission_paragraph2') %></p>
+          <p><i class="fas fa-universal-access icon"></i> <%= __('mission_paragraph3') %></p>
+        </div>
+      </section>
+      
+      
  
     <section id="team" class="team-section">
       <h2><%= __('our_team') %></h2>
