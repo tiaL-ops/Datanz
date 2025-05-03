@@ -138,8 +138,21 @@
 
     .back-link {
       text-align: center;
-      margin: 2rem auto;
-      max-width: 1000px;
+      margin: 2rem 0;
+    }
+
+    .back-link a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #000;
+      border-radius: 4px;
+    }
+
+    .back-link a:hover {
+      background-color: #000;
+      color: #fff;
     }
   </style>
   
@@ -354,7 +367,7 @@
 <br>
   <section class="back-link">
     <div style="text-align: center;">
-      <a href="/government">← Back to government dashboard</a>
+      <a href="/government">←  <%= __('back_to_government') %></a>
     </div>
   </section>
   <br>
