@@ -140,17 +140,17 @@
   "testing_engineer": "Mhandisi wa Upimaji",
   "back-end_engineer": "Mhandisi wa Usanifu wa Nyuma (Back-End Engineer)",
 
-  "modal_name": "Jina",
-  "modal_code": "Nambari",
-  "modal_location": "Mahali",
-  "modal_avg_wait": "Wastani wa Kusubiri",
-  "modal_avg_sat": "Wastani wa Kuridhika",
-  "modal_no_privacy": "% Bila Faragha",
-  "modal_no_permission": "% Bila Idhini",
-  "modal_missed_tests": "% Vipimo Vilivyokosekana",
-  "modal_missed_meds": "% Dawa Zilizokosekana",
-  "modal_top_payment": "Njia Kuu ya Malipo",
-  "modal_top_problems": "Matatizo Makuu",
-  "modal_top_positives": "Mambo Chanya"
+  "modal_headers.name": "Jina",
+  "modal_headers.code": "Nambari",
+  "modal_headers.location": "Mahali",
+  "modal_headers.avg_wait": "Wastani wa Kusubiri",
+  "modal_headers.avg_sat": "Wastani wa Kuridhika",
+  "modal_headers.no_privacy": "% Bila Faragha",
+  "modal_headers.no_permission": "% Bila Idhini",
+  "modal_headers.missed_tests": "% Vipimo Vilivyokosekana",
+  "modal_headers.missed_meds": "% Dawa Zilizokosekana",
+  "modal_headers.top_payment": "Njia Kuu ya Malipo",
+  "modal_headers.top_problems": "Matatizo Makuu",
+  "modal_headers.top_positives": "Mambo Chanya"
   }
   
