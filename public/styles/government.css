@@ -189,6 +189,7 @@
  /* results table */
  table {
    width: 100%;
+  
    border-collapse: collapse;
    margin-top: 2rem;
  }
@@ -201,14 +202,15 @@
    margin-bottom: 0.5rem;
  }
 
- thead th {
-   padding: 0.75rem;
-   font-size: 0.75rem;
-   font-weight: 600;
-   color: #6B7280;
-   text-align: left;
-   background: #F9FAFB;
- }
+
+thead th {
+  padding: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6B7280;
+  text-align: left;
+  background: #F9FAFB;
+}
 
  tbody tr:nth-child(even) {
    background: #F9FAFB;
