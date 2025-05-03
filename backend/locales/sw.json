@@ -151,6 +151,9 @@
   "modal_headers.missed_meds": "% Dawa Zilizokosekana",
   "modal_headers.top_payment": "Njia Kuu ya Malipo",
   "modal_headers.top_problems": "Matatizo Makuu",
-  "modal_headers.top_positives": "Mambo Chanya"
-  }
+  "modal_headers.top_positives": "Mambo Chanya",
+
+"advanced_search_welcome": "Karibu kwenye ukurasa wa Utafutaji wa Kina.",
+"switch_map_view": "Badilisha kati ya mwonekano wa ramani na jedwali."
+}
   

@@ -10,9 +10,6 @@
     background-color: #fdfdfd;
     color: #333;
     line-height: 1.5;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
   }
   
   /* Header Section */
@@ -132,4 +129,71 @@
       max-width: 100%;
     }
   }
+  
+  /* 1. Top Navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  height: 60px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links li:last-child {
+  margin-left: auto;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  line-height: 60px;
+}
+
+.nav-links li a:hover {
+  color: #666;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease;
+  line-height: 60px;
+}
+
+.logo a:hover {
+  color: #666;
+}
   

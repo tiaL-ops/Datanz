@@ -149,6 +149,9 @@
    
     "full-stack_engineer": "Full-Stack Engineer",
     "testing_engineer": "Testing Engineer",
-    "back-end_engineer": "Back-End Engineer"
+    "back-end_engineer": "Back-End Engineer",
+
+    "advanced_search_welcome": "Welcome to the Advanced Search page.",
+    "switch_map_view": "Switch between map and table view"
   }
   
