@@ -13,8 +13,6 @@
     <div class="logo"><a href="/?lang=<%= currentLang %>"><%= __('site_name') %></a></div>
 
     <ul class="nav-links">
-      <li><a href="/?lang=<%= currentLang %>"><%= __('home_page') %></a></li>
-      <li><a href="/auth?type=login&lang=<%= currentLang %>"><%= __('login') %></a></li>
       <li>
         <% const targetLang = currentLang === 'en' ? 'sw' : 'en'; %>
         <a href="?lang=<%= targetLang %>">
@@ -140,8 +138,21 @@
   </section>
 
   <section class="back-link">
-    <a href="/facilities?lang=<%= currentLang %>">← <%= __('back_to_facilities') %></a>
+    <a href="javascript:void(0)" id="backLink">← <%= __('back_to_facilities') %></a>
   </section>
 
 </body>
+<script>
+  const backLink = document.getElementById("backLink");
+
+  backLink.addEventListener("click", () => {
+    if (document.referrer) {
+      // Redirect to the previous page
+      window.location.href = document.referrer;
+    } else {
+      // Fallback to the facilities page if no referrer is available
+      window.location.href = "/facilities?lang=<%= currentLang %>";
+    }
+  });
+</script>
 </html>
