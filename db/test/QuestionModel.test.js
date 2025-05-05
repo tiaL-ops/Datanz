@@ -1,115 +1,117 @@
+const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const assert = require('assert');
 const QuestionModel = require('../models/QuestionModel');
 
 describe('QuestionModel', function() {
   let fakeDB;
   let questionModel;
   let csvFilePath;
+  let originalLog;
+  let logCalls;
 
-  // Setup a fake database object before each test
   beforeEach(function() {
+    // Setup fake DB for questions and answer options
     fakeDB = {
       questions: [],
-      nextId: 1,
-      prepare: function(query) {
-        if (query.includes("INSERT INTO Question")) {
-          return {
-            run: (questionText) => {
-              // Create a new question object with an auto-incremented question_id
-              const newQuestion = {
-                question_id: fakeDB.nextId,
-                question_text: questionText
-              };
-              fakeDB.questions.push(newQuestion);
-              const insertedId = fakeDB.nextId;
-              fakeDB.nextId++;
-              return { lastInsertRowid: insertedId };
-            }
-          };
-        } else if (query.includes("SELECT * FROM Questions WHERE question_id = ?")) {
-          return {
-            get: (id) => fakeDB.questions.find(q => q.question_id === id) || null
-          };
-        } else if (query.includes("SELECT * FROM Questions")) {
-          return {
-            all: () => fakeDB.questions
-          };
-        } else if (query.includes("DELETE FROM Questions")) {
-          return {
-            run: () => {
-              fakeDB.questions = [];
-            }
-          };
+      answerOptions: [],
+      nextQId: 1,
+      nextAId: 1,
+      prepare(query) {
+        if (query.includes('INSERT INTO Question')) {
+          return { run: (text) => {
+            const id = fakeDB.nextQId++;
+            fakeDB.questions.push({ question_id: id, question_text: text });
+            return { lastInsertRowid: id };
+          }};
         }
-        // Default stub
-        return {
-          run: () => {},
-          get: () => null,
-          all: () => []
-        };
+        if (query.includes('INSERT INTO AnswerOption')) {
+          return { run: (qId, value, text, weight) => {
+            const id = fakeDB.nextAId++;
+            fakeDB.answerOptions.push({ id, question_id: qId, answer_value: value, answer_text: text, answer_weight: weight });
+            return { lastInsertRowid: id };
+          }};
+        }
+        if (query.includes('SELECT * FROM Questions WHERE')) {
+          return { get: (id) => fakeDB.questions.find(q => q.question_id === id) || null };
+        }
+        if (query.includes('SELECT * FROM Questions')) {
+          return { all: () => fakeDB.questions };
+        }
+        if (query.includes('DELETE FROM Questions')) {
+          return { run: () => { fakeDB.questions = []; fakeDB.answerOptions = []; }};
+        }
+        return { run: () => {}, all: () => [], get: () => null };
       }
     };
 
     questionModel = new QuestionModel(fakeDB);
 
-    // Create a temporary CSV file for testing importFromCSV.
-    // Each line is treated as a question (first column) and no answer options provided.
+    
+    originalLog = console.log;
+    logCalls = [];
+    console.log = function(...args) {
+      logCalls.push(args.join(' '));
+    };
+
+    // Create a temporary CSV file with questions and options
     csvFilePath = path.join(__dirname, 'test_questions.csv');
-    const csvContent = `What is your favorite color?
-How many hours do you sleep?`;
+    const csvContent = [
+      'Favorite Fruit,1. Apple\n2. Banana\n3. Cherry',
+      'Sleep Hours,1. <5\n2. 5-8\n3. >8',
+      'NoOptions,'
+    ].join('\n');
     fs.writeFileSync(csvFilePath, csvContent, 'utf8');
   });
 
-  // Clean up the temporary CSV file after each test.
   afterEach(function() {
-    if (fs.existsSync(csvFilePath)) {
-      fs.unlinkSync(csvFilePath);
-    }
+    
+    console.log = originalLog;
+    if (fs.existsSync(csvFilePath)) fs.unlinkSync(csvFilePath);
+  });
+
+  describe('readAndLogQA', function() {
+    it('logs each question and its options or none', function(done) {
+      questionModel.readAndLogQA(csvFilePath);
+      setTimeout(() => {
+        // First question with options
+        assert(logCalls.some(line => line.includes('Question: Favorite Fruit')));
+        assert(logCalls.some(line => line.includes('Answer Options: 1. Apple')));
+        // Third entry with no options
+        assert(logCalls.some(line => line.includes('Question: NoOptions')));
+        assert(logCalls.some(line => line.includes('Answer Options: None provided')));
+        done();
+      }, 50);
+    });
   });
 
   describe('importFromCSV', function() {
-    it('should import all questions from a CSV file', async function() {
+    it('imports questions and options with default weights', async function() {
       await questionModel.importFromCSV(csvFilePath);
-      const allQuestions = questionModel.getAllQuestions();
-      assert.strictEqual(allQuestions.length, 2);
-      // Optionally, verify the inserted questions' texts:
-      assert.strictEqual(allQuestions[0].question_text, 'What is your favorite color?');
-      assert.strictEqual(allQuestions[1].question_text, 'How many hours do you sleep?');
+      const allQs = questionModel.getAllQuestions();
+      assert.strictEqual(allQs.length, 3);
+      const q1 = allQs.find(q => q.question_text === 'Favorite Fruit');
+      const opts1 = fakeDB.answerOptions.filter(o => o.question_id === q1.question_id);
+      assert.strictEqual(opts1.length, 3);
+      assert.strictEqual(opts1[0].answer_text, 'Apple');
+      // Default weight when not in weightMap is 0
+      assert.strictEqual(opts1[0].answer_weight, 0);
     });
   });
-  
-  describe('getAllQuestions', function() {
-    it('should return all questions for form rendering', function() {
-      // Manually add sample questions into fakeDB
-      fakeDB.questions.push({ question_id: 1, question_text: 'Question 1' });
-      fakeDB.questions.push({ question_id: 2, question_text: 'Question 2' });
+
+  describe('CRUD methods', function() {
+    it('getAllQuestions, getQuestionById, deleteAll work as expected', function() {
+      fakeDB.questions.push({ question_id: 1, question_text: 'Q1' });
+      fakeDB.questions.push({ question_id: 2, question_text: 'Q2' });
       const all = questionModel.getAllQuestions();
       assert.strictEqual(all.length, 2);
-    });
-  });
-
-  describe('getQuestionById', function() {
-    it('should return the question if the id exists', function() {
-      fakeDB.questions.push({ question_id: 1, question_text: 'Question 1' });
-      const question = questionModel.getQuestionById(1);
-      assert.strictEqual(question.question_text, 'Question 1');
-    });
-
-    it('should return null if the id does not exist', function() {
-      const question = questionModel.getQuestionById(999);
-      assert.strictEqual(question, null);
-    });
-  });
-
-  describe('deleteAll', function() {
-    it('should clear all questions', function() {
-      fakeDB.questions.push({ question_id: 1, question_text: 'Question 1' });
-      fakeDB.questions.push({ question_id: 2, question_text: 'Question 2' });
+      const single = questionModel.getQuestionById(2);
+      assert.strictEqual(single.question_text, 'Q2');
+      const none = questionModel.getQuestionById(999);
+      assert.strictEqual(none, null);
       questionModel.deleteAll();
-      const all = questionModel.getAllQuestions();
-      assert.strictEqual(all.length, 0);
+      assert.strictEqual(questionModel.getAllQuestions().length, 0);
+      assert.strictEqual(fakeDB.answerOptions.length, 0);
     });
   });
 });
