@@ -44,4 +44,4 @@ If you would like to see the test coverage, go to the directory and run
     npm run coverage
     ```
 ### 5. API Key
-In order to use the google maps, you will have to use your won Api key
+In order to use the google maps, you will have to use your won Api key, e
