@@ -4,9 +4,16 @@
 
 ## Getting Started
 
+To Run our project, make sure you have node.js 20 or later.
 Follow the steps below to set up and run the project.
 
-### 1. Prepare the Database
+### 1. Install all packages
+
+
+```bash
+npm install
+
+### 2. Prepare the Database
 
 Before starting the server, you need to ensure your database is clean and properly set up.
 
@@ -21,7 +28,7 @@ Open your terminal and run:
 
 
 
-### 3. Run the Server
+### 4. Run the Server
 
 Now you're ready to run the backend server.
 
@@ -37,6 +44,15 @@ Now you're ready to run the backend server.
     ```bash
     nodemon server.js
     ```
+
+### 5. Run the test
+
+If you would like to see the test coverage, go to the directory and run
+
+    ```bash
+    npm run coverage
+    ```
+
 
 # User stories
 # ✅ High-Priority Government Official Stories
